@@ -1,0 +1,24 @@
+.container{
+    position: center;
+    max-height: 1500px;
+    max-width: 1000px;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+
+
+label{
+    font-size: 15px;
+}
+
+input{
+    border-radius: .3rem;
+}
+
+h1{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    text-align: center; 
+}
+
