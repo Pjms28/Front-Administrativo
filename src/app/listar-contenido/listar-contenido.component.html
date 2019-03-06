@@ -8,14 +8,16 @@
       <img src="../../assets/editar.png" class="col-6">
       <form class="col-6"> 
         <label>Seleccione el tipo de contenido que desea editar</label>
-        <select class="form-control" id="Ubicacion" aria-placeholder="Seleccione una opcion" id="select">
-            <option>Proyectos</option>
-            <option>Inmuebles</option>
-            <option>Caracteristicas</option>
+        <select [(ngModel)]="value" (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+            <option value="Proyectos">Proyectos</option>
+            <option value="Inmuebles">Inmuebles</option>
+            <option Value="Caracteristicas">Caracteristicas</option>
         </select>
       </form>
     </main>
-
+    <div>
+      <h1>Elemento seleccionado - {{value}}</h1>
+    </div>
   </div>
 
 
