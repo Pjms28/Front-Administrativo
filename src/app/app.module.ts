@@ -12,6 +12,10 @@ import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApiService } from './shared/api.service';
+import { UbicacionService } from './shared/ubicacion.service';
+import { InmuebleService } from './shared/inmueble.service';
+import { CaracteristicaService } from './shared/caracteristica.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

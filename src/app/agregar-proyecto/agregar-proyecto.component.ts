@@ -1,46 +1,58 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ApiService } from '../api.service';
+import { ApiService } from '../shared/api.service';
+import { UbicacionService } from '../shared/ubicacion.service';
 import {Router} from "@angular/router";
+import { UbicacionModel } from '../shared/Ubicacion.model';
 @Component({
   selector: 'app-agregar-proyecto',
   templateUrl: './agregar-proyecto.component.html',
   styleUrls: ['./agregar-proyecto.component.css']
 })
 export class AgregarProyectoComponent implements OnInit {
+  data: UbicacionModel[] =[];
+  formData : ProyectoComponent;
 
-
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router,) { }
-
-  addForm: FormGroup;
-
-    ProyectoID: number;
-    NombreProyecto: string;
-    FechaTerminacion: Date;
-    Direccion: string;
-    ImgURL: string;
-    UbicacionID: number;
-    Ciuda: string;
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService) { }
 
   ngOnInit() {
-    this.addForm = this.formBuilder.group({
-      ProyectoID: [],
-      NombreProyecto: ['', Validators.required],
-      FechaTerminacion: ['', Validators.required],
-      Direccion: ['', Validators.required],
-      ImgURL: ['', Validators.required],
-      UbicacionID: ['', Validators.required],
-      Ciudad: ['', Validators.required]
+    this.resetForm();
+    return this.ubicacionService.getLocantions()
+      .subscribe(res => {
+      this.data = res;
+      console.log(this.data);
+    
+    }, err => {
+      console.log(err);
+     
     });
-
   }
 
-  onSubmit(form:NgForm){
-    this.apiService.addProject(form)
-    .subscribe(data => {
-      this.router.navigate(['/listar-contenido']);
-    })
+  onSubmit(form : NgForm) {
+    console.log(form.value);
+    this.apiService.addProject(form.value).subscribe(res =>{
+      this.resetForm(form)
+    });
+  }
+ 
+
+  resetForm(form? : NgForm){
+    if(form != null)
+      form.resetForm();
+    this.apiService.formData = {
+    ProyectoID : null,
+    NombreProyecto: '',
+    FechaTerminacion: null,
+    Direccion:'',
+    ImgURL:'',
+    UbicacionID: null
+    }
+  }
+  
+
+   
+
+    
   }
 
-}

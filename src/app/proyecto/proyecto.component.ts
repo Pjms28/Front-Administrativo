@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { ApiService } from '../shared/api.service';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { ApiService } from '../api.service';
   templateUrl: './proyecto.component.html',
   styleUrls: ['./proyecto.component.css']
 })
-export class ProyectoComponent implements OnInit {
+export class ProyectoComponent {
 
   ProyectoID: number;
   NombreProyecto: string;
@@ -15,14 +15,7 @@ export class ProyectoComponent implements OnInit {
   Direccion: string;
   ImgURL: string;
   UbicacionID: number;
-  Ciuda: string;
+  constructor() { }
 
-  
-
-  constructor(private api: ApiService) { }
-
-  ngOnInit() {
-    
-  }
-
+ 
 }

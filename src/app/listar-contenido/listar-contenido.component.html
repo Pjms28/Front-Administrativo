@@ -8,11 +8,24 @@
       <img src="../../assets/editar.png" class="col-6">
       <form class="col-6"> 
         <label>Seleccione el tipo de contenido que desea editar</label>
-        <select [(ngModel)]="value" (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+        <select (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+            <option value="" selected="selected"></option>
             <option value="Proyectos">Proyectos</option>
             <option value="Inmuebles">Inmuebles</option>
             <option Value="Caracteristicas">Caracteristicas</option>
         </select>
+
+      <hr>
+      <div>
+          <ul>
+          <li *ngFor="let d of data"  >
+              {{d.nombreProyecto }} 
+              <button ng-click="edit($event)">Editar</button>
+              <button ng-click="edit($event)">Eliminar</button>
+          </li>
+          </ul>
+      
+      </div>
       </form>
     </main>
     <div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ProyectoComponent } from './proyecto/proyecto.component';
+import { ProyectoComponent } from '../proyecto/proyecto.component';
 
 
 const httpOptions = {
@@ -15,6 +15,7 @@ const apiUrl = "http://localhost:61756/api/proyectos";
 })
 export class ApiService {
 
+  formData : ProyectoComponent;
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
@@ -36,7 +37,7 @@ export class ApiService {
       );
   }
   
-  getProduct(id: number): Observable<ProyectoComponent> {
+  getProject(id: number): Observable<ProyectoComponent> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<ProyectoComponent>(url).pipe(
       tap(_ => console.log(`Proyecto recuperado id=${id}`)),
@@ -44,28 +45,12 @@ export class ApiService {
     );
   }
 
-  addProject (proyecto): Observable<ProyectoComponent> {
-    return this.http.post<ProyectoComponent>(apiUrl, proyecto, httpOptions).pipe(
-      tap((project: ProyectoComponent) => console.log(`Proyecto Agregado w/ id=${proyecto.id}`)),
-      catchError(this.handleError<ProyectoComponent>('addProject'))
+  addProject(proyecto: ProyectoComponent){
+    return this.http.post<ProyectoComponent>(apiUrl,proyecto,httpOptions)
+    .pipe(tap((nuevoProyecto: ProyectoComponent) => console.log(`added hero w/ id=${nuevoProyecto.ProyectoID}`)),
+    catchError(this.handleError<ProyectoComponent>('addProject'))
     );
   }
 
-  updateProject (id, project): Observable<any> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.put(url, project, httpOptions).pipe(
-      tap(_ => console.log(`Proyecto Actualizado id=${id}`)),
-      catchError(this.handleError<any>('updateProject'))
-    );
-  }
-
-  deleteProject (id): Observable<ProyectoComponent> {
-    const url = `${apiUrl}/${id}`;
-  
-    return this.http.delete<ProyectoComponent>(url, httpOptions).pipe(
-      tap(_ => console.log(`Proyecto Eliminado id=${id}`)),
-      catchError(this.handleError<ProyectoComponent>('deleteProject'))
-    );
-
 }
-}
+

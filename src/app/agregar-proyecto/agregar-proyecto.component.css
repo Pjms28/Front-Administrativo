@@ -12,13 +12,22 @@ label{
     font-size: 15px;
 }
 
-input{
+input.ng-touched.ng-invalid{
     border-radius: .3rem;
+    border-color: #dc3545;
 }
 
 h1{
     padding-top: 50px;
     padding-bottom: 20px;
     text-align: center; 
+}
+
+div.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+
 }
 
