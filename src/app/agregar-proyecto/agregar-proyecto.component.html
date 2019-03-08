@@ -14,7 +14,7 @@
           <input name="FechaTerminacion" type="date" #FechaTerminacion [(ngModel)]="apiService.formData.FechaTerminacion" class="form-control"  required/>
           <hr> 
           <label>Ubicacion</label>
-          <select name="Ubicacion" #Ubicacion [(ngModel)]="apiService.formData.Ubicacion"  class="form-control" required>
+          <select name="ubicacionID" #Ubicacion [(ngModel)]="apiService.formData.Ubicacion"  class="form-control" required>
               <option *ngFor="let d of data" [ngValue]="d.ubicacionID">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
             </select>
           <hr> 

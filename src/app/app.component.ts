@@ -17,9 +17,9 @@ export class AppComponent {
       $('a[aria-expanded=true]').attr('aria-expanded', 'false');
   });
   
-    $("#sidebar").mCustomScrollbar({
+  /*   $("#sidebar").mCustomScrollbar({
         theme: "minimal"
-    });
+    }); */
   
   }
 }

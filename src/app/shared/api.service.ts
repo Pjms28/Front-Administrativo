@@ -46,6 +46,8 @@ export class ApiService {
   }
 
   addProject(proyecto: ProyectoComponent){
+
+    console.log('******',proyecto);
     return this.http.post<ProyectoComponent>(apiUrl,proyecto,httpOptions)
     .pipe(tap((nuevoProyecto: ProyectoComponent) => console.log(`added hero w/ id=${nuevoProyecto.ProyectoID}`)),
     catchError(this.handleError<ProyectoComponent>('addProject'))
