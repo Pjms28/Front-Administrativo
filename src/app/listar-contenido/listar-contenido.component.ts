@@ -9,6 +9,7 @@ import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrie
 import { ElementFinder } from 'protractor';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-listar-contenido',
@@ -18,8 +19,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ListarContenidoComponent implements OnInit {
 
   data: any = [];
-
-  constructor(private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
+  constructor(private router: Router, private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
     private toastr: ToastrService) { }
   value:string="";
   ngOnInit() {
@@ -84,8 +84,11 @@ export class ListarContenidoComponent implements OnInit {
       
     }
 
-    updateProject(project: ProyectoComponent){
-     
+    updateProject(project: any){
+      
+      window.localStorage.removeItem("editUserID");
+      window.localStorage.setItem("editUserID", String(project.proyectoID));
+      this.router.navigate(['editar-proyecto']);
 
     }
 

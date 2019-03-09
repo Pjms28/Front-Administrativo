@@ -6,7 +6,7 @@ import { UbicacionService } from '../shared/ubicacion.service';
 import {Router, ActivatedRoute} from "@angular/router";
 import { UbicacionModel } from '../shared/Ubicacion.model';
 import { ToastrService } from 'ngx-toastr';
-
+import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-editar-proyecto',
@@ -15,13 +15,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
-  formData : ProyectoComponent;
+  proyecto: ProyectoComponent;
 
+ 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
     , private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    let userID = window.localStorage.getItem("editUserID");
+    if(!userID){
+      alert("Accion Invalida")
+      this.router.navigate(['listar-contenido']);
+      return;
+    }
     
+    //Terminar
+    this.apiService.getProject(Number(userID))
+    .subscribe(res => {
+      
+    });
+
     return this.ubicacionService.getLocantions()
       .subscribe(res => {
       this.data = res;
@@ -31,22 +44,21 @@ export class EditarProyectoComponent implements OnInit {
       console.log(err);
      
     });
+
   }
 
-  
+  //Corregir no funcina
+  /*updateProject(form : NgForm){
+
+    this.apiService.updateProject(form.value)
+    .pipe(first())
+    .subscribe(data =>{
+      this.router.navigate(['listar-contenido']);
+    });
+  }*/
 
 
-  resetForm(form? : NgForm){
-    if(form != null)
-      form.resetForm();
-    this.apiService.formData = {
-    ProyectoID : null,
-    NombreProyecto: '',
-    FechaTerminacion: null,
-    Direccion:'',
-    ImgURL:'',
-    UbicacionID: null
-    }
-  }
+
+ 
 
 }

@@ -1,28 +1,28 @@
 <div class="container">
   <div class="col">
     <header>
-        <h1>Editar Proyecto</h1>
+        <h1>Editar proyecto</h1>
     </header>
     <main class="row">
       <img src='../../assets/editor-de-videos.png' class ="col-6">
       <form #form="ngForm" (submit)="updateProject(form)" class="col-6" autocomplete="off">
           <label>Nombre del proyecto</label>
-          <input type="text" name="NombreProyecto" #NombreProyecto [(ngModel)]="projectData.NombreProyecto" class="form-control" required/> 
+          <input type="text" name="NombreProyecto" #NombreProyecto [(ngModel)]="apiService.formData.NombreProyecto" class="form-control" required/> 
           <div class="validation-error" *ngIf="NombreProyecto.invalid && NombreProyecto.touched" >Este campo es requerido</div>
           <hr>
           <label>Fecha de terminacion</label>
-          <input name="FechaTerminacion" type="date" #FechaTerminacion [(ngModel)]="projectData.FechaTerminacion" class="form-control"  required/>
+          <input name="FechaTerminacion" type="date" #FechaTerminacion [(ngModel)]="apiService.formData.FechaTerminacion" class="form-control"  required/>
           <hr> 
           <label>Ubicacion</label>
-          <select name="ubicacionID" #Ubicacion [(ngModel)]="projectData.Ubicacion"  class="form-control" required>
+          <select name="ubicacionID" #Ubicacion [(ngModel)]="apiService.formData.Ubicacion"  class="form-control" required>
               <option *ngFor="let d of data" [ngValue]="d.ubicacionID">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
             </select>
           <hr> 
           <label>Direccion</label>
-          <input name="Direccion" #Direccion [(ngModel)]="projectData.Direccion" class="form-control" type="text"  required/>
+          <input name="Direccion" #Direccion [(ngModel)]="apiService.formData.Direccion" class="form-control" type="text"  required/>
           <hr>
           <label>Imagen del proyecto</label>
-          <input name="ImgURL" #ImgURL [(ngModel)]="apiService.projectData.ImgURL" type = "file"  accept="imagen" required>
+          <input name="ImgURL" #ImgURL [(ngModel)]="apiService.formData.ImgURL" type = "file"  accept="imagen" required>
           <hr>
           <button type="submit" [disabled]="form.invalid" class="btn btn-success">Save</button>
       </form>
