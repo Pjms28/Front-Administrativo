@@ -5,6 +5,7 @@ import { ApiService } from '../shared/api.service';
 import { UbicacionService } from '../shared/ubicacion.service';
 import {Router} from "@angular/router";
 import { UbicacionModel } from '../shared/Ubicacion.model';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-agregar-proyecto',
   templateUrl: './agregar-proyecto.component.html',
@@ -14,7 +15,8 @@ export class AgregarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
   formData : ProyectoComponent;
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService) { }
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
+    , private toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -30,9 +32,9 @@ export class AgregarProyectoComponent implements OnInit {
   }
 
   onSubmit(form : NgForm) {
-    console.log(form.value);
     this.apiService.addProject(form.value).subscribe(res =>{
-      this.resetForm(form)
+      this.toastr.success('Proyecto creado exitosamente','Proyecto.Registro');
+      this.resetForm(form);
     });
   }
  

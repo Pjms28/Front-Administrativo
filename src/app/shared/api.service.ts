@@ -16,6 +16,7 @@ const apiUrl = "http://localhost:61756/api/proyectos";
 export class ApiService {
 
   formData : ProyectoComponent;
+  list: ProyectoComponent [];
   constructor(private http: HttpClient) { }
 
   private handleError<T> (operation = 'operation', result?: T) {
@@ -32,27 +33,43 @@ export class ApiService {
   getProjects (): Observable<ProyectoComponent[]> {
     return this.http.get<ProyectoComponent[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('Proyectos recuperados')),
-        catchError(this.handleError('getProjects', []))
-      );
+        tap(heroes => catchError(this.handleError('getProjects', []))
+      ));
   }
   
   getProject(id: number): Observable<ProyectoComponent> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<ProyectoComponent>(url).pipe(
-      tap(_ => console.log(`Proyecto recuperado id=${id}`)),
-      catchError(this.handleError<ProyectoComponent>(`getProject id=${id}`))
-    );
+      tap(_ => catchError(this.handleError<ProyectoComponent>(`getProject id=${id}`))
+    ));
+  }
+
+  refreshList(){
+    this.http.get(apiUrl)
+    .toPromise().then(res => this.list = res as ProyectoComponent[]);
   }
 
   addProject(proyecto: ProyectoComponent){
-
-    console.log('******',proyecto);
     return this.http.post<ProyectoComponent>(apiUrl,proyecto,httpOptions)
-    .pipe(tap((nuevoProyecto: ProyectoComponent) => console.log(`added hero w/ id=${nuevoProyecto.ProyectoID}`)),
-    catchError(this.handleError<ProyectoComponent>('addProject'))
-    );
+    .pipe(tap((nuevoProyecto: ProyectoComponent) => catchError(this.handleError<ProyectoComponent>('addProject'))
+    ));
   }
+
+  deleteProject (id: number): Observable<{}> {
+    const url = `${apiUrl}/${id}`; // DELETE api/heroes/42
+    return this.http.delete(url, httpOptions)
+    .pipe(
+    catchError(this.handleError('deleteProject'))
+    );
+    }
+
+    updateProject (proyecto: ProyectoComponent): Observable<ProyectoComponent> {
+      return this.http.put<ProyectoComponent>(apiUrl, proyecto, httpOptions)
+        .pipe(
+          catchError(this.handleError('updateHero', proyecto))
+        );
+    }
+  
 
 }
 

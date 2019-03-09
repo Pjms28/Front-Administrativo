@@ -16,6 +16,8 @@ import { ApiService } from './shared/api.service';
 import { UbicacionService } from './shared/ubicacion.service';
 import { InmuebleService } from './shared/inmueble.service';
 import { CaracteristicaService } from './shared/caracteristica.service';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { CaracteristicaService } from './shared/caracteristica.service';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -36,7 +39,8 @@ import { CaracteristicaService } from './shared/caracteristica.service';
       {path: 'Agregar', component: AgregarProyectoComponent},
       {path: 'Listar', component: ListarContenidoComponent},
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService],
   bootstrap: [AppComponent]

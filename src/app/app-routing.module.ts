@@ -24,7 +24,7 @@ const routes: Routes = [
   data:{tittle:'Agregar proyecto'} 
 },
 {
-  path: 'editar-proyecto',
+  path: 'editar-proyecto/:id',
   component: EditarProyectoComponent,
   data:{tittle: 'Editar proyecto'}
 },

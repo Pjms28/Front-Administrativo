@@ -16,21 +16,18 @@
         </select>
 
       <hr>
-      <div>
-          <ul>
-          <li *ngFor="let d of data"  >
-              {{d.nombreProyecto }} 
-              <button ng-click="edit($event)">Editar</button>
-              <button ng-click="edit($event)">Eliminar</button>
-          </li>
-          </ul>
-      
-      </div>
+      <table>
+        <tr *ngFor="let d of data">
+          <td>{{d.nombreProyecto}}</td>
+          <td>{{d.fechaTerminacion}}</td>
+          <td>{{d.direccion}}</td>
+          <td>{{d.descripcionInmueble}}</td>
+          <td><button (click)="eliminar(d.proyectoID)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
+          <td><button (click)="/editar-proyecto/{{d.proyectoID}}" class="btn btn-sm btn-outline-success">Editar</button></td>
+        </tr>
+      </table>
       </form>
     </main>
-    <div>
-      <h1>Elemento seleccionado - {{value}}</h1>
-    </div>
   </div>
 
 
