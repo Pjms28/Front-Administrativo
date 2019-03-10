@@ -1,4 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import "~bootstrap/dist/css/bootstrap.css";
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -42,12 +43,46 @@ a:focus {
     margin: 40px 0;
 }
 
+#blog{
+    display: inline-flex;
+    border-radius: .3rem;
+    width: 150px;
+    margin-left: 30px;
+
+
+}
+
+#blog p{
+   padding-left: 40px;
+   padding-bottom: 5px;
+   color: #fff;
+   max-height: 10px;
+}
+
+#foro{
+    display: inline-flex;
+    margin-right: 30px;
+    border-radius: .3rem;
+    width: 150px;
+    margin-left: 30px;
+
+}
+
+#foro p{
+   padding-left: 40px;
+   padding-bottom: 5px;
+   color: #fff;
+   max-height: 10px;
+}
+
+
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
 .wrapper {
-    display: flex;
+    display: block;
     width: 100%;
 }
 
@@ -86,6 +121,7 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    list-style: none;
 }
 
 #sidebar ul li a:hover {
@@ -103,7 +139,7 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-.dropdown-toggle::after {
+/* .dropdown-toggle::after {
     display: block;
     position: absolute;
     top: 50%;
@@ -132,7 +168,7 @@ ul.CTAs a {
 a.download {
     background: #fff;
     color: #7386D5;
-}
+} */
 
 a.article,
 a.article:hover {
@@ -148,6 +184,9 @@ a.article:hover {
     margin-top: 0px;
 }
 
+.servicios li a{
+    font-size: 12px;
+}
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -165,6 +204,11 @@ a.article:hover {
 #content.active {
     width: 100%;
 }
+
+.card{
+    background-color: #7386D5;
+}
+
 
 /* ---------------------------------------------------
     MEDIAQUERIES
@@ -187,3 +231,9 @@ a.article:hover {
         display: none;
     }
 }
+
+
+
+
+
+
