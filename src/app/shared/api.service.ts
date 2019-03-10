@@ -64,7 +64,7 @@ export class ApiService {
     }
 
     updateProject (proyecto: ProyectoComponent): Observable<ProyectoComponent> {
-      return this.http.put<ProyectoComponent>(apiUrl + proyecto.ProyectoID,proyecto, httpOptions)
+      return this.http.put<ProyectoComponent>(apiUrl +"/"+ proyecto.proyectoID,proyecto, httpOptions)
         .pipe(
           catchError(this.handleError('updateProject', proyecto))
         );

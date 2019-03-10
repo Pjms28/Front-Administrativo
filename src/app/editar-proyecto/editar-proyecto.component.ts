@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { UbicacionService } from '../shared/ubicacion.service';
 import {Router, ActivatedRoute} from "@angular/router";
@@ -16,6 +16,7 @@ import {first} from "rxjs/operators";
 export class EditarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
   proyecto: ProyectoComponent;
+  editForm : FormGroup;
 
  
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
@@ -28,11 +29,21 @@ export class EditarProyectoComponent implements OnInit {
       this.router.navigate(['listar-contenido']);
       return;
     }
+
+    this.editForm = this.formBuilder.group({
+      
+      proyectoID:[''],
+      nombreProyecto:[''],
+      fechaTerminacion:[''],
+      ubicacionID:[''],
+      direccion:[''],
+      imgURL:['']
+    });
     
-    //Terminar
+
     this.apiService.getProject(Number(userID))
     .subscribe(res => {
-      
+      this.editForm.patchValue(res);
     });
 
     return this.ubicacionService.getLocantions()
@@ -47,15 +58,19 @@ export class EditarProyectoComponent implements OnInit {
 
   }
 
-  //Corregir no funcina
-  /*updateProject(form : NgForm){
+  get f(){
+    return this.editForm.controls;
+  }
 
-    this.apiService.updateProject(form.value)
+  
+  onSubmit(){
+
+    this.apiService.updateProject(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
       this.router.navigate(['listar-contenido']);
     });
-  }*/
+  }
 
 
 

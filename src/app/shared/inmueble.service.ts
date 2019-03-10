@@ -13,6 +13,7 @@ const apiUrl = "http://localhost:61756/api/inmuebles";
   providedIn: 'root'
 })
 export class InmuebleService {
+  list: InmuebleModel [];
 
   constructor(private http: HttpClient) { }
 
@@ -34,4 +35,38 @@ export class InmuebleService {
         catchError(this.handleError('getInmueble', []))
       );
   }
+
+  getInmueble(id: number): Observable<InmuebleModel> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<InmuebleModel>(url).pipe(
+      tap(_ => catchError(this.handleError<InmuebleModel>(`getInmueble id=${id}`))
+    ));
+  }
+
+  refreshList(){
+    this.http.get(apiUrl)
+    .toPromise().then(res => this.list = res as InmuebleModel[]);
+  }
+
+  addInmueble(inmueble: InmuebleModel){
+    return this.http.post<InmuebleModel>(apiUrl,inmueble,httpOptions)
+    .pipe(tap((nuevoInmueble: InmuebleModel) => catchError(this.handleError<InmuebleModel>('addInmueble'))
+    ));
+  }
+
+  deleteInmueble (id: number): Observable<{}> {
+    const url = `${apiUrl}/${id}`; // DELETE api/heroes/42
+    return this.http.delete(url, httpOptions)
+    .pipe(
+    catchError(this.handleError('deleteInmueble'))
+    );
+    }
+
+    updateProject (inmueble: InmuebleModel): Observable<InmuebleModel> {
+      return this.http.put<InmuebleModel>(apiUrl +"/"+ inmueble.inmuebleID,inmueble, httpOptions)
+        .pipe(
+          catchError(this.handleError('updateProject', inmueble))
+        );
+    }
+
 }

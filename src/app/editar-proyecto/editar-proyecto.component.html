@@ -5,26 +5,25 @@
     </header>
     <main class="row">
       <img src='../../assets/editor-de-videos.png' class ="col-6">
-      <form #form="ngForm" (submit)="updateProject(form)" class="col-6" autocomplete="off">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
           <label>Nombre del proyecto</label>
-          <input type="text" name="NombreProyecto" #NombreProyecto [(ngModel)]="apiService.formData.NombreProyecto" class="form-control" required/> 
-          <div class="validation-error" *ngIf="NombreProyecto.invalid && NombreProyecto.touched" >Este campo es requerido</div>
+          <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
           <hr>
           <label>Fecha de terminacion</label>
-          <input name="FechaTerminacion" type="date" #FechaTerminacion [(ngModel)]="apiService.formData.FechaTerminacion" class="form-control"  required/>
+          <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
           <hr> 
           <label>Ubicacion</label>
-          <select name="ubicacionID" #Ubicacion [(ngModel)]="apiService.formData.Ubicacion"  class="form-control" required>
+          <select formControlName="ubicacionID" class="form-control" required>
               <option *ngFor="let d of data" [ngValue]="d.ubicacionID">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
             </select>
           <hr> 
           <label>Direccion</label>
-          <input name="Direccion" #Direccion [(ngModel)]="apiService.formData.Direccion" class="form-control" type="text"  required/>
+          <input formControlName="direccion" class="form-control" type="text"  required/>
           <hr>
           <label>Imagen del proyecto</label>
-          <input name="ImgURL" #ImgURL [(ngModel)]="apiService.formData.ImgURL" type = "file"  accept="imagen" required>
+          <input formControlName="imgURL" type = "file"  accept="imagen" required>
           <hr>
-          <button type="submit" [disabled]="form.invalid" class="btn btn-success">Save</button>
+          <button type="submit" class="btn btn-success">Save</button>
       </form>
     </main>
   </div>

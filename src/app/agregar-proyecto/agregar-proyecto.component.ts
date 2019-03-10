@@ -43,12 +43,12 @@ export class AgregarProyectoComponent implements OnInit {
     if(form != null)
       form.resetForm();
     this.apiService.formData = {
-    ProyectoID : null,
-    NombreProyecto: '',
-    FechaTerminacion: null,
-    Direccion:'',
-    ImgURL:'',
-    UbicacionID: null
+    proyectoID : null,
+    nombreProyecto: '',
+    fechaTerminacion: null,
+    direccion:'',
+    imgURL:'',
+    ubicacionID: null
     }
   }
   

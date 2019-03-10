@@ -9,12 +9,12 @@ import { ApiService } from '../shared/api.service';
 })
 export class ProyectoComponent {
 
-  ProyectoID: number;
-  NombreProyecto: string;
-  FechaTerminacion: Date;
-  Direccion: string;
-  ImgURL: string;
-  UbicacionID: number;
+  proyectoID: number;
+  nombreProyecto: string;
+  fechaTerminacion: Date;
+  direccion: string;
+  imgURL: string;
+  ubicacionID: number;
   constructor() { }
 
  

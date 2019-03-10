@@ -18,6 +18,8 @@ import { InmuebleService } from './shared/inmueble.service';
 import { CaracteristicaService } from './shared/caracteristica.service';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.component';
+import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CommonModule } from '@angular/common';
     ListarContenidoComponent,
     ProyectoComponent,
     EditarProyectoComponent,
-    DetalleProyectoComponent
+    DetalleProyectoComponent,
+    AgregarInmuebleComponent,
+    EditarInmuebleComponent
   ],
   imports: [
     BrowserModule,

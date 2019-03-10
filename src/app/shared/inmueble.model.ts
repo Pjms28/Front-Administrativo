@@ -1,7 +1,7 @@
 export class InmuebleModel{
 
-    InmuebleID: number;
-    Precio: number;
-    DescripcionInmueble: string;
-    ProyectoID: number;
+    inmuebleID: number;
+    precio: number;
+    descripcionInmueble: string;
+    proyectoID: number;
 }
