@@ -17,12 +17,14 @@ export class EditarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
   proyecto: ProyectoComponent;
   editForm : FormGroup;
+  id: number;
 
  
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
     , private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
       alert("Accion Invalida")
@@ -41,20 +43,26 @@ export class EditarProyectoComponent implements OnInit {
     });
     
 
-    this.apiService.getProject(Number(userID))
+   this.apiService.getProject(Number(userID))
     .subscribe(res => {
-      this.editForm.patchValue(res);
+      this.id = res.ubicacionID;
+     this.editForm.patchValue(res);
+      
     });
 
-    return this.ubicacionService.getLocantions()
+    
+
+     this.ubicacionService.getLocantions()
       .subscribe(res => {
       this.data = res;
-      console.log(this.data);
+      //console.log(this.data);
     
     }, err => {
       console.log(err);
      
     });
+    console.log('*()*(*)',this.data);
+    
 
   }
 
