@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectoComponent } from '../proyecto/proyecto.component';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import {first} from "rxjs/operators";
 import { InmuebleModel } from '../shared/inmueble.model';
 import { InmuebleService } from '../shared/inmueble.service';
-import { ApiService } from '../shared/api.service';
+import { CaracteristicaModel } from '../shared/caracteristicas.model';
+import { CaracteristicaService } from '../shared/caracteristica.service';
 
 @Component({
-  selector: 'app-editar-inmueble',
-  templateUrl: './editar-inmueble.component.html',
-  styleUrls: ['./editar-inmueble.component.css']
+  selector: 'app-editar-caracteristica',
+  templateUrl: './editar-caracteristica.component.html',
+  styleUrls: ['./editar-caracteristica.component.css']
 })
-export class EditarInmuebleComponent implements OnInit {
-
-  data : ProyectoComponent[] = [];
-  inmueble : InmuebleModel;
+export class EditarCaracteristicaComponent implements OnInit {
+  data : InmuebleModel[] = [];
+  caracteristica : CaracteristicaModel;
   editForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
-    ,private toastr: ToastrService,  public actRoute: ActivatedRoute ) { }
+  constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiCar:CaracteristicaService ,private router: Router
+    ,private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
     let userID = window.localStorage.getItem("editUserID");
@@ -29,22 +28,18 @@ export class EditarInmuebleComponent implements OnInit {
       this.router.navigate(['listar-contenido']);
       return;
     }
-
     this.editForm = this.formBuilder.group({
-      
-      inmuebleID:[''],
-      nombreInmueble:[''],
-      precio: [''],
-      descripcionInmueble:[''],
-      proyectoID: ['']
+      caracteristicaID:[''],
+      carNombre: [''],
+      carDescripcion:['']
     });
 
-    this.apiIn.getInmueble(Number(userID))
+    this.apiCar.getCaracteristica(Number(userID))
     .subscribe(res => {
       this.editForm.patchValue(res);
     });
 
-    return this.apiService.getProjects()
+    return this.apiIn.getInmuebles()
       .subscribe(res => {
       this.data = res;
       console.log(this.data);
@@ -53,13 +48,11 @@ export class EditarInmuebleComponent implements OnInit {
       console.log(err);
      
     });
- 
   }
 
-  
   onSubmit(){
-
-    this.apiIn.updateInmueble(this.editForm.value)
+    console.log(this.editForm.value);
+    this.apiCar.updateCaracteristica(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
       this.router.navigate(['listar-contenido']);

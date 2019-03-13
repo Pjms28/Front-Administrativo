@@ -22,6 +22,8 @@ import { CommonModule } from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.component';
 import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
+import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
+import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.compo
     DetalleProyectoComponent,
     AgregarInmuebleComponent,
     EditarInmuebleComponent,
+    AgregarCaracteristicaComponent,
+    EditarCaracteristicaComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +49,10 @@ import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.compo
     HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path: 'Agregar', component: AgregarProyectoComponent},
+      {path: 'Agregar Proyecto', component: AgregarProyectoComponent},
       {path: 'Listar', component: ListarContenidoComponent},
+      {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent},
+      {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
     ]),
     BrowserAnimationsModule,
     ToastrModule.forRoot()

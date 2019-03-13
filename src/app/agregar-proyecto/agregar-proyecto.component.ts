@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
@@ -6,6 +6,7 @@ import { UbicacionService } from '../shared/ubicacion.service';
 import {Router} from "@angular/router";
 import { UbicacionModel } from '../shared/Ubicacion.model';
 import { ToastrService } from 'ngx-toastr';
+import { HttpEventType, HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-agregar-proyecto',
   templateUrl: './agregar-proyecto.component.html',
@@ -14,8 +15,11 @@ import { ToastrService } from 'ngx-toastr';
 export class AgregarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
   formData : ProyectoComponent;
+  public progress: number;
+  public message: string;
+  @Output() public onUploadFinished = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
+  constructor(private http: HttpClient,private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
     , private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -29,9 +33,14 @@ export class AgregarProyectoComponent implements OnInit {
       console.log(err);
      
     });
+
+
   }
 
+  
+
   onSubmit(form : NgForm) {
+    console.log(form.value);
     this.apiService.addProject(form.value).subscribe(res =>{
       this.toastr.success('Proyecto creado exitosamente','Proyecto.Registro');
       this.resetForm(form);

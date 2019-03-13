@@ -4,29 +4,49 @@ import { ListarContenidoComponent } from './listar-contenido/listar-contenido.co
 import { AgregarProyectoComponent } from './agregar-proyecto/agregar-proyecto.component';
 import { EditarProyectoComponent } from './editar-proyecto/editar-proyecto.component';
 import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
+import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.component';
+import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
+import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
+import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
 
 
 const routes: Routes = [
 {
   path: 'listar-contenido',
   component: ListarContenidoComponent,
-  data: {tittle: 'Lista de proyectos'}
+  
 },
 {
   path: 'detalle-proyecto/:id',
   component: DetalleProyectoComponent,
-  data: {tittle: 'Detalles del producto'}
+  
 
 },
 {
   path: 'agregar-proyecto',
   component: AgregarProyectoComponent,
-  data:{tittle:'Agregar proyecto'} 
+   
 },
 {
   path: 'editar-proyecto',
   component: EditarProyectoComponent,
-  data:{tittle: 'Editar proyecto'}
+  
+},
+{
+  path:'agregar-inmueble',
+  component: AgregarInmuebleComponent,
+},
+{
+  path:'editar-inmueble',
+  component: EditarInmuebleComponent
+},
+{
+  path: 'agregar-caracteristica',
+  component: AgregarCaracteristicaComponent
+},
+{
+  path: 'editar-caracteristica',
+  component: EditarCaracteristicaComponent
 },
 {
   path:'',

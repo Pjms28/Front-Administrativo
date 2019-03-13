@@ -1,6 +1,6 @@
 export class CaracteristicaModel{
 
-    CaracteristicaID: number;
-    CarNombre: string;
-    CarDescripcion: string;
+    caracteristicaID: number;
+    carNombre: string;
+    carDescripcion: string;
 }

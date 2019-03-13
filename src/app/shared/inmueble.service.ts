@@ -62,7 +62,7 @@ export class InmuebleService {
     );
     }
 
-    updateProject (inmueble: InmuebleModel): Observable<InmuebleModel> {
+    updateInmueble (inmueble: InmuebleModel): Observable<InmuebleModel> {
       return this.http.put<InmuebleModel>(apiUrl +"/"+ inmueble.inmuebleID,inmueble, httpOptions)
         .pipe(
           catchError(this.handleError('updateProject', inmueble))
