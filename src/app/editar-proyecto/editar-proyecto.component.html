@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col">
+    <header>
+        <h1>Editar proyecto</h1>
+    </header>
+    <main class="row">
+      <img src='../../assets/editor-de-videos.png' class ="col-6">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
+          <label>Nombre del proyecto</label>
+          <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
+          <hr>
+          <label>Fecha de terminacion</label>
+          <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
+          <hr> 
+          <label>Ubicacion </label>
+          <select  class="form-control" required>
+              <option *ngFor="let d of data" [ngValue]="d.ubicacionID" [attr.selected]="id == d.ubicacionID? '' : selected" >{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
+            </select>
+          <hr> 
+          <label>Direccion</label>
+          <input formControlName="direccion" class="form-control" type="text"  required/>
+          <hr>
+          <label>Imagen del proyecto</label>
+          <input formControlName="imgURL" type = "file"   accept="imagen" required>
+          <hr>
+          <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </main>
+  </div>
+</div>

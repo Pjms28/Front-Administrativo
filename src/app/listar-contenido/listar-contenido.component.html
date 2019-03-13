@@ -1,25 +1,93 @@
 
 <div class="container">
-  <div class="col">
+  <div class="row">
     <header>
       <h1>Listar contenido</h1>
     </header>
+    <hr>
     <main class="row">
-      <img src="../../assets/editar.png" class="col-6">
       <form class="col-6"> 
         <label>Seleccione el tipo de contenido que desea editar</label>
-        <select class="form-control" id="Ubicacion" aria-placeholder="Seleccione una opcion" id="select">
-            <option>Proyectos</option>
-            <option>Inmuebles</option>
-            <option>Caracteristicas</option>
+        <select (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+            <option value="" selected="selected"></option>
+            <option value="Proyectos">Proyectos</option>
+            <option value="Inmuebles">Inmuebles</option>
+            <option Value="Caracteristicas">Caracteristicas</option>
         </select>
       </form>
-    </main>
 
+      <hr>
+
+      <div class="tabla">
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Editar/Eliminar</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Proyecto 1 </td>
+            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
+            <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+            
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Proyecto 2</td>
+            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Proyecto 3</td>
+            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Proyecto 4</td>
+            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Proyecto 5</td>
+            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>Proyecto 6</td>
+            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>Proyecto 7</td>
+            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+          </tr>
+        </tbody>
+  
+      </table>
+      </div>
+    </div>
+
+    </main>
   </div>
 
+
+
+  
 
 
 
 
 </div>
+

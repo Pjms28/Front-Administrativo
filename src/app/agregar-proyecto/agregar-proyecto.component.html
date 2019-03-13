@@ -5,38 +5,26 @@
     </header>
     <main class="row">
       <img src='../../assets/proyecto-construcción.jpg' class ="col-6">
-      <form class="col-6">
+      <form #form="ngForm" (submit)="onSubmit(form)" class="col-6" autocomplete="off">
           <label>Nombre del proyecto</label>
-          <input type="text" class="form-control" id="Nproyecto"/> 
+          <input type="text" name="NombreProyecto" #NombreProyecto [(ngModel)]="apiService.formData.NombreProyecto" class="form-control" required/> 
+          <div class="validation-error" *ngIf="NombreProyecto.invalid && NombreProyecto.touched" >Este campo es requerido</div>
           <hr>
           <label>Fecha de terminacion</label>
-          <input type="date" class="form-control" id="Fterminacion"/>
-          <hr>
+          <input name="FechaTerminacion" type="date" #FechaTerminacion [(ngModel)]="apiService.formData.FechaTerminacion" class="form-control"  required/>
+          <hr> 
           <label>Ubicacion</label>
-          <select class="form-control" id="Ubicacion">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+          <select name="ubicacionID" #Ubicacion [(ngModel)]="apiService.formData.Ubicacion"  class="form-control" required>
+              <option *ngFor="let d of data" [ngValue]="d.ubicacionID">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
             </select>
-          <hr>
-          <label>Ciudad</label>
-          <select class="form-control" id="Ciudad">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-          </select>
-          <hr>          
+          <hr> 
           <label>Direccion</label>
-          <input type="text" class="form-control" id="Direccion"/>
+          <input name="Direccion" #Direccion [(ngModel)]="apiService.formData.Direccion" class="form-control" type="text"  required/>
           <hr>
           <label>Imagen del proyecto</label>
-          <input type = "file" id = "Imagen" accept="imagen">
+          <input name="ImgURL" #ImgURL [(ngModel)]="apiService.formData.ImgURL" type = "file"  accept="imagen" required>
           <hr>
-          <input type="submit" value="Añadir nuevo proyecto">
+          <button type="submit" [disabled]="form.invalid" class="btn btn-success">Save</button>
       </form>
     </main>
   </div>

@@ -32,6 +32,10 @@ $('#sidebarCollapse').on('click', function () {
 
 
   
+  /*   $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+    }); */
+  
   }
 }
 
