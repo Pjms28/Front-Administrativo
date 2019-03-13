@@ -20,6 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.component';
 import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
+import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
+import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.compo
     EditarProyectoComponent,
     DetalleProyectoComponent,
     AgregarInmuebleComponent,
-    EditarInmuebleComponent
+    EditarInmuebleComponent,
+    AgregarCaracteristicaComponent,
+    EditarCaracteristicaComponent
   ],
   imports: [
     BrowserModule,

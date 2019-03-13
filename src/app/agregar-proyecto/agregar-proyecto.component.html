@@ -22,7 +22,7 @@
           <input name="Direccion" #Direccion [(ngModel)]="apiService.formData.Direccion" class="form-control" type="text"  required/>
           <hr>
           <label>Imagen del proyecto</label>
-          <input name="ImgURL" #ImgURL [(ngModel)]="apiService.formData.ImgURL" type = "file"  accept="imagen" required>
+          <input name="ImgURL" #ImgURL [(ngModel)]="apiService.formData.ImgURL"  type = "file"  accept="imagen" required>
           <hr>
           <button type="submit" [disabled]="form.invalid" class="btn btn-success">Save</button>
       </form>

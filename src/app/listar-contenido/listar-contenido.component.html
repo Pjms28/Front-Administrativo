@@ -21,8 +21,12 @@
           <td>{{d.nombreProyecto}}</td>
           <td>{{d.fechaTerminacion}}</td>
           <td>{{d.direccion}}</td>
+          <td>{{d.nombreInmueble}}</td>
+          <td>{{d.precio}}</td>
           <td>{{d.descripcionInmueble}}</td>
-          <td><button (click)="eliminar(d.proyectoID)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
+          <td>{{d.carNombre}}</td>
+          <td>{{d.carDescripcion}}</td>
+          <td><button (click)="eliminar(d)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
           <td><button (click)="updateProject(d)" class="btn btn-sm btn-outline-success">Editar</button></td>
         </tr>
       </table>

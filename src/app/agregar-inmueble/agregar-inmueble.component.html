@@ -1,3 +1,27 @@
-<p>
-  agregar-inmueble works!
-</p>
+<div class="container">
+    <div class="col">
+      <header>
+          <h1>Agregar Inmueble</h1>
+      </header>
+      <main class="row">
+        <img src='' class ="col-6">
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
+            <label>Identificador del inmueble</label>
+            <input formControlName="nombreInmueble" type="text"  class="form-control" required/> 
+            <hr>
+            <label>Precio</label>
+            <input formControlName="precio" type="text" class="form-control"  required/>
+            <hr> 
+            <label>Proyecto </label>
+            <select formControlName="proyectoID" class="form-control" required>
+                <option *ngFor="let d of data" [ngValue]="d.proyectoID">{{d.nombreProyecto}}</option>
+              </select>
+            <hr> 
+            <label>Descripcion</label>
+            <input formControlName="descripcionInmueble" class="form-control" type="text"  required/>
+            <hr>
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+      </main>
+    </div>
+  </div>
