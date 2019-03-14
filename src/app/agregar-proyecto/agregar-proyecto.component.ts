@@ -43,7 +43,7 @@ export class AgregarProyectoComponent implements OnInit {
     console.log(form.value);
     this.apiService.addProject(form.value).subscribe(res =>{
       this.toastr.success('Proyecto creado exitosamente','Proyecto.Registro');
-      this.resetForm(form);
+      this.router.navigate(['listar-contenido']);
     });
   }
  

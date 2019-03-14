@@ -12,9 +12,9 @@
           <label>Fecha de terminacion</label>
           <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
           <hr> 
-          <label>Ubicacion </label>
-          <select  class="form-control" required>
-              <option *ngFor="let d of data" [ngValue]="d.ubicacionID" [attr.selected]="id == d.ubicacionID? '' : selected" >{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
+          <label>Ubicacion</label>
+          <select formControlName="ubicacionID" class="form-control" required>
+              <option *ngFor="let d of data" [ngValue]="d.ubicacionID">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
             </select>
           <hr> 
           <label>Direccion</label>

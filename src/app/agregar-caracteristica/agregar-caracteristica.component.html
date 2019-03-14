@@ -11,11 +11,6 @@
             <hr>
             <label>Descripcion</label>
             <input formControlName="carDescripcion" type="text" class="form-control"  required/>
-            <hr>
-            <label>Inmueble </label>
-            <select formControlName="inmuebleID" class="form-control" required>
-                <option *ngFor="let d of data" [ngValue]="d.inmuebleID" >{{d.nombreInmueble}}</option>
-              </select>
             <button type="submit" class="btn btn-success">Save</button>
         </form>
       </main>

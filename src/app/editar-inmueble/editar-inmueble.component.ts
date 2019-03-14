@@ -31,7 +31,6 @@ export class EditarInmuebleComponent implements OnInit {
     }
 
     this.editForm = this.formBuilder.group({
-      
       inmuebleID:[''],
       nombreInmueble:[''],
       precio: [''],
@@ -58,7 +57,7 @@ export class EditarInmuebleComponent implements OnInit {
 
   
   onSubmit(){
-
+    //console.log(this.editForm.value);
     this.apiIn.updateInmueble(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{

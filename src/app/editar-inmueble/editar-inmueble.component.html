@@ -13,8 +13,8 @@
           <input formControlName="precio" type="text" class="form-control"  required/>
           <hr> 
           <label>Proyecto </label>
-          <select  class="form-control" required>
-              <option *ngFor="let d of data" [ngValue]="d.proyectoID" [attr.selected]="id == d.proyectoID? '' : selected" >{{d.nombreProyecto}}</option>
+          <select formControlName="proyectoID" class="form-control" required>
+              <option *ngFor="let d of data" [ngValue]="d.proyectoID" >{{d.nombreProyecto}}</option>
             </select>
           <hr> 
           <label>Descripcion</label>
