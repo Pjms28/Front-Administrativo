@@ -1,6 +1,7 @@
 .container{
     max-width: 700px;
     padding-top: 100px;
+    padding-left: 200px;
 }
 
 label{
@@ -11,6 +12,7 @@ input{
     border-radius: .3rem;
 }
 
+
 h1{
     padding-top: 50px;
     text-align: center; 
@@ -20,3 +22,39 @@ img{
     width: 270px;
     height: 270px;
 }
+
+table{
+    width: 500px;
+    padding-top: 50px;
+
+}
+
+.tabla{
+    padding-top: 40px;
+
+    
+}
+
+table button{
+    width: auto;
+
+}
+
+table button .eliminar{
+    width: auto;
+
+}
+
+main{
+    padding-top: 10px;
+    padding-left: 40px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+    display: block;
+  }

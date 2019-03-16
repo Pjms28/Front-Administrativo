@@ -35,4 +35,35 @@ export class CaracteristicaService {
         catchError(this.handleError('getCaracteristicas', []))
       );
   }
+
+  getCaracteristica(id: number): Observable<CaracteristicaModel> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<CaracteristicaModel>(url).pipe(
+      tap(_ => catchError(this.handleError<CaracteristicaModel>(`getCaracteristica id=${id}`))
+    ));
+  }
+
+  addCaracteristica(caracteristica: CaracteristicaModel){
+    return this.http.post<CaracteristicaModel>(apiUrl,caracteristica,httpOptions)
+    .pipe(tap((nuevaCaracteristica: CaracteristicaModel) => catchError(this.handleError<CaracteristicaModel>('addCaracteristica'))
+    ));
+  }
+
+  deleteCaracteristica (id: number): Observable<{}> {
+    const url = `${apiUrl}/${id}`; // DELETE api/heroes/42
+    return this.http.delete(url, httpOptions)
+    .pipe(
+    catchError(this.handleError('deleteCaracteristica'))
+    );
+    }
+
+  updateCaracteristica (caracteristica: CaracteristicaModel): Observable<CaracteristicaModel> {
+    return this.http.put<CaracteristicaModel>(apiUrl +"/"+ caracteristica.caracteristicaID,caracteristica, httpOptions)
+      .pipe(
+        catchError(this.handleError('updateCaracteristica', caracteristica))
+      );
+    }
+
+
+
 }

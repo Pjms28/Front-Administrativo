@@ -1,37 +1,103 @@
 
 <div class="container">
-  <div class="col">
+  <div class="row">
     <header>
       <h1>Listar contenido</h1>
     </header>
+    <hr>
     <main class="row">
-      <img src="../../assets/editar.png" class="col-6">
       <form class="col-6"> 
-        <label>Seleccione el tipo de contenido que desea editar</label>
+        <label>Seleccione el tipo de contenido que desea listar</label>
         <select (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
             <option value="" selected="selected"></option>
             <option value="Proyectos">Proyectos</option>
             <option value="Inmuebles">Inmuebles</option>
             <option Value="Caracteristicas">Caracteristicas</option>
         </select>
+      </form>
 
       <hr>
-      <table>
-        <tr *ngFor="let d of data">
-          <td>{{d.nombreProyecto}}</td>
-          <td>{{d.fechaTerminacion}}</td>
-          <td>{{d.direccion}}</td>
-          <td>{{d.descripcionInmueble}}</td>
-          <td><button (click)="eliminar(d.proyectoID)" class="btn btn-sm btn-outline-danger">Eliminar</button></td>
-          <td><button (click)="updateProject(d)" class="btn btn-sm btn-outline-success">Editar</button></td>
-        </tr>
+
+      <div class="tabla">
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+      <table class="table table-bordered">
+        <div *ngIf="value == 'Proyectos'">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Proyecto</th>
+              <th scope="col">Fecha de terminacion</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Editar/Eliminar</th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of data; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{d.nombreProyecto}}</td>
+              <td>{{d.fechaTerminacion}}</td>
+              <td>{{d.direccion}}</td>
+              <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+            </tr>
+          </tbody>
+        </div>
+        <div *ngIf="value == 'Inmuebles'">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Inmueble</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Editar/Eliminar</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of data; let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{d.nombreInmueble}}</td>
+                <td>{{d.precio}}</td>
+                <td>{{d.descripcionInmueble}}</td>
+                <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm ">Editar</button>
+                <button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </div>
+          <div *ngIf="value == 'Caracteristicas'">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Caracteristicas</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Editar/Eliminar</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of data; let i = index">
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{d.carNombre}}</td>
+                  <td>{{d.carDescripcion}}</td>
+                  <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm ">Editar</button>
+                  <button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+                </tr>
+              </tbody>
+            </div>
       </table>
-      </form>
+      </div>
+    </div>
+
     </main>
   </div>
 
 
 
+  
+
+
 
 
 </div>
+

@@ -1,6 +1,7 @@
 export class UbicacionModel {
 
-    UbicacionID: number;
-    Ciudad: string;
+    ubicacionID: number;
+    nombreUbicacion:string;
+    ciudad: string;
    
   }

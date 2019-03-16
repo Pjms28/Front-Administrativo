@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +19,12 @@ import { InmuebleService } from './shared/inmueble.service';
 import { CaracteristicaService } from './shared/caracteristica.service';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.component';
 import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
+import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
+import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
+
 
 @NgModule({
   declarations: [
@@ -30,18 +35,24 @@ import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.compo
     EditarProyectoComponent,
     DetalleProyectoComponent,
     AgregarInmuebleComponent,
-    EditarInmuebleComponent
+    EditarInmuebleComponent,
+    AgregarCaracteristicaComponent,
+    EditarCaracteristicaComponent
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path: 'Agregar', component: AgregarProyectoComponent},
+      {path: 'Agregar Proyecto', component: AgregarProyectoComponent},
       {path: 'Listar', component: ListarContenidoComponent},
+      {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent},
+      {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
     ]),
     BrowserAnimationsModule,
     ToastrModule.forRoot()
