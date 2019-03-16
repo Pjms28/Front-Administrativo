@@ -8,22 +8,26 @@
       <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
           <label>Nombre del proyecto</label>
           <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
+          <div *ngIf="editForm.controls['nombreProyecto'].invalid && editForm.controls['nombreProyecto'].touched" class="validation-error">Este campo es requerido</div>
           <hr>
           <label>Fecha de terminacion</label>
           <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
+          <div *ngIf="editForm.controls['fechaTerminacion'].invalid && editForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
           <hr> 
           <label>Ubicacion</label>
           <select formControlName="ubicacionID" class="form-control" required>
-              <option *ngFor="let d of data" [ngValue]="d.ubicacionID">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
-            </select>
+              <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
+          </select>
+          <div *ngIf="editForm.controls['ubicacionID'].invalid && editForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
           <hr> 
           <label>Direccion</label>
           <input formControlName="direccion" class="form-control" type="text"  required/>
+          <div *ngIf="editForm.controls['direccion'].invalid && editForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
           <hr>
           <label>Imagen del proyecto</label>
           <input formControlName="imgURL" type = "file"   accept="imagen" required>
           <hr>
-          <button type="submit" class="btn btn-success">Save</button>
+          <button type="submit" [disabled]="editForm.invalid" class="btn btn-success">Save</button>
       </form>
     </main>
   </div>

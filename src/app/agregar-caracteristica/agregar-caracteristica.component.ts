@@ -30,6 +30,7 @@ export class AgregarCaracteristicaComponent implements OnInit {
   onSubmit(){
     this.apiCar.addCaracteristica(this.addForm.value)
     .subscribe(data =>{
+      this.toastr.success('Caracteristica ha sido creada exitosamente','Caracteristica.Registro');
       this.router.navigate(['listar-contenido']);
     });
   }

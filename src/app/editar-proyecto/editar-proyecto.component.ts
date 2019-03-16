@@ -61,10 +61,10 @@ export class EditarProyectoComponent implements OnInit {
   }  
   
   onSubmit(){
-    //console.log(this.editForm.value);
     this.apiService.updateProject(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
+      this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
       this.router.navigate(['listar-contenido']);
     });
   }

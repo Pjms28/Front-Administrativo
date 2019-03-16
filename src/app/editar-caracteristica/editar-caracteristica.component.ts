@@ -55,6 +55,7 @@ export class EditarCaracteristicaComponent implements OnInit {
     this.apiCar.updateCaracteristica(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
+      this.toastr.info('Caracteristica ha sido editada','Caracteristica.Info');
       this.router.navigate(['listar-contenido']);
     });
   }

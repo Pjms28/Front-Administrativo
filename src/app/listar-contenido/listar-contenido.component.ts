@@ -16,10 +16,11 @@ export class ListarContenidoComponent implements OnInit {
   form : any;
   constructor(private router: Router, private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
     private toastr: ToastrService) { }
-  value:string="";
+  value ="";
+  
   ngOnInit() {
     }
-
+    contador=0;
     Select(event:any){
       this.value = event.target.value;
       if(this.value=="Proyectos"){
@@ -69,8 +70,8 @@ export class ListarContenidoComponent implements OnInit {
         if(confirm('¿Esta seguro que desea eliminar este proyecto?, tambien se borraran los inmuebles y caracteristicas existentes asignados a este proyecto.')){
           return this.api.deleteProject(d.proyectoID).
           subscribe(res=>{
+            this.toastr.warning('Proyecto eliminado exitosamente','Proyecto.Eliminado',{timeOut: 3000});
             this.loadList();
-            this.toastr.warning('Proyecto creado exitosamente','Proyecto.Registro');
           });
         }
       }
@@ -91,7 +92,7 @@ export class ListarContenidoComponent implements OnInit {
         if(confirm('¿Esta seguro que desea eliminar esta caracteristica?')){
           return this.caracteristicaApi.deleteCaracteristica(d.caracteristicaID).
           subscribe(res=>{
-            this.toastr.warning('Caracteristica eliminado exitosamente','Caracteristica.Eliminada');
+            this.toastr.warning('Caracteristica eliminada exitosamente','Caracteristica.Eliminada');
             return this.caracteristicaApi.getCaracteristicas().subscribe((res: {}) => {
               this.data = res;
             })

@@ -1,72 +1,100 @@
 <div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Constructora Mejia Polanco</h3>
-        </div>
-  
-        <ul class="list-unstyled components">
-            <p>Administrador</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Servicios</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Administrar solicitudes</a>
-                    </li>
-                    <li>
-                        <a href="#">Visitas agendadas</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Administrar pagina</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a [routerLink]="['/Agregar']">Agregar</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/Listar']">Listar</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Administrar carrusel</a>
-            </li>
-            <li>
-                <a href="#">Actualizar Contacto</a>
-            </li>
-        </ul>
-  
-    </nav>
-  
-    <!-- Page Content  -->
-    <div id="content">
-  
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-  
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                    <i class="fas fa-align-left"></i>
-                    <span>Administrar</span>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-align-justify"></i>
-                </button>
-  
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <i class="fas fa-user"></i>
-                        </li>
-                        <li class="nav-item usuario">
-                            <a class="nav-link" href="#">Carlos Martinez</a>
-                        </li>
-                    </ul>
-                </div>
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="toggle">
+            <div class="sidebar-header">
+                <h3>Constructora Mejia Polanco</h3>
             </div>
+    
+      
+            <ul class="list-unstyled components">
+                <p>Administrador</p>
+                <div class="servicios">
+                    <ngb-accordion  #acc="ngbAccordion" >
+                        <ngb-panel title="Servicios" >
+                            <ng-template ngbPanelContent >
+                                <li>
+                                    <a  href="#">Administrar solicitudes</a>
+                                </li>
+                                <li>
+                                    <a  href="#">Visitas agendadas</a>
+                                </li>
+                            </ng-template>
+                        </ngb-panel>
+                    </ngb-accordion>
+                </div>
+    
+                <div class="administrar">
+                        <ngb-accordion  #acc="ngbAccordion"  >.
+                            <ngb-panel title="Administrar pagina">
+                                <ng-template ngbPanelContent >
+                                    <li>
+                                        <a routerLink='Agregar Proyecto'>Agregar Proyecto</a>
+                                    </li>
+                                    <li>
+                                        <a  routerLink='Agregar Inmueble'>Agregar Inmueble</a>
+                                    </li>
+                                    <li>
+                                        <a  routerLink='Agregar Caracteristica'>Agregar Caracteristica</a>
+                                    </li>
+                                    <li>
+                                        <a  routerLink='Listar'>Listar</a>
+                                    </li>
+                                </ng-template>
+                            </ngb-panel>
+                        </ngb-accordion>
+                    </div>
+                <li>
+                    <a href="#">Administrar carrusel</a>
+                </li>
+                <li>
+                    <a href="#">Actualizar Contacto</a>
+                </li>
+            </ul>
+      
         </nav>
-  
-        
-    </div>
-  </div>
+      
+        <!-- Page Content  -->
+        <div id="content">
+      
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+      
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Administrar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+      
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li>
+                                    <button type="button" class="btn btn-info" id="blog">
+                                            <p>Blog</p>
+                        
+                                        </button>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-info" id="foro">
+                                                <p>Foro</p>
+                            
+                                            </button>
+                            </li>
+                            <li class="nav-item active">
+                                <i class="fas fa-user"></i>
+                            </li>
+                            <li class="nav-item usuario">
+                                <a class="nav-link" href="#">Carlos Martinez</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+      
+            
+        </div>
+      </div> 
+    
+      
 <router-outlet></router-outlet>

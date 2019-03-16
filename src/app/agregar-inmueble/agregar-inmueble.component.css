@@ -1,0 +1,33 @@
+.container{
+    margin: auto;
+    padding-top: 150px;
+    padding-left: 30px;
+}
+
+h1{
+    padding-left: 340px;
+    padding-bottom: 20px;
+    
+}
+
+main{
+    padding-right: 400px;
+}
+
+div.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+
+}
+
+select.ng-touched.ng-invalid{
+    border-radius: .3rem;
+    border-color: #dc3545;
+}
+
+input.ng-touched.ng-invalid{
+    border-radius: .3rem;
+    border-color: #dc3545;
+}

@@ -46,6 +46,7 @@ export class AgregarInmuebleComponent implements OnInit {
   onSubmit(){
     this.apiIn.addInmueble(this.addForm.value)
     .subscribe(data =>{
+      this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
       this.router.navigate(['listar-contenido']);
     });
   }

@@ -8,19 +8,23 @@
       <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
           <label>Identificador del inmueble</label>
           <input formControlName="nombreInmueble" type="text"  class="form-control" required/> 
+          <div *ngIf="editForm.controls['nombreInmueble'].invalid && editForm.controls['nombreInmueble'].touched" class="validation-error">Este campo es requerido</div>
           <hr>
           <label>Precio</label>
           <input formControlName="precio" type="text" class="form-control"  required/>
+          <div *ngIf="editForm.controls['precio'].invalid && editForm.controls['precio'].touched" class="validation-error">Este campo es requerido</div>
           <hr> 
           <label>Proyecto </label>
           <select formControlName="proyectoID" class="form-control" required>
               <option *ngFor="let d of data" [ngValue]="d.proyectoID" >{{d.nombreProyecto}}</option>
-            </select>
+          </select>
+          <div *ngIf="editForm.controls['proyectoID'].invalid && editForm.controls['proyectoID'].touched" class="validation-error">Este campo es requerido</div>
           <hr> 
           <label>Descripcion</label>
           <input formControlName="descripcionInmueble" class="form-control" type="text"  required/>
+          <div *ngIf="editForm.controls['descripcionInmueble'].invalid && editForm.controls['descripcionInmueble'].touched" class="validation-error">Este campo es requerido</div>
           <hr>
-          <button type="submit" class="btn btn-success">Save</button>
+          <button type="submit" [disabled]="editForm.invalid" class="btn btn-success">Save</button>
       </form>
     </main>
   </div>

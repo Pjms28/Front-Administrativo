@@ -57,10 +57,10 @@ export class EditarInmuebleComponent implements OnInit {
 
   
   onSubmit(){
-    //console.log(this.editForm.value);
     this.apiIn.updateInmueble(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
+      this.toastr.info('Inmueble ha sido editado','Inmueble.Info');
       this.router.navigate(['listar-contenido']);
     });
   }
