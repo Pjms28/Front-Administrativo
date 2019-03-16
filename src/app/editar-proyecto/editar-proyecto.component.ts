@@ -42,7 +42,7 @@ export class EditarProyectoComponent implements OnInit {
       imgURL:['']
     });
     
-
+    
    this.apiService.getProject(Number(userID))
     .subscribe(res => {
       this.id = res.ubicacionID;
@@ -72,7 +72,9 @@ export class EditarProyectoComponent implements OnInit {
 
   
   onSubmit(){
-
+    console.log(this.editForm.value);
+    return;
+    
     this.apiService.updateProject(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
