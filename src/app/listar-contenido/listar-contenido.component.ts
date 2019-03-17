@@ -4,14 +4,27 @@ import { CaracteristicaService } from '../shared/caracteristica.service';
 import { InmuebleService } from '../shared/inmueble.service';
 import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router";
+import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap'; 
+import { ProyectoComponent } from '../proyecto/proyecto.component';
+import { CaracteristicaModel } from '../shared/caracteristicas.model';
+import { InmuebleModel } from '../shared/inmueble.model';
 
 @Component({
   selector: 'app-listar-contenido',
   templateUrl: './listar-contenido.component.html',
-  styleUrls: ['./listar-contenido.component.css']
+  styleUrls: ['./listar-contenido.component.css'],
+  providers: [NgbPaginationConfig]
 })
-export class ListarContenidoComponent implements OnInit {
 
+
+export class ListarContenidoComponent implements OnInit {
+  ProyectosList: ProyectoComponent[] ;
+  InmuebleList: InmuebleModel[];
+  CaracteristicasList: CaracteristicaModel[]; 
+  totalItems: number;
+  page: number;
+  previousPage: number;
+  showPagination: boolean;
   data: any = [];
   form : any;
   constructor(private router: Router, private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
