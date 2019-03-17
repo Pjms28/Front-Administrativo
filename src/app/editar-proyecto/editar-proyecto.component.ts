@@ -14,17 +14,16 @@ import {first} from "rxjs/operators";
   styleUrls: ['./editar-proyecto.component.css']
 })
 export class EditarProyectoComponent implements OnInit {
-  data: UbicacionModel[] =[];
-  proyecto: ProyectoComponent;
-  editForm : FormGroup;
-  id: number;
+  
+  data : UbicacionModel[] = [];
+  inmueble : ProyectoComponent;
+  editForm: FormGroup;
 
  
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
     , private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
       alert("Accion Invalida")
@@ -33,53 +32,48 @@ export class EditarProyectoComponent implements OnInit {
     }
 
     this.editForm = this.formBuilder.group({
-      
       proyectoID:[''],
       nombreProyecto:[''],
       fechaTerminacion:[''],
-      ubicacionID:[''],
-      direccion:[''],
-      imgURL:['']
+      ubicacionID: [''],
+      imgURL:[''],
+      direccion: ['']
     });
     
-
-   this.apiService.getProject(Number(userID))
+    this.apiService.getProject(Number(userID))
     .subscribe(res => {
-      this.id = res.ubicacionID;
-     this.editForm.patchValue(res);
-      
+      console.log(res)
+      this.editForm.patchValue(res);
     });
-
     
-
-     this.ubicacionService.getLocantions()
+    return this.ubicacionService.getLocantions()
       .subscribe(res => {
       this.data = res;
-      //console.log(this.data);
+      console.log(this.data);
     
     }, err => {
       console.log(err);
      
     });
-    console.log('*()*(*)',this.data);
+
     
 
-  }
-
-  get f(){
-    return this.editForm.controls;
-  }
-
+  }  
   
   onSubmit(){
-
+<<<<<<< HEAD
+    console.log(this.editForm.value);
+    return;
+    
+=======
+>>>>>>> e7cb0df43c53c4395db77d8d28f93eab5e4519e0
     this.apiService.updateProject(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
+      this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
       this.router.navigate(['listar-contenido']);
     });
   }
-
 
 
  

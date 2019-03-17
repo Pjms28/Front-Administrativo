@@ -7,7 +7,7 @@
     <hr>
     <main class="row">
       <form class="col-6"> 
-        <label>Seleccione el tipo de contenido que desea editar</label>
+        <label>Seleccione el tipo de contenido que desea listar</label>
         <select (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
             <option value="" selected="selected"></option>
             <option value="Proyectos">Proyectos</option>
@@ -21,60 +21,70 @@
       <div class="tabla">
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
       <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Editar/Eliminar</th>
-           
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Proyecto 1 </td>
-            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
-            <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+        <div *ngIf="value == 'Proyectos'">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Proyecto</th>
+              <th scope="col">Fecha de terminacion</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Editar/Eliminar</th>
             
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Proyecto 2</td>
-            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Proyecto 3</td>
-            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Proyecto 4</td>
-            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Proyecto 5</td>
-            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Proyecto 6</td>
-            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td>Proyecto 7</td>
-            <td><button type="button" class="btn btn-secondary btn-sm ">Editar</button>
-              <button type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
-          </tr>
-        </tbody>
-  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of data; let i = index">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{d.nombreProyecto}}</td>
+              <td>{{d.fechaTerminacion}}</td>
+              <td>{{d.direccion}}</td>
+              <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm ">Editar</button>
+              <button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+            </tr>
+          </tbody>
+        </div>
+        <div *ngIf="value == 'Inmuebles'">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Inmueble</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Editar/Eliminar</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let d of data; let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{d.nombreInmueble}}</td>
+                <td>{{d.precio}}</td>
+                <td>{{d.descripcionInmueble}}</td>
+                <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm ">Editar</button>
+                <button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </div>
+          <div *ngIf="value == 'Caracteristicas'">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Caracteristicas</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Editar/Eliminar</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of data; let i = index">
+                  <th scope="row">{{i + 1}}</th>
+                  <td>{{d.carNombre}}</td>
+                  <td>{{d.carDescripcion}}</td>
+                  <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm ">Editar</button>
+                  <button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar ">Eliminar</button></td>
+                </tr>
+              </tbody>
+            </div>
       </table>
       </div>
     </div>

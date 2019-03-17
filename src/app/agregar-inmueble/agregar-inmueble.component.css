@@ -13,3 +13,21 @@ h1{
 main{
     padding-right: 400px;
 }
+
+div.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+
+}
+
+select.ng-touched.ng-invalid{
+    border-radius: .3rem;
+    border-color: #dc3545;
+}
+
+input.ng-touched.ng-invalid{
+    border-radius: .3rem;
+    border-color: #dc3545;
+}
