@@ -44,6 +44,12 @@ export class ApiService {
     ));
   }
 
+  sendFormData(formData: any){
+    var t = `${apiUrl}/${'SaveFile'}`;
+    this.http.post(t, formData).subscribe((val) => {
+    });
+  }
+
   refreshList(){
     this.http.get(apiUrl)
     .toPromise().then(res => this.list = res as ProyectoComponent[]);
