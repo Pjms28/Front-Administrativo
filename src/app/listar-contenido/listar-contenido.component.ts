@@ -80,6 +80,7 @@ export class ListarContenidoComponent implements OnInit {
         if(confirm('¿Esta seguro que desea eliminar este proyecto?, tambien se borraran los inmuebles y caracteristicas existentes asignados a este proyecto.')){
           return this.api.deleteProject(d.proyectoID).
           subscribe(res=>{
+            this.toastr.warning('Proyecto eliminado exitosamente','Proyecto.Eliminado');
             this.loadList();
             this.toastr.warning('Proyecto creado exitosamente','Proyecto.Registro');
           });

@@ -16,7 +16,6 @@ export class AppComponent {
 
   ngOnInit() {
     $('#dismiss').on('click', function () {
-      // hide sidebar
       $('#sidebar').toggleClass('active');
   });
 

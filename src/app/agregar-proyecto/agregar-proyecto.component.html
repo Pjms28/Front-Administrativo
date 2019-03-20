@@ -25,7 +25,7 @@
         <div *ngIf="addForm.controls['direccion'].invalid && addForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
         <hr>
         <label>Imagen del proyecto</label>
-        <input formControlName="imgURL" type = "file"   accept="imagen" required>
+        <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file"   accept="imagen" required>
         <hr>
         <button type="submit" [disabled]="addForm.invalid" class="btn btn-success">Save</button>
     </form>

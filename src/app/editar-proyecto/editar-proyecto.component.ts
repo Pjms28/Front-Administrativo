@@ -18,6 +18,7 @@ export class EditarProyectoComponent implements OnInit {
   data : UbicacionModel[] = [];
   inmueble : ProyectoComponent;
   editForm: FormGroup;
+  fileTo: any;
 
  
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
@@ -66,10 +67,16 @@ export class EditarProyectoComponent implements OnInit {
     .subscribe(data =>{
       this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
       this.router.navigate(['listar-contenido']);
+      let formData = new FormData(); 
+      formData.append(this.fileTo.name, this.fileTo);
+      formData.append('fileName',this.fileTo.name);
+      this.apiService.sendFormData(formData);
     });
   }
 
 
- 
+  saveFileRequest(files : FileList){
+    this.fileTo = files.item(0);
+  }
 
 }
