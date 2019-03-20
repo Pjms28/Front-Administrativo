@@ -10,6 +10,8 @@ import { ListarContenidoComponent } from './listar-contenido/listar-contenido.co
 import { ProyectoComponent } from './proyecto/proyecto.component';
 import { EditarProyectoComponent } from './editar-proyecto/editar-proyecto.component';
 import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { MenuComponent } from "./components/menu/menu.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +36,8 @@ import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-ca
     ProyectoComponent,
     EditarProyectoComponent,
     DetalleProyectoComponent,
+    NavbarComponent,
+    MenuComponent,
     AgregarInmuebleComponent,
     EditarInmuebleComponent,
     AgregarCaracteristicaComponent,
