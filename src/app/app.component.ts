@@ -15,10 +15,16 @@ export class AppComponent {
 
 
   ngOnInit() {
+    $('#dismiss').on('click', function () {
+      // hide sidebar
+      $('#sidebar').toggleClass('active');
+  });
+
     $('#sidebarCollapse').on('click', function () {
       $('#sidebar').toggleClass('active');
 
   });
+
   $('#sidebarCollapse').on('click', function () {
     $('.collapse.in').toggleClass('in');
 
@@ -29,12 +35,9 @@ $('#sidebarCollapse').on('click', function () {
 
 });
 
-
-
-  
-  /*   $("#sidebar").mCustomScrollbar({
+  $("#sidebar").mCustomScrollbar({
         theme: "minimal"
-    }); */
+    }); 
   
   }
 }

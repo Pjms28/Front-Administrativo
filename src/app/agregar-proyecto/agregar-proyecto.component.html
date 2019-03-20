@@ -4,7 +4,7 @@
         <h1>Nuevo proyecto</h1>
     </header>
     <main class="row">
-      <img src='../../assets/proyecto-construcción.jpg' class ="col-6">
+      <img src='../../assets/proyecto-construcción.jpg' class ="col-6 d-none d-sm-none d-md-none d-lg-block">
       <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
         <label>Nombre del proyecto</label>
         <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
