@@ -4,23 +4,33 @@ import { CaracteristicaService } from '../shared/caracteristica.service';
 import { InmuebleService } from '../shared/inmueble.service';
 import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router";
+import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap'; 
+import { ProyectoComponent } from '../proyecto/proyecto.component';
+import { CaracteristicaModel } from '../shared/caracteristicas.model';
+import { InmuebleModel } from '../shared/inmueble.model';
 
 @Component({
   selector: 'app-listar-contenido',
   templateUrl: './listar-contenido.component.html',
-  styleUrls: ['./listar-contenido.component.css']
+  styleUrls: ['./listar-contenido.component.css'],
+  providers: [NgbPaginationConfig]
 })
-export class ListarContenidoComponent implements OnInit {
 
+
+export class ListarContenidoComponent implements OnInit {
+  totalItems: number;
+  page: number;
+  previousPage: number;
+  showPagination: boolean;
   data: any = [];
   form : any;
-  constructor(private router: Router, private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
+  constructor(private router: Router, private config: NgbPaginationConfig, private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
     private toastr: ToastrService) { }
-  value ="";
-  
+  value:string="";
+  p: number = 1;
   ngOnInit() {
     }
-    contador=0;
+
     Select(event:any){
       this.value = event.target.value;
       if(this.value=="Proyectos"){
@@ -72,6 +82,7 @@ export class ListarContenidoComponent implements OnInit {
           subscribe(res=>{
             this.toastr.warning('Proyecto eliminado exitosamente','Proyecto.Eliminado');
             this.loadList();
+            this.toastr.warning('Proyecto creado exitosamente','Proyecto.Registro');
           });
         }
       }
@@ -92,7 +103,7 @@ export class ListarContenidoComponent implements OnInit {
         if(confirm('¿Esta seguro que desea eliminar esta caracteristica?')){
           return this.caracteristicaApi.deleteCaracteristica(d.caracteristicaID).
           subscribe(res=>{
-            this.toastr.warning('Caracteristica eliminada exitosamente','Caracteristica.Eliminada');
+            this.toastr.warning('Caracteristica eliminado exitosamente','Caracteristica.Eliminada');
             return this.caracteristicaApi.getCaracteristicas().subscribe((res: {}) => {
               this.data = res;
             })
