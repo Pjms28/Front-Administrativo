@@ -62,12 +62,6 @@ export class EditarProyectoComponent implements OnInit {
   }  
   
   onSubmit(){
-<<<<<<< HEAD
-    console.log(this.editForm.value);
-    return;
-    
-=======
->>>>>>> e7cb0df43c53c4395db77d8d28f93eab5e4519e0
     this.apiService.updateProject(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{

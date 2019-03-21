@@ -33,9 +33,9 @@ export class AgregarInmuebleComponent implements OnInit {
       proyectoID: ['']
     });
 
-    this.carForm = this.formBuilder.group({
+    /*this.carForm = this.formBuilder.group({
       caracteristicaID:['']
-    })
+    })*/
 
     this.apiService.getProjects()
       .subscribe(res => {
@@ -49,13 +49,14 @@ export class AgregarInmuebleComponent implements OnInit {
     return this.apiCar.getCaracteristicas()
     .subscribe(res =>{
       this.caracteristicas = res;
+      //console.log(this.caracteristicas);
     })
  
   }
 
    
   onSubmit(){
-    console.log(this.carForm.value);
+    //console.log(this.carForm.value);
     this.apiIn.addInmueble(this.addForm.value)
     .subscribe(data =>{
       this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');

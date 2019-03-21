@@ -24,19 +24,8 @@
             <input formControlName="descripcionInmueble" class="form-control" type="text"  required/>
             <div *ngIf="addForm.controls['descripcionInmueble'].invalid && addForm.controls['descripcionInmueble'].touched" class="validation-error">Este campo es requerido</div>
             <hr>
-            <button type="submit" [disabled]="addForm.invalid && carForm.invalid" class="btn btn-success">Save</button>
+            <button type="submit" [disabled]="addForm.invalid" class="btn btn-success">Save</button>
         </form>
-        <form [formGroup]= "carForm" class="col-6" autocomplete="off" >
-          <label>
-            Caracteristicas
-          </label>
-          <div *ngFor="let c of caracteristicas">
-            <input type="checkbox" formControlName="caracteristicaID" class="from-control" value="c.caracteristicaID" required>
-            <label>{{c.carNombre}}</label>
-          </div>
-
-        </form>
-
       </main>
     </div>
   </div>
