@@ -1,9 +1,7 @@
 .container{
-    position: center;
-    max-height: 1500px;
-    max-width: 1000px;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    max-width: 70%;
+    padding-top: 5%;
+    padding-left: 5%;
 }
 
 
@@ -41,4 +39,12 @@ select.ng-touched.ng-invalid{
     color:#28a745;
     margin-left: 15px;
     line-height: 36px;
+}
+
+@media (max-width: 544px){
+    .container{
+        padding-top: 20%;
+        padding-left: 25%;
+
+    }
 }

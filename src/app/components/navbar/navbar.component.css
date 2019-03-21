@@ -23,7 +23,7 @@ a:focus {
 
 .navbar {
     padding: 15px 10px;
-    background: rgb(175, 74, 74);
+    background: #fff;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
@@ -187,43 +187,6 @@ a.article:hover {
 .servicios li a{
     font-size: 12px;
 }
-
-.overlay {
-    display: none;
-    position: fixed;
-    /* full screen */
-    width: 100vw;
-    height: 100vh;
-    /* transparent black */
-    background: rgba(0, 0, 0, 0.7);
-    /* middle layer, i.e. appears below the sidebar */
-    z-index: 998;
-    opacity: 0;
-    /* animate the transition */
-    transition: all 0.5s ease-in-out;
-}
-
-
-.overlay.active {
-    display: block;
-    opacity: 1;
-}
-
-#dismiss {
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    /* top right corner of the sidebar */
-    top: 10px;
-    right: 10px;
-    background: #2273eede;
-    border-style: none;
-}
-
-#dismiss:hover{
-    background: #fff;
-}
-
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -269,6 +232,29 @@ a.article:hover {
     }
 }
 
+#drop {
+    display: none;
+  }
+@media screen and (max-width: 1210px) {
+    #list {
+      display: none;
+    }
+    #drop {
+        display: flex;
+      }
+      #sidebarCollapse {
+        display: none;
+      }
+  }
+
+
+
+  @media screen and (max-width: 813px) {
+   
+    #sidebarCollapse {
+        display: flex;
+      }
+  }
 
 
 

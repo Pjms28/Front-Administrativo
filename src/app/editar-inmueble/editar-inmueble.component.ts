@@ -45,9 +45,7 @@ export class EditarInmuebleComponent implements OnInit {
 
     return this.apiService.getProjects()
       .subscribe(res => {
-      this.data = res;
-      console.log(this.data);
-    
+      this.data = res;    
     }, err => {
       console.log(err);
      

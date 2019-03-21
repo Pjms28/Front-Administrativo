@@ -31,8 +31,7 @@ export class CaracteristicaService {
   getCaracteristicas (): Observable<CaracteristicaModel[]> {
     return this.http.get<CaracteristicaModel[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('Caracteristicas recuperadas')),
-        catchError(this.handleError('getCaracteristicas', []))
+        tap(heroes =>catchError(this.handleError('getCaracteristicas', [])))
       );
   }
 

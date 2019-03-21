@@ -43,15 +43,12 @@ export class EditarProyectoComponent implements OnInit {
     
     this.apiService.getProject(Number(userID))
     .subscribe(res => {
-      console.log(res)
       this.editForm.patchValue(res);
     });
     
     return this.ubicacionService.getLocantions()
       .subscribe(res => {
       this.data = res;
-      console.log(this.data);
-    
     }, err => {
       console.log(err);
      

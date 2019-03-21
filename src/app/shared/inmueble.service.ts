@@ -31,8 +31,7 @@ export class InmuebleService {
   getInmuebles (): Observable<InmuebleModel[]> {
     return this.http.get<InmuebleModel[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('Inmuebles recuperadas')),
-        catchError(this.handleError('getInmueble', []))
+        tap(heroes => catchError(this.handleError('getInmueble', [])))
       );
   }
 

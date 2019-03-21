@@ -30,8 +30,7 @@ export class UbicacionService {
   getLocantions (): Observable<UbicacionModel[]> {
     return this.http.get<UbicacionModel[]>(apiUrl)
       .pipe(
-        tap(heroes => console.log('Ubicaciones recuperadas')),
-        catchError(this.handleError('getLocations', []))
+        tap(heroes => catchError(this.handleError('getLocations', [])))
       );
   }
 }

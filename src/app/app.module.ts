@@ -10,6 +10,8 @@ import { ListarContenidoComponent } from './listar-contenido/listar-contenido.co
 import { ProyectoComponent } from './proyecto/proyecto.component';
 import { EditarProyectoComponent } from './editar-proyecto/editar-proyecto.component';
 import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { MenuComponent } from "./components/menu/menu.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +26,8 @@ import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.co
 import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
 import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
 import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
+import { AdministrarSolicitudesComponent } from './administrar-solicitudes/administrar-solicitudes.component';
+
 
 
 @NgModule({
@@ -34,10 +38,13 @@ import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-ca
     ProyectoComponent,
     EditarProyectoComponent,
     DetalleProyectoComponent,
+    NavbarComponent,
+    MenuComponent,
     AgregarInmuebleComponent,
     EditarInmuebleComponent,
     AgregarCaracteristicaComponent,
-    EditarCaracteristicaComponent
+    EditarCaracteristicaComponent,
+    AdministrarSolicitudesComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,12 +54,14 @@ import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-ca
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: 'Agregar Proyecto', component: AgregarProyectoComponent},
       {path: 'Listar', component: ListarContenidoComponent},
       {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent},
       {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
+      {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
     ]),
     BrowserAnimationsModule,
     ToastrModule.forRoot()

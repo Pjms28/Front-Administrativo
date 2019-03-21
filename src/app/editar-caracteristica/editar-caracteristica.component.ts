@@ -42,8 +42,6 @@ export class EditarCaracteristicaComponent implements OnInit {
     return this.apiIn.getInmuebles()
       .subscribe(res => {
       this.data = res;
-      console.log(this.data);
-    
     }, err => {
       console.log(err);
      
@@ -51,7 +49,6 @@ export class EditarCaracteristicaComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.editForm.value);
     this.apiCar.updateCaracteristica(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
