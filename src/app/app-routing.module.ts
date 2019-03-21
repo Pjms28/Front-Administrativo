@@ -8,6 +8,7 @@ import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.co
 import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
 import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
 import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
+import { AdministrarSolicitudesComponent } from './administrar-solicitudes/administrar-solicitudes.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,10 @@ const routes: Routes = [
 {
   path: 'editar-caracteristica',
   component: EditarCaracteristicaComponent
+},
+{
+  path: 'administrar-solicitudes',
+  component: AdministrarSolicitudesComponent
 },
 {
   path:'',
