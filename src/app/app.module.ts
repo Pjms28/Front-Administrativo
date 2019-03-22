@@ -21,7 +21,7 @@ import { InmuebleService } from './shared/inmueble.service';
 import { CaracteristicaService } from './shared/caracteristica.service';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.component';
 import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
 import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';

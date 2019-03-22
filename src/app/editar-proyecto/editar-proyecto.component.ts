@@ -19,6 +19,7 @@ export class EditarProyectoComponent implements OnInit {
   inmueble : ProyectoComponent;
   editForm: FormGroup;
   fileTo: any;
+  img: any;
 
  
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
@@ -44,6 +45,7 @@ export class EditarProyectoComponent implements OnInit {
     this.apiService.getProject(Number(userID))
     .subscribe(res => {
       this.editForm.patchValue(res);
+      
     });
     
     return this.ubicacionService.getLocantions()
@@ -59,6 +61,7 @@ export class EditarProyectoComponent implements OnInit {
   }  
   
   onSubmit(){
+    console.log(this.editForm.value);
     this.apiService.updateProject(this.editForm.value)
     .pipe(first())
     .subscribe(data =>{
