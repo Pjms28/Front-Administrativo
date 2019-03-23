@@ -15,7 +15,7 @@ const apiUrl = "http://localhost:61756/api/proyectos";
 })
 export class ApiService {
 
-  formData : ProyectoComponent;
+  
   list: ProyectoComponent [];
   constructor(private http: HttpClient) { }
 

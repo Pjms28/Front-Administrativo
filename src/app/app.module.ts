@@ -27,6 +27,9 @@ import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.compo
 import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
 import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
 import { AdministrarSolicitudesComponent } from './administrar-solicitudes/administrar-solicitudes.component';
+import { AgmCoreModule } from '@agm/core';
+import { SolicitudService } from './shared/solicitud.service';
+import { ServicioService } from './shared/servicio.service';
 
 
 
@@ -64,9 +67,12 @@ import { AdministrarSolicitudesComponent } from './administrar-solicitudes/admin
       {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
     ]),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_KEY'
+    })
   ],
-  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService],
+  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

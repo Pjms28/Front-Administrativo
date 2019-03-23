@@ -15,7 +15,6 @@ import { filter } from 'rxjs/operators';
 export class AgregarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
   addForm : FormGroup ;
-  proyecto : ProyectoComponent
   fileTo: any;
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService

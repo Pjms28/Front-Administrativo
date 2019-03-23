@@ -1,0 +1,53 @@
+import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { catchError, tap, map } from 'rxjs/operators';
+import { SolicitudModel } from './Solicitud.model';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
+const apiUrl = "http://localhost:61756/api/Solicitud";
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SolicitudService {
+
+  constructor(private http: HttpClient) { }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+  
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+  
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  getRequests (): Observable<SolicitudModel[]> {
+    return this.http.get<SolicitudModel[]>(apiUrl)
+      .pipe(
+        tap(heroes => catchError(this.handleError('getRequests', []))
+      ));
+  }
+  
+  getRequest(id: number): Observable<SolicitudModel> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.get<SolicitudModel>(url).pipe(
+      tap(_ => catchError(this.handleError<SolicitudModel>(`getRequest id=${id}`))
+    ));
+  }
+
+  deleteRequest (id: number): Observable<{}> {
+    const url = `${apiUrl}/${id}`; // DELETE api/heroes/42
+    return this.http.delete(url, httpOptions)
+    .pipe(
+    catchError(this.handleError('deleteRequest'))
+    );
+    }
+}
