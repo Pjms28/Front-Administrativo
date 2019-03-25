@@ -1,56 +1,52 @@
-<div id="content">
- 
-  <nav class="nav flex-sm-row shadow-sm p-3 mb-5 bg-white rounded" id="list">
-    
-    <div class="col">
-
-    </div>
-    
-    <div class="col ">
-      
-      <ul class="list-group list-group-horizontal" >
-        
-      <button type="button" id="blog" class="btn btn-info ">
-      
-        <span> Blog</span>
-      </button>
-    
-      &nbsp;
-    
-      <button type="button" id="foro"  class="btn btn-info ">
-        
-        <span> Foro</span>
-      </button>
-    
-      <button type="button" id="user" class="btn btn-default ">
-          <i class="fas fa-user"></i>
-          <span> Carlos Martinez</span>
-        </button>
-      
-      </ul>
-
-     
-    </div>
+<!-- <div id="content">
   
- 
-</nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
 
-<nav class="nav nav-pills nav-fill shadow-sm p-3 mb-5 bg-white rounded" id="drop">
- 
-    <a class="nav-item nav-link" ></a>
-    <a class="nav-item nav-link" ></a>
-    <div class="dropdown" >
-        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-cog"></i> Administrar
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" id="sidebarCollapse" href="#">Administrar</a>
-          <a class="dropdown-item" >Blog</a>
-          <a class="dropdown-item" >Foro</a>
-          <a class="dropdown-item" href="#">  <i class="fas fa-user"></i> Carlos Martinez</a>
-        </div>
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+              <i class="fas fa-align-left"></i>
+              <span class="d-none">Administrar</span>
+          </button>
+          
+              <ul class="nav navbar-nav ml-auto">
+                  <li>
+                          <button type="button" class="btn btn-info d-none d-lg-block" id="blog">
+                                  <p>Blog</p>
+              
+                              </button>
+                  </li>
+                  <li>
+                      <button type="button" class="btn btn-info d-none d-lg-block" id="foro">
+                                      <p>Foro</p>
+                  
+                                  </button>
+                  </li>
+                  <li class="nav-item active">
+                      <i class="fas fa-user"></i>
+                  </li>
+                  <li class="nav-item usuario">
+                      <a class="nav-link d-none d-lg-block" href="#">Carlos Martinez</a>
+                  </li>
+              </ul>
+              <ngb-accordion class="d-inline-block d-lg-none ml-auto" id="acordion"  #acc="ngbAccordion" >
+                      <ngb-panel title="Servicios" >
+                          <ng-template ngbPanelContent >
+                              <li>
+                                      <button type="button" class="boton" >
+                                              <p>Blog</p>
+                                          </button>
+                              </li>
+                              <li>
+                                      <button type="button" class="boton" >
+                                              <p>Foro</p>
+                                          </button>
+                              </li>
+                          </ng-template>
+                      </ngb-panel>
+                  </ngb-accordion>
       </div>
   </nav>
 
   
-</div>
+
+</div>  -->
