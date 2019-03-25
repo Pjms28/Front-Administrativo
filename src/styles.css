@@ -10,17 +10,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 }
 
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #7386D5;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-}
-
 #sidebar .btn{
     color: #fff;
     width: 100%;
