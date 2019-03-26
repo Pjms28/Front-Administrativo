@@ -1,21 +1,38 @@
-<div class="container">
-    <div class="col">
-      <header>
-          <h1>Agregar Caracteristicas</h1>
-      </header>
-      <main class="row">
-        <img src='' class ="col-6">
-        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
-            <label>Caracteristica</label>
-            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" required/> 
-            <div *ngIf="addForm.controls['carNombre'].invalid && addForm.controls['carNombre'].touched" class="validation-error">Este campo es requerido</div>
-            <hr>
-            <label>Descripcion</label>
-            <input formControlName="carDescripcion" type="text" class="form-control"  required/>
-            <div *ngIf="addForm.controls['carDescripcion'].invalid && addForm.controls['carDescripcion'].touched" class="validation-error">Este campo es requerido</div>
-            <hr>
-            <button type="submit" [disabled]="addForm.invalid" class="btn btn-success">Save</button>
-        </form>
-      </main>
-    </div>
-  </div>
+<body>
+  <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-caracteristica flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                   <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-center">Agregar Caracteristicas</h5>
+                  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-caracteristica" autocomplete="off">
+  
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Caracteristica</label>
+                            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" required/> 
+                            <div *ngIf="addForm.controls['carNombre'].invalid && addForm.controls['carNombre'].touched" class="validation-error">Este campo es requerido</div>
+                          </div>
+                      </div>
+
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Descripcion</label>
+                            <input formControlName="carDescripcion" type="text" class="form-control"  required/>
+                            <div *ngIf="addForm.controls['carDescripcion'].invalid && addForm.controls['carDescripcion'].touched" class="validation-error">Este campo es requerido</div>
+                          </div>
+                      </div>
+
+                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Save</button>
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>
+
