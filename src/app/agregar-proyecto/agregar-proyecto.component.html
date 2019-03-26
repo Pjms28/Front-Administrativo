@@ -1,34 +1,65 @@
-<div class="container">
-  <div class="col">
-    <header>
-        <h1>Nuevo proyecto</h1>
-    </header>
-    <main class="row">
-      <img src='../../assets/proyecto-construcción.jpg' class ="col-6 d-none d-sm-none d-md-none d-lg-block">
-      <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
-        <label>Nombre del proyecto</label>
-        <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
-        <div *ngIf="addForm.controls['nombreProyecto'].invalid && addForm.controls['nombreProyecto'].touched" class="validation-error">Este campo es requerido</div>
-        <hr>
-        <label>Fecha de terminacion</label>
-        <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
-        <div *ngIf="addForm.controls['fechaTerminacion'].invalid && addForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
-        <hr> 
-        <label>Ubicacion</label>
-        <select formControlName="ubicacionID" class="form-control" required>
-            <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
-        </select>
-        <div *ngIf="addForm.controls['ubicacionID'].invalid && addForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
-        <hr> 
-        <label>Direccion</label>
-        <input formControlName="direccion" class="form-control" type="text"  required/>
-        <div *ngIf="addForm.controls['direccion'].invalid && addForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
-        <hr>
-        <label>Imagen del proyecto</label>
-        <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file"   accept="imagen" required>
-        <hr>
-        <button type="submit" [disabled]="addForm.invalid" class="btn btn-success">Save</button>
-    </form>
-    </main>
-  </div>
-</div>
+<body>
+    <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-proyecto flex-row my-5">
+                  <div class="card-img-left d-none d-md-flex">
+                     <!-- Background image for card set in CSS! -->
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Nuevo proyecto</h5>
+                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-proyecto" autocomplete="off">
+    
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre del proyecto</label>
+                                <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
+                                <div *ngIf="addForm.controls['nombreProyecto'].invalid && addForm.controls['nombreProyecto'].touched" class="validation-error">Este campo es requerido</div>
+                            </div>
+                        </div>
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha de terminacion</label>
+                                <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
+                                <div *ngIf="addForm.controls['fechaTerminacion'].invalid && addForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
+                            </div>
+                        </div>
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Ubicacion</label>
+                                <select formControlName="ubicacionID" class="form-control" required>
+                                    <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
+                                </select>
+                                <div *ngIf="addForm.controls['ubicacionID'].invalid && addForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
+                            </div>
+                        </div>
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Direccion</label>
+                                <input formControlName="direccion" class="form-control" type="text"  required/>
+                                <div *ngIf="addForm.controls['direccion'].invalid && addForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Imagen del proyecto</label>
+                                <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file" class="imagen"  accept="imagen" required>
+                            </div>
+                        </div>
+    
+                  
+                          
+                        <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Save</button>
+                    
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+
