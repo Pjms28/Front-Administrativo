@@ -1,4 +1,7 @@
-
+body{ 
+  padding-left: 400px;
+  padding-top: 100px;
+}
 
 
 label{
@@ -53,16 +56,15 @@ select.ng-touched.ng-invalid{
   }
   
   .card-proyecto .card-img-left {
-    width: 50%;
+    width: 100%;
     /* Link to your background image using in the property below! */
     background: scroll center url('https://realestatemarket.com.mx/images/2018/05-Mayo/1005/1005g-ventajas-de-los-edificios-inteligentes.jpg');
     background-size: cover;
   }
   
   .card-proyecto .card-body {
-    padding: 2rem;
-    width:500px ;
-    height:650px ;
+    width: 1000px; 
+    height:650px;
   }
   
   .form-proyecto {

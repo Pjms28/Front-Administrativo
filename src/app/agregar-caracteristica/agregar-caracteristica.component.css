@@ -1,3 +1,7 @@
+body{ 
+  padding-left: 400px;
+  padding-top: 100px;
+}
 
 h1{
     padding-left: 340px;
@@ -44,16 +48,15 @@ input.ng-touched.ng-invalid{
   }
   
   .card-caracteristica .card-img-left {
-    width: 50%;
+    width: 100%;
     /* Link to your background image using in the property below! */
     background: scroll center url('http://www.noticierosgrem.com.mx/wp-content/uploads/2018/11/CONSTRUCCION.jpg');
     background-size: cover;
   }
   
   .card-caracteristica .card-body {
-    padding: 2rem;
-    width:500px ;
-    height:450px ;
+    width: 1000px; 
+    height:450px;
   }
   
   .form-caracteristica {
