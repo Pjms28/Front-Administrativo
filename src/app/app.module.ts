@@ -30,6 +30,7 @@ import { AdministrarSolicitudesComponent } from './administrar-solicitudes/admin
 import { AgmCoreModule } from '@agm/core';
 import { SolicitudService } from './shared/solicitud.service';
 import { ServicioService } from './shared/servicio.service';
+import { AgregarServicioComponent } from './agregar-servicio/agregar-servicio.component';
 
 
 
@@ -44,10 +45,12 @@ import { ServicioService } from './shared/servicio.service';
     NavbarComponent,
     MenuComponent,
     AgregarInmuebleComponent,
+    AgregarServicioComponent,
     EditarInmuebleComponent,
     AgregarCaracteristicaComponent,
     EditarCaracteristicaComponent,
     AdministrarSolicitudesComponent,
+    AgregarServicioComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,8 @@ import { ServicioService } from './shared/servicio.service';
       {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent},
       {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
       {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
+      {path: 'Agregar Servicio', component: AgregarServicioComponent}
+
     ]),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),

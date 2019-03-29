@@ -1,7 +1,7 @@
 .container{
     max-width: 70%;
-    padding-top: 5%;
-    padding-left: 25%;
+    padding-top: 10%;
+    padding-left: 40%;
 }
 
 label{
@@ -50,11 +50,4 @@ table button .eliminar{
     padding-left: 40px;
 } */
 
-.my-custom-scrollbar {
-    position: relative;
-    height: 200px;
-    overflow: auto;
-  }
-  .table-wrapper-scroll-y {
-    display: block;
-  }
+

@@ -1,17 +1,11 @@
-
-/* h1{
+h1{
     padding-left: 340px;
     padding-bottom: 20px;
     
-} */
-
-/* main{
-    padding-right: 400px;
-} */
+}
 
 body{
   padding-left: 400px;
-  margin: auto;
 }
 
 div.validation-error{
@@ -51,14 +45,14 @@ input.ng-touched.ng-invalid{
   .card-caracteristica .card-img-left {
     width: 100%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('http://www.noticierosgrem.com.mx/wp-content/uploads/2018/11/CONSTRUCCION.jpg');
+    background: scroll center url(C:\Users\AnaK\Desktop\Front-Administrativo\src\assets\servicios.png);
     background-size: cover;
   }
   
   .card-caracteristica .card-body {
     padding: 2rem;
     width:1000px ;
-    height:500px ;
+    height:450px ;
   }
   
   .form-caracteristica {
@@ -160,7 +154,7 @@ input.ng-touched.ng-invalid{
 
 }
 
-/* @media screen and (max-width:800px){
+@media screen and (max-width:800px){
     .card-inmueble .card-body {
         padding: 2rem;
         width:400px ;
@@ -182,5 +176,5 @@ input.ng-touched.ng-invalid{
 
       
     
-  } */
+  }
  

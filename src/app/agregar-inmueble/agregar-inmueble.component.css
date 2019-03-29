@@ -1,7 +1,10 @@
 .container{
     margin: auto;
-    padding-top: 150px;
-    padding-left: 30px;
+    /* padding-top: 400px; */
+}
+
+body{
+  padding-left: 400px;
 }
 
 h1{
@@ -13,6 +16,7 @@ h1{
 main{
     padding-right: 400px;
 }
+
 
 div.validation-error{
     width: 100%;
@@ -51,7 +55,7 @@ input.ng-touched.ng-invalid{
   }
   
   .card-inmueble .card-img-left {
-    width: 50%;
+    width: 100%;
     /* Link to your background image using in the property below! */
     background: scroll center url('https://www.grupoverona.pe/wp-content/uploads/2019/02/inmueble-Copiar.jpg');
     background-size: cover;
@@ -59,8 +63,8 @@ input.ng-touched.ng-invalid{
   
   .card-inmueble .card-body {
     padding: 2rem;
-    width:500px ;
-    height:550px ;
+    width:1300px ;
+    height:620px ;
   }
   
   .form-inmueble {
