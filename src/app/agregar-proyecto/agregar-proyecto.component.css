@@ -1,4 +1,7 @@
-
+body{ 
+  padding-left: 400px;
+  padding-top: 100px;
+}
 
 
 label{
@@ -64,9 +67,8 @@ select.ng-touched.ng-invalid{
   }
   
   .card-proyecto .card-body {
-    padding: 2rem;
-    width:1000px ;
-    height:700px ;
+    width: 1000px; 
+    height:650px;
   }
   
   .form-proyecto {
