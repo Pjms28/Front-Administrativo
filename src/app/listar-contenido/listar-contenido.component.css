@@ -1,7 +1,6 @@
-.container{
-    max-width: 70%;
-    padding-top: 10%;
-    padding-left: 40%;
+body{
+    padding-left: 400px;
+    padding-top: 100px;
 }
 
 label{
@@ -43,11 +42,8 @@ table button{
 table button .eliminar{
     width: auto;
 
-}
+}  
 
-/* main{
-    padding-top: 10px;
-    padding-left: 40px;
-} */
+
 
 

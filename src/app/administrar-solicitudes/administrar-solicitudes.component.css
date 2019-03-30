@@ -1,11 +1,45 @@
-.container{
-    position: center;
-    max-height: 1500px;
-    max-width: 1000px;
+body{
+    padding-left: 400px;
     padding-top: 100px;
-    padding-bottom: 50px;
 }
 
-h1{
-    padding-top: 20px;
+label{
+    font-size: 15px;
 }
+
+input{
+    border-radius: .3rem;
+}
+
+
+h1{
+    padding-top: 50px;
+    text-align: center; 
+}
+
+img{
+    width: 270px;
+    height: 270px;
+}
+
+table{
+    width: 500px;
+    padding-top: 50px;
+
+}
+
+.tabla{
+    padding-top: 40px;
+
+    
+}
+
+table button{
+    width: auto;
+
+}
+
+table button .eliminar{
+    width: auto;
+
+}  

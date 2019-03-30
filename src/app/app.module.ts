@@ -31,6 +31,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SolicitudService } from './shared/solicitud.service';
 import { ServicioService } from './shared/servicio.service';
 import { AgregarServicioComponent } from './agregar-servicio/agregar-servicio.component';
+import { DescripcionSolicitudComponent } from './descripcion-solicitud/descripcion-solicitud.component';
 
 
 
@@ -51,6 +52,7 @@ import { AgregarServicioComponent } from './agregar-servicio/agregar-servicio.co
     EditarCaracteristicaComponent,
     AdministrarSolicitudesComponent,
     AgregarServicioComponent,
+    DescripcionSolicitudComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,8 @@ import { AgregarServicioComponent } from './agregar-servicio/agregar-servicio.co
       {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent},
       {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
       {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
-      {path: 'Agregar Servicio', component: AgregarServicioComponent}
+      {path: 'Agregar Servicio', component: AgregarServicioComponent},
+      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent}
 
     ]),
     BrowserAnimationsModule,
