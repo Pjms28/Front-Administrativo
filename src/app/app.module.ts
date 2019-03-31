@@ -30,7 +30,14 @@ import { AdministrarSolicitudesComponent } from './administrar-solicitudes/admin
 import { AgmCoreModule } from '@agm/core';
 import { SolicitudService } from './shared/solicitud.service';
 import { ServicioService } from './shared/servicio.service';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import 'flatpickr/dist/flatpickr.css';
+import { AgendarVisitaComponent } from './agendar-visita/agendar-visita.component';
+import { VisitaModel } from './shared/visita.model';
+import { VisitaService } from './shared/visita.service';
+import { AgregarVisitaComponent } from './agregar-visita/agregar-visita.component';
 
 
 @NgModule({
@@ -48,16 +55,23 @@ import { ServicioService } from './shared/servicio.service';
     AgregarCaracteristicaComponent,
     EditarCaracteristicaComponent,
     AdministrarSolicitudesComponent,
+    AgendarVisitaComponent,
+    AgregarVisitaComponent,
   ],
   imports: [
     BrowserModule,
     NgxPaginationModule,
+    FlatpickrModule.forRoot(),
     CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: 'Agregar Proyecto', component: AgregarProyectoComponent},
@@ -72,7 +86,7 @@ import { ServicioService } from './shared/servicio.service';
       apiKey: 'YOUR_KEY'
     })
   ],
-  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService],
+  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

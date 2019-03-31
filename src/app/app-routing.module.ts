@@ -9,6 +9,8 @@ import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.compo
 import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
 import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
 import { AdministrarSolicitudesComponent } from './administrar-solicitudes/administrar-solicitudes.component';
+import { AgendarVisitaComponent } from './agendar-visita/agendar-visita.component';
+import { AgregarVisitaComponent } from './agregar-visita/agregar-visita.component';
 
 
 const routes: Routes = [
@@ -52,6 +54,14 @@ const routes: Routes = [
 {
   path: 'administrar-solicitudes',
   component: AdministrarSolicitudesComponent
+},
+{
+  path: 'agendar-visita',
+  component: AgendarVisitaComponent
+},
+{
+  path: 'agregar-visita',
+  component: AgregarVisitaComponent
 },
 {
   path:'',
