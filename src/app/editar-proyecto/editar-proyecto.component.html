@@ -1,36 +1,66 @@
 <body>
-<div class="container">
-  <div class="col">
-    <header>
-        <h1>Editar proyecto</h1>
-    </header>
-    <main class="row">
-      <img src='../../assets/editor-de-videos.png' class ="col-6">
-      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="col-6" autocomplete="off">
-          <label>Nombre del proyecto</label>
-          <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
-          <div *ngIf="editForm.controls['nombreProyecto'].invalid && editForm.controls['nombreProyecto'].touched" class="validation-error">Este campo es requerido</div>
-          <hr>
-          <label>Fecha de terminacion</label>
-          <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
-          <div *ngIf="editForm.controls['fechaTerminacion'].invalid && editForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
-          <hr> 
-          <label>Ubicacion</label>
-          <select formControlName="ubicacionID" class="form-control" required>
-              <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
-          </select>
-          <div *ngIf="editForm.controls['ubicacionID'].invalid && editForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
-          <hr> 
-          <label>Direccion</label>
-          <input formControlName="direccion" class="form-control" type="text"  required/>
-          <div *ngIf="editForm.controls['direccion'].invalid && editForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
-          <hr>
-          <label>Imagen del proyecto</label>
-          <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file"   accept="imagen" required>
-          <hr>
-          <button type="submit" [disabled]="editForm.invalid" class="btn btn-success">Save</button>
-      </form>
-    </main>
-  </div>
-</div>
-</body>
+  <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-editar flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-center">Editar Proyecto</h5>
+                  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-editar" autocomplete="off">
+  
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Nombre del proyecto</label>
+                            <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
+                            <div *ngIf="editForm.controls['nombreProyecto'].invalid && editForm.controls['nombreProyecto'].touched" class="validation-error">Este campo es requerido</div>
+                       </div>
+                      </div>
+
+
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Fecha de terminacion</label>
+                            <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
+                            <div *ngIf="editForm.controls['fechaTerminacion'].invalid && editForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
+                          </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label>Ubicacion</label>
+                          <select formControlName="ubicacionID" class="form-control" required>
+                              <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
+                          </select>
+                          <div *ngIf="editForm.controls['ubicacionID'].invalid && editForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label>Direccion</label>
+                        <input formControlName="direccion" class="form-control" type="text"  required/>
+                        <div *ngIf="editForm.controls['direccion'].invalid && editForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
+                      </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Imagen del proyecto</label>
+                      <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file"   accept="imagen" required>
+                    </div>
+                </div>
+
+  
+                
+                        
+                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>
+
