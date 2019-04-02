@@ -58,7 +58,7 @@ input.ng-touched.ng-invalid{
   .card-inmueble .card-img-left {
     width: 100%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://cdn.pixabay.com/photo/2018/11/22/23/57/london-3833039_1280.jpg');
+    background: scroll center url('/assets/london.jpg');
     background-size: cover;
   }
   

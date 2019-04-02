@@ -59,7 +59,7 @@ select.ng-touched.ng-invalid{
   .card-proyecto .card-img-left {
     width: 100%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://cdn.pixabay.com/photo/2015/07/02/10/08/architecture-828596_1280.jpg');
+    background: scroll center url('/assets/edificios.jpg');
     background-size: cover;
   }
   

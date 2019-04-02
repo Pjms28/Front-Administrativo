@@ -58,7 +58,7 @@ input.ng-touched.ng-invalid{
     object-fit: cover;
     width: 100%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://cdn.pixabay.com/photo/2015/03/26/09/48/chicago-690364_1280.jpg');
+    background: scroll center url('/assets/tools.jpg');
     background-size: cover;
   }
   
