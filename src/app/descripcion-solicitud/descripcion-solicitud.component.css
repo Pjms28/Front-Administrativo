@@ -1,81 +1,37 @@
-body{ 
-  padding-left: 400px;
-  padding-top: 100px;
-}
-
-
-label{
-    font-size: 15px;
-}
-
-input.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-h1{
-    padding-top: 50px;
-    padding-bottom: 20px;
-    text-align: center; 
-}
-
 body{
-  padding-left: 400px;
-}
+    padding-left: 400px;
+    margin: auto;
+  }
 
-div.validation-error{
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-
-}
-
-select.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-.upload{
-    font-weight:bold;
-    color:#28a745;
-    margin-left: 15px;
-    line-height: 36px;
-}
-
-/* Proyecto */
-
-.card-proyecto {
+.card-solicitud {
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
   
-  .card-proyecto .card-title {
+  .card-solicitud .card-title {
     margin-bottom: 25px;
     font-weight: 300;
     font-size: 30px;
+    padding-right: 140px;
     
   }
-  
-  .card-proyecto .card-img-left {
-    width: 100%;
-    /* Link to your background image using in the property below! */
-    background: scroll center url('https://realestatemarket.com.mx/images/2018/05-Mayo/1005/1005g-ventajas-de-los-edificios-inteligentes.jpg');
-    background-size: cover;
+
+
+
+  .card-solicitud .card-body {
+    width:1000px ;
+    height:500px ;
+    padding-left: 200px;
+    margin: auto;
   }
   
-  .card-proyecto .card-body {
-    width: 1000px; 
-    height:650px;
-  }
-  
-  .form-proyecto {
+  .form-solicitud {
     width: 100%;
   }
   
-  .form-proyecto .btn {
+  .form-solicitud .btn {
     font-size: 80%;
     border-radius: 5rem;
     letter-spacing: .1rem;
@@ -83,6 +39,11 @@ select.ng-touched.ng-invalid{
     padding: 1rem;
     transition: all 0.2s;
     top: 25px;
+    margin-left: 50px;
+  }
+  
+  .form-solicitud .btn .declinar{
+      padding-left: 100px;
   }
   
   .form-label-group {
@@ -169,39 +130,3 @@ select.ng-touched.ng-invalid{
     color: #dc3545;
 
 }
-
-@media screen and (max-width:800px){
-
-  body{
-    padding-left: 0px;
-    padding-top: 25px;
-  }
-    .card-inmueble .card-body {
-        padding: 2rem;
-        width:500px ;
-        height:600px ;
-      }
-
-      label{
-        position: relative;
-        left: -40px;
-        width: 200px;
-
-      }
-
-      .form-row .form-control{
-        position: relative;
-        width: 200px;
-        left: -40px;
-      }
-
-      .form-row .imagen{
-        position: relative;
-        width: 200px;
-        left: -40px;
-      }
-
-      
-    
-  }
- 

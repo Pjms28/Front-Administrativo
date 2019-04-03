@@ -1,22 +1,7 @@
-body{ 
-  padding-left: 400px;
-  padding-top: 100px;
-}
-
-
-label{
-    font-size: 15px;
-}
-
-input.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
 h1{
-    padding-top: 50px;
+    padding-left: 340px;
     padding-bottom: 20px;
-    text-align: center; 
+    
 }
 
 body{
@@ -36,46 +21,45 @@ select.ng-touched.ng-invalid{
     border-color: #dc3545;
 }
 
-.upload{
-    font-weight:bold;
-    color:#28a745;
-    margin-left: 15px;
-    line-height: 36px;
+input.ng-touched.ng-invalid{
+    border-radius: .3rem;
+    border-color: #dc3545;
 }
 
-/* Proyecto */
+/* Caracteristica */
 
-.card-proyecto {
+.card-caracteristica {
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
   
-  .card-proyecto .card-title {
+  .card-caracteristica .card-title {
     margin-bottom: 25px;
     font-weight: 300;
     font-size: 30px;
     
   }
   
-  .card-proyecto .card-img-left {
+  .card-caracteristica .card-img-left {
     width: 100%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://realestatemarket.com.mx/images/2018/05-Mayo/1005/1005g-ventajas-de-los-edificios-inteligentes.jpg');
+    /* background: scroll center url(C:\Users\AnaK\Desktop\Front-Administrativo\src\assets\servicios.png); */
     background-size: cover;
   }
   
-  .card-proyecto .card-body {
-    width: 1000px; 
-    height:650px;
+  .card-caracteristica .card-body {
+    padding: 2rem;
+    width:1000px ;
+    height:450px ;
   }
   
-  .form-proyecto {
+  .form-caracteristica {
     width: 100%;
   }
   
-  .form-proyecto .btn {
+  .form-caracteristica .btn {
     font-size: 80%;
     border-radius: 5rem;
     letter-spacing: .1rem;
@@ -171,14 +155,9 @@ select.ng-touched.ng-invalid{
 }
 
 @media screen and (max-width:800px){
-
-  body{
-    padding-left: 0px;
-    padding-top: 25px;
-  }
     .card-inmueble .card-body {
         padding: 2rem;
-        width:500px ;
+        width:400px ;
         height:600px ;
       }
 
@@ -190,12 +169,6 @@ select.ng-touched.ng-invalid{
       }
 
       .form-row .form-control{
-        position: relative;
-        width: 200px;
-        left: -40px;
-      }
-
-      .form-row .imagen{
         position: relative;
         width: 200px;
         left: -40px;

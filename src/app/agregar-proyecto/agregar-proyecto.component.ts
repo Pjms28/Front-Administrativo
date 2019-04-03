@@ -1,12 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ProyectoComponent } from '../proyecto/proyecto.component';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { UbicacionService } from '../shared/ubicacion.service';
-import {Router,ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 import { UbicacionModel } from '../shared/Ubicacion.model';
 import { ToastrService } from 'ngx-toastr';
-import { filter } from 'rxjs/operators';
+
 @Component({
   selector: 'app-agregar-proyecto',
   templateUrl: './agregar-proyecto.component.html',
@@ -18,7 +17,7 @@ export class AgregarProyectoComponent implements OnInit {
   fileTo: any;
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
-    , private toastr: ToastrService,public actRoute: ActivatedRoute) { }
+    , private toastr: ToastrService) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({

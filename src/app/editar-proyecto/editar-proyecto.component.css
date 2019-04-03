@@ -2,8 +2,13 @@
     position: center;
     max-height: 1500px;
     max-width: 1000px;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    /* padding-left: 600px;
+    padding-bottom: 50px; */
+}
+
+body{
+    padding-left:500px;
+
 }
 
 

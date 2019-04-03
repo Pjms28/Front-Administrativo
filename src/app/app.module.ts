@@ -38,6 +38,9 @@ import { AgendarVisitaComponent } from './agendar-visita/agendar-visita.componen
 import { VisitaModel } from './shared/visita.model';
 import { VisitaService } from './shared/visita.service';
 import { AgregarVisitaComponent } from './agregar-visita/agregar-visita.component';
+import { AgregarServicioComponent } from './agregar-servicio/agregar-servicio.component';
+import { DescripcionSolicitudComponent } from './descripcion-solicitud/descripcion-solicitud.component';
+
 
 
 @NgModule({
@@ -51,12 +54,15 @@ import { AgregarVisitaComponent } from './agregar-visita/agregar-visita.componen
     NavbarComponent,
     MenuComponent,
     AgregarInmuebleComponent,
+    AgregarServicioComponent,
     EditarInmuebleComponent,
     AgregarCaracteristicaComponent,
     EditarCaracteristicaComponent,
     AdministrarSolicitudesComponent,
     AgendarVisitaComponent,
     AgregarVisitaComponent,
+    AgregarServicioComponent,
+    DescripcionSolicitudComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +85,9 @@ import { AgregarVisitaComponent } from './agregar-visita/agregar-visita.componen
       {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent},
       {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
       {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
+      {path: 'Agregar Servicio', component: AgregarServicioComponent},
+      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent}
+
     ]),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),

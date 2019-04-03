@@ -1,0 +1,41 @@
+<body>
+    <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-solicitud flex-row my-5">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Descripcion de la Solicitud</h5>
+                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
+    
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha Inicio</label>
+                                <input formControlName="hora-inicio" type="time"  class="form-control" required/> 
+                            </div>
+                        </div>
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha Fin</label>
+                                <input formControlName="hora-fin" type="time" class="form-control"  required/>
+                            </div>
+                        </div>
+
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha</label>
+                                <input formControlName="fecha" class="form-control" type="date"  required/>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-success btn-sm aceptar" >Aceptar</button>
+                        <button class="btn btn-danger btn-sm declinar" >Declinar</button>
+                    
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>

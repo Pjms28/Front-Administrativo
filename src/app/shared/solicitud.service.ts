@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { SolicitudModel } from './Solicitud.model';
+import { ServicioSolicitudModel } from './ServicioSolicitud.model';
 
 
 const httpOptions = {
@@ -40,6 +41,20 @@ export class SolicitudService {
     const url = `${apiUrl}/${id}`;
     return this.http.get<SolicitudModel>(url).pipe(
       tap(_ => catchError(this.handleError<SolicitudModel>(`getRequest id=${id}`))
+    ));
+  }
+
+  getServSols(): Observable<ServicioSolicitudModel[]>{
+    const url = `${apiUrl}/${'ServicioSolicitud'}`;
+    return this.http.get<ServicioSolicitudModel[]>(url)
+    .pipe(tap(_ => catchError(this.handleError<ServicioSolicitudModel>(`getRequest`))
+    ));
+  }
+
+  getServSol(id: number): Observable<ServicioSolicitudModel>{
+    const url = `${apiUrl}/${'ServicioSolicitud/'+id}`;
+    return this.http.get<ServicioSolicitudModel>(url)
+    .pipe(tap(_ => catchError(this.handleError<ServicioSolicitudModel>(`getRequest`))
     ));
   }
 

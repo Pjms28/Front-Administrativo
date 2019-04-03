@@ -5,8 +5,11 @@ body{
 
 .container{
     margin: auto;
-    padding-top: 150px;
-    padding-left: 30px;
+    /* padding-top: 400px; */
+}
+
+body{
+  padding-left: 400px;
 }
 
 h1{
@@ -18,6 +21,7 @@ h1{
 main{
     padding-right: 400px;
 }
+
 
 div.validation-error{
     width: 100%;
@@ -63,8 +67,9 @@ input.ng-touched.ng-invalid{
   }
   
   .card-inmueble .card-body {
-    width: 1000px; 
-    height:550px;
+    padding: 2rem;
+    width:1300px ;
+    height:620px ;
   }
   
   .form-inmueble {

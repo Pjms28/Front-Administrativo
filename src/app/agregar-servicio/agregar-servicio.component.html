@@ -1,0 +1,46 @@
+<body>
+    <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-caracteristica flex-row my-5">
+                  <div class="card-img-left d-none d-md-flex">
+                     <!-- Background image for card set in CSS! -->
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Agregar Servicio</h5>
+                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-caracteristica" autocomplete="off">
+    
+                        <div class="form-row">
+                            <div class="form-group">
+                              <label>Nombre</label>
+                              <input id="carNombre" formControlName="nombreServicio" type="text"  class="form-control" required/> 
+                              <div *ngIf="addForm.controls['nombreServicio'].invalid && addForm.controls['nombreServicio'].touched" class="validation-error">Este campo es requerido</div>
+                            </div>
+                        </div>
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                              <label>Descripcion</label>
+                              <input formControlName="descripcionServicio" type="text" class="form-control"  required/>
+                              <div *ngIf="addForm.controls['descripcionServicio'].invalid && addForm.controls['descripcionServicio'].touched" class="validation-error">Este campo es requerido</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Imagen</label>
+                                <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file" class="imagen"  accept="imagen" required>
+                            </div>
+                        </div>
+  
+                        <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Guardar</button>
+                    
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+  
+  

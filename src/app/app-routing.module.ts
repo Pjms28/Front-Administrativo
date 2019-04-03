@@ -11,6 +11,8 @@ import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-ca
 import { AdministrarSolicitudesComponent } from './administrar-solicitudes/administrar-solicitudes.component';
 import { AgendarVisitaComponent } from './agendar-visita/agendar-visita.component';
 import { AgregarVisitaComponent } from './agregar-visita/agregar-visita.component';
+import { AgregarServicioComponent } from './agregar-servicio/agregar-servicio.component';
+import { DescripcionSolicitudComponent } from './descripcion-solicitud/descripcion-solicitud.component';
 
 
 const routes: Routes = [
@@ -62,6 +64,14 @@ const routes: Routes = [
 {
   path: 'agregar-visita',
   component: AgregarVisitaComponent
+},
+{
+  path: 'agregar-servicio',
+  component: AgregarServicioComponent
+},
+{
+  path: 'descripcion-solicitud',
+  component: DescripcionSolicitudComponent
 },
 {
   path:'',

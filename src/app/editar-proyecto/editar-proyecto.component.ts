@@ -32,6 +32,7 @@ export class EditarProyectoComponent implements OnInit {
       this.router.navigate(['listar-contenido']);
       return;
     }
+    window.localStorage.removeItem("editUserID");
 
     this.editForm = this.formBuilder.group({
       proyectoID:[''],

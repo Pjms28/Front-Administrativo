@@ -1,68 +1,51 @@
-<div class="container">
-  <div class="row">
-    <header>
-      <h1>Administrar solicitudes</h1>
-    </header>
-    <hr>
-    <main class="row">
-      <div class="tabla">
-      <div class="table-wrapper-scroll-y my-custom-scrollbar">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Solicitudes</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Fecha</th>
-           
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Proyecto 1 </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Proyecto 2</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Proyecto 3</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Proyecto 4</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Proyecto 5</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Proyecto 6</td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td>Proyecto 7</td>
-          </tr>
-        </tbody>
-  
-      </table>
+<body>
+    <div class="container">
+      <div class="row">
+        <header>
+          <h1>Administrar solicitudes</h1>
+        </header>
+        <hr>
+        <main class="row">
+          <div class="tabla">
+          <table class="table table-bordered">
+            <div>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Servicio</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Fecha</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of data | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{d.servicio.nombreServicio}}</td>
+                  <td>{{d.estado.estadoNombre}}</td>
+                  <td>{{d.solicitud.fechaSol}}</td>
+                  <td><button (click)="verMas(d)" class="btn btn-success btn-sm ">Ver mas</button></td>
+                </tr>
+              </tbody>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            
+          </table>
+
+    
+        </div>
+    
+        </main>
       </div>
+    
+    
+    
+      
+    
+    
+    
+    
     </div>
-
-    <button type="button" class="btn btn-success btn-sm eliminar ">Ver mas</button>
-
-    </main>
-  </div>
-
-
-
-  
-
-
-
-
-</div>
-
+    </body>
+    
+    
