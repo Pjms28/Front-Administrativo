@@ -1,6 +1,6 @@
 body{ 
-  padding-left: 400px;
-  padding-top: 50px;
+  padding-left: 325px;
+  padding-top: 0px;;
 }
 
 .container{
@@ -12,6 +12,10 @@ h1{
     padding-left: 340px;
     padding-bottom: 20px;
     
+}
+
+input{
+  size: 5px;
 }
 
 main{

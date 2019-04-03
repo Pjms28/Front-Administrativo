@@ -6,7 +6,7 @@ html {
 body {
   font: 14px/1.5 Arial, Helvetica, sans-serif;
   padding: 0;
-  margin: 0;
+  margin: 0; 
 }
 
 p{
@@ -14,15 +14,21 @@ p{
   text-decoration: none;
   margin: 0 auto 5px auto;
   padding: 10px 0 10px 5px;
-  background-color: #35393e;
+  background: #2f8ce2;;
   text-align: left;
-  color: #b3bcc5;
+  color: #fff;
   font-size: 12px;
   font-weight: bold;
   line-height: 2;
   border-left-width: 2px;
   border-left-style: solid;
 
+}
+
+p:hover{
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.959);
+  color: #000;
 }
 
 aside{
@@ -42,6 +48,17 @@ i{
   
 }
 
+.dropdown{
+  padding-left: 155px;
+}
+
+.dropdown2{
+  padding-left: 100px;
+}
+.company-logo{
+  background: scroll center url('src\assets\Brick.jpeg');
+  background-size: cover;
+}
 
 
 /* -- Demo ads -- */
@@ -77,7 +94,7 @@ i{
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #11406e;
+  background: #2f8ce2;
   width: 250px;
   height: 100%;
   padding: 20px 0;
@@ -105,12 +122,12 @@ i{
 
 .sidebar-links div > a {
   display: block;
-  text-decoration: none;
+  text-decoration: bold;
   margin: 0 auto 5px auto;
   padding: 10px 0 10px 5px;
-  background-color: #35393e;
+  background-color: #2f8ce2;;
   text-align: left;
-  color: #b3bcc5;
+  color: #fff;
   font-size: 12px;
   font-weight: bold;
   line-height: 2;
@@ -118,6 +135,10 @@ i{
   border-left-style: solid;
 }
 
+.sidebar-links div > a:hover{
+  background: rgba(255, 255, 255, 0.959);
+  color: #000;
+}
 .sidebar-links div.selected > a {
   background-color: #ffffff;
   color: #565d63;
@@ -138,7 +159,7 @@ i{
   overflow: hidden;
   list-style: none;
   padding: 0 0 0 30px;
-  color: #b3bcc5;
+  color: #2f8ce2;
   font-size: 12px;
   font-weight: bold;
   line-height: 24px;
@@ -153,9 +174,14 @@ i{
 
 .sidebar-links div .sub-links a {
   text-decoration: none;
-  color: #b3bcc5;
+  color: #fff;
   display: block;
   text-align: left;
+}
+
+.sub-links a:hover{
+  text-decoration: underline;
+
 }
 /* Link Colors */
 
@@ -191,22 +217,7 @@ i{
   color: #86be2e;
 }
 
-p {
-  display: block;
-  text-decoration: none;
-  margin: 0 auto 5px auto;
-  padding: 10px 0 10px 5px;
-  background-color: #35393e;
-  text-align: left;
-  color: #b3bcc5;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 2;
-  border-left-width: 2px;
-  border-left-style: solid;
 
-
-}
 
 
 /* Making the sidebar responsive */

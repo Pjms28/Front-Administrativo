@@ -1,5 +1,4 @@
 
-
 <body>
   <div class="container">
           <div class="row">
@@ -9,12 +8,12 @@
                    <!-- Background image for card set in CSS! -->
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title text-center">Agregar Caracteristicas</h5>
+                  <h5 class="card-title text-center">Agregar Características</h5>
                   <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-caracteristica" autocomplete="off">
   
                       <div class="form-row">
                           <div class="form-group">
-                            <label>Caracteristica</label>
+                            <label>Característica</label>
                             <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" required/> 
                             <div *ngIf="addForm.controls['carNombre'].invalid && addForm.controls['carNombre'].touched" class="validation-error">Este campo es requerido</div>
                           </div>
@@ -22,13 +21,13 @@
 
                       <div class="form-row">
                           <div class="form-group">
-                            <label>Descripcion</label>
+                            <label>Descripción</label>
                             <input formControlName="carDescripcion" type="text" class="form-control"  required/>
                             <div *ngIf="addForm.controls['carDescripcion'].invalid && addForm.controls['carDescripcion'].touched" class="validation-error">Este campo es requerido</div>
                           </div>
                       </div>
 
-                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Save</button>
                   
                   </form>
                 </div>

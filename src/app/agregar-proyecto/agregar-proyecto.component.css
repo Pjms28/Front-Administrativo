@@ -1,6 +1,6 @@
 body{ 
-  padding-left: 400px;
-  padding-top: 100px;
+  padding-left: 325px;
+  padding-top: 0px;;
 }
 
 
@@ -65,8 +65,9 @@ select.ng-touched.ng-invalid{
   
   .card-proyecto .card-body {
     width: 1000px; 
-    height:650px;
+    height:600px;
   }
+
   
   .form-proyecto {
     width: 100%;
@@ -111,7 +112,7 @@ select.ng-touched.ng-invalid{
     top: 0;
     left: 0;
     display: block;
-    width: 100%;
+    width: 80%;
     margin-bottom: 0;
     /* Override default `<label>` margin */
     line-height: 1.5;
@@ -143,7 +144,7 @@ select.ng-touched.ng-invalid{
   }
   
   .form-label-group input:not(:placeholder-shown) {
-    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-top: 20px;
     padding-bottom: calc(var(--input-padding-y) / 3);
   }
   

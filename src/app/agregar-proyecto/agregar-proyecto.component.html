@@ -20,7 +20,7 @@
   
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Fecha de terminacion</label>
+                                <label>Fecha de terminación</label>
                                 <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
                                 <div *ngIf="addForm.controls['fechaTerminacion'].invalid && addForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
@@ -28,7 +28,7 @@
   
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Ubicacion</label>
+                                <label>Ubicación</label>
                                 <select formControlName="ubicacionID" class="form-control" required>
                                     <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
                                 </select>
@@ -38,8 +38,8 @@
   
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Direccion</label>
-                                <input formControlName="direccion" class="form-control" type="text"  required/>
+                                <label>Dirección</label>
+                                <input formControlName="direccion" class="form-control" type="text"   required/>
                                 <div *ngIf="addForm.controls['direccion'].invalid && addForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
                         </div>
