@@ -58,7 +58,7 @@ body{
       object-fit: cover;
       width: 100%;
       /* Link to your background image using in the property below! */
-      background: scroll center url('https://cdn.pixabay.com/photo/2015/05/15/14/21/architecture-768432_1280.jpg');
+      background: scroll center url('/assets/chicago.jpg');
       background-size: cover;
     }
     

@@ -51,7 +51,7 @@ input.ng-touched.ng-invalid{
   .card-caracteristica .card-img-left {
     width: 100%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://cdn.pixabay.com/photo/2015/12/07/10/56/architect-1080589_1280.jpg');
+    background: scroll center url('/assets/city.jpg');
     background-size: cover;
   }
   

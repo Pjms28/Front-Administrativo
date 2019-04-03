@@ -13,16 +13,16 @@
                         <div class="form-row">
                             <div class="form-group">
                               <label>Nombre</label>
-                              <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" required/> 
-                              <div *ngIf="addForm.controls['carNombre'].invalid && addForm.controls['carNombre'].touched" class="validation-error">Este campo es requerido</div>
+                              <input id="carNombre" formControlName="nombreServicio" type="text"  class="form-control" required/> 
+                              <div *ngIf="addForm.controls['nombreServicio'].invalid && addForm.controls['nombreServicio'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
                         </div>
   
                         <div class="form-row">
                             <div class="form-group">
-                              <label>Descripción</label>
-                              <input formControlName="carDescripcion" type="text" class="form-control"  required/>
-                              <div *ngIf="addForm.controls['carDescripcion'].invalid && addForm.controls['carDescripcion'].touched" class="validation-error">Este campo es requerido</div>
+                              <label>Descripcion</label>
+                              <input formControlName="descripcionServicio" type="text" class="form-control"  required/>
+                              <div *ngIf="addForm.controls['descripcionServicio'].invalid && addForm.controls['descripcionServicio'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
                         </div>
 

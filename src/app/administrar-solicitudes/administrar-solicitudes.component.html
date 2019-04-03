@@ -6,34 +6,25 @@
         </header>
         <hr>
         <main class="row">
-          <form class="col-6"> 
-            <label>Seleccione el tipo de contenido que desea listar</label>
-            <select (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
-                <option value="" selected="selected"></option>
-                <option value="Proyectos">Solicitudes</option>
-            </select>
-          </form>
-    
-          <hr>
-    
           <div class="tabla">
           <table class="table table-bordered">
-            <div *ngIf="value == 'Solicitudes'">
+            <div>
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Solicitud</th>
-                  <th scope="col">Desc</th>
-                  <th scope="col">Mas</th>
+                  <th scope="col">Servicio</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Fecha</th>
                 
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let d of data | paginate: { itemsPerPage: 1, currentPage: p } ; let i = index">
-                  <th scope="row">{{i + 1}}</th>
-                  <td>Solicitud 1</td>
-                  <td>Solitando</td>
-                  <td><button class="btn btn-success btn-sm "> <a routerLink='Descripcion Solicitud'>Ver mas</a></button></td>
+                <tr *ngFor="let d of data | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{d.servicio.nombreServicio}}</td>
+                  <td>{{d.estado.estadoNombre}}</td>
+                  <td>{{d.solicitud.fechaSol}}</td>
+                  <td><button (click)="verMas(d)" class="btn btn-success btn-sm ">Ver mas</button></td>
                 </tr>
               </tbody>
               <pagination-controls (pageChange)="p = $event"></pagination-controls>

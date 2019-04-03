@@ -47,9 +47,15 @@ export class ServicioService {
     .toPromise().then(res => this.list = res as ServicioModel[]);
   }
 
+  sendFormData(formData: any){
+    var t = `${apiUrl}/${'SaveFile'}`;
+    this.http.post(t, formData).subscribe((val) => {
+    });
+  }
+
   addService(proyecto: ServicioModel){
     return this.http.post<ServicioModel>(apiUrl,proyecto,httpOptions)
-    .pipe(tap((nuevoProyecto: ServicioModel) => catchError(this.handleError<ServicioModel>('addService'))
+    .pipe(tap((nuevoServicio: ServicioModel) => catchError(this.handleError<ServicioModel>('addService'))
     ));
   }
 
