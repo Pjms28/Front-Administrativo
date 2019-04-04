@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { VisitaService } from '../shared/visita.service';
+import { VisitaService } from '../../shared/visita.service';
 
 
 const colors: any = {

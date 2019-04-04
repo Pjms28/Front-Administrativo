@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { VisitaService } from '../shared/visita.service';
-import { VisitaModel } from '../shared/visita.model';
+import { VisitaService } from '../../shared/visita.service';
 import { Router } from '@angular/router';
 
 

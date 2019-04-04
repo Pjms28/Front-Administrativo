@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
 import { FormBuilder, FormGroup} from '@angular/forms';
-import { ApiService } from '../shared/api.service';
-import { UbicacionService } from '../shared/ubicacion.service';
+import { ApiService } from '../../shared/api.service';
+import { UbicacionService } from '../../shared/ubicacion.service';
 import {Router, ActivatedRoute} from "@angular/router";
-import { UbicacionModel } from '../shared/Ubicacion.model';
+import { UbicacionModel } from '../../modelos/Ubicacion.model';
 import { ToastrService } from 'ngx-toastr';
 import {first} from "rxjs/operators";
 

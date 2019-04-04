@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import {first} from "rxjs/operators";
-import { InmuebleModel } from '../shared/inmueble.model';
-import { InmuebleService } from '../shared/inmueble.service';
-import { CaracteristicaModel } from '../shared/caracteristicas.model';
-import { CaracteristicaService } from '../shared/caracteristica.service';
+import { InmuebleModel } from '../../modelos/inmueble.model';
+import { InmuebleService } from '../../shared/inmueble.service';
+import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
+import { CaracteristicaService } from '../../shared/caracteristica.service';
 
 @Component({
   selector: 'app-editar-caracteristica',

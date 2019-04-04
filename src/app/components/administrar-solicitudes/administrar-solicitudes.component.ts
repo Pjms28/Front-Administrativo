@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import { SolicitudService } from '../shared/solicitud.service';
-import { ServicioSolicitudModel } from '../shared/ServicioSolicitud.model';
+import { SolicitudService } from '../../shared/solicitud.service';
+import { ServicioSolicitudModel } from '../../modelos/ServicioSolicitud.model';
 
 
 @Component({

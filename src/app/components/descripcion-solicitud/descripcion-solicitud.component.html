@@ -1,0 +1,60 @@
+<body>
+    <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-solicitud flex-row my-5">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Descripcion de la Solicitud</h5>
+                    Solicitante<br>
+                    <label>{{data.solicitud.usuario.nombreUsuario}} {{data.solicitud.usuario.apellidosUsuario}}</label>
+                    <br>
+                    Servicio Solicitado
+                    <br>
+                    <label>{{data.servicio.nombreServicio}}</label>
+                    <br>
+                    Fecha en la que se realizo la Solicitud
+                    <br>
+                    <label>{{date(data.solicitud.fechaSol)}}</label>
+                    <br>
+                    Comentarios del cliente
+                    <br>
+                    <label>{{data.solicitud.comentario}}</label>
+                    <br>
+                    Fecha propuesta de reunion propuesta por el cliente
+                    <br>
+                    <label>{{data.solicitud.fechaServSol}}</label>
+
+                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
+    
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Hora Inicio</label>
+                                <input formControlName="hora_Inicio" type="time"  class="form-control" required/> 
+                            </div>
+                        </div>
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Hora Fin</label>
+                                <input formControlName="hora_Fin" type="time" class="form-control"  required/>
+                            </div>
+                        </div>
+
+  
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha</label>
+                                <input formControlName="fecha_visita" class="form-control" type="date"  required/>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-success btn-sm aceptar" [disabled]="addForm.invalid" >Aceptar</button>
+                        <button class="btn btn-danger btn-sm declinar" >Declinar</button>
+                    
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>

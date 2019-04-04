@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-import { CaracteristicaModel } from '../shared/caracteristicas.model';
-import { CaracteristicaService } from '../shared/caracteristica.service';
+import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
+import { CaracteristicaService } from '../../shared/caracteristica.service';
 
 @Component({
   selector: 'app-agregar-caracteristica',

@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../shared/api.service';
-import { CaracteristicaService } from '../shared/caracteristica.service';
-import { InmuebleService } from '../shared/inmueble.service';
+import { ApiService } from '../../shared/api.service';
+import { CaracteristicaService } from '../../shared/caracteristica.service';
+import { InmuebleService } from '../../shared/inmueble.service';
 import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router";
 import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap'; 
-import { ProyectoComponent } from '../proyecto/proyecto.component';
-import { CaracteristicaModel } from '../shared/caracteristicas.model';
-import { InmuebleModel } from '../shared/inmueble.model';
 
 @Component({
   selector: 'app-listar-contenido',

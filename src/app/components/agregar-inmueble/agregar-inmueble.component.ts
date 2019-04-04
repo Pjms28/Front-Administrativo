@@ -3,11 +3,11 @@ import { ProyectoComponent } from '../proyecto/proyecto.component';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-import { InmuebleModel } from '../shared/inmueble.model';
-import { InmuebleService } from '../shared/inmueble.service';
-import { ApiService } from '../shared/api.service';
-import { CaracteristicaModel } from '../shared/caracteristicas.model';
-import { CaracteristicaService } from '../shared/caracteristica.service';
+import { InmuebleModel } from '../../modelos/inmueble.model';
+import { InmuebleService } from '../../shared/inmueble.service';
+import { ApiService } from '../../shared/api.service';
+import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
+import { CaracteristicaService } from '../../shared/caracteristica.service';
 
 @Component({
   selector: 'app-agregar-inmueble',
@@ -33,9 +33,7 @@ export class AgregarInmuebleComponent implements OnInit {
       proyectoID: ['']
     });
 
-    /*this.carForm = this.formBuilder.group({
-      caracteristicaID:['']
-    })*/
+    
 
     this.apiService.getProjects()
       .subscribe(res => {
@@ -49,7 +47,7 @@ export class AgregarInmuebleComponent implements OnInit {
     return this.apiCar.getCaracteristicas()
     .subscribe(res =>{
       this.caracteristicas = res;
-      //console.log(this.caracteristicas);
+      
     })
  
   }
