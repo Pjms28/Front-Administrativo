@@ -27,28 +27,29 @@
                     <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
     
                         <div class="form-row">
-                            <div class="form-group">
-                                <label>Hora Inicio</label>
-                                <input formControlName="hora_Inicio" type="time"  class="form-control" required/> 
-                            </div>
+                          <div class="form-group">
+                            <label>Fecha y hora de inicio</label>
+                            <input formControlName="hora_Inicio"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                            [convertModelValue]="true"
+                            [enableTime]="true"
+                            dateFormat="Y-m-dTH:i"
+                            altFormat="F j, Y H:i"
+                            placeholder="Not set"  required/>
+                        </div>
                         </div>
   
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Hora Fin</label>
-                                <input formControlName="hora_Fin" type="time" class="form-control"  required/>
+                                <label>Fecha y hora de conclucion</label>
+                                <input formControlName="hora_Fin"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                                [convertModelValue]="true"
+                                [enableTime]="true"
+                                dateFormat="Y-m-dTH:i"
+                                altFormat="F j, Y H:i"
+                                placeholder="Not set"  required/>
                             </div>
                         </div>
-
-  
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Fecha</label>
-                                <input formControlName="fecha_visita" class="form-control" type="date"  required/>
-                            </div>
-                        </div>
-
-                        <button class="btn btn-success btn-sm aceptar" [disabled]="addForm.invalid" >Aceptar</button>
+                        <button type="submit" class="btn btn-success btn-sm aceptar" [disabled]="addForm.invalid" >Aceptar</button>
                         <button class="btn btn-danger btn-sm declinar" >Declinar</button>
                     
                     </form>

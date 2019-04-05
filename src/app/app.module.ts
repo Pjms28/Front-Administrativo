@@ -41,7 +41,6 @@ import { AgregarServicioComponent } from './components/agregar-servicio/agregar-
 import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

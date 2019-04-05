@@ -5,8 +5,10 @@
           <h1>Administrar solicitudes</h1>
         </header>
         <hr>
+        
         <main class="row">
           <div class="tabla">
+              <h2>Solicitudes Pendientes</h2>
           <table class="table table-bordered">
             <div>
               <thead>
@@ -29,9 +31,32 @@
               </tbody>
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
-            
           </table>
 
+          <h2>Otros</h2>
+          <table class="table table-bordered">
+              <div>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha</th>
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let da of data1 | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{da.servicio.nombreServicio}}</td>
+                    <td>{{da.estado.estadoNombre}}</td>
+                    <td>{{da.solicitud.fechaSol}}</td>
+                    <td><button class="btn btn-success btn-sm ">Administrar</button></td>
+                  </tr>
+                </tbody>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+            </table>
     
         </div>
     

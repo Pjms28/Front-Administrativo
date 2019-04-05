@@ -27,8 +27,8 @@ export class VisitaService {
     };
   }
 
-  getVisits (): Observable<VisitaModel[]> {
-    return this.http.get<VisitaModel[]>(apiUrl)
+  getVisits (): Observable<any[]> {
+    return this.http.get<any[]>(apiUrl)
       .pipe(
         tap(heroes => catchError(this.handleError('getVisits', []))
       ));

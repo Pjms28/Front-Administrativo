@@ -11,7 +11,7 @@ import { VisitaService } from 'src/app/shared/visita.service';
 })
 export class DescripcionSolicitudComponent implements OnInit {
 
-  data : ServicioSolicitudModel = new ServicioSolicitudModel();
+  data : ServicioSolicitudModel;
   addForm: FormGroup;
 
   constructor(private router: Router, private solApi: SolicitudService, private formBuilder: FormBuilder, public ageService: VisitaService) { }
@@ -23,22 +23,20 @@ export class DescripcionSolicitudComponent implements OnInit {
       this.router.navigate(['administrar-solicitudes']);
       return;
     }
-    //window.localStorage.removeItem("solID");
+    window.localStorage.removeItem("solID");
+
     this.addForm = this.formBuilder.group({
       hora_Inicio:[''],
       hora_Fin:[''],
       motivo: "Solicitud",
       descripcion:[''],
-      fecha_visita: [''],
-      solicitudID: ['']
-    });
-    console.log(this.data);
-
-    this.solApi.getServSol(Number(ID)).subscribe(res =>{
-      this.data = res;
-      //console.log(this.data)
+      solicitudID:['']
     });
     
+    return this.solApi.getServSol(Number(ID)).subscribe(res =>{
+      this.data = res;
+      console.log(this.data)
+    });
   }
 
   date(date: string){
@@ -47,9 +45,15 @@ export class DescripcionSolicitudComponent implements OnInit {
   }
 
   onSubmit(){
+    this.addForm.controls['solicitudID'].setValue(this.data.solicitud.solicitudID);
+    this.addForm.controls['descripcion'].setValue(this.data.solicitud.comentario);
     this.ageService.addVisit(this.addForm.value).subscribe(res =>{
-      console.log('entre');
-      //this.router.navigate(['agendar-visita']);
+    this.router.navigate(['agendar-visita']);
     });
+    this.data.estadoID = 1;
+    this.solApi.updateServSol(this.data).subscribe(res => {
+      console.log("llamo");
+    }
+    );
   }
 }

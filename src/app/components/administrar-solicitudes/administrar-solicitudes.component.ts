@@ -12,15 +12,22 @@ import { ServicioSolicitudModel } from '../../modelos/ServicioSolicitud.model';
 export class AdministrarSolicitudesComponent implements OnInit {
  
   data:ServicioSolicitudModel[] = [];
+  data1:ServicioSolicitudModel[] = [];
   
 
   constructor(private solApi: SolicitudService,  private router: Router) { }
 
   ngOnInit() {
-    return this.solApi.getServSols()
+    this.solApi.getServSols()
       .subscribe(res => {
       this.data = res;
-      console.log(this.data);
+    }, err => {
+      console.log(err);
+     
+    });
+    this.solApi.getServSolsA()
+      .subscribe(res => {
+      this.data1 = res;
     }, err => {
       console.log(err);
      

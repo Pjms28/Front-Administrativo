@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
-import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours } from 'date-fns';
+import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours, startOfHour, endOfHour } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
@@ -78,20 +78,21 @@ export class AgendarVisitaComponent implements OnInit {
   ];*/
   data: any[] = [];
   activeDayIsOpen: boolean = true;
-  events: CalendarEvent[] = this.data;
+  events: CalendarEvent[] = [];
   constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService) { }
 
   ngOnInit() {
     
-
-    return this.ageService.getVisits()
+    this.ageService.getVisits()
       .subscribe(res => {
-      this.data = res;
+      this.completeCalendar(res);
     }, err => {
       console.log(err);
      
     });
+    this.refresh
   }
+
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
       this.viewDate = date;
@@ -119,6 +120,7 @@ export class AgendarVisitaComponent implements OnInit {
           end: newEnd
         };
       }
+      console.log(this.refresh.next());
       return iEvent;
     });
     this.handleEvent('Dropped or resized', event);
@@ -127,23 +129,6 @@ export class AgendarVisitaComponent implements OnInit {
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
     this.modal.open(this.modalContent, { size: 'lg' });
-  }
-
-  addEvent(){
-    /*this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true
-        }
-      }
-    ];*/
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
@@ -156,5 +141,28 @@ export class AgendarVisitaComponent implements OnInit {
 
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
+  }
+
+  completeCalendar(res : any){
+
+    res.forEach(element => {
+      
+      this.events = [
+        {
+          start: startOfHour(element.hora_Inicio),
+          end: endOfHour(element.hora_Fin),
+          title: element.motivo,
+          color: colors.red,
+          actions: this.actions,
+          allDay: false,
+          resizable: {
+            beforeStart: true,
+            afterEnd: true
+          },
+          draggable: true
+        }
+      ];
+
+    });
   }
 }

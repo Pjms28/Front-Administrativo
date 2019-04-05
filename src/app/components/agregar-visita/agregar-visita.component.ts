@@ -27,10 +27,8 @@ export class AgregarVisitaComponent implements OnInit {
   }
 
   OnSubmit(){
-    console.log('entre');
     this.ageService.addVisit(this.addForm.value).subscribe(res =>{
-      console.log('entre');
-      this.router.navigate(['agendar-visita']);
+    this.router.navigate(['agendar-visita']);
     });
   }
 

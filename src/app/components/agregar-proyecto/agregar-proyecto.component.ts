@@ -32,14 +32,12 @@ export class AgregarProyectoComponent implements OnInit {
       .subscribe(res => {
       this.data = res;
     }, err => {
-      console.log(err);
-     
+      console.log(err); 
     });
-
+    
 
   }
   onSubmit() {
-
     this.apiService.addProject(this.addForm.value).subscribe(res =>{
       this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
       this.router.navigate(['listar-contenido']);
