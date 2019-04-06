@@ -75,7 +75,6 @@ export class AgendarVisitaComponent implements OnInit {
     this.ageService.getVisits()
       .subscribe(res => {
       this.completeCalendar(res);
-      console.log(res);
     }, err => {
       console.log(err);
      
@@ -175,5 +174,9 @@ export class AgendarVisitaComponent implements OnInit {
     window.localStorage.removeItem("solID");
     window.localStorage.setItem("solID", String(evento.numeroVisita));
     this.router.navigate(['editar-visita']);
+  }
+
+  add(){
+    this.router.navigate(['agregar-visita']);
   }
 }

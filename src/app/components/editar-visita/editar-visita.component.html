@@ -24,28 +24,7 @@
                             <input formControlName="precio" type="text" class="form-control"  required/>
                             <div *ngIf="editForm.controls['precio'].invalid && editForm.controls['precio'].touched" class="validation-error">Este campo es requerido</div>
                           </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="form-group">
-                          <label>Motivo </label>
-                          <select formControlName="proyectoID" class="form-control" required>
-                          <option *ngFor="let d of data" [ngValue]="d.proyectoID" >{{d.nombreProyecto}}</option>
-                          </select>
-                          <div *ngIf="editForm.controls['proyectoID'].invalid && editForm.controls['proyectoID'].touched" class="validation-error">Este campo es requerido</div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label>Descripcion</label>
-                        <input formControlName="descripcionInmueble" class="form-control" type="text"  required/>
-                        <div *ngIf="editForm.controls['descripcionInmueble'].invalid && editForm.controls['descripcionInmueble'].touched" class="validation-error">Este campo es requerido</div>
-                      </div>
-                  </div>
-  
-                
-                        
+                      </div>                  
                       <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   
                   </form>

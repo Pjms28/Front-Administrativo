@@ -8,14 +8,14 @@
           [(viewDate)]="viewDate"
           (viewDateChange)="closeOpenMonthViewDay()"
         >
-          Previous
+          Anterior
         </div>
         <div
           class="btn btn-outline-secondary"
           mwlCalendarToday
           [(viewDate)]="viewDate"
         >
-          Today
+          Hoy
         </div>
         <div
           class="btn btn-primary"
@@ -24,7 +24,7 @@
           [(viewDate)]="viewDate"
           (viewDateChange)="closeOpenMonthViewDay()"
         >
-          Next
+          Siguiente
         </div>
       </div>
     </div>
@@ -38,21 +38,21 @@
           (click)="setView(CalendarView.Month)"
           [class.active]="view === CalendarView.Month"
         >
-          Month
+          Mes
         </div>
         <div
           class="btn btn-primary"
           (click)="setView(CalendarView.Week)"
           [class.active]="view === CalendarView.Week"
         >
-          Week
+          Semana
         </div>
         <div
           class="btn btn-primary"
           (click)="setView(CalendarView.Day)"
           [class.active]="view === CalendarView.Day"
         >
-          Day
+          Dia
         </div>
       </div>
     </div>
@@ -95,9 +95,9 @@
   <br /><br /><br />
   
   <h3>
-    Edit events
-    <button class="btn btn-primary pull-right" (click)="addEvent()">
-      Add new
+    Detalle de evento
+    <button class="btn btn-primary pull-right" (click)="add()">
+      Agregar nuevo evento
     </button>
     <div class="clearfix"></div>
   </h3>
@@ -106,12 +106,13 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Primary color</th>
-          <th>Secondary color</th>
-          <th>Starts at</th>
-          <th>Ends at</th>
-          <th>Remove</th>
+          <th>Titulo</th>
+          <th>Color principal</th>
+          <th>Color secundario</th>
+          <th>Comienzo</th>
+          <th>Final</th>
+          <th>Eliminar</th>
+          <th>Editar</th>
         </tr>
       </thead>
   

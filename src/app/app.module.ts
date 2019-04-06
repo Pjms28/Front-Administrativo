@@ -36,11 +36,9 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import 'flatpickr/dist/flatpickr.css';
 import { AgendarVisitaComponent } from './components/agendar-visita/agendar-visita.component';
 import { VisitaService } from './shared/visita.service';
-import { AgregarVisitaComponent } from './components/agregar-visita/agregar-visita.component';
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
 import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
 import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
-import { DemoUtilsModule } from '../app/demo-utils/module';
 import { EditarVisitaComponent } from './components/editar-visita/editar-visita.component';
 
 
@@ -61,7 +59,6 @@ import { EditarVisitaComponent } from './components/editar-visita/editar-visita.
     EditarCaracteristicaComponent,
     AdministrarSolicitudesComponent,
     AgendarVisitaComponent,
-    AgregarVisitaComponent,
     AgregarServicioComponent,
     DescripcionSolicitudComponent,
     CambioEstadoComponent,
@@ -73,7 +70,6 @@ import { EditarVisitaComponent } from './components/editar-visita/editar-visita.
     FlatpickrModule.forRoot(),
     CommonModule,
     AppRoutingModule,
-    DemoUtilsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
