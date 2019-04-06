@@ -1,68 +1,87 @@
-<body>
-    <div class="container">
-      <div class="row">
-        <header>
-          <h1>Administrar solicitudes</h1>
-        </header>
-        <hr>
-        
-        <main class="row">
-          <div class="tabla">
-              <h2>Solicitudes Pendientes</h2>
-          <table class="table table-bordered">
-            <div>
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Servicio</th>
-                  <th scope="col">Estado</th>
-                  <th scope="col">Fecha de solicitud</th>
-                
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let d of data | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
-                  <th scope="row">{{i+1}}</th>
-                  <td>{{d.servicio.nombreServicio}}</td>
-                  <td>{{d.estado.estadoNombre}}</td>
-                  <td>{{d.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
-                  <td><button (click)="verMas(d)" class="btn btn-success btn-sm ">Ver mas</button></td>
-                </tr>
-              </tbody>
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
-            </div>
-          </table>
+<div class="container">
+  <div class="row">
+      <div class="col-12">
+          <div class="card">
 
-          <h2>Otros</h2>
-          <table class="table table-bordered">
-              <div>
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Servicio</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Fecha de solicitud</th>
+              <div class="card-body">
+
+                  <div class="row">
+                      <div class="col-12">
+                        <h5>Administrar Solicitudes</h5>
+                          <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                              <li class="nav-item">
+                                  <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Solicitudes Pendientes</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Otros</a>
+                              </li>
+                          </ul>
+                          <div class="tab-content ml-1" id="myTabContent">
+                              <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                  <table class="table table-bordered">
+                                      <div>
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Servicio</th>
+                                            <th scope="col">Estado</th>
+                                            <th scope="col">Fecha de solicitud</th>
+                                            <th scope="col">Ver más</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr *ngFor="let d of data | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{d.servicio.nombreServicio}}</td>
+                                            <td>{{d.estado.estadoNombre}}</td>
+                                            <td>{{d.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
+                                            <td><button (click)="verMas(d)" class="btn btn-success btn-sm ">Ver mas</button></td>
+                                          </tr>
+                                        </tbody>
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                      </div>
+                                    </table>
+
+
+                              </div>
+                              <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                                  <table class="table table-bordered">
+                                      <div>
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Servicio</th>
+                                            <th scope="col">Estado</th>
+                                            <th scope="col">Fecha de solicitud</th>
+                                            <th scope="col">Administrar</th>
+                                          
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr *ngFor="let da of data1 | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{da.servicio.nombreServicio}}</td>
+                                            <td>{{da.estado.estadoNombre}}</td>
+                                            <td>{{da.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
+                                            <td><button (click)="administrar(da)" class="btn btn-success btn-sm ">Administrar</button></td>
+                                          </tr>
+                                        </tbody>
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                      </div>
+                                    </table>
                   
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let da of data1 | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{da.servicio.nombreServicio}}</td>
-                    <td>{{da.estado.estadoNombre}}</td>
-                    <td>{{da.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
-                    <td><button (click)="administrar(da)" class="btn btn-success btn-sm ">Administrar</button></td>
-                  </tr>
-                </tbody>
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+
               </div>
-            </table>
-    
-        </div>
-    
-        </main>
+
+          </div>
       </div>
-    </div>
-    </body>
-    
-    
+  </div>
+</div>
+
+

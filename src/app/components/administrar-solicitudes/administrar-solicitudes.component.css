@@ -17,6 +17,13 @@ h1{
     text-align: center; 
 }
 
+h5{
+    padding-bottom: 50px;
+    text-align: center; 
+    font-size: 30px;
+}
+
+
 img{
     width: 270px;
     height: 270px;
@@ -24,8 +31,8 @@ img{
 
 table{
     width: 500px;
-    padding-top: 50px;
-
+    padding-top: 40px;
+    margin-left:90px; 
 }
 
 .tabla{
@@ -43,3 +50,17 @@ table button .eliminar{
     width: auto;
 
 }  
+
+
+.card{
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    padding-bottom: 200px;
+    border-radius: 1rem;
+}
+
+th{
+    width: 100px;
+}
