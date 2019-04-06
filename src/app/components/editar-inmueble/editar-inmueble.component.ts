@@ -20,7 +20,7 @@ export class EditarInmuebleComponent implements OnInit {
   editForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
-    ,private toastr: ToastrService,  public actRoute: ActivatedRoute ) { }
+    ,private toastr: ToastrService) { }
 
   ngOnInit() {
     let userID = window.localStorage.getItem("editUserID");
@@ -37,7 +37,7 @@ export class EditarInmuebleComponent implements OnInit {
       descripcionInmueble:[''],
       proyectoID: ['']
     });
-
+    window.localStorage.removeItem("editUserID");
     this.apiIn.getInmueble(Number(userID))
     .subscribe(res => {
       this.editForm.patchValue(res);

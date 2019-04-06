@@ -16,7 +16,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Servicio</th>
                   <th scope="col">Estado</th>
-                  <th scope="col">Fecha</th>
+                  <th scope="col">Fecha de solicitud</th>
                 
                 </tr>
               </thead>
@@ -25,7 +25,7 @@
                   <th scope="row">{{i+1}}</th>
                   <td>{{d.servicio.nombreServicio}}</td>
                   <td>{{d.estado.estadoNombre}}</td>
-                  <td>{{d.solicitud.fechaSol}}</td>
+                  <td>{{d.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
                   <td><button (click)="verMas(d)" class="btn btn-success btn-sm ">Ver mas</button></td>
                 </tr>
               </tbody>
@@ -41,7 +41,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Servicio</th>
                     <th scope="col">Estado</th>
-                    <th scope="col">Fecha</th>
+                    <th scope="col">Fecha de solicitud</th>
                   
                   </tr>
                 </thead>
@@ -50,8 +50,8 @@
                     <th scope="row">{{i+1}}</th>
                     <td>{{da.servicio.nombreServicio}}</td>
                     <td>{{da.estado.estadoNombre}}</td>
-                    <td>{{da.solicitud.fechaSol}}</td>
-                    <td><button class="btn btn-success btn-sm ">Administrar</button></td>
+                    <td>{{da.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
+                    <td><button (click)="administrar(da)" class="btn btn-success btn-sm ">Administrar</button></td>
                   </tr>
                 </tbody>
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
@@ -62,14 +62,6 @@
     
         </main>
       </div>
-    
-    
-    
-      
-    
-    
-    
-    
     </div>
     </body>
     

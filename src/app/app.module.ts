@@ -39,6 +39,9 @@ import { VisitaService } from './shared/visita.service';
 import { AgregarVisitaComponent } from './components/agregar-visita/agregar-visita.component';
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
 import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
+import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
+import { DemoUtilsModule } from '../app/demo-utils/module';
+import { EditarVisitaComponent } from './components/editar-visita/editar-visita.component';
 
 
 @NgModule({
@@ -61,6 +64,8 @@ import { DescripcionSolicitudComponent } from './components/descripcion-solicitu
     AgregarVisitaComponent,
     AgregarServicioComponent,
     DescripcionSolicitudComponent,
+    CambioEstadoComponent,
+    EditarVisitaComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ import { DescripcionSolicitudComponent } from './components/descripcion-solicitu
     FlatpickrModule.forRoot(),
     CommonModule,
     AppRoutingModule,
+    DemoUtilsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -84,7 +90,8 @@ import { DescripcionSolicitudComponent } from './components/descripcion-solicitu
       {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
       {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
       {path: 'Agregar Servicio', component: AgregarServicioComponent},
-      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent}
+      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent},
+      {path: 'Visitas Agendadas', component: AgendarVisitaComponent}
 
     ]),
     BrowserAnimationsModule,

@@ -35,16 +35,16 @@ export class AdministrarSolicitudesComponent implements OnInit {
   }
 
   verMas(Serv: any){
-
     window.localStorage.removeItem("solID");
     window.localStorage.setItem("solID", String(Serv.solicitudID));
     this.router.navigate(['descripcion-solicitud']);
-
-    
-
   }
-  
 
+  administrar(Serv: any){
+    window.localStorage.removeItem("solID");
+    window.localStorage.setItem("solID", String(Serv.solicitudID));
+    this.router.navigate(['cambiar-estado']);
+  }
   }
 
 

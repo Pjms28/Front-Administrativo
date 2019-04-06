@@ -13,6 +13,7 @@ import { AgendarVisitaComponent } from './components/agendar-visita/agendar-visi
 import { AgregarVisitaComponent } from './components/agregar-visita/agregar-visita.component';
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
 import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
+import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,14 @@ const routes: Routes = [
 {
   path: 'descripcion-solicitud',
   component: DescripcionSolicitudComponent
+},
+{
+  path: 'cambiar-estado',
+  component: CambioEstadoComponent
+},
+{
+  path: 'editar-visita',
+  component: CambioEstadoComponent
 },
 {
   path:'',

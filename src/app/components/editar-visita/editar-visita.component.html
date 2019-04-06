@@ -6,12 +6,12 @@
                 <div class="card-img-left d-none d-md-flex">
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title text-center">Editar Inmueble</h5>
+                  <h5 class="card-title text-center">Editar Visita</h5>
                   <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-editar" autocomplete="off">
   
                       <div class="form-row">
                           <div class="form-group">
-                            <label>Identificador del inmueble</label>
+                            <label>Fecha y Hora de inicio</label>
                             <input formControlName="nombreInmueble" type="text"  class="form-control" required/> 
                             <div *ngIf="editForm.controls['nombreInmueble'].invalid && editForm.controls['nombreInmueble'].touched" class="validation-error">Este campo es requerido</div>
                        </div>
@@ -20,7 +20,7 @@
 
                       <div class="form-row">
                           <div class="form-group">
-                            <label>Precio</label>
+                            <label>Fecha y Hora de fin</label>
                             <input formControlName="precio" type="text" class="form-control"  required/>
                             <div *ngIf="editForm.controls['precio'].invalid && editForm.controls['precio'].touched" class="validation-error">Este campo es requerido</div>
                           </div>
@@ -28,7 +28,7 @@
 
                       <div class="form-row">
                         <div class="form-group">
-                          <label>Proyecto </label>
+                          <label>Motivo </label>
                           <select formControlName="proyectoID" class="form-control" required>
                           <option *ngFor="let d of data" [ngValue]="d.proyectoID" >{{d.nombreProyecto}}</option>
                           </select>

@@ -4,6 +4,7 @@ import { SolicitudService } from '../../shared/solicitud.service';
 import { ServicioSolicitudModel } from '../../modelos/ServicioSolicitud.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { VisitaService } from 'src/app/shared/visita.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-descripcion-solicitud',
   templateUrl: './descripcion-solicitud.component.html',
@@ -13,8 +14,9 @@ export class DescripcionSolicitudComponent implements OnInit {
 
   data : ServicioSolicitudModel;
   addForm: FormGroup;
+  
 
-  constructor(private router: Router, private solApi: SolicitudService, private formBuilder: FormBuilder, public ageService: VisitaService) { }
+  constructor(private router: Router, private solApi: SolicitudService, private formBuilder: FormBuilder, public ageService: VisitaService, private toastr: ToastrService) { }
 
   ngOnInit() {
     let ID = window.localStorage.getItem("solID");
@@ -39,12 +41,13 @@ export class DescripcionSolicitudComponent implements OnInit {
     });
   }
 
-  date(date: string){
-    var myDate = new Date(date);
-    return myDate;
-  }
-
   onSubmit(){
+   
+    if(this.addForm.get('hora_Inicio').value > this.addForm.get('hora_Fin').value){
+      this.toastr.error('Fecha Incorreta','Fecha.Incorrecta');
+      return
+    }
+    else{
     this.addForm.controls['solicitudID'].setValue(this.data.solicitud.solicitudID);
     this.addForm.controls['descripcion'].setValue(this.data.solicitud.comentario);
     this.ageService.addVisit(this.addForm.value).subscribe(res =>{
@@ -52,8 +55,8 @@ export class DescripcionSolicitudComponent implements OnInit {
     });
     this.data.estadoID = 1;
     this.solApi.updateServSol(this.data).subscribe(res => {
-      console.log("llamo");
     }
     );
+    }
   }
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@angular/core';
-import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours, startOfHour, endOfHour } from 'date-fns';
+import { startOfDay, endOfDay, subDays, addDays, endOfMonth, isSameDay, isSameMonth, addHours, startOfHour, endOfHour,setHours, setMinutes } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { VisitaService } from '../../shared/visita.service';
+import { VisitaModel } from 'src/app/modelos/visita.model';
+import { Router } from '@angular/router';
 
 
 const colors: any = {
@@ -29,7 +31,6 @@ const colors: any = {
   styleUrls: ['./agendar-visita.component.css']
 })
 export class AgendarVisitaComponent implements OnInit {
-
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -59,38 +60,26 @@ export class AgendarVisitaComponent implements OnInit {
     }
   ];
 
-  refresh: Subject<any> = new Subject();
+  events: CalendarEvent[];
 
-  /*events: CalendarEvent[] = [
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      draggable: true
-    }
-  ];*/
-  data: any[] = [];
+  data: VisitaModel = new VisitaModel();
+  refresh: Subject<any> = new Subject();
   activeDayIsOpen: boolean = true;
-  events: CalendarEvent[] = [];
-  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService) { }
+ 
+  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService,private router: Router) { }
+
+  
 
   ngOnInit() {
     
     this.ageService.getVisits()
       .subscribe(res => {
       this.completeCalendar(res);
+      console.log(res);
     }, err => {
       console.log(err);
      
     });
-    this.refresh
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -120,9 +109,9 @@ export class AgendarVisitaComponent implements OnInit {
           end: newEnd
         };
       }
-      console.log(this.refresh.next());
       return iEvent;
     });
+    this.update(newStart,newEnd, event)
     this.handleEvent('Dropped or resized', event);
   }
 
@@ -132,7 +121,10 @@ export class AgendarVisitaComponent implements OnInit {
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
-    this.events = this.events.filter(event => event !== eventToDelete);
+    if(confirm('¿Esta seguro que desea eliminar este evento?')){
+      this.events = this.events.filter(event => event !== eventToDelete);
+      this.delete(eventToDelete);
+    }
   }
 
   setView(view: CalendarView) {
@@ -142,27 +134,46 @@ export class AgendarVisitaComponent implements OnInit {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
+ 
 
   completeCalendar(res : any){
-
+    var obj: Array<any> = [];
     res.forEach(element => {
-      
-      this.events = [
-        {
-          start: startOfHour(element.hora_Inicio),
-          end: endOfHour(element.hora_Fin),
-          title: element.motivo,
-          color: colors.red,
-          actions: this.actions,
-          allDay: false,
-          resizable: {
-            beforeStart: true,
-            afterEnd: true
-          },
-          draggable: true
-        }
-      ];
-
+      var event: Object= {
+        start: startOfHour(element.hora_Inicio),
+        end: startOfHour(element.hora_Fin),
+        title: element.motivo+" "+"de"+" "+element.solicitud.usuario.nombreUsuario+" "+element.solicitud.usuario.apellidosUsuario,
+        servicio: element.solicitud.servicioSolicituds[0].servicio.nombreServicio,
+        estado: element.solicitud.servicioSolicituds[0].estado.estadoNombre,
+        numeroVisita: element.visitaID,
+        color: colors.red,
+        draggable: true
+      }
+      obj.push(event)
     });
+    this.events = obj;
+    this.refresh.next();
+  }
+
+  update(start, end, event){
+   this.ageService.getVisit(event.numeroVisita).subscribe(res=>{
+      this.data = res;
+      this.data.hora_Inicio = start;
+      this.data.hora_Fin = end;
+      this.ageService.updateVisit(this.data).subscribe(res =>{
+
+      });
+    });
+  }
+
+  delete(evento:any){
+      this.ageService.deleteVisit(evento.numeroVisita).subscribe(res => {
+      })
+  }
+
+  updateAll(evento:any){
+    window.localStorage.removeItem("solID");
+    window.localStorage.setItem("solID", String(evento.numeroVisita));
+    this.router.navigate(['editar-visita']);
   }
 }
