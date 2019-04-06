@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListarContenidoComponent } from './listar-contenido/listar-contenido.component';
-import { AgregarProyectoComponent } from './agregar-proyecto/agregar-proyecto.component';
-import { EditarProyectoComponent } from './editar-proyecto/editar-proyecto.component';
-import { DetalleProyectoComponent } from './detalle-proyecto/detalle-proyecto.component';
-import { AgregarInmuebleComponent } from './agregar-inmueble/agregar-inmueble.component';
-import { EditarInmuebleComponent } from './editar-inmueble/editar-inmueble.component';
-import { AgregarCaracteristicaComponent } from './agregar-caracteristica/agregar-caracteristica.component';
-import { EditarCaracteristicaComponent } from './editar-caracteristica/editar-caracteristica.component';
-import { AdministrarSolicitudesComponent } from './administrar-solicitudes/administrar-solicitudes.component';
-import { AgendarVisitaComponent } from './agendar-visita/agendar-visita.component';
-import { AgregarVisitaComponent } from './agregar-visita/agregar-visita.component';
-import { AgregarServicioComponent } from './agregar-servicio/agregar-servicio.component';
-import { DescripcionSolicitudComponent } from './descripcion-solicitud/descripcion-solicitud.component';
+import { ListarContenidoComponent } from './components/listar-contenido/listar-contenido.component';
+import { AgregarProyectoComponent } from './components/agregar-proyecto/agregar-proyecto.component';
+import { EditarProyectoComponent } from './components/editar-proyecto/editar-proyecto.component';
+import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-proyecto.component';
+import { AgregarInmuebleComponent } from './components/agregar-inmueble/agregar-inmueble.component';
+import { EditarInmuebleComponent } from './components/editar-inmueble/editar-inmueble.component';
+import { AgregarCaracteristicaComponent } from './components/agregar-caracteristica/agregar-caracteristica.component';
+import { EditarCaracteristicaComponent } from './components/editar-caracteristica/editar-caracteristica.component';
+import { AdministrarSolicitudesComponent } from './components/administrar-solicitudes/administrar-solicitudes.component';
+import { AgendarVisitaComponent } from './components/agendar-visita/agendar-visita.component';
+import { AgregarVisitaComponent } from './components/agregar-visita/agregar-visita.component';
+import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
+import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
+import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,14 @@ const routes: Routes = [
 {
   path: 'descripcion-solicitud',
   component: DescripcionSolicitudComponent
+},
+{
+  path: 'cambiar-estado',
+  component: CambioEstadoComponent
+},
+{
+  path: 'editar-visita',
+  component: CambioEstadoComponent
 },
 {
   path:'',

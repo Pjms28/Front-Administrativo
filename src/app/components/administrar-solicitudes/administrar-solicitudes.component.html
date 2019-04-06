@@ -1,0 +1,68 @@
+<body>
+    <div class="container">
+      <div class="row">
+        <header>
+          <h1>Administrar solicitudes</h1>
+        </header>
+        <hr>
+        
+        <main class="row">
+          <div class="tabla">
+              <h2>Solicitudes Pendientes</h2>
+          <table class="table table-bordered">
+            <div>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Servicio</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Fecha de solicitud</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of data | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{d.servicio.nombreServicio}}</td>
+                  <td>{{d.estado.estadoNombre}}</td>
+                  <td>{{d.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
+                  <td><button (click)="verMas(d)" class="btn btn-success btn-sm ">Ver mas</button></td>
+                </tr>
+              </tbody>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </table>
+
+          <h2>Otros</h2>
+          <table class="table table-bordered">
+              <div>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha de solicitud</th>
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let da of data1 | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{da.servicio.nombreServicio}}</td>
+                    <td>{{da.estado.estadoNombre}}</td>
+                    <td>{{da.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
+                    <td><button (click)="administrar(da)" class="btn btn-success btn-sm ">Administrar</button></td>
+                  </tr>
+                </tbody>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+            </table>
+    
+        </div>
+    
+        </main>
+      </div>
+    </div>
+    </body>
+    
+    

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { SolicitudModel } from './Solicitud.model';
-import { ServicioSolicitudModel } from './ServicioSolicitud.model';
+import { SolicitudModel } from '../modelos/Solicitud.model';
+import { ServicioSolicitudModel } from '../modelos/ServicioSolicitud.model';
 
 
 const httpOptions = {
@@ -50,12 +50,27 @@ export class SolicitudService {
     .pipe(tap(_ => catchError(this.handleError<ServicioSolicitudModel>(`getRequest`))
     ));
   }
+  getServSolsA(): Observable<ServicioSolicitudModel[]>{
+    const url = `${apiUrl}/${'ServicioSolicitudA'}`;
+    return this.http.get<ServicioSolicitudModel[]>(url)
+    .pipe(tap(_ => catchError(this.handleError<ServicioSolicitudModel>(`getRequest`))
+    ));
+  }
+
 
   getServSol(id: number): Observable<ServicioSolicitudModel>{
     const url = `${apiUrl}/${'ServicioSolicitud/'+id}`;
     return this.http.get<ServicioSolicitudModel>(url)
     .pipe(tap(_ => catchError(this.handleError<ServicioSolicitudModel>(`getRequest`))
     ));
+  }
+
+  updateServSol(ServicioSolicitud: ServicioSolicitudModel){
+    const url = `${apiUrl}/${'ServicioSolicitud'}`;
+    return this.http.put<ServicioSolicitudModel>(url +"/"+ ServicioSolicitud.solicitud.solicitudID,ServicioSolicitud, httpOptions)
+        .pipe(
+          catchError(this.handleError('updateServSol', ServicioSolicitud))
+        );
   }
 
   deleteRequest (id: number): Observable<{}> {

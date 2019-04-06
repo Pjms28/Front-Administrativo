@@ -1,0 +1,32 @@
+<body>
+  <h1>Detalle de la solicitud</h1>
+
+                     Solicitante<br>
+                    <label>{{data.solicitud.usuario.nombreUsuario}} {{data.solicitud.usuario.apellidosUsuario}}</label>
+                    <br>
+                    Servicio Solicitado
+                    <br>
+                    <label>{{data.servicio.nombreServicio}}</label>
+                    <br>
+                    Fecha en la que se realizo la Solicitud
+                    <br>
+                    <label>{{data.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</label>
+                    <br>
+                    Comentarios del cliente
+                    <br>
+                    <label>{{data.solicitud.comentario}}</label>
+                    <br>
+                    <label>Estado actual</label>
+                    <br>
+                    <label>{{data.estado.estadoNombre}}</label>
+                    <br>
+                    <label>Cambiar estado</label>
+                    <br>
+                    <form [formGroup]="cambio" (ngSubmit)="onSubmit()">
+                      <select class="form-control">
+                        <option *ngFor="let e of estados" [attr.selected]="e.estadoID == data.estadoID ? '': selected" [ngValue]="data.estadoID">
+                          {{e.estadoNombre}}</option>
+                    </select>
+                    <button type="submit" class="btn btn-success btn-sm aceptar" [disabled]="cambio.invalid" >GUARDAR</button>
+                    </form>
+</body>
