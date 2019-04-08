@@ -12,8 +12,18 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Nombre del proyecto</label>
-                            <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
-                            <div *ngIf="editForm.controls['nombreProyecto'].invalid && editForm.controls['nombreProyecto'].touched" class="validation-error">Este campo es requerido</div>
+                            <input formControlName="nombreProyecto" type="text"  class="form-control" minlength="5" maxlength="20" required/> 
+                            <div *ngIf="editForm.controls['nombreProyecto'].errors && editForm.controls['nombreProyecto'].touched" class="validation-error">
+                                <div [hidden] = "!editForm.controls['nombreProyecto'].errors.required">
+                                    El campo es requerido
+                                </div>
+                                <div [hidden] = "!editForm.controls['nombreProyecto'].errors.minlength">
+                                    El campo requiere mas de 3 caracteres  
+                                </div>
+                                <div [hidden] = "!editForm.controls['nombreProyecto'].errors.maxlength">
+                                    El nombre debe tener menos de 20 caracteres  
+                                </div>
+                            </div>
                        </div>
                       </div>
 
@@ -21,8 +31,13 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Fecha de terminacion</label>
-                            <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
-                            <div *ngIf="editForm.controls['fechaTerminacion'].invalid && editForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
+                            <input formControlName="fechaTerminacion" mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                            [convertModelValue]="true"
+                            [enableTime]="false"
+                            dateFormat="Y-m-dTH:i"
+                            altFormat="F j, Y H:i"
+                            placeholder="No colocada" required/>
+                            <div *ngIf="editForm.controls['fechaTerminacion'].errors && editForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
                           </div>
                       </div>
 
@@ -32,15 +47,25 @@
                           <select formControlName="ubicacionID" class="form-control" required>
                               <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
                           </select>
-                          <div *ngIf="editForm.controls['ubicacionID'].invalid && editForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
+                          <div *ngIf="editForm.controls['ubicacionID'].errors && editForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
                         </div>
                     </div>
 
                     <div class="form-row">
                       <div class="form-group">
                         <label>Direccion</label>
-                        <input formControlName="direccion" class="form-control" type="text"  required/>
-                        <div *ngIf="editForm.controls['direccion'].invalid && editForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
+                        <input formControlName="direccion" class="form-control" type="text" minlength="5" maxlength="35"  required/>
+                        <div *ngIf="editForm.controls['direccion'].errors && editForm.controls['direccion'].touched" class="validation-error">
+                            <div [hidden] = "!editForm.controls['direccion'].errors.required">
+                                El campo es requerido
+                            </div>
+                            <div [hidden] = "!editForm.controls['direccion'].errors.minlength">
+                                El campo requiere mas de 5 caracteres  
+                            </div>
+                            <div [hidden] = "!editForm.controls['direccion'].errors.maxlength">
+                                El nombre debe tener menos de 35 caracteres  
+                            </div>
+                        </div>
                       </div>
                   </div>
 
@@ -50,11 +75,7 @@
                       <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file"   accept="imagen" required>
                     </div>
                 </div>
-
-  
-                
-                        
-                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                      <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   
                   </form>
                 </div>

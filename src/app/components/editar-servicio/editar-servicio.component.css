@@ -2,22 +2,36 @@ body{
     padding-left: 400px;
     padding-top: 100px;
   }
-  
+
 
 .container{
-    margin: auto;
-    padding-top: 150px;
-    padding-left: 30px;
+    position: center;
+    max-height: 1500px;
+    max-width: 1000px;
+    /* padding-left: 600px;
+    padding-bottom: 50px; */
+}
+
+
+
+label{
+    font-size: 15px;
+}
+
+input.ng-touched.ng-invalid{
+    border-radius: .3rem;
+    border-color: #dc3545;
 }
 
 h1{
-    padding-left: 340px;
+    padding-top: 50px;
     padding-bottom: 20px;
-    
+    text-align: center; 
 }
 
-main{
-    padding-right: 400px;
+select.ng-touched.ng-invalid{
+    border-radius: .3rem;
+    border-color: #dc3545;
 }
 
 div.validation-error{
@@ -28,15 +42,6 @@ div.validation-error{
 
 }
 
-select.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-input.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
 
 /* Editar */
 
@@ -58,13 +63,13 @@ input.ng-touched.ng-invalid{
     object-fit: cover;
     width: 100%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('/assets/tools.jpg');
+    background: scroll center url('/assets/edif.jpg');
     background-size: cover;
   }
   
   .card-editar .card-body {
     width: 1000px; 
-    height:550px;
+    height:650px;
   }
   
   .form-editar {
@@ -83,13 +88,6 @@ input.ng-touched.ng-invalid{
     top: 40px;
     background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
   }
-
-
-  .btn-primary {
-    color: #fff;
-    background-color: #fff;
-    border-color: #fff;
-}
   
   .form-label-group {
     position: relative;
@@ -100,6 +98,12 @@ input.ng-touched.ng-invalid{
     height: auto;
     /* border-radius: 2rem; */
   }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+}
   
   .form-label-group>input,
   .form-label-group>label {
@@ -174,10 +178,4 @@ input.ng-touched.ng-invalid{
     font-size: 80%;
     color: #dc3545;
 
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #fff;
-  border-color: #fff;
 }

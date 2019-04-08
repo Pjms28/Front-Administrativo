@@ -13,15 +13,30 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Nombre del proyecto</label>
-                                <input formControlName="nombreProyecto" type="text"  class="form-control" required/> 
-                                <div *ngIf="addForm.controls['nombreProyecto'].invalid && addForm.controls['nombreProyecto'].touched" class="validation-error">Este campo es requerido</div>
+                                <input formControlName="nombreProyecto" type="text"  class="form-control" minlength="5" maxlength="20" required/> 
+                                <div *ngIf="addForm.controls['nombreProyecto'].errors && addForm.controls['nombreProyecto'].touched" class="validation-error">
+                                        <div [hidden] = "!addForm.controls['nombreInmueble'].errors.required">
+                                            El campo es requerido
+                                        </div>
+                                        <div [hidden] = "!addForm.controls['nombreInmueble'].errors.minlength">
+                                            El campo requiere mas de 3 caracteres  
+                                        </div>
+                                        <div [hidden] = "!addForm.controls['nombreInmueble'].errors.maxlength">
+                                            El nombre debe tener menos de 20 caracteres  
+                                        </div>
+                                </div>
                             </div>
                         </div>
   
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Fecha de terminación</label>
-                                <input formControlName="fechaTerminacion" type="date" class="form-control"  required/>
+                                <input formControlName="fechaTerminacion" mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                                [convertModelValue]="true"
+                                [enableTime]="false"
+                                dateFormat="Y-m-dTH:i"
+                                altFormat="F j, Y H:i"
+                                placeholder="Not set"  required/>
                                 <div *ngIf="addForm.controls['fechaTerminacion'].invalid && addForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
                         </div>
@@ -32,15 +47,25 @@
                                 <select formControlName="ubicacionID" class="form-control" required>
                                     <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
                                 </select>
-                                <div *ngIf="addForm.controls['ubicacionID'].invalid && addForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
+                                <div *ngIf="addForm.controls['ubicacionID'].errors && addForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
                         </div>
   
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Dirección</label>
-                                <input formControlName="direccion" class="form-control" type="text"   required/>
-                                <div *ngIf="addForm.controls['direccion'].invalid && addForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
+                                <input formControlName="direccion" class="form-control" type="text" minlength="5" maxlength="35"  required/>
+                                <div *ngIf="addForm.controls['direccion'].errors && addForm.controls['direccion'].touched" class="validation-error">
+                                        <div [hidden] = "!addForm.controls['direccion'].errors.required">
+                                                El campo es requerido
+                                            </div>
+                                            <div [hidden] = "!addForm.controls['direccion'].errors.minlength">
+                                                El campo requiere mas de 5 caracteres  
+                                            </div>
+                                            <div [hidden] = "!addForm.controls['direccion'].errors.maxlength">
+                                                El nombre debe tener menos de 35 caracteres  
+                                            </div>
+                                </div>
                             </div>
                         </div>
 

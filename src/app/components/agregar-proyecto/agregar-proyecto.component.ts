@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
 import { UbicacionService } from '../../shared/ubicacion.service';
 import {Router} from "@angular/router";
@@ -21,11 +21,11 @@ export class AgregarProyectoComponent implements OnInit {
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      nombreProyecto:[''],
-      fechaTerminacion:[''],
-      direccion:[''],
-      imgURL:[''],
-      ubicacionID: ['']
+      nombreProyecto:['', [Validators.required]],
+      fechaTerminacion:['', [Validators.required]],
+      direccion:['',[Validators.required]],
+      imgURL:['',[Validators.required]],
+      ubicacionID: ['',[Validators.required]]
     });
 
     return this.ubicacionService.getLocantions()
@@ -38,15 +38,26 @@ export class AgregarProyectoComponent implements OnInit {
 
   }
   onSubmit() {
-    this.apiService.addProject(this.addForm.value).subscribe(res =>{
-      this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
-      this.router.navigate(['listar-contenido']);
-      let formData = new FormData(); 
-      formData.append(this.fileTo.name, this.fileTo);
-      formData.append('fileName',this.fileTo.name);
-      this.apiService.sendFormData(formData);
+    if(this.addForm.get("nombreProyecto").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.addForm.get("fechaTerminacion").value.length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.addForm.get("direccion").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else{
+      this.apiService.addProject(this.addForm.value).subscribe(res =>{
+        this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
+        this.router.navigate(['listar-contenido']);
+        let formData = new FormData(); 
+        formData.append(this.fileTo.name, this.fileTo);
+        formData.append('fileName',this.fileTo.name);
+        this.apiService.sendFormData(formData);
 
-    });
+      });
+    }
   }
   saveFileRequest(files : FileList){
     this.fileTo = files.item(0);

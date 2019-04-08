@@ -14,20 +14,40 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Característica</label>
-                            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" required/> 
-                            <div *ngIf="addForm.controls['carNombre'].invalid && addForm.controls['carNombre'].touched" class="validation-error">Este campo es requerido</div>
+                            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" minlength="3" maxlength="20" required/> 
+                            <div *ngIf="addForm.controls['carNombre'].errors && addForm.controls['carNombre'].touched" class="validation-error">
+                              <div [hidden] = "!addForm.controls['carNombre'].errors.required">
+                                El campo es requerido
+                              </div>
+                              <div [hidden] = "!addForm.controls['carNombre'].errors.minlength">
+                                El campo requiere mas de 3 caracteres  
+                              </div>
+                              <div [hidden] = "!addForm.controls['carNombre'].errors.maxlength">
+                                El nombre debe tener menos de 20 caracteres  
+                              </div>
+                            </div>
                           </div>
                       </div>
 
                       <div class="form-row">
                           <div class="form-group">
                             <label>Descripción</label>
-                            <input formControlName="carDescripcion" type="text" class="form-control"  required/>
-                            <div *ngIf="addForm.controls['carDescripcion'].invalid && addForm.controls['carDescripcion'].touched" class="validation-error">Este campo es requerido</div>
+                            <input formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="50"  required/>
+                            <div *ngIf="addForm.controls['carDescripcion'].errors && addForm.controls['carDescripcion'].touched" class="validation-error">
+                                <div [hidden] = "!addForm.controls['carDescripcion'].errors.required">
+                                    El campo es requerido
+                                  </div>
+                                  <div [hidden] = "!addForm.controls['carDescripcion'].errors.minlength">
+                                    El campo requiere mas de 9 caracteres  
+                                  </div>
+                                  <div [hidden] = "!addForm.controls['carDescripcion'].errors.maxlength">
+                                    El nombre debe tener menos de 50 caracteres  
+                                  </div>
+                            </div>
                           </div>
                       </div>
 
-                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Save</button>
+                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   
                   </form>
                 </div>

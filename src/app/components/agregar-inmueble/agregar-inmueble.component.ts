@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { InmuebleModel } from '../../modelos/inmueble.model';
@@ -27,10 +27,10 @@ export class AgregarInmuebleComponent implements OnInit {
   ngOnInit() {
 
     this.addForm = this.formBuilder.group({
-      precio: [''],
-      nombreInmueble:[''],
-      descripcionInmueble:[''],
-      proyectoID: ['']
+      precio: ['',[Validators.required]],
+      nombreInmueble:['', [Validators.required]],
+      descripcionInmueble:['', [Validators.required]],
+      proyectoID: ['', [Validators.required]]
     });
 
     
@@ -54,12 +54,25 @@ export class AgregarInmuebleComponent implements OnInit {
 
    
   onSubmit(){
-    //console.log(this.carForm.value);
-    this.apiIn.addInmueble(this.addForm.value)
-    .subscribe(data =>{
-      this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
-      this.router.navigate(['listar-contenido']);
-    });
+    if(this.addForm.get("precio").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.addForm.get("nombreInmueble").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.addForm.get("descripcionInmueble").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.addForm.get("proyectoID").value.length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else {
+      this.apiIn.addInmueble(this.addForm.value)
+      .subscribe(data =>{
+        this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
+        this.router.navigate(['listar-contenido']);
+      });
+    }
   }
 
 }

@@ -5,6 +5,7 @@ import { InmuebleService } from '../../shared/inmueble.service';
 import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router";
 import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap'; 
+import { ServicioService } from 'src/app/shared/servicio.service';
 
 @Component({
   selector: 'app-listar-contenido',
@@ -22,7 +23,7 @@ export class ListarContenidoComponent implements OnInit {
   data: any = [];
   form : any;
   constructor(private router: Router, private config: NgbPaginationConfig, private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
-    private toastr: ToastrService) { }
+    private toastr: ToastrService, public apiSer: ServicioService) { }
   value:string="";
   p: number = 1;
   ngOnInit() {
@@ -57,6 +58,17 @@ export class ListarContenidoComponent implements OnInit {
         }, err =>{
           console.log(err);
         });
+      }
+
+      if(this.value=="Servicios"){
+        return this.apiSer.getServices()
+      .subscribe(res => {
+      this.data = res;
+    
+    }, err => {
+      console.log(err);
+     
+    });
       }
 
     }
@@ -103,6 +115,18 @@ export class ListarContenidoComponent implements OnInit {
         }
       }
 
+      if(this.value == "Servicios"){
+        if(confirm('¿Esta seguro que desea eliminar este servicio')){
+          return this.apiSer.deleteService(d.servicioID).
+          subscribe(res=>{
+            this.toastr.warning('Servicio eliminado exitosamente','Servicio.Eliminada');
+            return this.apiSer.getServices().subscribe((res: {}) => {
+              this.data = res;
+            })
+          });
+        }
+      }
+
     }
 
     updateProject(project: any){
@@ -120,6 +144,11 @@ export class ListarContenidoComponent implements OnInit {
         window.localStorage.removeItem("editUserID");
         window.localStorage.setItem("editUserID", String(project.caracteristicaID));
         this.router.navigate(['editar-caracteristica']);
+      }
+      if(this.value == "Servicios"){
+        window.localStorage.removeItem("editUserID");
+        window.localStorage.setItem("editUserID", String(project.servicioID));
+        this.router.navigate(['editar-servicio']);
       }
       
 

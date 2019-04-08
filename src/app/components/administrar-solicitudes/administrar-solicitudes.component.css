@@ -30,7 +30,7 @@ img{
 }
 
 table{
-    width: 500px;
+    width: 540px;
     padding-top: 40px;
     margin-left:90px; 
 }
@@ -62,5 +62,5 @@ table button .eliminar{
 }
 
 th{
-    width: 100px;
+    width: 140px;
 }
