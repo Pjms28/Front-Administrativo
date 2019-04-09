@@ -1,7 +1,7 @@
-body{
+/* body{
     padding-left: 400px;
     margin: auto;
-  }
+  } */
 
 .card-solicitud {
     border: 0;
@@ -23,7 +23,7 @@ body{
   .card-solicitud .card-body {
     width:1000px ;
     height:1000px ;
-    padding-left: 200px;
+    padding-left: 25%;
     margin: auto;
   }
   

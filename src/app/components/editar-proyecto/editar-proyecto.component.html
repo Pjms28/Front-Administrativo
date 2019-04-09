@@ -70,12 +70,17 @@
                   </div>
 
                   <div class="form-row">
-                    <div class="form-group">
-                      <label>Imagen del proyecto</label>
-                      <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file"   accept="imagen" required>
-                    </div>
-                </div>
-                      <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                      <div class="form-group">
+                          <div class="upload-btn-wrapper">
+                          <label class="foto" for="file-input">Imagen del proyecto <br> <i class="material-icons"> add_a_photo</i></label>
+                          <input  formControlName="imgURL" type = "file" class="imagen" id="file-input"  required>
+                          </div>
+                      </div>
+                  </div>
+  
+                
+                        
+                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   
                   </form>
                 </div>

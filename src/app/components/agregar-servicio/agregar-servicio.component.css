@@ -5,8 +5,22 @@ h1{
 }
 
 body{ 
-  padding-left: 300px;
-  padding-top: 25px;
+  /* padding-left: 300px; */
+  padding-top: 5%;
+} 
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 
 div.validation-error{
@@ -57,7 +71,7 @@ input.ng-touched.ng-invalid{
   }
   
   .form-caracteristica {
-    width: 100%;
+    width: 80%;
   }
   
   .form-caracteristica .btn {
@@ -164,27 +178,93 @@ input.ng-touched.ng-invalid{
 
 }
 
-/* @media screen and (max-width:800px){
-    .card-inmueble .card-body {
-        padding: 2rem;
-        width:400px ;
-        height:600px ;
-      }
+@media screen and (max-width:700px){
 
-      label{
-        position: relative;
-        left: -40px;
-        width: 200px;
-
-      }
-
-      .form-row .form-control{
-        position: relative;
-        width: 200px;
-        left: -40px;
-      }
-
-      
+  .card-caracteristica .card-title {
+    margin-bottom: 10px;
+    font-weight: 300;
+    font-size: 25px;
     
-  } */
+  }
+
+  .form-caracteristica .btn {
+    width: 150px;
+    margin: auto;
+    margin-left: 25%
+  }
+
+  .form-row .form-control{
+    width: 220px;
+  }
+  
+    
+  }
  
+  @media screen and (max-width:600px){
+
+    .card-caracteristica .card-title {
+      margin-bottom: 10px;
+      font-weight: 300;
+      font-size: 30px;
+      
+    }
+  
+    .form-caracteristica .btn {
+      width: 140px;
+      margin: auto;
+      margin-left: 25%
+    }
+  
+    .form-row .form-control{
+      width: 210px;
+    }
+    
+      
+    }
+
+    @media screen and (max-width:500px){
+
+      .card-caracteristica .card-title {
+        margin-bottom: 10px;
+        font-weight: 300;
+        font-size: 25px;
+        
+      }
+    
+      .form-caracteristica .btn {
+        width: 140px;
+        margin: auto;
+        margin-left: 25%
+      }
+    
+      .form-row .form-control{
+        width: 150px;
+        margin-left: 0;
+      }
+      
+        
+      }
+
+    @media screen and (max-width:400px){
+
+      .card-caracteristica .card-title {
+        margin-bottom: 10px;
+        font-weight: 300;
+        font-size: 30px;
+        
+      }
+    
+      .form-caracteristica .btn {
+        width: 120px;
+        margin: auto;
+        margin-left: 10%
+      }
+    
+      .form-row .form-control{
+        width: 100px;
+        margin: auto;
+      }
+      
+        
+      }
+   

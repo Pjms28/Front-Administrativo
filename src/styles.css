@@ -50,4 +50,26 @@ ngb-panel{
     }
 } */
 
+ngb-panel{
+    width: 50px;
+    background: #1497dd;
+}
+
+.card-header{
+    color: #fff;
+    background: #1497dd;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.btn-link {
+    color: #fff;
+}
+
+.btn-link:hover{
+    color: #fff;
+    
+}
+
 

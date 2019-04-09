@@ -1,214 +1,322 @@
-body{ 
-  padding-left: 325px;
-  padding-top: 0px;;
-}
-
-
-label{
-    font-size: 15px;
-}
-
-input.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-h1{
-    padding-top: 50px;
-    padding-bottom: 20px;
-    text-align: center; 
-}
-
-
-div.validation-error{
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-
-}
-
-select.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-.upload{
-    font-weight:bold;
-    color:#28a745;
-    margin-left: 15px;
-    line-height: 36px;
-}
-
-/* Proyecto */
-
-.card-proyecto {
-    border: 0;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+/* body{ 
+    padding-left: 325px;
+    padding-top: 0px;;
+  } */
+  
+  
+  label{
+      font-size: 15px;
   }
   
-  .card-proyecto .card-title {
-    margin-bottom: 25px;
-    font-weight: 300;
-    font-size: 30px;
+  input.ng-touched.ng-invalid{
+      border-radius: .3rem;
+      border-color: #dc3545;
+  }
+  
+  h1{
+      padding-top: 50px;
+      padding-bottom: 20px;
+      text-align: center; 
+  }
+  
+  
+  div.validation-error{
+      width: 100%;
+      margin-top: .25rem;
+      font-size: 80%;
+      color: #dc3545;
+  
+  }
+  
+  select.ng-touched.ng-invalid{
+      border-radius: .3rem;
+      border-color: #dc3545;
+  }
+  
+  .upload{
+      font-weight:bold;
+      color:#28a745;
+      margin-left: 15px;
+      line-height: 36px;
+  }
+  
+  /* Proyecto */
+  
+  .card-proyecto {
+      border: 0;
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
     
-  }
-  
-  .card-proyecto .card-img-left {
-    width: 100%;
-    /* Link to your background image using in the property below! */
-    background: scroll center url('/assets/edificios.jpg');
-    background-size: cover;
-  }
-  
-  .card-proyecto .card-body {
-    width: 1000px; 
-    height:600px;
-  }
-
-  
-  .form-proyecto {
-    width: 100%;
-  }
-  
-  .form-proyecto .btn {
-    font-size: 80%;
-    border-radius: 5rem;
-    letter-spacing: .1rem;
-    font-weight: bold;
-    padding: 1rem;
-    margin-left: 55px;
-    transition: all 0.2s;
-    width: 250px;
-    top: 40px;
-    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
-  }
-  
-  .btn-primary {
-    color: #fff;
-    background-color: #fff;
-    border-color: #fff;
-}
-
-  .form-label-group {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-  
-  .form-label-group input {
-    height: auto;
-    /* border-radius: 2rem; */
-  }
-  
-  .form-label-group>input,
-  .form-label-group>label {
-    padding: var(--input-padding-y) var(--input-padding-x);
-  }
-  
-  .form-label-group>label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 80%;
-    margin-bottom: 0;
-    /* Override default `<label>` margin */
-    line-height: 1.5;
-    color: #495057;
-    border: 1px solid transparent;
-    /* border-radius: .25rem; */
-    transition: all .1s ease-in-out;
-  }
-
-  
-  .form-label-group input::-webkit-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input:-ms-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::-ms-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::-moz-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input:not(:placeholder-shown) {
-    padding-top: 20px;
-    padding-bottom: calc(var(--input-padding-y) / 3);
-  }
-  
-  .form-label-group input:not(:placeholder-shown)~label {
-    padding-top: calc(var(--input-padding-y) / 3);
-    padding-bottom: calc(var(--input-padding-y) / 3);
-    font-size: 12px;
-    color: #777;
-  }
-
-  .btn {
-    position: relative;
-    top:20px;
-  }
-
-  .form-row .form-control{
-    width: 300px;
-  }
-  .form-row{
-      position: relative;
-      left: 40px;
-      bottom: -20px;
-  }
-
-  div.info{
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-
-}
-
-@media screen and (max-width:800px){
-
-  body{
-    padding-left: 0px;
-    padding-top: 25px;
-  }
-    .card-inmueble .card-body {
-        padding: 2rem;
-        width:500px ;
-        height:600px ;
-      }
-
-      label{
-        position: relative;
-        left: -40px;
-        width: 200px;
-
-      }
-
-      .form-row .form-control{
-        position: relative;
-        width: 200px;
-        left: -40px;
-      }
-
-      .form-row .imagen{
-        position: relative;
-        width: 200px;
-        left: -40px;
-      }
-
+    
+    .card-proyecto .card-title {
+      margin-bottom: 25px;
+      font-weight: 300;
+      font-size: 30px;
       
+    }
+
+
+    .upload-btn-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .upload-btn-wrapper input[type=file] {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+    }
     
+   
+    
+    .card-proyecto .card-img-left {
+      width: 100%;
+      /* Link to your background image using in the property below! */
+      background: scroll center url('/assets/edificios.jpg');
+      background-size: cover;
+    }
+    
+    .card-proyecto .card-body {
+      width: 1000px; 
+      height:605px;
+    }
+  
+    
+    .form-proyecto {
+      width: 100%;
+    }
+    
+    .form-proyecto .btn {
+      font-size: 80%;
+      border-radius: 5rem;
+      letter-spacing: .1rem;
+      font-weight: bold;
+      padding: 1rem;
+      margin-left: 55px;
+      transition: all 0.2s;
+      width: 250px;
+      top: 20px;
+      background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+    }
+    
+    .btn-primary {
+      color: #fff;
+      background-color: #fff;
+      border-color: #fff;
   }
- 
+  
+    .form-label-group {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    
+    .form-label-group input {
+      height: auto;
+      /* border-radius: 2rem; */
+    }
+    
+    .form-label-group>input,
+    .form-label-group>label {
+      padding: var(--input-padding-y) var(--input-padding-x);
+    }
+    
+    .form-label-group>label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 80%;
+      margin-bottom: 0;
+      /* Override default `<label>` margin */
+      line-height: 1.5;
+      color: #495057;
+      border: 1px solid transparent;
+      /* border-radius: .25rem; */
+      transition: all .1s ease-in-out;
+    }
+  
+    
+    .form-label-group input::-webkit-input-placeholder {
+      color: transparent;
+    }
+    
+    .form-label-group input:-ms-input-placeholder {
+      color: transparent;
+    }
+    
+    .form-label-group input::-ms-input-placeholder {
+      color: transparent;
+    }
+    
+    .form-label-group input::-moz-placeholder {
+      color: transparent;
+    }
+    
+    .form-label-group input::placeholder {
+      color: transparent;
+    }
+    
+    .form-label-group input:not(:placeholder-shown) {
+      padding-top: 20px;
+      padding-bottom: calc(var(--input-padding-y) / 3);
+    }
+    
+    .form-label-group input:not(:placeholder-shown)~label {
+      padding-top: calc(var(--input-padding-y) / 3);
+      padding-bottom: calc(var(--input-padding-y) / 3);
+      font-size: 12px;
+      color: #777;
+    }
+  
+    .btn {
+      position: relative;
+      top:20px;
+    }
+  
+    .form-row .form-control{
+      width: 300px;
+    }
+    .form-row{
+        position: relative;
+        left: 40px;
+        bottom: -20px;
+    }
+  
+    div.info{
+      width: 100%;
+      margin-top: .25rem;
+      font-size: 80%;
+      color: #dc3545;
+  
+  }
+  
+  /* @media screen and (max-width:800px){
+  
+    body{
+      padding-left: 0px;
+      padding-top: 25px;
+    }
+      .card-inmueble .card-body {
+          padding: 2rem;
+          width:500px ;
+          height:600px ;
+        }
+  
+        label{
+          position: relative;
+          left: -40px;
+          width: 200px;
+  
+        }
+  
+        .form-row .form-control{
+          position: relative;
+          width: 200px;
+          left: -40px;
+        }
+  
+        .form-row .imagen{
+          position: relative;
+          width: 200px;
+          left: -40px;
+        }
+  
+        
+      
+    } */
+
+    /* @media screen and (max-width:700px){
+
+      .card-proyecto .card-title {
+        margin-bottom: 10px;
+        font-weight: 300;
+        font-size: 25px;
+        
+      }
+    
+      .form-proyecto .btn {
+        width: 150px;
+        margin: auto;
+        margin-left: 25%
+      }
+    
+      .form-row .form-control{
+        width: 220px;
+      }
+      
+        
+      } */
+     
+      @media screen and (max-width:600px){
+    
+        .card-proyecto .card-title {
+          margin-bottom: 10px;
+          font-weight: 300;
+          font-size: 30px;
+          
+        }
+      
+        .form-proyecto .btn {
+          width: 140px;
+          margin: auto;
+          margin-left: 25%
+        }
+      
+        .form-row .form-control{
+          width: 210px;
+        }
+        
+          
+        }
+    
+        @media screen and (max-width:500px){
+    
+          .card-proyecto .card-title {
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-size: 25px;
+            
+          }
+        
+          .form-proyecto .btn {
+            width: 140px;
+            margin: auto;
+            margin-left: 25%
+          }
+        
+          .form-row .form-control{
+            width: 150px;
+            margin-left: 0;
+          }
+          
+            
+          }
+    
+        @media screen and (max-width:400px){
+    
+          .card-proyecto .card-title {
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-size: 20px;
+            
+          }
+        
+          .form-proyecto .btn {
+            width: 120px;
+            margin: auto;
+            margin-left: 10%
+          }
+        
+          .form-row .form-control{
+            width: 100px;
+            margin: auto;
+          }
+          
+            
+          }
+   
