@@ -39,7 +39,8 @@ import { VisitaService } from './shared/visita.service';
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
 import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
 import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
-import { EditarVisitaComponent } from './components/editar-visita/editar-visita.component';
+import {DatePipe} from '@angular/common';
+import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { EditarVisitaComponent } from './components/editar-visita/editar-visita.
     AgregarServicioComponent,
     DescripcionSolicitudComponent,
     CambioEstadoComponent,
-    EditarVisitaComponent
+    EditarServicioComponent,
   ],
   imports: [
     BrowserModule,

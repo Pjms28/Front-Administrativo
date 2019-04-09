@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
@@ -14,25 +14,36 @@ export class AgregarCaracteristicaComponent implements OnInit {
 
   caracteristica : CaracteristicaModel;
   addForm: FormGroup;
-
+  mensaje: string;
 
   constructor( private apiCar: CaracteristicaService,private formBuilder: FormBuilder,
     private router: Router,private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      carNombre: [''],
-      carDescripcion:['']
+      carNombre: ['',[Validators.required]],
+      carDescripcion:['',[Validators.required]]
     });
 
   }
 
   onSubmit(){
-    this.apiCar.addCaracteristica(this.addForm.value)
-    .subscribe(data =>{
-      this.toastr.success('Caracteristica ha sido creada exitosamente','Caracteristica.Registro');
-      this.router.navigate(['listar-contenido']);
-    });
+    if(this.addForm.get("carNombre").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.addForm.get("carDescripcion").value.trim().length == 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else{
+      this.apiCar.addCaracteristica(this.addForm.value)
+      .subscribe(data =>{
+        this.toastr.success('Caracteristica ha sido creada exitosamente','Caracteristica.Registro');
+        this.router.navigate(['listar-contenido']);
+      });
+    }
   }
 
 }
+
+
+

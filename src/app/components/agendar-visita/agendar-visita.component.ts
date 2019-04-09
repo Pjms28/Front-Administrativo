@@ -7,6 +7,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { VisitaService } from '../../shared/visita.service';
 import { VisitaModel } from 'src/app/modelos/visita.model';
 import { Router } from '@angular/router';
+import {formatDate} from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 
 const colors: any = {
@@ -28,7 +30,8 @@ const colors: any = {
   selector: 'app-agendar-visita',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './agendar-visita.component.html',
-  styleUrls: ['./agendar-visita.component.css']
+  styleUrls: ['./agendar-visita.component.css'],
+  providers: [ DatePipe]
 })
 export class AgendarVisitaComponent implements OnInit {
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
@@ -62,11 +65,11 @@ export class AgendarVisitaComponent implements OnInit {
 
   events: CalendarEvent[];
 
-  data: VisitaModel = new VisitaModel();
+  data: any;
   refresh: Subject<any> = new Subject();
   activeDayIsOpen: boolean = true;
  
-  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService,private router: Router) { }
+  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService,private router: Router, private datePipe: DatePipe) { }
 
   
 
@@ -110,7 +113,8 @@ export class AgendarVisitaComponent implements OnInit {
       }
       return iEvent;
     });
-    this.update(newStart,newEnd, event)
+    //console.log(newStart,newEnd);
+    this.update(newStart,newEnd, event);
     this.handleEvent('Dropped or resized', event);
   }
 
@@ -149,6 +153,7 @@ export class AgendarVisitaComponent implements OnInit {
         draggable: true
       }
       obj.push(event)
+      console.log(event)
     });
     this.events = obj;
     this.refresh.next();
@@ -157,26 +162,27 @@ export class AgendarVisitaComponent implements OnInit {
   update(start, end, event){
    this.ageService.getVisit(event.numeroVisita).subscribe(res=>{
       this.data = res;
-      this.data.hora_Inicio = start;
-      this.data.hora_Fin = end;
+      this.data.hora_Inicio = formatDate(start, 'yyyy/MM/dd HH:mm:ss', 'en');
+      this.data.hora_Fin = formatDate(end, 'yyyy/MM/dd HH:mm:ss', 'en');;
       this.ageService.updateVisit(this.data).subscribe(res =>{
 
       });
-    });
-  }
-
-  delete(evento:any){
-      this.ageService.deleteVisit(evento.numeroVisita).subscribe(res => {
-      })
-  }
-
-  updateAll(evento:any){
-    window.localStorage.removeItem("solID");
-    window.localStorage.setItem("solID", String(evento.numeroVisita));
-    this.router.navigate(['editar-visita']);
-  }
-
-  add(){
-    this.router.navigate(['agregar-visita']);
-  }
+  });
 }
+
+delete(evento:any){
+  this.ageService.deleteVisit(evento.numeroVisita).subscribe(res => {
+  })
+}
+
+updateAll(evento:any){
+window.localStorage.removeItem("solID");
+window.localStorage.setItem("solID", String(evento.numeroVisita));
+this.router.navigate(['editar-visita']);
+}
+
+add(){
+this.router.navigate(['agregar-visita']);
+}
+}
+

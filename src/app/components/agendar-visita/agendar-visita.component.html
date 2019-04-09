@@ -96,7 +96,7 @@
       <br /><br /><br />
       
       <h3>
-        Edit events
+        Detalle de evento
         <button class="btn btn-primary pull-right" (click)="addEvent()">
           Agregar
         </button>
@@ -113,6 +113,7 @@
               <th>Inicio</th>
               <th>Final</th>
               <th>Remover</th>
+              <th>Editar</th>
             </tr>
           </thead>
       
@@ -199,12 +200,13 @@
         </div>
         <div class="modal-body">
           <div>
-            Action:
-            <pre>{{ modalData?.action }}</pre>
-          </div>
-          <div>
-            Event:
-            <pre>{{ modalData?.event | json }}</pre>
+            Detalle de reunion
+              <pre> 
+                    Fecha y hora: {{modalData?.event.start | date:"dd/MM/yyyy HH:mm aa"}} - {{modalData?.event.end | date:"HH:mm aa" }}
+                    Reunion: {{modalData?.event.title}}
+                    Servicio solicitado: {{modalData?.event.servicio}}
+                    Estado: {{modalData?.event.estado}}
+              </pre>
           </div>
         </div>
         <div class="modal-footer">

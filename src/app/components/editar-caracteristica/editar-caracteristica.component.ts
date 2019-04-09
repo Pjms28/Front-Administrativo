@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import {first} from "rxjs/operators";
@@ -29,9 +29,9 @@ export class EditarCaracteristicaComponent implements OnInit {
       return;
     }
     this.editForm = this.formBuilder.group({
-      caracteristicaID:[''],
-      carNombre: [''],
-      carDescripcion:['']
+      caracteristicaID:['', [Validators.required]],
+      carNombre: ['', [Validators.required]],
+      carDescripcion:['', [Validators.required]]
     });
 
     this.apiCar.getCaracteristica(Number(userID))
@@ -49,12 +49,20 @@ export class EditarCaracteristicaComponent implements OnInit {
   }
 
   onSubmit(){
-    this.apiCar.updateCaracteristica(this.editForm.value)
-    .pipe(first())
-    .subscribe(data =>{
-      this.toastr.info('Caracteristica ha sido editada','Caracteristica.Info');
-      this.router.navigate(['listar-contenido']);
-    });
+    if(this.editForm.get("carNombre").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.editForm.get("carDescripcion").value.trim().length == 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else{
+      this.apiCar.updateCaracteristica(this.editForm.value)
+      .pipe(first())
+      .subscribe(data =>{
+        this.toastr.info('Caracteristica ha sido editada','Caracteristica.Info');
+        this.router.navigate(['listar-contenido']);
+      });
+    }
   }
 
 }

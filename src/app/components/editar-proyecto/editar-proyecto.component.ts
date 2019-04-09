@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup,Validators} from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
 import { UbicacionService } from '../../shared/ubicacion.service';
 import {Router, ActivatedRoute} from "@angular/router";
@@ -26,6 +26,15 @@ export class EditarProyectoComponent implements OnInit {
     , private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.editForm = this.formBuilder.group({
+      proyectoID:['',[Validators.required]],
+      nombreProyecto:['',[Validators.required]],
+      fechaTerminacion:['',[Validators.required]],
+      ubicacionID: ['',[Validators.required]],
+      direccion: ['',[Validators.required]],
+      imgURL:['',[Validators.required]]
+    });
+
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
       alert("Accion Invalida")
@@ -33,20 +42,14 @@ export class EditarProyectoComponent implements OnInit {
       return;
     }
     window.localStorage.removeItem("editUserID");
-
-    this.editForm = this.formBuilder.group({
-      proyectoID:[''],
-      nombreProyecto:[''],
-      fechaTerminacion:[''],
-      ubicacionID: [''],
-      imgURL:[''],
-      direccion: ['']
-    });
     
     this.apiService.getProject(Number(userID))
     .subscribe(res => {
-      this.editForm.patchValue(res);
-      
+      this.editForm.controls['proyectoID'].setValue(res.proyectoID);
+      this.editForm.controls['nombreProyecto'].setValue(res.nombreProyecto);
+      this.editForm.controls['fechaTerminacion'].setValue(res.fechaTerminacion);
+      this.editForm.controls['ubicacionID'].setValue(res.ubicacionID);
+      this.editForm.controls['direccion'].setValue(res.direccion);
     });
     
     return this.ubicacionService.getLocantions()
@@ -62,17 +65,28 @@ export class EditarProyectoComponent implements OnInit {
   }  
   
   onSubmit(){
-    console.log(this.editForm.value);
-    this.apiService.updateProject(this.editForm.value)
-    .pipe(first())
-    .subscribe(data =>{
-      this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
-      this.router.navigate(['listar-contenido']);
-      let formData = new FormData(); 
-      formData.append(this.fileTo.name, this.fileTo);
-      formData.append('fileName',this.fileTo.name);
-      this.apiService.sendFormData(formData);
-    });
+
+    if(this.editForm.get("nombreProyecto").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.editForm.get("fechaTerminacion").value.length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.editForm.get("direccion").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else{
+      this.apiService.updateProject(this.editForm.value)
+      .pipe(first())
+      .subscribe(data =>{
+        this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
+        this.router.navigate(['listar-contenido']);
+        let formData = new FormData(); 
+        formData.append(this.fileTo.name, this.fileTo);
+        formData.append('fileName',this.fileTo.name);
+        this.apiService.sendFormData(formData);
+      });
+    }
   }
 
 

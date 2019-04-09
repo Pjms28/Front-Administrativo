@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import {first} from "rxjs/operators";
@@ -31,11 +31,11 @@ export class EditarInmuebleComponent implements OnInit {
     }
 
     this.editForm = this.formBuilder.group({
-      inmuebleID:[''],
-      nombreInmueble:[''],
-      precio: [''],
-      descripcionInmueble:[''],
-      proyectoID: ['']
+      inmuebleID:['', [Validators.required]],
+      nombreInmueble:['', [Validators.required]],
+      precio: ['',[Validators.required]],
+      descripcionInmueble:['',[Validators.required]],
+      proyectoID: ['',[Validators.required]]
     });
     window.localStorage.removeItem("editUserID");
     this.apiIn.getInmueble(Number(userID))
@@ -55,12 +55,26 @@ export class EditarInmuebleComponent implements OnInit {
 
   
   onSubmit(){
-    this.apiIn.updateInmueble(this.editForm.value)
-    .pipe(first())
-    .subscribe(data =>{
-      this.toastr.info('Inmueble ha sido editado','Inmueble.Info');
-      this.router.navigate(['listar-contenido']);
-    });
+    if(this.editForm.get("precio").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.editForm.get("nombreInmueble").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.editForm.get("descripcionInmueble").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.editForm.get("proyectoID").value.length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else{
+      this.apiIn.updateInmueble(this.editForm.value)
+      .pipe(first())
+      .subscribe(data =>{
+        this.toastr.info('Inmueble ha sido editado','Inmueble.Info');
+        this.router.navigate(['listar-contenido']);
+      });
+    }
   }
 
 }

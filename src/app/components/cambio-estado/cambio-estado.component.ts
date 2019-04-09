@@ -5,6 +5,9 @@ import { ServicioSolicitudModel } from 'src/app/modelos/ServicioSolicitud.model'
 import { EstadoModel } from 'src/app/modelos/estado.model';
 import { EstadoService } from 'src/app/shared/estado.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SolicitudModel } from 'src/app/modelos/Solicitud.model';
+import { UsuarioModel } from 'src/app/modelos/usuario.model';
+import { ServicioModel } from 'src/app/modelos/servicio.model';
 
 @Component({
   selector: 'app-cambio-estado',
@@ -18,9 +21,21 @@ export class CambioEstadoComponent implements OnInit {
   data: ServicioSolicitudModel; 
   estados: EstadoModel[]=[];
   cambio: FormGroup;
+  usuario: UsuarioModel;
+  solicitud: SolicitudModel;
+  servicio: ServicioModel;
 
   ngOnInit() {
 
+    this.cambio = this.formBuilder.group({
+      estadoID: [''],
+      servicioID:[''],
+      servicio:[''],
+      solicitudID:[''],
+      solicitud:[''],
+      estado:['']
+    });
+    
     let ID = window.localStorage.getItem("solID");
     if(!ID){
       alert("Accion Invalida")
@@ -29,13 +44,13 @@ export class CambioEstadoComponent implements OnInit {
     }
     window.localStorage.removeItem("solID");
 
-    this.cambio = this.formBuilder.group({
-      estadoID:['']
-    });
-    
-
-    this.solApi.getServSol(Number(ID)).subscribe(res =>{
+    this.solApi.getServSol(Number(ID)).
+    subscribe(res =>{
       this.data = res;
+      this.usuario = this.data.solicitud.usuario;
+      this.solicitud = this.data.solicitud;
+      this.servicio = this.data.servicio;
+      this.cambio.patchValue(res);
     });
 
     this.esApi.getState().subscribe(res =>{
@@ -44,11 +59,10 @@ export class CambioEstadoComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.cambio.value);
-    //this.solApi.updateServSol(this.data).subscribe(res => {
-      //this.router.navigate(['administrar-solicitudes']);
-    //}
-    //);
+    this.solApi.updateServSol(this.cambio.value).subscribe(res => {
+      this.router.navigate(['administrar-solicitudes']);
+    }
+    );
   }
 
 }
