@@ -15,13 +15,13 @@
                                 <label>Nombre del proyecto</label>
                                 <input formControlName="nombreProyecto" type="text"  class="form-control" minlength="5" maxlength="20" required/> 
                                 <div *ngIf="addForm.controls['nombreProyecto'].errors && addForm.controls['nombreProyecto'].touched" class="validation-error">
-                                        <div [hidden] = "!addForm.controls['nombreInmueble'].errors.required">
+                                        <div [hidden] = "!addForm.controls['nombreProyecto'].errors.required">
                                             El campo es requerido
                                         </div>
-                                        <div [hidden] = "!addForm.controls['nombreInmueble'].errors.minlength">
+                                        <div [hidden] = "!addForm.controls['nombreProyecto'].errors.minlength">
                                             El campo requiere mas de 3 caracteres  
                                         </div>
-                                        <div [hidden] = "!addForm.controls['nombreInmueble'].errors.maxlength">
+                                        <div [hidden] = "!addForm.controls['nombreProyecto'].errors.maxlength">
                                             El nombre debe tener menos de 20 caracteres  
                                         </div>
                                 </div>
@@ -36,7 +36,7 @@
                                 [enableTime]="false"
                                 dateFormat="Y-m-dTH:i"
                                 altFormat="F j, Y H:i"
-                                placeholder="Not set"  required/>
+                                placeholder="Seleccione una fecha"  required/>
                                 <div *ngIf="addForm.controls['fechaTerminacion'].invalid && addForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
                         </div>

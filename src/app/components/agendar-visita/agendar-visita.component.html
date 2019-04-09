@@ -97,9 +97,6 @@
       
       <h3>
         Detalle de evento
-        <button class="btn btn-primary pull-right" (click)="addEvent()">
-          Agregar
-        </button>
         <div class="clearfix"></div>
       </h3>
       
@@ -113,7 +110,6 @@
               <th>Inicio</th>
               <th>Final</th>
               <th>Remover</th>
-              <th>Editar</th>
             </tr>
           </thead>
       
@@ -181,11 +177,6 @@
                   Eliminar
                 </button>
               </td>
-              <td>
-                <button class="btn btn-primary"(click)="updateAll(event)">
-                  Editar
-                </button>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -205,7 +196,8 @@
                     Fecha y hora: {{modalData?.event.start | date:"dd/MM/yyyy HH:mm aa"}} - {{modalData?.event.end | date:"HH:mm aa" }}
                     Reunion: {{modalData?.event.title}}
                     Servicio solicitado: {{modalData?.event.servicio}}
-                    Estado: {{modalData?.event.estado}}
+                    Estado del servicio: {{modalData?.event.estado}}
+                    Estado de la visita: {{modalData?.event.estadoR}}
               </pre>
           </div>
         </div>
