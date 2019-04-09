@@ -1,27 +1,23 @@
-body{ 
+/* body{ 
   padding-left: 325px;
   padding-top: 0px;;
-}
+} */
 
-.container{
-    margin: auto;
-    /* padding-top: 400px; */
-}
 
-h1{
-    padding-left: 340px;
-    padding-bottom: 20px;
-    
-}
-
+/* 
 input{
   size: 5px;
 }
 
 main{
     padding-right: 400px;
-}
+} */
 
+h1{
+  padding-top: 50px;
+  padding-bottom: 20px;
+  text-align: center; 
+}
 
 div.validation-error{
     width: 100%;
@@ -68,8 +64,8 @@ input.ng-touched.ng-invalid{
   
   .card-inmueble .card-body {
     padding: 2rem;
-    width:1300px ;
-    height:620px ;
+    width:1000px ;
+    height:600px ;
   }
   
   .form-inmueble {

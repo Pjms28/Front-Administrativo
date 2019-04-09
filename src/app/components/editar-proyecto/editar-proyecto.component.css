@@ -1,7 +1,7 @@
-body{ 
+/* body{ 
     padding-left: 400px;
     padding-top: 100px;
-  }
+  } */
 
 
 .container{
@@ -10,6 +10,20 @@ body{
     max-width: 1000px;
     /* padding-left: 600px;
     padding-bottom: 50px; */
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 
 
