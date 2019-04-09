@@ -30,7 +30,7 @@
   
                         <div class="form-row">
                             <div class="form-group">
-                              <label>Descripcion</label>
+                              <label>Descripción</label>
                               <input formControlName="descripcionServicio" type="text" class="form-control" minlength="5" maxlength="250" required/>
                               <div *ngIf="addForm.controls['descripcionServicio'].errors && addForm.controls['descripcionServicio'].touched" class="validation-error">
                                   <div [hidden] = "!addForm.controls['descripcionServicio'].errors.required">
