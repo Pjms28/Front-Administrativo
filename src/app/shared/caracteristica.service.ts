@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { CaracteristicaModel } from '../modelos/caracteristicas.model';
+import { CaracteristicaInmuebleModel } from '../modelos/caracteristicainmueble.model';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -42,6 +43,13 @@ export class CaracteristicaService {
     ));
   }
 
+  getCaracteristicasInmueble(id: number):Observable<CaracteristicaModel[]>{
+    const url = `${apiUrl}/${"GetByInmueble/" + id}`;
+    return this.http.get<CaracteristicaModel[]>(url).pipe(
+      tap(_ => catchError(this.handleError<CaracteristicaModel[]>(`getCaracteristica id=${id}`))
+    ));
+  } 
+
   addCaracteristica(caracteristica: CaracteristicaModel){
     return this.http.post<CaracteristicaModel>(apiUrl,caracteristica,httpOptions)
     .pipe(tap((nuevaCaracteristica: CaracteristicaModel) => catchError(this.handleError<CaracteristicaModel>('addCaracteristica'))
@@ -60,6 +68,14 @@ export class CaracteristicaService {
     return this.http.put<CaracteristicaModel>(apiUrl +"/"+ caracteristica.caracteristicaID,caracteristica, httpOptions)
       .pipe(
         catchError(this.handleError('updateCaracteristica', caracteristica))
+      );
+    }
+
+    addCaracteristicaInmueble(caracteristicainmueble: CaracteristicaInmuebleModel){
+      const url = `${apiUrl}/${"CaracteristicaInmueble"}`;
+      return this.http.post<CaracteristicaInmuebleModel>(url,caracteristicainmueble, httpOptions)
+      .pipe(
+        catchError(this.handleError('addCaracteristicainmuble', caracteristicainmueble))
       );
     }
 

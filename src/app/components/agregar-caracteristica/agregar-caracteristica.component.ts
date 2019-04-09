@@ -35,8 +35,10 @@ export class AgregarCaracteristicaComponent implements OnInit {
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
+      
       this.apiCar.addCaracteristica(this.addForm.value)
       .subscribe(data =>{
+        console.log(data);
         this.toastr.success('Caracteristica ha sido creada exitosamente','Caracteristica.Registro');
         this.router.navigate(['listar-contenido']);
       });
