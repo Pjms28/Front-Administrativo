@@ -8,7 +8,9 @@ import { VisitaService } from '../../shared/visita.service';
 import { VisitaModel } from 'src/app/modelos/visita.model';
 import { Router } from '@angular/router';
 import {formatDate} from '@angular/common';
-import { DatePipe } from '@angular/common';
+
+import { ToastrService } from 'ngx-toastr';
+import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
 
 
 const colors: any = {
@@ -31,7 +33,7 @@ const colors: any = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './agendar-visita.component.html',
   styleUrls: ['./agendar-visita.component.css'],
-  providers: [ DatePipe]
+  providers: [ToastrService]
 })
 export class AgendarVisitaComponent implements OnInit {
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
@@ -68,8 +70,9 @@ export class AgendarVisitaComponent implements OnInit {
   data: any;
   refresh: Subject<any> = new Subject();
   activeDayIsOpen: boolean = true;
+  eventValidator: VisitaModel[]=[];
  
-  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService,private router: Router, private datePipe: DatePipe) { }
+  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService,private router: Router, private toastr: ToastrService) { }
 
   
 
@@ -78,10 +81,17 @@ export class AgendarVisitaComponent implements OnInit {
     this.ageService.getVisits()
       .subscribe(res => {
       this.completeCalendar(res);
+      this.oldEvents(res);
+
     }, err => {
       console.log(err);
      
     });
+
+    this.ageService.getVisitsF()
+    .subscribe(res =>{
+      this.completeCalendarF(res);
+    })
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -113,7 +123,6 @@ export class AgendarVisitaComponent implements OnInit {
       }
       return iEvent;
     });
-    //console.log(newStart,newEnd);
     this.update(newStart,newEnd, event);
     this.handleEvent('Dropped or resized', event);
   }
@@ -149,40 +158,105 @@ export class AgendarVisitaComponent implements OnInit {
         servicio: element.solicitud.servicioSolicituds[0].servicio.nombreServicio,
         estado: element.solicitud.servicioSolicituds[0].estado.estadoNombre,
         numeroVisita: element.visitaID,
+        estadoR: element.estado,
         color: colors.red,
         draggable: true
       }
       obj.push(event)
-      console.log(event)
     });
     this.events = obj;
     this.refresh.next();
   }
 
-  update(start, end, event){
-   this.ageService.getVisit(event.numeroVisita).subscribe(res=>{
-      this.data = res;
-      this.data.hora_Inicio = formatDate(start, 'yyyy/MM/dd HH:mm:ss', 'en');
-      this.data.hora_Fin = formatDate(end, 'yyyy/MM/dd HH:mm:ss', 'en');;
-      this.ageService.updateVisit(this.data).subscribe(res =>{
+  completeCalendarF(res : any){
+    var obj: Array<any> = [];
+    res.forEach(element => {
+      var event: Object= {
+        start: startOfHour(element.hora_Inicio),
+        end: startOfHour(element.hora_Fin),
+        title: element.motivo+" "+"de"+" "+element.solicitud.usuario.nombreUsuario+" "+element.solicitud.usuario.apellidosUsuario,
+        servicio: element.solicitud.servicioSolicituds[0].servicio.nombreServicio,
+        estado: element.solicitud.servicioSolicituds[0].estado.estadoNombre,
+        numeroVisita: element.visitaID,
+        estadoR: element.estado,
+        color: colors.blue,
+        draggable: false
+      }
+      obj.push(event)
+    });
+    
+     this.events.forEach(element => {
+      obj.push(element)
+     })
+    this.events = obj;
+    this.refresh.next();
+  }
 
-      });
-  });
+
+  
+
+  update(start, end, event){
+    if(this.validator(start,end) === true){
+       this.ageService.getVisit(event.numeroVisita).subscribe(res=>{
+          this.data = res;
+          this.data.hora_Inicio = formatDate(start, 'yyyy/MM/dd HH:mm:ss', 'en');
+          this.data.hora_Fin = formatDate(end, 'yyyy/MM/dd HH:mm:ss', 'en');;
+          this.ageService.updateVisit(this.data).subscribe(res =>{
+            return this.ageService.getVisits().subscribe((res: {}) => {
+              this.completeCalendar(res);
+            })
+          });
+     });
+  }
+  return this.ageService.getVisits().subscribe((res: {}) => {
+    this.completeCalendar(res);
+  })
 }
 
 delete(evento:any){
   this.ageService.deleteVisit(evento.numeroVisita).subscribe(res => {
+    return this.ageService.getVisits().subscribe((res: {}) => {
+      this.completeCalendar(res);
+    })
   })
 }
 
-updateAll(evento:any){
-window.localStorage.removeItem("solID");
-window.localStorage.setItem("solID", String(evento.numeroVisita));
-this.router.navigate(['editar-visita']);
+validator(start, end){
+  var fechaI = formatDate(start,'yyyy/MM/dd', 'en');
+  var horaI = formatDate(start,'HH:mm', 'en');
+  var fechaF = formatDate(end,'yyyy/MM/dd', 'en');
+  var horaF = formatDate(end,'HH:mm', 'en');
+  var validator = true;
+
+  this.eventValidator.forEach(element => {
+    if(formatDate(element.hora_Inicio,'yyyy/MM/dd', 'en') == fechaI){
+      if(formatDate(element.hora_Inicio,'HH:mm', 'en') == horaI){
+        this.toastr.error('Existen un evento a esta hora','Fecha.Incorrecta');
+        validator = false;
+      }
+    if(formatDate(element.hora_Inicio,'HH:mm', 'en') < horaI  && horaI < formatDate(element.hora_Fin,'HH:mm', 'en')){
+        this.toastr.error('Hora no valida, aun no termina un evento anterior','Fecha.Incorrecta'); 
+        validator = false;
+    }
+    }
+  });
+  return validator;
 }
 
-add(){
-this.router.navigate(['agregar-visita']);
+oldEvents(res: VisitaModel[]){  
+  res.forEach(element => {
+    if(formatDate(element.hora_Inicio,'yyyy/MM/dd', 'en') < formatDate( new Date(),'yyyy/MM/dd', 'en')){
+      if(confirm("El evento agendado para el"+ "" + formatDate(element.hora_Inicio,'yyyy/MM/dd', 'en')+ " " + "ya es obsoleto, si el evento ya fue finalizado desea cambiar el estado del evento?")){
+        element.estado = "Finalizado";
+        this.ageService.updateVisit(element).subscribe(res=>{
+        })
+
+      }
+    }
+  });
 }
+
+
+
 }
 

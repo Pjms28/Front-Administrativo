@@ -41,6 +41,7 @@ import { DescripcionSolicitudComponent } from './components/descripcion-solicitu
 import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
 import {DatePipe} from '@angular/common';
 import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
+import { DescripcionVisitaComponent } from './components/descripcion-visita/descripcion-visita.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { EditarServicioComponent } from './components/editar-servicio/editar-ser
     DescripcionSolicitudComponent,
     CambioEstadoComponent,
     EditarServicioComponent,
+    DescripcionVisitaComponent,
   ],
   imports: [
     BrowserModule,

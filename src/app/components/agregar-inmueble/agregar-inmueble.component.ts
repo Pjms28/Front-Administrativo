@@ -8,6 +8,7 @@ import { InmuebleService } from '../../shared/inmueble.service';
 import { ApiService } from '../../shared/api.service';
 import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
 import { CaracteristicaService } from '../../shared/caracteristica.service';
+import { CaracteristicaInmuebleModel } from 'src/app/modelos/caracteristicainmueble.model';
 
 @Component({
   selector: 'app-agregar-inmueble',
@@ -19,8 +20,9 @@ export class AgregarInmuebleComponent implements OnInit {
   data : ProyectoComponent[] = [];
   inmueble : InmuebleModel;
   addForm: FormGroup;
-  carForm: FormGroup;
-  caracteristicas : CaracteristicaModel[]=[];
+  checkbox:any [] = [];
+  caracteristicainmueble: CaracteristicaInmuebleModel = new CaracteristicaInmuebleModel();
+  
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
     ,private toastr: ToastrService,  public actRoute: ActivatedRoute, private apiCar: CaracteristicaService) { }
 
@@ -44,17 +46,25 @@ export class AgregarInmuebleComponent implements OnInit {
      
     });
 
-    return this.apiCar.getCaracteristicas()
+    this.apiCar.getCaracteristicas()
     .subscribe(res =>{
-      this.caracteristicas = res;
+      res.forEach(element => {
+        var obj: Object ={
+          caracteristicaID: element.caracteristicaID,
+          carNombre: element.carNombre,
+          selected: false
+        }
+
+        this.checkbox.push(obj);
+      });
+   
       
     })
- 
   }
 
    
   onSubmit(){
-    if(this.addForm.get("precio").value.trim().length === 0){
+   if(this.addForm.get("precio").value.trim().length === 0){
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else if(this.addForm.get("nombreInmueble").value.trim().length === 0){
@@ -70,9 +80,26 @@ export class AgregarInmuebleComponent implements OnInit {
       this.apiIn.addInmueble(this.addForm.value)
       .subscribe(data =>{
         this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
-        this.router.navigate(['listar-contenido']);
+        var array = this.getSelected();
+        if(array.length != 0){
+          array.forEach(element => {
+            this.caracteristicainmueble.caracteristicaID = element;
+            this.caracteristicainmueble.inmuebleID = data.inmuebleID;
+            this.apiCar.addCaracteristicaInmueble(this.caracteristicainmueble).subscribe(res => {
+              this.router.navigate(['listar-contenido']);
+            })
+            
+          });
+        }
       });
     }
   }
+
+  public getSelected() {
+    let result = this.checkbox.filter((c) => { return c.selected })
+                     .map((c) => { return c.caracteristicaID });
+    return result;
+}
+
 
 }

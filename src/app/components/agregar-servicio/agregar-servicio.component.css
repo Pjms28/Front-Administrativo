@@ -156,10 +156,6 @@ input.ng-touched.ng-invalid{
     color: #777;
   }
 
-  .btn {
-    position: relative;
-    top:20px;
-  }
 
   .form-row .form-control{
     width: 300px;

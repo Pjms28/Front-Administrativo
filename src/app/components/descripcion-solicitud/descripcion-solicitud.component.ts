@@ -30,7 +30,8 @@ export class DescripcionSolicitudComponent implements OnInit {
       hora_Fin:[''],
       motivo: "Solicitud",
       descripcion:[''],
-      solicitudID:['']
+      solicitudID:[''],
+      estado:['']
     });
 
     let ID = window.localStorage.getItem("solID");
@@ -64,7 +65,8 @@ export class DescripcionSolicitudComponent implements OnInit {
         this.addForm.controls['hora_Fin'].setValue(formatDate(this.addForm.get('hora_Fin').value, 'yyyy/MM/dd HH:mm:ss', 'en'));
         this.addForm.controls['solicitudID'].setValue(this.data.solicitud.solicitudID);
         this.addForm.controls['descripcion'].setValue(this.data.solicitud.comentario);
-        this.ageService.addVisit(this.addForm.value).subscribe(res =>{
+        this.addForm.controls['estado'].setValue("Aprobada");
+       this.ageService.addVisit(this.addForm.value).subscribe(res =>{
         this.router.navigate(['agendar-visita']);
       });
         this.data.estadoID = 1;

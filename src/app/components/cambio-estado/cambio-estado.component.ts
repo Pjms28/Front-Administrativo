@@ -24,6 +24,7 @@ export class CambioEstadoComponent implements OnInit {
   usuario: UsuarioModel;
   solicitud: SolicitudModel;
   servicio: ServicioModel;
+  status: EstadoModel;
 
   ngOnInit() {
 
@@ -50,6 +51,7 @@ export class CambioEstadoComponent implements OnInit {
       this.usuario = this.data.solicitud.usuario;
       this.solicitud = this.data.solicitud;
       this.servicio = this.data.servicio;
+      this.status = this.data.estado;
       this.cambio.patchValue(res);
     });
 

@@ -73,8 +73,14 @@
                         </div>
                       </div>
                   </div>
-  
-                
+                  <div class="form-row">
+                    <div class="form-group">
+                        <label>Caracteristicas</label>
+                        <div *ngFor = "let c of checkbox">
+                          <input  [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />{{c.carNombre}}
+                      </div>
+                    </div>
+                  </div>
                         
                       <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   

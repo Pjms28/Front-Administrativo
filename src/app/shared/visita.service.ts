@@ -33,6 +33,13 @@ export class VisitaService {
         tap(heroes => catchError(this.handleError('getVisits', []))
       ));
   }
+  getVisitsF (): Observable<any[]> {
+    const url = `${apiUrl}/${"GetVisitaF"}`;
+    return this.http.get<any[]>(url)
+      .pipe(
+        tap(heroes => catchError(this.handleError('getVisits', []))
+      ));
+  }
 
   getVisit(id: number): Observable<VisitaModel> {
     const url = `${apiUrl}/${id}`;

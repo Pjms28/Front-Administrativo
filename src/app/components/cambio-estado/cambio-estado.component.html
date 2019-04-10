@@ -25,12 +25,12 @@
                     <br>
                     <label>{{data?.estado?.estadoNombre}}</label>
                     <br>
-                    <div *ngIf = "data?.estado?.estadoId != 6 && data?.estado?.estadoId != 3">
+                    <div *ngIf = "this.status?.estadoID != 6 && this.status?.estadoID != 3">
                     <label>Cambiar estado</label>
                     <br>
                       <form [formGroup]="cambio" (ngSubmit)="onSubmit()">
                         <select formControlName = "estadoID" class="form-control">
-                          <option *ngFor="let e of estados" [ngValue]="e.estadoId">{{e.estadoNombre}}</option>
+                          <option *ngFor="let e of estados" [ngValue]="e.estadoID">{{e.estadoNombre}}</option>
                       </select>
                       <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                       </form>
