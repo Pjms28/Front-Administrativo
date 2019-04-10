@@ -12,8 +12,18 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Identificador del inmueble</label>
-                            <input formControlName="nombreInmueble" type="text"  class="form-control" required/> 
-                            <div *ngIf="editForm.controls['nombreInmueble'].invalid && editForm.controls['nombreInmueble'].touched" class="validation-error">Este campo es requerido</div>
+                            <input formControlName="nombreInmueble" type="text"  class="form-control" minlength="3" maxlength="20" required/> 
+                            <div *ngIf="editForm.controls['nombreInmueble'].errors && editForm.controls['nombreInmueble'].touched" class="validation-error">
+                                <div [hidden] = "!editForm.controls['nombreInmueble'].errors.required">
+                                    El campo es requerido
+                                  </div>
+                                  <div [hidden] = "!editForm.controls['nombreInmueble'].errors.minlength">
+                                    El campo requiere mas de 3 caracteres  
+                                  </div>
+                                  <div [hidden] = "!editForm.controls['nombreInmueble'].errors.maxlength">
+                                    El nombre debe tener menos de 20 caracteres  
+                                  </div>
+                            </div>
                        </div>
                       </div>
 
@@ -21,8 +31,18 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Precio</label>
-                            <input formControlName="precio" type="text" class="form-control"  required/>
-                            <div *ngIf="editForm.controls['precio'].invalid && editForm.controls['precio'].touched" class="validation-error">Este campo es requerido</div>
+                            <input formControlName="precio" type="text" class="form-control" minlength="6" maxlength="9" required/>
+                            <div *ngIf="editForm.controls['precio'].errors && editForm.controls['precio'].touched" class="validation-error">
+                                <div [hidden] = "!editForm.controls['precio'].errors.required">
+                                    El campo es requerido
+                                  </div>
+                                  <div [hidden] = "!editForm.controls['precio'].errors.minlength">
+                                    El campo requiere mas de 6 caracteres  
+                                  </div>
+                                  <div [hidden] = "!editForm.controls['precio'].errors.maxlength">
+                                    El nombre debe tener menos de 9 caracteres  
+                                  </div>
+                            </div>
                           </div>
                       </div>
 
@@ -32,19 +52,35 @@
                           <select formControlName="proyectoID" class="form-control" required>
                           <option *ngFor="let d of data" [ngValue]="d.proyectoID" >{{d.nombreProyecto}}</option>
                           </select>
-                          <div *ngIf="editForm.controls['proyectoID'].invalid && editForm.controls['proyectoID'].touched" class="validation-error">Este campo es requerido</div>
+                          <div *ngIf="editForm.controls['proyectoID'].errors && editForm.controls['proyectoID'].touched" class="validation-error">Este campo es requerido</div>
                         </div>
                     </div>
 
                     <div class="form-row">
                       <div class="form-group">
                         <label>Descripcion</label>
-                        <input formControlName="descripcionInmueble" class="form-control" type="text"  required/>
-                        <div *ngIf="editForm.controls['descripcionInmueble'].invalid && editForm.controls['descripcionInmueble'].touched" class="validation-error">Este campo es requerido</div>
+                        <input formControlName="descripcionInmueble" class="form-control" type="text" minlength="9" maxlength="50"  required/>
+                        <div *ngIf="editForm.controls['descripcionInmueble'].errors && editForm.controls['descripcionInmueble'].touched" class="validation-error">
+                            <div [hidden] = "!editForm.controls['descripcionInmueble'].errors.required">
+                                El campo es requerido
+                              </div>
+                              <div [hidden] = "!editForm.controls['descripcionInmueble'].errors.minlength">
+                                El campo requiere mas de 9 caracteres  
+                              </div>
+                              <div [hidden] = "!editForm.controls['descripcionInmueble'].errors.maxlength">
+                                El nombre debe tener menos de 50 caracteres  
+                              </div>
+                        </div>
                       </div>
                   </div>
-  
-                
+                  <div class="form-row">
+                    <div class="form-group">
+                        <label>Caracteristicas</label>
+                        <div *ngFor = "let c of checkbox">
+                          <input  [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />{{c.carNombre}}
+                      </div>
+                    </div>
+                  </div>
                         
                       <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   

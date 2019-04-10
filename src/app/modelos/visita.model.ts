@@ -7,5 +7,6 @@ export class VisitaModel {
     motivo: string;
     descripcion: string;
     solicitudID: number;
+    estado: string;
    
   }

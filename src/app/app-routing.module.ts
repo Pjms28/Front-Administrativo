@@ -10,10 +10,10 @@ import { AgregarCaracteristicaComponent } from './components/agregar-caracterist
 import { EditarCaracteristicaComponent } from './components/editar-caracteristica/editar-caracteristica.component';
 import { AdministrarSolicitudesComponent } from './components/administrar-solicitudes/administrar-solicitudes.component';
 import { AgendarVisitaComponent } from './components/agendar-visita/agendar-visita.component';
-import { AgregarVisitaComponent } from './components/agregar-visita/agregar-visita.component';
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
 import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
 import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
+import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
 
 
 const routes: Routes = [
@@ -63,10 +63,6 @@ const routes: Routes = [
   component: AgendarVisitaComponent
 },
 {
-  path: 'agregar-visita',
-  component: AgregarVisitaComponent
-},
-{
   path: 'agregar-servicio',
   component: AgregarServicioComponent
 },
@@ -79,8 +75,8 @@ const routes: Routes = [
   component: CambioEstadoComponent
 },
 {
-  path: 'editar-visita',
-  component: CambioEstadoComponent
+  path: 'editar-servicio',
+  component: EditarServicioComponent
 },
 {
   path:'',

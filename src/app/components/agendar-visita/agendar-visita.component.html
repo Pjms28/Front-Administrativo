@@ -9,14 +9,14 @@
               [(viewDate)]="viewDate"
               (viewDateChange)="closeOpenMonthViewDay()"
             >
-              Previous
+              Anterior
             </div>
             <div
               class="btn btn-primary"
               mwlCalendarToday
               [(viewDate)]="viewDate"
             >
-              Today
+              Hoy
             </div>
             <div
               class="btn btn-primary"
@@ -25,11 +25,11 @@
               [(viewDate)]="viewDate"
               (viewDateChange)="closeOpenMonthViewDay()"
             >
-              Next
+              Siguiente
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mes">
           <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
         </div>
         <div class="col-md-4">
@@ -39,27 +39,27 @@
               (click)="setView(CalendarView.Month)"
               [class.active]="view === CalendarView.Month"
             >
-              Month
+              Mes
             </div>
             <div
               class="btn btn-primary"
               (click)="setView(CalendarView.Week)"
               [class.active]="view === CalendarView.Week"
             >
-              Week
+              Semana
             </div>
             <div
               class="btn btn-primary"
               (click)="setView(CalendarView.Day)"
               [class.active]="view === CalendarView.Day"
             >
-              Day
+              Dia
             </div>
           </div>
         </div>
       </div>
       <br />
-      <div [ngSwitch]="view">
+      <div class="mes" [ngSwitch]="view">
         <mwl-calendar-month-view
           *ngSwitchCase="CalendarView.Month"
           [viewDate]="viewDate"
@@ -96,10 +96,7 @@
       <br /><br /><br />
       
       <h3>
-        Edit events
-        <button class="btn btn-primary pull-right" (click)="addEvent()">
-          Add new
-        </button>
+        Detalle de evento
         <div class="clearfix"></div>
       </h3>
       
@@ -107,12 +104,12 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Primary color</th>
-              <th>Secondary color</th>
-              <th>Starts at</th>
-              <th>Ends at</th>
-              <th>Remove</th>
+              <th>Titulo</th>
+              <th>Color Principal</th>
+              <th>Color Secundario</th>
+              <th>Inicio</th>
+              <th>Final</th>
+              <th>Remover</th>
             </tr>
           </thead>
       
@@ -180,11 +177,6 @@
                   Eliminar
                 </button>
               </td>
-              <td>
-                <button class="btn btn-primary"(click)="updateAll(event)">
-                  Editar
-                </button>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -199,12 +191,14 @@
         </div>
         <div class="modal-body">
           <div>
-            Action:
-            <pre>{{ modalData?.action }}</pre>
-          </div>
-          <div>
-            Event:
-            <pre>{{ modalData?.event | json }}</pre>
+            Detalle de reunion
+              <pre> 
+                    Fecha y hora: {{modalData?.event.start | date:"dd/MM/yyyy HH:mm aa"}} - {{modalData?.event.end | date:"HH:mm aa" }}
+                    Reunion: {{modalData?.event.title}}
+                    Servicio solicitado: {{modalData?.event.servicio}}
+                    Estado del servicio: {{modalData?.event.estado}}
+                    Estado de la visita: {{modalData?.event.estadoR}}
+              </pre>
           </div>
         </div>
         <div class="modal-footer">

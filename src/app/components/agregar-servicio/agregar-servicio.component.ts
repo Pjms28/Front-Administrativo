@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Router} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { ServicioService } from '../../shared/servicio.service';
@@ -18,23 +18,31 @@ export class AgregarServicioComponent implements OnInit {
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
-      nombreServicio:[''],
-      descripcionServicio:[''],  
-      imgURL:['']   
+      nombreServicio:['', [Validators.required]],
+      descripcionServicio:['', [Validators.required]],  
+      imgURL:['', [Validators.required]]   
     });
   }
 
   onSubmit() {
 
-    this.apiSer.addService(this.addForm.value).subscribe(res =>{
-      this.toastr.success('Servicio ha sido creado exitosamente','Servicio.Registro');
-      this.router.navigate(['listar-contenido']);
-      let formData = new FormData(); 
-      formData.append(this.fileTo.name, this.fileTo);
-      formData.append('fileName',this.fileTo.name);
-      this.apiSer.sendFormData(formData);
+    if(this.addForm.get("nombreServicio").value.trim().length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else if(this.addForm.get("descripcionServicio").value.length === 0){
+      this.toastr.warning('Campo vacio','Registro.Fallido');
+    }
+    else{
+      this.apiSer.addService(this.addForm.value).subscribe(res =>{
+        this.toastr.success('Servicio ha sido creado exitosamente','Servicio.Registro');
+        this.router.navigate(['listar-contenido']);
+        let formData = new FormData(); 
+        formData.append(this.fileTo.name, this.fileTo);
+        formData.append('fileName',this.fileTo.name);
+        this.apiSer.sendFormData(formData);
 
-    });
+      });
+    }
   }
   saveFileRequest(files : FileList){
     this.fileTo = files.item(0);

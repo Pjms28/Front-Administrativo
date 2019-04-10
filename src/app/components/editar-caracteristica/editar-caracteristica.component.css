@@ -1,13 +1,13 @@
-body{ 
-    padding-left: 400px;
-    padding-top: 100px;
+/* body{ 
+    padding-left: 0px;
+    padding-top: 10%;
   
-  }
+  } */
   
   .container{
       margin: auto;
-      padding-top: 150px;
-      padding-left: 30px;
+      padding-top: 8%;
+     
   }
   
   h1{
@@ -16,9 +16,9 @@ body{
       
   }
   
-  main{
+  /* main{
       padding-right: 400px;
-  }
+  } */
   
   div.validation-error{
       width: 100%;

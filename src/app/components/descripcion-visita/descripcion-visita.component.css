@@ -1,95 +1,50 @@
-/* body{ 
+body{
     padding-left: 400px;
-    padding-top: 100px;
-  } */
-  
-
-.container{
     margin: auto;
-    padding-top: 5%;
-    
-}
+  }
 
-h1{
-    padding-left: 340px;
-    padding-bottom: 20px;
-    
-}
-
-/* main{
-    padding-right: 400px;
-} */
-
-div.validation-error{
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-
-}
-
-select.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-input.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-/* Editar */
-
-.card-editar {
+.card-solicitud {
     border: 0;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
   
-  .card-editar .card-title {
+  .card-solicitud .card-title {
     margin-bottom: 25px;
     font-weight: 300;
     font-size: 30px;
+    padding-right: 140px;
     
   }
-  
-  .card-editar .card-img-left {
-    object-fit: cover;
-    width: 100%;
-    /* Link to your background image using in the property below! */
-    background: scroll center url('/assets/tools.jpg');
-    background-size: cover;
+
+
+
+  .card-solicitud .card-body {
+    width:1000px ;
+    height:1000px ;
+    padding-left: 200px;
+    margin: auto;
   }
   
-  .card-editar .card-body {
-    width: 1000px; 
-    height:650px;
-  }
-  
-  .form-editar {
+  .form-solicitud {
     width: 100%;
   }
   
-  .form-editar .btn {
+  .form-solicitud .btn {
     font-size: 80%;
     border-radius: 5rem;
     letter-spacing: .1rem;
     font-weight: bold;
     padding: 1rem;
-    margin-left: 55px;
     transition: all 0.2s;
-    width: 250px;
-    top: 40px;
-    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+    top: 25px;
+    margin-left: 50px;
   }
-
-
-  .btn-primary {
-    color: #fff;
-    background-color: #fff;
-    border-color: #fff;
-}
+  
+  .form-solicitud .btn .declinar{
+      padding-left: 100px;
+  }
   
   .form-label-group {
     position: relative;
@@ -174,10 +129,4 @@ input.ng-touched.ng-invalid{
     font-size: 80%;
     color: #dc3545;
 
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #fff;
-  border-color: #fff;
 }

@@ -1,7 +1,7 @@
-body{
+/* body{
     padding-left: 400px;
     margin: auto;
-  }
+  } */
 
 .card-solicitud {
     border: 0;
@@ -14,7 +14,7 @@ body{
     margin-bottom: 25px;
     font-weight: 300;
     font-size: 30px;
-    padding-right: 140px;
+    padding-right: 7%;
     
   }
 
@@ -22,8 +22,8 @@ body{
 
   .card-solicitud .card-body {
     width:1000px ;
-    height:1000px ;
-    padding-left: 200px;
+    height:700px ;
+    padding-left: 5%;
     margin: auto;
   }
   
@@ -39,13 +39,16 @@ body{
     padding: 1rem;
     transition: all 0.2s;
     top: 25px;
-    margin-left: 50px;
+    margin-left: 150px;
   }
   
-  .form-solicitud .btn .declinar{
-      padding-left: 100px;
+ .declinar{
+     right: 10%;
   }
   
+.aceptar{
+  left: 5%;
+}
   .form-label-group {
     position: relative;
     margin-bottom: 1rem;
@@ -119,7 +122,7 @@ body{
   }
   .form-row{
       position: relative;
-      left: 40px;
+      left: 30%;
       bottom: -20px;
   }
 

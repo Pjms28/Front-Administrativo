@@ -8,15 +8,25 @@ h3 {
     padding: 15px;
   }
 
-  body{
+  /* body{
     padding-top: 120px;
     padding-left: 420px;
     padding-right: 320px;
-  }
+  } */
 
   .btn{
     background: #2f8ce2;
     border-color: #2f8ce2;
   }
 
- 
+  @media (max-widht: 800px){
+
+  body{
+    margin-left: 10%;
+  }
+
+.mes h3{
+  margin-left:50%;
+}
+
+}

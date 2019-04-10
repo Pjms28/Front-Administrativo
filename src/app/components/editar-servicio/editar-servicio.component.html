@@ -1,0 +1,64 @@
+<body>
+  <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-editar flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-center">Editar Servicio</h5>
+                  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-editar" autocomplete="off">
+  
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Nombre del servicio</label>
+                            <input formControlName="nombreServicio" type="text"  class="form-control" minlength="5" maxlength="50" required/> 
+                            <div *ngIf="editForm.controls['nombreServicio'].errors  && editForm.controls['nombreServicio'].touched" class="validation-error">
+                                <div [hidden] = "!editForm.controls['nombreServicio'].errors.required">
+                                    El campo es requerido
+                                </div>
+                                <div [hidden] = "!editForm.controls['nombreServicio'].errors.minlength">
+                                    El campo requiere mas de 5 caracteres  
+                                </div>
+                                <div [hidden] = "!editForm.controls['nombreServicio'].errors.maxlength">
+                                    El nombre debe tener menos de 50 caracteres  
+                                </div>
+                            </div>
+                       </div>
+                      </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label>Descripcion</label>
+                        <input formControlName="descripcionServicio" class="form-control" type="text" minlength="5" maxlength="250" required/>
+                        <div *ngIf="editForm.controls['descripcionServicio'].errors  && editForm.controls['descripcionServicio'].touched" class="validation-error">
+                            <div [hidden] = "!editForm.controls['descripcionServicio'].errors.required">
+                                El campo es requerido
+                            </div>
+                            <div [hidden] = "!editForm.controls['descripcionServicio'].errors.minlength">
+                                El campo requiere mas de 5 caracteres  
+                            </div>
+                            <div [hidden] = "!editForm.controls['descripcionServicio'].errors.maxlength">
+                                El nombre debe tener menos de 250 caracteres  
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                        <div class="upload-btn-wrapper">
+                        <label class="foto" for="file-input">Imagen del servicio <br> <i class="material-icons"> add_a_photo</i></label>
+                        <input  formControlName="imgURL" type = "file" class="imagen" id="file-input"  required>
+                        </div>
+                    </div>
+                </div>
+                      <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>
+
