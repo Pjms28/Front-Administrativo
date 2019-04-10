@@ -83,7 +83,7 @@ div.validation-error{
   
   .card-editar .card-body {
     width: 1000px; 
-    height:650px;
+    height:725px;
   }
   
   .form-editar {
@@ -97,6 +97,7 @@ div.validation-error{
     font-weight: bold;
     padding: 1rem;
     margin-left: 55px;
+    margin-top: 20px;
     transition: all 0.2s;
     width: 250px;
     top: 40px;
@@ -172,10 +173,6 @@ div.validation-error{
     color: #777;
   }
 
-  .btn {
-    position: relative;
-    top:20px;
-  }
 
   .form-row .form-control{
     width: 300px;
