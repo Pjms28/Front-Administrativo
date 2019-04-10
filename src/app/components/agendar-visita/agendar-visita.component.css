@@ -19,4 +19,14 @@ h3 {
     border-color: #2f8ce2;
   }
 
- 
+  @media (max-widht: 800px){
+
+  body{
+    margin-left: 10%;
+  }
+
+.mes h3{
+  margin-left:50%;
+}
+
+}

@@ -229,7 +229,7 @@ i{
   color: #86be2e;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .main-content {
     max-width: none;
     padding: 70px 20px;
@@ -281,103 +281,47 @@ i{
     font-size: 13px;
     color: #748290;
   }
-}
-/* Smartphone version */
+} */
 
-@media (max-width: 450px) {
-  .main-content {
-    padding: 90px 20px;
+@media (max-width: 400px){
+  p{
+    font-size: 9px;
   }
-  .sidebar-left-collapse {
-    padding: 20px 0;
-  }
-  .sidebar-left-collapse .sidebar-links {
-    text-align: center;
-    margin: 20px auto 0;
-    position: relative;
-  }
-  .sidebar-links div {
-    display: block;
-    width: 240px;
-    margin: 0 auto 5px;
-  }
+
   .sidebar-links div > a {
+    display: block;
+    text-decoration: bold;
+    margin: 0 auto 5px auto;
+    padding: 0;
+    background-color: #2f8ce2;;
     text-align: left;
-    padding: 10px 25px;
-    vertical-align: middle;
-    border-top: none;
+    color: #fff;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 2;
     border-left-width: 2px;
     border-left-style: solid;
   }
-  .sidebar-links div > a i.fa {
-    display: inline-block;
-    font-size: 20px;
-    width: 20px;
-    margin: 0 20px 0 0;
+
+  .company-logo{
+    background: scroll center url('src\assets\brick2.jpeg');
+    background-size: cover;
+    padding-right:10%;
+    /* width: 80px; */
   }
-  .sidebar-links div.selected .sub-links {
-    bottom: -90px;
+
+  .sidebar-links div .sub-links a {
+    text-decoration: none;
+    font-size: 8px;
+    padding-left: -10px;
+    color: #fff;
+    display: block;
+    text-align: left;
+  }
+
+  .sidebar-links div.selected ul.sub-links {
+    max-height: 150px;
+    padding: 10%;
   }
 }
-
-
-
-
-/* Making the sidebar responsive */
-
-@media (max-width: 600px) {
-  .main-content {
-    max-width: none;
-    padding: 70px 20px;
-    margin: 0 0 40px;
-  }
-  .sidebar-left-collapse {
-    width: auto;
-    height: auto;
-    position: static;
-    padding: 20px 0 0;
-  }
-  .sidebar-left-collapse .sidebar-links {
-    text-align: center;
-    margin: 20px auto 0;
-  }
-  .sidebar-links div {
-    display: inline-block;
-    width: 100px;
-  }
-  .sidebar-links div > a {
-    text-align: center;
-    margin: 0;
-    padding: 10px 0;
-    border-left: none;
-    border-top-width: 2px;
-    border-top-style: solid;
-  }
-  .sidebar-links div > a i.fa {
-    display: block;
-    margin: 0 auto 5px;
-  }
-  .sidebar-links div ul.sub-links {
-    display: none;
-  }
-  .sidebar-links div.selected .sub-links {
-    display: block;
-    position: absolute;
-    text-align: center;
-    width: auto;
-    left: 0;
-    right: 0;
-  }
-  .sidebar-links div.selected .sub-links li {
-    display: inline-block;
-  }
-  .sidebar-links div.selected .sub-links a {
-    display: inline-block;
-    margin-right: 20px;
-    font-size: 13px;
-    color: #748290;
-  }
-}
-/* Smartphone version */
-
 

@@ -64,3 +64,21 @@ table button .eliminar{
 th{
     width: 20%;
 }
+
+
+
+@media screen and (max-width:400px){
+
+    body{
+      margin-left: 50px;
+    }
+
+}
+
+@media screen and (max-width:800px){
+
+    body{
+      margin-left: 10%;
+    }
+
+}
