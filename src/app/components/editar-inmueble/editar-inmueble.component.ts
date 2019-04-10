@@ -24,6 +24,7 @@ export class EditarInmuebleComponent implements OnInit {
   checkbox:any [] = [];
   caraceristicas: CaracteristicaModel [] = [];
   caracteristicainmueble: CaracteristicaInmuebleModel = new CaracteristicaInmuebleModel();
+  id: number;
 
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
     ,private toastr: ToastrService, private apiCar: CaracteristicaService) { }
@@ -35,7 +36,7 @@ export class EditarInmuebleComponent implements OnInit {
       this.router.navigate(['listar-contenido']);
       return;
     }
-
+    this.id = Number(userID);
     this.editForm = this.formBuilder.group({
       inmuebleID:['', [Validators.required]],
       nombreInmueble:['', [Validators.required]],
@@ -65,7 +66,7 @@ export class EditarInmuebleComponent implements OnInit {
   }
   
   onSubmit(){
-    if(this.editForm.get("precio").value.trim().length === 0){
+    if(this.editForm.get("precio").value.length === 0){
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else if(this.editForm.get("nombreInmueble").value.trim().length === 0){
@@ -83,10 +84,13 @@ export class EditarInmuebleComponent implements OnInit {
       .subscribe(data =>{
         this.toastr.info('Inmueble ha sido editado','Inmueble.Info');
         var array = this.getSelected();
+        this.apiCar.deleteCaracteristicaInmueble(this.id).subscribe(res=>{
+          console.log(res);
+        });
         if(array.length != 0){
           array.forEach(element => {
             this.caracteristicainmueble.caracteristicaID = element;
-            this.caracteristicainmueble.inmuebleID = data.inmuebleID;
+            this.caracteristicainmueble.inmuebleID = this.id;
             this.apiCar.addCaracteristicaInmueble(this.caracteristicainmueble).subscribe(res => {
               this.router.navigate(['listar-contenido']);
             })

@@ -78,7 +78,14 @@ export class CaracteristicaService {
         catchError(this.handleError('addCaracteristicainmuble', caracteristicainmueble))
       );
     }
-
+    
+    deleteCaracteristicaInmueble (id: number): Observable<{}> {
+      const url = `${apiUrl}/${"DeleteCaracterisiticaByInmueble/"+ id}`;
+      return this.http.delete(url, httpOptions)
+      .pipe(
+      catchError(this.handleError('deleteCaracteristica'))
+      );
+      }
 
 
 }
