@@ -29,20 +29,25 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Ubicación</label>
-                                <select formControlName="ubicacionID" class="form-control" required>
+                               <!--  <select formControlName="ubicacionID" class="form-control" required>
                                     <option *ngFor="let d of data" value="{{d.ubicacionID}}">{{d.nombreUbicacion}} -- {{d.ciudad}}</option>
                                 </select>
-                                <div *ngIf="addForm.controls['ubicacionID'].invalid && addForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div>
+                                <div *ngIf="addForm.controls['ubicacionID'].invalid && addForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div> -->
+                                <agm-map [latitude]="lat" [longitude]="lng" (mapCclick)="onChooseLocation($event)" >
+                                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                                </agm-map>
                             </div>
+                            
+                           
                         </div>
-  
-                        <div class="form-row">
+                       
+                       <!--  <div class="form-row">
                             <div class="form-group">
                                 <label>Dirección</label>
                                 <input formControlName="direccion" class="form-control" type="text"   required/>
                                 <div *ngIf="addForm.controls['direccion'].invalid && addForm.controls['direccion'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-row">
                             <div class="form-group">

@@ -97,7 +97,7 @@ import { EditarVisitaComponent } from './components/editar-visita/editar-visita.
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_KEY'
+      apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8'
     })
   ],
   providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService],
