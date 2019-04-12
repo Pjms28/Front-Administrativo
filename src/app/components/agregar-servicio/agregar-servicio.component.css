@@ -218,35 +218,17 @@ input.ng-touched.ng-invalid{
       
     }
 
-    @media screen and (max-width:500px){
+
+    @media screen and (max-width:400px){
+
+      body{
+        margin-left: 40px;
+      }
 
       .card-caracteristica .card-title {
         margin-bottom: 10px;
         font-weight: 300;
         font-size: 25px;
-        
-      }
-    
-      .form-caracteristica .btn {
-        width: 140px;
-        margin: auto;
-        margin-left: 25%
-      }
-    
-      .form-row .form-control{
-        width: 150px;
-        margin-left: 0;
-      }
-      
-        
-      }
-
-    @media screen and (max-width:400px){
-
-      .card-caracteristica .card-title {
-        margin-bottom: 10px;
-        font-weight: 300;
-        font-size: 30px;
         
       }
     

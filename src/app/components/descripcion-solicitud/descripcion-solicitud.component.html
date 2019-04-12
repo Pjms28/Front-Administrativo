@@ -4,7 +4,7 @@
               <div class="col-lg-10 col-xl-9 mx-auto">
                 <div class="card card-solicitud flex-row my-5">
                   <div class="card-body">
-                    <h5 class="card-title text-center">Descripcion de la Solicitud</h5>
+                    <h5 class="card-title text-center">Descripción de la Solicitud</h5>
                     Solicitante<br>
                     <label>{{data?.solicitud?.usuario?.nombreUsuario}} {{data?.solicitud?.usuario?.apellidosUsuario}}</label>
                     <br>
@@ -12,7 +12,7 @@
                     <br>
                     <label>{{data?.servicio?.nombreServicio}}</label>
                     <br>
-                    Fecha en la que se realizo la Solicitud
+                    Fecha en la que se realizó la Solicitud
                     <br>
                     <label>{{data?.solicitud?.fechaServSol | date:'dd/MM/yyyy'}}</label>
                     <br>
@@ -20,7 +20,7 @@
                     <br>
                     <label>{{data?.solicitud?.comentario}}</label>
                     <br>
-                    Fecha y hora propuesta de reunion propuesta por el cliente
+                    Fecha y hora de reunión propuesta por el cliente
                     <br>
                     <label>{{data?.solicitud?.fechaSol | date:"dd/MM/yyyy HH:mm aa"}}</label>
 
@@ -42,7 +42,7 @@
   
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Fecha y hora de conclucion</label>
+                                <label>Fecha y hora de conclusión</label>
                                 <input formControlName="hora_Fin"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
                                 [convertModelValue]="true"
                                 [enableTime]="true"

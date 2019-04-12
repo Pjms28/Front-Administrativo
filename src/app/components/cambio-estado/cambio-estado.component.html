@@ -1,5 +1,10 @@
 <body>
-  <h1>Detalle de la solicitud</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-solicitud flex-row my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Detalle de la Solicitud</h5>
 
                      Solicitante<br>
                     <label>{{usuario?.nombreUsuario}} {{usuario?.apellidosUsuario}}</label>
@@ -8,7 +13,7 @@
                     <br>
                     <label>{{servicio?.nombreServicio}}</label>
                     <br>
-                    Fecha en la que se realizo la Solicitud
+                    Fecha en la que se realizó la Solicitud
                     <br>
                     <label>{{solicitud?.fechaServSol | date:'dd-MM-yyyy'}}</label>
                     <br>
@@ -20,14 +25,19 @@
                     <br>
                     <label>{{data?.estado?.estadoNombre}}</label>
                     <br>
-                    <div *ngIf = "data?.estado?.estadoId != 6 && data?.estado?.estadoId != 3">
+                    <div *ngIf = "this.status?.estadoID != 6 && this.status?.estadoID != 3">
                     <label>Cambiar estado</label>
                     <br>
                       <form [formGroup]="cambio" (ngSubmit)="onSubmit()">
                         <select formControlName = "estadoID" class="form-control">
-                          <option *ngFor="let e of estados" [ngValue]="e.estadoId">{{e.estadoNombre}}</option>
+                          <option *ngFor="let e of estados" [ngValue]="e.estadoID">{{e.estadoNombre}}</option>
                       </select>
-                      <button type="submit" class="btn btn-success btn-sm aceptar" [disabled]="cambio.invalid" >GUARDAR</button>
+                      <button type="submit"  class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                       </form>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
 </body>
