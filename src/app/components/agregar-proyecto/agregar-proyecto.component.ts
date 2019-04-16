@@ -68,6 +68,7 @@ export class AgregarProyectoComponent implements OnInit {
   onChooseLocation(event){
    this.lat = event.coords.lat;
    this.lng = event.coords.lng;
+  
    
   }
   
