@@ -20,7 +20,8 @@ export class EditarProyectoComponent implements OnInit {
   editForm: FormGroup;
   fileTo: any;
   img: any;
-
+  lat: number = 18.4855;
+  lng: number = -69.8731;
  
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
     , private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
@@ -37,8 +38,8 @@ export class EditarProyectoComponent implements OnInit {
 
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
-      alert("Accion Invalida")
       this.router.navigate(['listar-contenido']);
+      alert("Acción Invalida")
       return;
     }
     window.localStorage.removeItem("editUserID");
@@ -63,7 +64,13 @@ export class EditarProyectoComponent implements OnInit {
     
 
   }  
-  
+  onChooseLocation(event){
+    this.lat = event.coords.lat;
+    this.lng = event.coords.lng;
+   
+    
+   }
+
   onSubmit(){
 
     if(this.editForm.get("nombreProyecto").value.trim().length === 0){

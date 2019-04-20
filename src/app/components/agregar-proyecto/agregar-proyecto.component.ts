@@ -15,6 +15,8 @@ export class AgregarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
   addForm : FormGroup ;
   fileTo: any;
+  lat: number = 18.4855;
+  lng: number = -69.8731;
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
     , private toastr: ToastrService) { }
@@ -61,6 +63,13 @@ export class AgregarProyectoComponent implements OnInit {
   }
   saveFileRequest(files : FileList){
     this.fileTo = files.item(0);
+  }
+
+  onChooseLocation(event){
+   this.lat = event.coords.lat;
+   this.lng = event.coords.lng;
+  
+   
   }
   
   }
