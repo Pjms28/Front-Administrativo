@@ -21,6 +21,7 @@ export class AdministrarSolicitudesComponent implements OnInit {
     this.solApi.getServSols()
       .subscribe(res => {
       this.data = res;
+      console.log(this.data);
     }, err => {
       console.log(err);
      

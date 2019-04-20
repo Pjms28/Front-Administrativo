@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import { SolicitudService } from '../../shared/solicitud.service';
 import { ServicioSolicitudModel } from '../../modelos/ServicioSolicitud.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -19,9 +19,10 @@ export class DescripcionSolicitudComponent implements OnInit {
   data : ServicioSolicitudModel;
   addForm: FormGroup;
   events: VisitaModel[] = [];
+  ID: any
   
 
-  constructor(private router: Router, private solApi: SolicitudService, private formBuilder: FormBuilder, public ageService: VisitaService, private toastr: ToastrService) { }
+  constructor(private router: Router, private solApi: SolicitudService, private formBuilder: FormBuilder, public ageService: VisitaService, private toastr: ToastrService, private actvRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -34,7 +35,7 @@ export class DescripcionSolicitudComponent implements OnInit {
       estado:['']
     });
 
-    let ID = window.localStorage.getItem("solID");
+    /*let ID = window.localStorage.getItem("solID");
     if(!ID){
       alert("Accion Invalida")
       this.router.navigate(['administrar-solicitudes']);
@@ -44,9 +45,10 @@ export class DescripcionSolicitudComponent implements OnInit {
 
     this.ageService.getVisits().subscribe(res =>{
       this.events = res;
-    });
+    });*/
+    this.ID = this.actvRoute.snapshot.paramMap.get(' id');
 
-    return this.solApi.getServSol(Number(ID)).subscribe(res =>{
+    return this.solApi.getServSol(Number(this.ID)).subscribe(res =>{
       this.data = res;
     });
   }

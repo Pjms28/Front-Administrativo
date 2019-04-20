@@ -67,7 +67,7 @@ const routes: Routes = [
   component: AgregarServicioComponent
 },
 {
-  path: 'descripcion-solicitud',
+  path: 'descripcion-solicitud/: id',
   component: DescripcionSolicitudComponent
 },
 {
