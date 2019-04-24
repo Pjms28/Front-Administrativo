@@ -41,11 +41,11 @@ export class DescripcionSolicitudComponent implements OnInit {
       this.router.navigate(['administrar-solicitudes']);
       return;
     }
-    window.localStorage.removeItem("solID");
+    window.localStorage.removeItem("solID");*/
 
     this.ageService.getVisits().subscribe(res =>{
       this.events = res;
-    });*/
+    });
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
 
     return this.solApi.getServSol(Number(this.ID)).subscribe(res =>{
@@ -81,8 +81,6 @@ export class DescripcionSolicitudComponent implements OnInit {
   validator(){
     var fechaI = formatDate(this.addForm.get('hora_Inicio').value,'yyyy/MM/dd', 'en');
     var horaI = formatDate(this.addForm.get('hora_Inicio').value,'HH:mm', 'en');
-    var fechaF = formatDate(this.addForm.get('hora_Fin').value,'yyyy/MM/dd', 'en');
-    var horaF = formatDate(this.addForm.get('hora_Fin').value,'HH:mm', 'en');
     var validator = true;
 
     this.events.forEach(element => {

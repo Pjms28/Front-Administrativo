@@ -42,6 +42,9 @@ import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.
 import {DatePipe} from '@angular/common';
 import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
 import { DescripcionVisitaComponent } from './components/descripcion-visita/descripcion-visita.component';
+import { AdministrarPeticionesComponent } from './components/administrar-peticiones/administrar-peticiones.component';
+import { PeticionService } from './shared/peticion.service';
+import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
 
 
 @NgModule({
@@ -66,6 +69,8 @@ import { DescripcionVisitaComponent } from './components/descripcion-visita/desc
     CambioEstadoComponent,
     EditarServicioComponent,
     DescripcionVisitaComponent,
+    AdministrarPeticionesComponent,
+    DetallePeticionComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,7 +95,8 @@ import { DescripcionVisitaComponent } from './components/descripcion-visita/desc
       {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
       {path: 'Agregar Servicio', component: AgregarServicioComponent},
       {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent},
-      {path: 'Visitas Agendadas', component: AgendarVisitaComponent}
+      {path: 'Visitas Agendadas', component: AgendarVisitaComponent},
+      {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent}
 
     ]),
     BrowserAnimationsModule,
@@ -99,7 +105,7 @@ import { DescripcionVisitaComponent } from './components/descripcion-visita/desc
       apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8'
     })
   ],
-  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService],
+  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

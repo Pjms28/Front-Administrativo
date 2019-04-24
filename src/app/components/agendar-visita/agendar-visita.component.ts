@@ -90,7 +90,7 @@ export class AgendarVisitaComponent implements OnInit {
 
     this.ageService.getVisitsF()
     .subscribe(res =>{
-      if(res.length > 1){
+      if(res.length >= 1){
         this.completeCalendarF(res);
       }
     })

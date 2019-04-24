@@ -25,7 +25,7 @@
                     <br>
                     <label>{{data?.estado?.estadoNombre}}</label>
                     <br>
-                    <div *ngIf = "this.status?.estadoID != 6 && this.status?.estadoID != 3">
+                    <div *ngIf = "this.status?.estadoID != 6 && this.status?.estadoID != 3 && this.status?.estadoID != 7">
                     <label>Cambiar estado</label>
                     <br>
                       <form [formGroup]="cambio" (ngSubmit)="onSubmit()">

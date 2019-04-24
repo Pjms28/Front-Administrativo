@@ -1,0 +1,84 @@
+/* body{
+    padding-left: 600px;
+    padding-top: 100px;
+} */
+
+label{
+    font-size: 15px;
+}
+
+input{
+    border-radius: .3rem;
+}
+
+
+h1{
+    padding-top: 50px;
+    text-align: center; 
+}
+
+h5{
+    padding-bottom: 50px;
+    text-align: center; 
+    font-size: 30px;
+}
+
+
+
+table{
+    width: 67%;
+    /* padding-top: 40px;*/
+    margin-left:17%;  
+}
+
+.tabla{
+    padding-top: 40px;
+
+    
+}
+
+table button{
+    width: auto;
+
+}
+
+table button .eliminar{
+    width: auto;
+
+}  
+
+
+.card{
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    padding-bottom: 20%;
+    border-radius: 1rem;
+}
+
+.card-body{
+    width: 100%;
+}
+
+th{
+    width: 20%;
+}
+
+
+
+@media screen and (max-width:400px){
+
+    body{
+      margin-left: 50px;
+    }
+
+}
+
+@media screen and (max-width:800px){
+
+    body{
+      margin-left: 10%;
+    }
+
+}

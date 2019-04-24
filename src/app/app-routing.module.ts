@@ -14,6 +14,8 @@ import { AgregarServicioComponent } from './components/agregar-servicio/agregar-
 import { DescripcionSolicitudComponent } from './components/descripcion-solicitud/descripcion-solicitud.component';
 import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
 import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
+import { AdministrarPeticionesComponent } from './components/administrar-peticiones/administrar-peticiones.component';
+import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
 
 
 const routes: Routes = [
@@ -77,6 +79,14 @@ const routes: Routes = [
 {
   path: 'editar-servicio',
   component: EditarServicioComponent
+},
+{
+  path: 'administrar-peticiones',
+  component: AdministrarPeticionesComponent
+},
+{
+  path: 'detalle-peticion/: id',
+  component: DetallePeticionComponent
 },
 {
   path:'',

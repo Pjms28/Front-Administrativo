@@ -1,0 +1,73 @@
+<body>
+  <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-solicitud flex-row my-5">
+                <div class="card-body">
+                  <h5 class="card-title text-center">Descripción de la peticion</h5>
+                  Solicitante<br>
+                  <label>{{data?.solicitud?.usuario?.nombreUsuario}} {{data?.solicitud?.usuario?.apellidosUsuario}}</label>
+                  <br>
+                  Tipo de peticion
+                  <br>
+                  <label>{{data?.tipo}}</label>
+                  <br>
+                  Comentarios del cliente
+                  <br>
+                  <label>{{data?.comentario}}</label>
+                  <br>
+                  Estado de la peticion
+                  <br>
+                  <label>{{data?.estado}}</label>
+                  <br>
+                  <div *ngIf = "data?.estado != 'Rechazado'">
+                    <div *ngIf = "data?.tipo != 'Cancelar solicitud'">
+                      Fecha y hora de reunión propuesta por el cliente
+                      <br>
+                      <label>{{data?.fechaSolicitada | date:"dd/MM/yyyy HH:mm aa"}}</label>
+
+                      <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
+      
+                          <div class="form-row">
+                            <div class="form-group">
+                              <label>Fecha y hora de inicio</label>
+                              <input formControlName="hora_Inicio"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                              [convertModelValue]="true"
+                              [enableTime]="true"
+                              dateFormat="Y-m-dTH:i"
+                              altFormat="F j, Y H:i"
+                              placeholder="Seleccione una fecha y hora de inicio"
+                              minDate = "today" 
+                              required/>
+                          </div>
+                          </div>
+
+                          <div class="form-row">
+                              <div class="form-group">
+                                  <label>Fecha y hora de conclusión</label>
+                                  <input formControlName="hora_Fin"  mwlFlatpickr type="text" class="form-control" [altInput]="true"
+                                  [convertModelValue]="true"
+                                  [enableTime]="true"
+                                  dateFormat="Y-m-dTH:i"
+                                  altFormat="F j, Y H:i"
+                                  placeholder="Seleccione una fecha y hora de fin"
+                                  minDate = "today"
+                                  required/>
+                              </div>
+                          </div>
+                          <button type="submit" class="btn btn-success btn-sm aceptar" [disabled]="addForm.invalid">Aceptar</button>
+                          <button class="btn btn-danger btn-sm declinar" (click) = "rechazar()">Declinar</button>
+                        </form>
+                        </div>
+                        <div *ngIf = "data?.tipo == 'Cancelar solicitud'">
+                          <button type="submit" class="btn btn-success btn-sm aceptar" (click) = "aceptar()">Aceptar</button> 
+                          <br>
+                          <button class="btn btn-danger btn-sm declinar" (click) = "rechazar()">Declinar</button>
+                        </div>
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>
