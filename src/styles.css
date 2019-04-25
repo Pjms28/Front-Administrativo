@@ -3,6 +3,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 @import '../node_modules/flatpickr/dist/flatpickr.min.css';
+@import "../node_modules/ngx-toastr/toastr.css";
 
 html, body { height: 100%;
 background-image: url(src\assets\natural_paper.png) }

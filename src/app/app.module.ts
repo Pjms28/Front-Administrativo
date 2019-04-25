@@ -19,7 +19,6 @@ import { ApiService } from './shared/api.service';
 import { UbicacionService } from './shared/ubicacion.service';
 import { InmuebleService } from './shared/inmueble.service';
 import { CaracteristicaService } from './shared/caracteristica.service';
-import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AgregarInmuebleComponent } from './components/agregar-inmueble/agregar-inmueble.component';
@@ -45,6 +44,7 @@ import { DescripcionVisitaComponent } from './components/descripcion-visita/desc
 import { AdministrarPeticionesComponent } from './components/administrar-peticiones/administrar-peticiones.component';
 import { PeticionService } from './shared/peticion.service';
 import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -82,6 +82,7 @@ import { DetallePeticionComponent } from './components/detalle-peticion/detalle-
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
+    ToastrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -100,7 +101,6 @@ import { DetallePeticionComponent } from './components/detalle-peticion/detalle-
 
     ]),
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8'
     })
