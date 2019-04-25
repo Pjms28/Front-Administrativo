@@ -79,17 +79,21 @@ export class AgregarInmuebleComponent implements OnInit {
     else {
       this.apiIn.addInmueble(this.addForm.value)
       .subscribe(data =>{
-        this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
-        var array = this.getSelected();
-        if(array.length != 0){
-          array.forEach(element => {
-            this.caracteristicainmueble.caracteristicaID = element;
-            this.caracteristicainmueble.inmuebleID = data.inmuebleID;
-            this.apiCar.addCaracteristicaInmueble(this.caracteristicainmueble).subscribe(res => {
+        if(data == null){
+          this.toastr.error('El nombre del inmueble ya ha sido registrado','Inmueble.Registro');
+        }
+        else{
+          this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
+          var array = this.getSelected();
+          if(array.length != 0){
+            array.forEach(element => {
+              this.caracteristicainmueble.caracteristicaID = element;
+              this.caracteristicainmueble.inmuebleID = data.inmuebleID;
+              this.apiCar.addCaracteristicaInmueble(this.caracteristicainmueble).subscribe(res => {
               this.router.navigate(['listar-contenido']);
-            })
-            
+              })
           });
+        }
         }
       });
     }

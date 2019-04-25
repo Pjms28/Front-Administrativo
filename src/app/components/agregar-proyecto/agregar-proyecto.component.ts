@@ -51,13 +51,17 @@ export class AgregarProyectoComponent implements OnInit {
     }
     else{
       this.apiService.addProject(this.addForm.value).subscribe(res =>{
-        this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
-        this.router.navigate(['listar-contenido']);
-        let formData = new FormData(); 
-        formData.append(this.fileTo.name, this.fileTo);
-        formData.append('fileName',this.fileTo.name);
-        this.apiService.sendFormData(formData);
-
+        if (res == null){
+          this.toastr.error('Existe un proyecto con ese nombre','Proyecto.Registro');
+        }
+        else{
+          this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
+          this.router.navigate(['listar-contenido']);
+          let formData = new FormData(); 
+          formData.append(this.fileTo.name, this.fileTo);
+          formData.append('fileName',this.fileTo.name);
+          this.apiService.sendFormData(formData);
+        }
       });
     }
   }

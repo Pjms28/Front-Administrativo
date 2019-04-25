@@ -34,13 +34,17 @@ export class AgregarServicioComponent implements OnInit {
     }
     else{
       this.apiSer.addService(this.addForm.value).subscribe(res =>{
-        this.toastr.success('Servicio ha sido creado exitosamente','Servicio.Registro');
-        this.router.navigate(['listar-contenido']);
-        let formData = new FormData(); 
-        formData.append(this.fileTo.name, this.fileTo);
-        formData.append('fileName',this.fileTo.name);
-        this.apiSer.sendFormData(formData);
-
+        if(res == null){
+          this.toastr.success('El nombre del servicio ya ha sido registrado','Servicio.Registro');
+        }
+        else{
+          this.toastr.success('Servicio ha sido creado exitosamente','Servicio.Registro');
+          this.router.navigate(['listar-contenido']);
+          let formData = new FormData(); 
+          formData.append(this.fileTo.name, this.fileTo);
+          formData.append('fileName',this.fileTo.name);
+          this.apiSer.sendFormData(formData);   
+        }
       });
     }
   }
