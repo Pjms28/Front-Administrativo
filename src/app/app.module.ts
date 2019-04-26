@@ -45,6 +45,9 @@ import { AdministrarPeticionesComponent } from './components/administrar-peticio
 import { PeticionService } from './shared/peticion.service';
 import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AgregarPostComponent } from './components/agregar-post/agregar-post.component';
+import { EditarPostComponent } from './components/editar-post/editar-post.component';
+import { NgxEditorModule } from 'ngx-editor';
 
 
 @NgModule({
@@ -71,6 +74,8 @@ import { ToastrModule } from 'ngx-toastr';
     DescripcionVisitaComponent,
     AdministrarPeticionesComponent,
     DetallePeticionComponent,
+    AgregarPostComponent,
+    EditarPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +88,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     NgbModule,
     ToastrModule.forRoot(),
+    NgxEditorModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -97,7 +103,8 @@ import { ToastrModule } from 'ngx-toastr';
       {path: 'Agregar Servicio', component: AgregarServicioComponent},
       {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent},
       {path: 'Visitas Agendadas', component: AgendarVisitaComponent},
-      {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent}
+      {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent},
+      {path: 'Agregar Post', component:AgregarPostComponent}
 
     ]),
     BrowserAnimationsModule,

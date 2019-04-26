@@ -1,65 +1,7 @@
-<<<<<<< HEAD
-body{ 
-  padding-left: 325px;
-  padding-top: 0px;;
-}
-
-
-label{
-    font-size: 15px;
-}
-
-input.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-
-agm-map {
-  height: 150px;
-  width: 300px;
-}
-h1{
-    padding-top: 50px;
-    padding-bottom: 20px;
-    text-align: center; 
-}
-
-
-div.validation-error{
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-
-}
-
-select.ng-touched.ng-invalid{
-    border-radius: .3rem;
-    border-color: #dc3545;
-}
-
-.upload{
-    font-weight:bold;
-    color:#28a745;
-    margin-left: 15px;
-    line-height: 36px;
-}
-
-/* Proyecto */
-
-.card-proyecto {
-    border: 0;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
-=======
 /* body{ 
     padding-left: 325px;
     padding-top: 0px;;
   } */
->>>>>>> 2f87ab7de9bc4d05127d7b678ddf7cde7f49beac
   
   
   label{
