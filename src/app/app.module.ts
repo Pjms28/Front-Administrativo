@@ -48,6 +48,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AgregarPostComponent } from './components/agregar-post/agregar-post.component';
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from "../app/guard/auth.guard";
 
 
 @NgModule({
@@ -95,24 +97,24 @@ import { NgxEditorModule } from 'ngx-editor';
     }),
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      {path: 'Agregar Proyecto', component: AgregarProyectoComponent},
-      {path: 'Listar', component: ListarContenidoComponent},
-      {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent},
-      {path: 'Agregar Inmueble', component: AgregarInmuebleComponent},
-      {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent},
-      {path: 'Agregar Servicio', component: AgregarServicioComponent},
-      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent},
-      {path: 'Visitas Agendadas', component: AgendarVisitaComponent},
-      {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent},
-      {path: 'Agregar Post', component:AgregarPostComponent}
-
+      {path: 'Agregar Proyecto', component: AgregarProyectoComponent,canActivate:[AuthGuard]},
+      {path: 'Listar', component: ListarContenidoComponent,canActivate:[AuthGuard]},
+      {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent,canActivate:[AuthGuard]},
+      {path: 'Agregar Inmueble', component: AgregarInmuebleComponent,canActivate:[AuthGuard]},
+      {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent,canActivate:[AuthGuard]},
+      {path: 'Agregar Servicio', component: AgregarServicioComponent,canActivate:[AuthGuard]},
+      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent,canActivate:[AuthGuard]},
+      {path: 'Visitas Agendadas', component: AgendarVisitaComponent,canActivate:[AuthGuard]},
+      {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent,canActivate:[AuthGuard]},
+      {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
+      {path: '',component: MenuComponent ,canActivate:[AuthGuard]}
     ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8'
     })
   ],
-  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService],
+  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

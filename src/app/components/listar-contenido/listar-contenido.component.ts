@@ -86,7 +86,6 @@ export class ListarContenidoComponent implements OnInit {
           subscribe(res=>{
             this.toastr.warning('Proyecto eliminado exitosamente','Proyecto.Eliminado');
             this.loadList();
-            this.toastr.warning('Proyecto creado exitosamente','Proyecto.Registro');
           });
         }
       }

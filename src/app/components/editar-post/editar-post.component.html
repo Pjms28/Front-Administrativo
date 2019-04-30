@@ -1,18 +1,39 @@
 <div class="container">
     <h2>Editar Post</h2>
     <br>
-  <label>Título</label>
-  <br>
-  <input id="carNombre" formControlName="nombreServicio" type="text"  class="form-control" minlength="5" maxlength="50" required/> 
-  <br>
-  <label>Contenido</label>
-  <app-ngx-editor [placeholder]="'Enter text here...'" height="200px" minHeight="100px"  [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
-  <br>
-  <div class="upload-btn-wrapper">
-    <label class="foto" for="file-input">Imagen del proyecto <br> <i class="material-icons"> add_a_photo</i></label>
-    <input (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" id="file-input"  required>
+    <form [formGroup]= "editForm" autocomplete="off" (ngSubmit)="onSubmit()">
+      <label>Título</label>
+      <br>
+      <input id="carNombre" formControlName="tituloEntrada" type="text"  class="form-control" minlength="5" maxlength="50" required/> 
+      <div *ngIf="editForm.controls['tituloEntrada'].errors && editForm.controls['tituloEntrada'].touched" class="validation-error">
+        <div [hidden] = "!editForm.controls['tituloEntrada'].errors.required">
+            El campo es requerido
+        </div>
+        <div [hidden] = "!editForm.controls['tituloEntrada'].errors.minlength">
+            El campo requiere mas de 5 caracteres  
+        </div>
+        <div [hidden] = "!editForm.controls['tituloEntrada'].errors.maxlength">
+            El nombre debe tener menos de 50 caracteres  
+        </div>
+      </div>
+      <br>
+      <label>Contenido</label>
+      <app-ngx-editor [placeholder]="'Enter text here...'" formControlName="textoEntrada" height="200px" minHeight="100px"  [spellcheck]="true" [(ngModel)]="htmlContent" minlength="5"></app-ngx-editor>
+      <div *ngIf="editForm.controls['textoEntrada'].errors && editForm.controls['textoEntrada'].touched" class="validation-error">
+        <div [hidden] = "!editForm.controls['textoEntrada'].errors.required">
+            El campo es requerido
+        </div>
+        <div [hidden] = "!editForm.controls['textoEntrada'].errors.minlength">
+            El campo requiere mas de 5 caracteres  
+        </div>
     </div>
-  <br>
-  <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" >Publicar</button>
-  <br>
+      <br>
+      <div class="upload-btn-wrapper">
+        <label class="foto" for="file-input">Imagen del proyecto <br> <i class="material-icons"> add_a_photo</i></label>
+        <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file" class="imagen" id="file-input"  required>
+        </div>
+      <br>
+      <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Publicar</button>
+      <br>
+    </form>
   </div>
