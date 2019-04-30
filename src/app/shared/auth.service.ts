@@ -11,9 +11,18 @@ export class AuthService {
 
   getCurrentUser()
     {
+        /* 
+            let user_string = this.cookieService.get("currentUser");
+            if(!isNullOrUndefined(user_string) && user_string != ""){
+            let user = JSON.parse(user_string);
+            return user;
+        }
+        else{
+            return null;
+        }
+        */
         let user_string = sessionStorage.getItem("currentUser");
         if(!isNullOrUndefined(user_string) && user_string != ""){
-            let user_string = sessionStorage.getItem("currentUser");
             let user = JSON.parse(user_string);
             return user;
         }
@@ -23,23 +32,27 @@ export class AuthService {
     }
 
     getToken(){
+        //Con cookies
+        /* 
+            return this.cookieSevice.get("tkn").toString();
+        */
         return sessionStorage.getItem("tkn").toString();
     }
 
-    change(){
-        let user_string = sessionStorage.getItem("currentUser");
-        this.cookieService.set("currentUser", user_string);
-        let tkn = sessionStorage.getItem("tkn");
-        this.cookieService.set("tkn",tkn);
+   change(){
+    let user = this.getCurrentUser();
+    let user_string = JSON.stringify(user);
+    let tkn = this.getToken();
+    localStorage.setItem("currentUser", user_string);
+    localStorage.setItem("tkn", tkn);
     }
 
-    set(){
-        let user_string = this.cookieService.get("currentUser");
-        sessionStorage.setItem("currentUser", user_string);
-        let tkn = this.cookieService.get("tkn");
-        sessionStorage.setItem("tkn",tkn);
-        this.cookieService.delete("currentUser");
-        this.cookieService.delete("tkn");
-
+   set(){
+        let user = localStorage.getItem("currentUser");
+        let tkn = localStorage.getItem("tkn");
+        sessionStorage.setItem("currentUser", user)
+        sessionStorage.setItem("tkn", tkn)
+        localStorage.removeItem("currentUser");
+        localStorage.removeItem("tkn");
     }
 }

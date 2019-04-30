@@ -56,7 +56,6 @@ export class EditarPostComponent implements OnInit {
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
-      //console.log(this.editForm.value);
       this.blogApi.updatePost(this.editForm.value)
       .subscribe(data =>{
        this.toastr.info('El post ha sido actualizado','Post.Info');
