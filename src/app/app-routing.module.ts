@@ -16,82 +16,100 @@ import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.
 import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
 import { AdministrarPeticionesComponent } from './components/administrar-peticiones/administrar-peticiones.component';
 import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
+import { AuthGuard } from "../app/guard/auth.guard";
+import { EditarPostComponent } from './components/editar-post/editar-post.component';
 
 
 const routes: Routes = [
 {
   path: 'listar-contenido',
   component: ListarContenidoComponent,
-  
+  canActivate:[AuthGuard]
 },
 {
   path: 'detalle-proyecto/:id',
   component: DetalleProyectoComponent,
-  
-
+  canActivate:[AuthGuard]
 },
 {
   path: 'agregar-proyecto',
   component: AgregarProyectoComponent,
-   
+  canActivate:[AuthGuard]
 },
 {
   path: 'editar-proyecto',
   component: EditarProyectoComponent,
-  
+  canActivate:[AuthGuard]
 },
 {
   path:'agregar-inmueble',
   component: AgregarInmuebleComponent,
+  canActivate:[AuthGuard]
 },
 {
   path:'editar-inmueble',
-  component: EditarInmuebleComponent
+  component: EditarInmuebleComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'agregar-caracteristica',
-  component: AgregarCaracteristicaComponent
+  component: AgregarCaracteristicaComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'editar-caracteristica',
-  component: EditarCaracteristicaComponent
+  component: EditarCaracteristicaComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'administrar-solicitudes',
-  component: AdministrarSolicitudesComponent
+  component: AdministrarSolicitudesComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'agendar-visita',
-  component: AgendarVisitaComponent
+  component: AgendarVisitaComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'agregar-servicio',
-  component: AgregarServicioComponent
+  component: AgregarServicioComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'descripcion-solicitud/: id',
-  component: DescripcionSolicitudComponent
+  component: DescripcionSolicitudComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'cambiar-estado',
-  component: CambioEstadoComponent
+  component: CambioEstadoComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'editar-servicio',
-  component: EditarServicioComponent
+  component: EditarServicioComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'administrar-peticiones',
-  component: AdministrarPeticionesComponent
+  component: AdministrarPeticionesComponent,
+  canActivate:[AuthGuard]
 },
 {
   path: 'detalle-peticion/: id',
-  component: DetallePeticionComponent
+  component: DetallePeticionComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'editar-post/: id',
+  component: EditarPostComponent,
+  canActivate:[AuthGuard]
 },
 {
   path:'',
   redirectTo: '/',
-  pathMatch: 'full'
+  pathMatch: 'full',
 }
 ];
 

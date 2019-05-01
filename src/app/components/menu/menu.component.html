@@ -5,9 +5,14 @@
         <div class="sidebar-links">
           <ul>
           <li class="nav-item active">
-              <i class="fas fa-user" id="usuario"></i> Administrador
+              <i class="fas fa-user" id="usuario"></i> {{data?.nombreUsuario}}
           </li>
         </ul>
+
+        <div class="link-white">
+          <a  href = "{{inicio()}}">Pagina Principal</a>
+          </div>
+
           <div class="link-blue selected">
             <p>Servicios <i class="material-icons dropdown">
                 </i></p>
@@ -42,16 +47,8 @@
             </ul>
           </div>
       
-          <div class="link-yellow">
-            <a href="#">Administrar Carrusel</a>
-          </div>
-      
-          <div class="link-green">
-            <a href="#">Actualizar Contacto</a>
-          </div>
-
           <div class="link-white">
-              <a href="#">Blog</a>
+            <a  routerLink="Agregar Post">Blog</a>
             </div>
 
             <div class="link-white">

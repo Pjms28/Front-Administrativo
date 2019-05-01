@@ -1,0 +1,39 @@
+<div class="container">
+<h2>Agregar Post</h2>
+<br>
+<form  [formGroup]= "addForm" autocomplete="off" (ngSubmit)="onSubmit()">
+  <label>Título</label>
+  <br>
+  <input id="carNombre" formControlName="tituloEntrada" type="text"  class="form-control" minlength="5" maxlength="50" required/> 
+  <div *ngIf="addForm.controls['tituloEntrada'].errors && addForm.controls['tituloEntrada'].touched" class="validation-error">
+    <div [hidden] = "!addForm.controls['tituloEntrada'].errors.required">
+        El campo es requerido
+    </div>
+    <div [hidden] = "!addForm.controls['tituloEntrada'].errors.minlength">
+        El campo requiere mas de 5 caracteres  
+    </div>
+    <div [hidden] = "!addForm.controls['tituloEntrada'].errors.maxlength">
+        El nombre debe tener menos de 50 caracteres  
+    </div>
+  </div>
+  <br>
+  <label>Contenido</label>
+  <app-ngx-editor [placeholder]="'Enter text here...'" height="200px" minHeight="100px"  [spellcheck]="true" formControlName="textoEntrada" minlength="5"></app-ngx-editor>
+  <div *ngIf="addForm.controls['textoEntrada'].errors && addForm.controls['textoEntrada'].touched" class="validation-error">
+    <div [hidden] = "!addForm.controls['textoEntrada'].errors.required">
+        El campo es requerido
+    </div>
+    <div [hidden] = "!addForm.controls['textoEntrada'].errors.minlength">
+        El campo requiere mas de 5 caracteres  
+    </div>
+</div>
+  <br>
+  <div class="upload-btn-wrapper">
+    <label class="foto" for="file-input">Imagen del proyecto <br> <i class="material-icons"> add_a_photo</i></label>
+    <input formControlName="imgURL" (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" id="file-input"  required>
+    </div>
+  <br>
+  <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Publicar</button>
+  <br>
+</form>
+</div>

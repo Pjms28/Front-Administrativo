@@ -19,7 +19,6 @@ export class EditarProyectoComponent implements OnInit {
   inmueble : ProyectoComponent;
   editForm: FormGroup;
   fileTo: any;
-  img: any;
   lat: number = 18.4855;
   lng: number = -69.8731;
  
