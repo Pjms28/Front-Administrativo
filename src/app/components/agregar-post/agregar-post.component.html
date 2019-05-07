@@ -18,7 +18,7 @@
   </div>
   <br>
   <label>Contenido</label>
-  <app-ngx-editor [placeholder]="'Enter text here...'" height="200px" minHeight="100px"  [spellcheck]="true" formControlName="textoEntrada" minlength="5"></app-ngx-editor>
+  <app-ngx-editor [placeholder]="'Enter text here...'" height="200px" minHeight="100px"  [spellcheck]="true" formControlName="textoEntrada" [(ngModel)]="htmlContent" minlength="5"></app-ngx-editor>
   <div *ngIf="addForm.controls['textoEntrada'].errors && addForm.controls['textoEntrada'].touched" class="validation-error">
     <div [hidden] = "!addForm.controls['textoEntrada'].errors.required">
         El campo es requerido

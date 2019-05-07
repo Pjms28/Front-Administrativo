@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
+
 declare var Jquery: any;
 declare var $: any;
 
@@ -24,10 +25,11 @@ data: UsuarioModel;
     });
 
     this.data = this.authApi.getCurrentUser();
+
 }
 
 inicio(){
-  this.authApi.change();
+  //this.authApi.change();
   return "http://localhost:4200";
 }
 

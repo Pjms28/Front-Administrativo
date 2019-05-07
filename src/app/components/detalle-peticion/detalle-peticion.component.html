@@ -20,7 +20,7 @@
                   <br>
                   <label>{{data?.estado}}</label>
                   <br>
-                  <div *ngIf = "data?.estado != 'Rechazado'">
+                  <div *ngIf = "data?.estado == 'Pendiente'">
                     <div *ngIf = "data?.tipo != 'Cancelar solicitud'">
                       Fecha y hora de reunión propuesta por el cliente
                       <br>
