@@ -50,6 +50,7 @@ import { EditarPostComponent } from './components/editar-post/editar-post.compon
 import { NgxEditorModule } from 'ngx-editor';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from "../app/guard/auth.guard";
+import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { AuthGuard } from "../app/guard/auth.guard";
     DetallePeticionComponent,
     AgregarPostComponent,
     EditarPostComponent,
+    ProyectoCaracteristicaComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,6 +109,7 @@ import { AuthGuard } from "../app/guard/auth.guard";
       {path: 'Visitas Agendadas', component: AgendarVisitaComponent,canActivate:[AuthGuard]},
       {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent,canActivate:[AuthGuard]},
       {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
+      {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: '',component: MenuComponent ,canActivate:[AuthGuard]}
     ]),
     BrowserAnimationsModule,

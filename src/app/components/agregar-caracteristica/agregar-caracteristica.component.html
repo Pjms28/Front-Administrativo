@@ -9,8 +9,29 @@
                 </div>
                 <div class="card-body">
                   <h5 class="card-title text-center">Agregar Características</h5>
-                  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-caracteristica" autocomplete="off">
-  
+                      <label>Tipo de Característica</label>
+                      <select (change)="Select($event)" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                        <option value="" selected="selected"></option>
+                        <option value="Proyectos">Proyectos</option>
+                        <option value="Inmuebles">Inmuebles</option>
+                    </select>
+                    <div *ngIf = "value == 'Proyectos'">
+                        <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-caracteristica" autocomplete="off">
+                        <div class="form-row">
+                            <div class="form-group">
+                              <label>Tipo de Característica de proyecto</label>
+                              <select formControlName="tipoCarProyecto" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                                  <option value="" selected="selected"></option>
+                                  <option value="Distribucion">Distribucion</option>
+                                  <option value="Amenidades">Amenidades</option>
+                                  <option value="Seguridad">Seguridad</option>
+                                  <option value="DescripciónG">Descripción General</option>
+                                  <option value="DescripcionA">Descripcion de Apartamento</option>
+                                  <option value="Otros">Otros</option>
+                              </select>
+                            </div>
+                        </div>
+
                       <div class="form-row">
                           <div class="form-group">
                             <label>Característica</label>
@@ -32,7 +53,7 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Descripción</label>
-                            <input formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="50"  required/>
+                            <textarea formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="150"  required></textarea>
                             <div *ngIf="addForm.controls['carDescripcion'].errors && addForm.controls['carDescripcion'].touched" class="validation-error">
                                 <div [hidden] = "!addForm.controls['carDescripcion'].errors.required">
                                     El campo es requerido
@@ -46,10 +67,9 @@
                             </div>
                           </div>
                       </div>
-
                       <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
-                  
-                  </form>
+                    </form>
+                    </div>
                 </div>
               </div>
             </div>

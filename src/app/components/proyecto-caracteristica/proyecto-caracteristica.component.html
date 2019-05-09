@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit()" class="form-inmueble" autocomplete="off">
+  <div class="form-row">
+      <div class="form-group">
+          <label>Seleccione las Caracteristicas para el proyecto</label>
+          <br>
+          <label>Distribucion</label>
+          <div *ngFor = "let c of checkboxD">
+            <input [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />{{c.carNombre}}
+          </div>
+        <br>
+        <label>Amenidades</label>
+        <div *ngFor = "let a of checkboxA">
+          <input [(ngModel)]="a.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{a.caracteristicaID}} id={{a.caracteristicaID}} class="form-control" />{{a.carNombre}}
+        </div>
+        <br>
+        <label>Seguridad</label>
+        <div *ngFor = "let s of checkboxS">
+        <input [(ngModel)]="s.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{s.caracteristicaID}} id={{s.caracteristicaID}} class="form-control" />{{s.carNombre}}
+        </div>
+        <br>
+        <label>Descripcion General</label>
+        <div *ngFor = "let dg of checkboxDG">
+          <input [(ngModel)]="dg.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{dg.caracteristicaID}} id={{dg.caracteristicaID}} class="form-control" />{{dg.carNombre}}
+        </div>
+        <br>
+        <label>Descripcion de Apartamento</label>
+        <div *ngFor = "let da of checkboxDA">
+          <input [(ngModel)]="da.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{da.caracteristicaID}} id={{da.caracteristicaID}} class="form-control" />{{da.carNombre}}
+        </div>
+        <br>
+        <label>Otros</label>
+        <div *ngFor = "let o of checkboxO">
+          <input [(ngModel)]="o.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{o.caracteristicaID}} id={{o.caracteristicaID}} class="form-control" />{{o.carNombre}}
+        </div>
+      </div>
+  </div>
+  <button type="submit" (click)="getSelected()" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+</form>
