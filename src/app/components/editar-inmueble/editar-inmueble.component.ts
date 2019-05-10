@@ -87,7 +87,7 @@ export class EditarInmuebleComponent implements OnInit {
         this.apiCar.deleteCaracteristicaInmueble(this.id).subscribe(res=>{
           console.log(res);
         });
-        if(array.length != 0){
+        if(array.length > 0){
           array.forEach(element => {
             this.caracteristicainmueble.caracteristicaID = element;
             this.caracteristicainmueble.inmuebleID = this.id;

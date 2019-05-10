@@ -7,5 +7,6 @@ export class UsuarioModel{
     fechaNacimiento: Date;
     contraseña: string;
     adminAcces: boolean;
+    roleId: number;
     
 }

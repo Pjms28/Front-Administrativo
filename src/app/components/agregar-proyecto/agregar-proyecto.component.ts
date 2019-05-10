@@ -37,7 +37,6 @@ export class AgregarProyectoComponent implements OnInit {
     }, err => {
       console.log(err); 
     });
-    
 
   }
 
