@@ -48,6 +48,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AgregarPostComponent } from './components/agregar-post/agregar-post.component';
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { NgxEditorModule } from 'ngx-editor';
     DetallePeticionComponent,
     AgregarPostComponent,
     EditarPostComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +111,8 @@ import { NgxEditorModule } from 'ngx-editor';
     ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8'
+      apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',
+      libraries: ['places']
     })
   ],
   providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService],

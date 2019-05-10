@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
 import { UbicacionService } from '../../shared/ubicacion.service';
@@ -15,8 +15,9 @@ export class AgregarProyectoComponent implements OnInit {
   data: UbicacionModel[] =[];
   addForm : FormGroup ;
   fileTo: any;
-  lat: number = 18.4855;
-  lng: number = -69.8731;
+  lat: number;
+  lng: number;
+  @Input() latlong:any;
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
     , private toastr: ToastrService) { }
@@ -37,6 +38,13 @@ export class AgregarProyectoComponent implements OnInit {
       console.log(err); 
     });
     
+
+  }
+
+  onNotify(latlong:any):void {
+    console.log('***** :', latlong);
+    this.lat = latlong.latitude;
+    this.lng = latlong.longitude;
 
   }
   onSubmit() {
@@ -69,9 +77,9 @@ export class AgregarProyectoComponent implements OnInit {
     this.fileTo = files.item(0);
   }
 
-  onChooseLocation(event){
-   this.lat = event.coords.lat;
-   this.lng = event.coords.lng;
+  onChooseLocation(cords){
+   this.lat = cords.latitude;
+   this.lng = cords.longitude;
   
    
   }

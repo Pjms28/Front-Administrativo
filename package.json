@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@ng-bootstrap/ng-bootstrap": "^4.1.0",
+    "@types/googlemaps": "^3.30.19",
     "@types/jquery": "^3.3.29",
     "angular-calendar": "^0.27.1",
     "angularx-flatpickr": "^6.1.0",
@@ -37,7 +38,7 @@
     "ngx-editor": "^4.1.0",
     "ngx-pagination": "^3.2.1",
     "ngx-toastr": "^10.0.2",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
