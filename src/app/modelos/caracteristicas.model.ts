@@ -5,5 +5,4 @@ export class CaracteristicaModel{
     carNombre: string;
     carDescripcion: string;
     tipoCarProyecto: string;
-    tipoCarInmueble: string;
 }
