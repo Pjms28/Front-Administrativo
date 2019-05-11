@@ -19,6 +19,7 @@ export class EditarProyectoComponent implements OnInit {
   inmueble : ProyectoComponent;
   editForm: FormGroup;
   fileTo: any;
+  imgNombre: string;
   lat: number = 18.4855;
   lng: number = -69.8731;
  
@@ -30,9 +31,8 @@ export class EditarProyectoComponent implements OnInit {
       proyectoID:['',[Validators.required]],
       nombreProyecto:['',[Validators.required]],
       fechaTerminacion:['',[Validators.required]],
-      ubicacionID: ['',[Validators.required]],
       direccion: ['',[Validators.required]],
-      imgURL:['',[Validators.required]]
+      imgURL:['']
     });
 
     let userID = window.localStorage.getItem("editUserID");
@@ -48,20 +48,9 @@ export class EditarProyectoComponent implements OnInit {
       this.editForm.controls['proyectoID'].setValue(res.proyectoID);
       this.editForm.controls['nombreProyecto'].setValue(res.nombreProyecto);
       this.editForm.controls['fechaTerminacion'].setValue(res.fechaTerminacion);
-      this.editForm.controls['ubicacionID'].setValue(res.ubicacionID);
       this.editForm.controls['direccion'].setValue(res.direccion);
+      this.imgNombre = res.imgURL;
     });
-    
-    return this.ubicacionService.getLocantions()
-      .subscribe(res => {
-      this.data = res;
-    }, err => {
-      console.log(err);
-     
-    });
-
-    
-
   }  
   onChooseLocation(event){
     this.lat = event.coords.lat;
@@ -82,6 +71,9 @@ export class EditarProyectoComponent implements OnInit {
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
+      if(this.editForm.get("imgURL").value == ""){
+        this.editForm.controls["imgURL"].setValue(this.imgNombre);
+      }
       this.apiService.updateProject(this.editForm.value)
       .pipe(first())
       .subscribe(data =>{

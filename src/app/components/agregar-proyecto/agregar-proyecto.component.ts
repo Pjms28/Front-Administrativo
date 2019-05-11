@@ -27,8 +27,7 @@ export class AgregarProyectoComponent implements OnInit {
       nombreProyecto:['', [Validators.required]],
       fechaTerminacion:['', [Validators.required]],
       direccion:['',[Validators.required]],
-      imgURL:['',[Validators.required]],
-      ubicacionID: ['',[Validators.required]]
+      imgURL:['',[Validators.required]]
     });
 
     return this.ubicacionService.getLocantions()
