@@ -48,8 +48,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { AgregarPostComponent } from './components/agregar-post/agregar-post.component';
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { MapComponent } from './components/map/map.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from "../app/guard/auth.guard";
+import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
 
 
 @NgModule({
@@ -78,6 +80,8 @@ import { AuthGuard } from "../app/guard/auth.guard";
     DetallePeticionComponent,
     AgregarPostComponent,
     EditarPostComponent,
+    ProyectoCaracteristicaComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -107,11 +111,13 @@ import { AuthGuard } from "../app/guard/auth.guard";
       {path: 'Visitas Agendadas', component: AgendarVisitaComponent,canActivate:[AuthGuard]},
       {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent,canActivate:[AuthGuard]},
       {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
+      {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: '',component: MenuComponent ,canActivate:[AuthGuard]}
     ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD78XDsaTmYP52DnxX3W4P00hBiDHNKgh8'
+      apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',
+      libraries: ['places']
     })
   ],
   providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService],

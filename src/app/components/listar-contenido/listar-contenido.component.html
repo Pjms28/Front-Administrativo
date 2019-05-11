@@ -28,6 +28,7 @@
               <th scope="col">Proyecto</th>
               <th scope="col">Fecha de terminacion</th>
               <th scope="col">Direccion</th>
+              <th scope="col">Caracteristicas</th>
               <th scope="col">Editar</th>
               <th scope="col">Eliminar</th>
             
@@ -39,7 +40,8 @@
               <td>{{d.nombreProyecto}}</td>
               <td>{{d.fechaTerminacion |date:'dd/MM/yyyy'}}</td>
               <td>{{d.direccion}}</td>
-              <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm "><i class="material-icons">edit</i></button></td>
+              <td><a class="btn btn-secondary btn-sm" routerLink="/proyecto-caracteristica/{{d.proyectoID}}"></a></td>
+              <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm"><i class="material-icons">edit</i></button></td>
               <td><button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar "><i class="material-icons">delete</i></button></td>
             </tr>
           </tbody>

@@ -73,14 +73,67 @@
                         </div>
                       </div>
                   </div>
+
                   <div class="form-row">
                     <div class="form-group">
-                        <label>Caracteristicas</label>
-                        <div *ngFor = "let c of checkbox">
-                          <input  [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />{{c.carNombre}}
-                      </div>
+                        <label>Cantidad de habitaciones</label>
+                        <select formControlName="cantidadHabitaciones" class="form-control" aria-placeholder="Seleccione una opcion" required>
+                          <option value="" selected="selected"></option>
+                          <option value="1">1 Habitacion</option>
+                          <option value="2">2 Habitaciones</option>
+                          <option value="3">3 Habitaciones</option>
+                          <option value="4">4 Habitaciones</option>
+                          <option value="5">5 Habitaciones</option>
+                          <option value="6">6 Habitaciones</option>
+                          <option value="7">7 Habitaciones</option>
+                          <option value="8">8 Habitaciones</option>
+                          <option value="9">9 Habitaciones</option>
+                          <option value="10">10 Habitaciones</option>
+                      </select>
+                      <div *ngIf="editForm.controls['cantidadHabitaciones'].errors && editForm.controls['cantidadHabitaciones'].touched" class="validation-error">Este campo es requerido</div>
                     </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                      <label>Cantidad de baños</label>
+                      <select formControlName="cantidadBanos" class="form-control" aria-placeholder="Seleccione una opcion" required>
+                        <option value="" selected="selected"></option>
+                        <option value="1">1 Baño</option>
+                        <option value="2">2 Baños</option>
+                        <option value="3">3 Baños</option>
+                        <option value="4">4 Baños</option>
+                        <option value="5">5 Baños</option>
+                        <option value="6">6 Baños</option>
+                        <option value="7">7 Baños</option>
+                        <option value="8">8 Baños</option>
+                        <option value="9">9 Baños</option>
+                        <option value="10">10 Baños</option>
+                    </select>
+                    <div *ngIf="editForm.controls['cantidadBanos'].errors && editForm.controls['cantidadBanos'].touched" class="validation-error">Este campo es requerido</div>
                   </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                    <label>Cantidad de parqueos</label>
+                    <select formControlName="cantidadParqueos" class="form-control" aria-placeholder="Seleccione una opcion" required>
+                      <option value="" selected="selected"></option>
+                      <option value="1">1 Parqueo</option>
+                      <option value="2">2 Parqueos</option>
+                      <option value="3">3 Parqueos</option>
+                      <option value="4">4 Parqueos</option>
+                      <option value="5">5 Parqueos</option>
+                      <option value="6">6 Parqueos</option>
+                      <option value="7">7 Parqueos</option>
+                      <option value="8">8 Parqueos</option>
+                      <option value="9">9 Parqueos</option>
+                      <option value="10">10 Parqueos</option>
+                  </select>
+                  <div *ngIf="editForm.controls['cantidadParqueos'].errors && editForm.controls['cantidadParqueos'].touched" class="validation-error">Este campo es requerido</div>
+                </div>
+            </div>
+
                         
                       <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   

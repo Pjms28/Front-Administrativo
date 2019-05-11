@@ -34,7 +34,7 @@ export class AuthService {
     getToken(){
         //Con cookies
          
-            return this.cookieService.get("tkn").toString();
+        return this.cookieService.get("tkn").toString();
         
         //return sessionStorage.getItem("tkn").toString();
     }
