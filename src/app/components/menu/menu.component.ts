@@ -27,7 +27,7 @@ data: UsuarioModel;
 }
 
 inicio(){
-  this.authApi.change();
+  //this.authApi.change();
   return "http://localhost:4200";
 }
 

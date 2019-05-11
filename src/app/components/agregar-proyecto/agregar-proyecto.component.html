@@ -60,7 +60,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Dirección</label>
-                                <input formControlName="direccion" class="form-control" type="text" minlength="5" maxlength="35"  required/>
+                                <input formControlName="direccion" class="form-control" type="text" minlength="5" maxlength="100"  required/>
                                 <div *ngIf="addForm.controls['direccion'].errors && addForm.controls['direccion'].touched" class="validation-error">
                                         <div [hidden] = "!addForm.controls['direccion'].errors.required">
                                                 El campo es requerido
@@ -69,7 +69,7 @@
                                                 El campo requiere mas de 5 caracteres  
                                             </div>
                                             <div [hidden] = "!addForm.controls['direccion'].errors.maxlength">
-                                                El nombre debe tener menos de 35 caracteres  
+                                                El nombre debe tener menos de 100 caracteres  
                                             </div>
                                 </div>
                             </div>

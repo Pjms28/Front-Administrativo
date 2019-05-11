@@ -63,7 +63,7 @@ export class EditarPostComponent implements OnInit {
         formData.append(this.fileTo.name, this.fileTo);
         formData.append('fileName',this.fileTo.name);
         this.blogApi.sendFormData(formData);
-        this.autApi.change();
+        //this.autApi.change();
         window.location.href = "http://localhost:4200/blog";
       });
     }

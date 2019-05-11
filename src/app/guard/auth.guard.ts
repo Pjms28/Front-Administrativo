@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
   canActivate() {
 
     //Con cookies
-    /*
+    
       this.user = this.authService.getCurrentUser()
     if (this.user != null){
       if(this.user.roleId == 1){
@@ -26,10 +26,10 @@ export class AuthGuard implements CanActivate {
         window.location.href = 'http://localhost:4200/login'
         return false;
       }
-    */
     
     
-    this.user = this.authService.getCurrentUser()
+    
+    /*this.user = this.authService.getCurrentUser()
     if (this.user != null){
       if(this.user.roleId == 1){
         return true;
@@ -47,7 +47,7 @@ export class AuthGuard implements CanActivate {
         window.location.href = 'http://localhost:4200/login'
         return false;
       }
-      }
+    }*/
       
     }
   }
