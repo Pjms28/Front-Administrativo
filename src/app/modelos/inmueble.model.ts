@@ -10,4 +10,5 @@ export class InmuebleModel{
     cantidadParqueos:number;
     tamano:number;
     moneda:string;
+    mts:number;
 }

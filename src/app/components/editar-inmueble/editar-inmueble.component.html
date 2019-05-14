@@ -27,6 +27,18 @@
                        </div>
                       </div>
 
+                      <div class="form-row">
+                        <div class="form-group">
+                            <label>Moneda</label>
+                            <select formControlName="moneda" class="form-control" required>
+                                <option value="DOP">Peso Dominicano</option>
+                                <option value="USD">Dolar</option>
+                                <option value="EUR">Euro</option>
+                            </select>
+                            <div *ngIf="editForm.controls['moneda'].errors && editForm.controls['moneda'].touched" class="validation-error">Este campo es requerido</div>
+                        </div>
+                      </div>
+
 
                       <div class="form-row">
                           <div class="form-group">
@@ -133,6 +145,14 @@
                   <div *ngIf="editForm.controls['cantidadParqueos'].errors && editForm.controls['cantidadParqueos'].touched" class="validation-error">Este campo es requerido</div>
                 </div>
             </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                  <label>Metros de construcción</label>
+                  <input formControlName="mts" class="form-control" type="text" required/>
+                  <div *ngIf="editForm.controls['mts'].errors && editForm.controls['mts'].touched" class="validation-error">Este campo es requerido</div>
+              </div>
+          </div>
 
                         
                       <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>

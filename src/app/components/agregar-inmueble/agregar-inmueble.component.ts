@@ -8,7 +8,6 @@ import { InmuebleService } from '../../shared/inmueble.service';
 import { ApiService } from '../../shared/api.service';
 import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
 import { CaracteristicaService } from '../../shared/caracteristica.service';
-import { CaracteristicaInmuebleModel } from 'src/app/modelos/caracteristicainmueble.model';
 
 @Component({
   selector: 'app-agregar-inmueble',
@@ -21,7 +20,6 @@ export class AgregarInmuebleComponent implements OnInit {
   inmueble : InmuebleModel;
   addForm: FormGroup;
   checkbox:any [] = [];
-  caracteristicainmueble: CaracteristicaInmuebleModel = new CaracteristicaInmuebleModel();
   
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
     ,private toastr: ToastrService,  public actRoute: ActivatedRoute, private apiCar: CaracteristicaService) { }
@@ -35,7 +33,9 @@ export class AgregarInmuebleComponent implements OnInit {
       proyectoID: ['', [Validators.required]],
       cantidadHabitaciones:['',[Validators.required]],
       cantidadBanos:['',[Validators.required]],
-      cantidadParqueos:['',[Validators.required]]
+      cantidadParqueos:['',[Validators.required]],
+      moneda:['',[Validators.required]],
+      mts:['',[Validators.required]]
     });
 
     
