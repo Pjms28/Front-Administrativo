@@ -9,7 +9,6 @@ import { InmuebleService } from '../../shared/inmueble.service';
 import { ApiService } from '../../shared/api.service';
 import { CaracteristicaService } from 'src/app/shared/caracteristica.service';
 import { CaracteristicaModel } from 'src/app/modelos/caracteristicas.model';
-import { CaracteristicaInmuebleModel } from 'src/app/modelos/caracteristicainmueble.model';
 
 @Component({
   selector: 'app-editar-inmueble',
@@ -23,13 +22,26 @@ export class EditarInmuebleComponent implements OnInit {
   editForm: FormGroup;
   checkbox:any [] = [];
   caraceristicas: CaracteristicaModel [] = [];
-  caracteristicainmueble: CaracteristicaInmuebleModel = new CaracteristicaInmuebleModel();
   id: number;
 
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
     ,private toastr: ToastrService, private apiCar: CaracteristicaService) { }
 
   ngOnInit() {
+
+    this.editForm = this.formBuilder.group({
+      inmuebleID:['', [Validators.required]],
+      nombreInmueble:['', [Validators.required]],
+      precio: ['',[Validators.required]],
+      descripcionInmueble:['',[Validators.required]],
+      proyectoID: ['',[Validators.required]],
+      cantidadHabitaciones:['',[Validators.required]],
+      cantidadBanos:['',[Validators.required]],
+      cantidadParqueos:['',[Validators.required]],
+      moneda:['',[Validators.required]],
+      mts: ['', [Validators.required]]
+    });
+
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
       alert("Accion Invalida")
@@ -37,13 +49,6 @@ export class EditarInmuebleComponent implements OnInit {
       return;
     }
     this.id = Number(userID);
-    this.editForm = this.formBuilder.group({
-      inmuebleID:['', [Validators.required]],
-      nombreInmueble:['', [Validators.required]],
-      precio: ['',[Validators.required]],
-      descripcionInmueble:['',[Validators.required]],
-      proyectoID: ['',[Validators.required]]
-    });
     window.localStorage.removeItem("editUserID");
     this.apiIn.getInmueble(Number(userID))
     .subscribe(res => {
@@ -56,13 +61,7 @@ export class EditarInmuebleComponent implements OnInit {
     }, err => {
       console.log(err);
      
-    });
-
-    this.apiCar.getCaracteristicasInmueble(Number(userID)).subscribe(res => {
-        this.caraceristicas = res;
-        this.checkInitial();
-    }) 
- 
+    }); 
   }
   
   onSubmit(){
@@ -83,66 +82,10 @@ export class EditarInmuebleComponent implements OnInit {
       .pipe(first())
       .subscribe(data =>{
         this.toastr.info('Inmueble ha sido editado','Inmueble.Info');
-        var array = this.getSelected();
-        this.apiCar.deleteCaracteristicaInmueble(this.id).subscribe(res=>{
-          console.log(res);
-        });
-        if(array.length > 0){
-          array.forEach(element => {
-            this.caracteristicainmueble.caracteristicaID = element;
-            this.caracteristicainmueble.inmuebleID = this.id;
-            this.apiCar.addCaracteristicaInmueble(this.caracteristicainmueble).subscribe(res => {
-              this.router.navigate(['listar-contenido']);
-            })
-            
-          });
-        }
-      });
+        this.router.navigate(['listar-contenido']);
+      })
     }
   }
 
-  public getSelected() {
-    let result = this.checkbox.filter((c) => { return c.selected })
-                     .map((c) => { return c.caracteristicaID });
-    return result;
-}
-
-checkInitial(){
-  this.apiCar.getCaracteristicas()
-    .subscribe(res =>{
-      var exist = false;
-        res.forEach(element => {
-          this.caraceristicas.forEach(element2 => {
-            if(element.caracteristicaID == element2.caracteristicaID){
-
-             exist = true;
-            }
-        });
-
-          if(exist == true){
-            var obj: Object ={
-              caracteristicaID: element.caracteristicaID,
-              carNombre: element.carNombre,
-              selected: true
-            }
-    
-            this.checkbox.push(obj);
-          }
-          else{
-            var obj: Object ={
-              caracteristicaID: element.caracteristicaID,
-              carNombre: element.carNombre,
-              selected: false
-            }
-    
-            this.checkbox.push(obj);
-          }
-          exist = false;
-      });
-  })
-
- 
-
-}
-
+       
 }

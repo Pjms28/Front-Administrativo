@@ -60,7 +60,7 @@ export class ProyectoCaracteristicaComponent implements OnInit {
         });
       }
       if(res.amenidades != ""){
-        this.checkInitial(res.distribucion, this.checkboxA, this.caracteristicasA);
+        this.checkInitial(res.amenidades, this.checkboxA, this.caracteristicasA);
       }
       else{
         this.caracteristicasA.forEach(element => {
@@ -184,11 +184,9 @@ export class ProyectoCaracteristicaComponent implements OnInit {
           caraceristicas.forEach(element => {
             tipoCar.forEach(element2 => {
               if(element.caracteristicaID == element2.caracteristicaID){
-  
                exist = true;
               }
           });
-  
             if(exist == true){
               var obj: Object ={
                 caracteristicaID: element.caracteristicaID,

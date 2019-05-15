@@ -9,6 +9,8 @@ import { VisitaModel } from 'src/app/modelos/visita.model';
 import { VisitaService } from 'src/app/shared/visita.service';
 import { SolicitudService } from 'src/app/shared/solicitud.service';
 import { SolicitudModel } from 'src/app/modelos/Solicitud.model';
+import { EmailService } from 'src/app/shared/email.service';
+import { EmailModel } from 'src/app/modelos/email.model';
 
 @Component({
   selector: 'app-detalle-peticion',
@@ -22,9 +24,9 @@ export class DetallePeticionComponent implements OnInit {
   addForm: FormGroup
   events: VisitaModel[] = [];
   sol: SolicitudModel;
-
+  email: EmailModel = new EmailModel();
   constructor(private router: Router,private toastr: ToastrService, private actvRoute: ActivatedRoute, private pctApi: PeticionService, public ageService: VisitaService,
-    private formBuilder: FormBuilder, private solApi: SolicitudService) { }
+    private formBuilder: FormBuilder, private solApi: SolicitudService, private emailApi: EmailService) { }
 
   ngOnInit() {
 
@@ -66,8 +68,18 @@ export class DetallePeticionComponent implements OnInit {
           this.pctApi.updatePeticion(this.data).subscribe(res =>{
             this.router.navigate(['agendar-visita']);
           })
-
         });
+        this.email.correo = this.data.solicitud.usuario.correoUsuario;
+        this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+        this.email.subject = "Peticio de visita por motivo de" + " " + this.data.motivo;
+        this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
+        "<br>" + "Le deseamos informar que su peticion para una nueva visita al servicio ya solicitado previamente ha sido" + " " + "<strong>aprobada</strong>" + "," + 
+        "la reunión esta pautada para la fecha" + " " + "<strong>"+ formatDate(this.addForm.get('hora_Inicio').value, 'yyyy/MM/dd', 'en') + "</strong>" +  "," + "iniciara a las" + " " + "<strong>"+ formatDate(this.addForm.get('hora_Inicio').value, 'HH:mm:ss aa', 'en') + "</strong>" + " " +
+        "con Dios mediante." + 
+        "<br>" + " Sin nada mas que informar, que pase un feliz resto del dia." + "<br>" + "<strong>Gracias por preferirnos.</strong>"; 
+        this.emailApi.sendEmail(this.email).subscribe(res => {
+
+        })
         }
       }
     }
@@ -76,6 +88,15 @@ export class DetallePeticionComponent implements OnInit {
       this.data.estado = "Rechazado";
       this.pctApi.updatePeticion(this.data).subscribe(res =>{
         this.router.navigate(['administrar-peticiones']);
+      })
+      this.email.correo = this.data.solicitud.usuario.correoUsuario;
+      this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+      this.email.subject = "Peticio por motivo de" + " " + this.data.motivo;
+      this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
+      "<br>" + "Le informamos por este medio que la peticion solicitada el dia" + "" + formatDate(this.data.createdAt, 'yyyy/MM/dd', 'en')+ " " + "ha sido <strong> denegada </strong>."+
+      "<br>" + "Lamentamos los inconvenientes, para mas informacion favor de reenviar sus dudas a este email." +
+      "<br>" + " Sin nada mas que informar, que pase un feliz resto del dia." + "<br>" + "<strong>Gracias por preferirnos.</strong>"; 
+      this.emailApi.sendEmail(this.email).subscribe(res => {
       })
     }
 
@@ -88,6 +109,12 @@ export class DetallePeticionComponent implements OnInit {
       this.pctApi.updatePeticion(this.data).subscribe(res =>{
         this.router.navigate(['administrar-peticiones']);
       })
+      this.email.correo = this.data.solicitud.usuario.correoUsuario;
+      this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+      this.email.subject = "Peticio por motivo de" + " " + this.data.motivo;
+      this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
+      "<br>" + "Le informamos por este medio que la peticion solicitada el dia" + "" + formatDate(this.data.createdAt, 'yyyy/MM/dd', 'en') + " " + + "ha sido <strong> aceptada </strong>."
+      +  "<br>" + " Sin nada mas que informar, que pase un feliz resto del dia." + "<br>" + "<strong>Gracias por preferirnos.</strong>"; 
     }
 
 

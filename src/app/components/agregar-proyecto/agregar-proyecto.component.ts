@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
-import { UbicacionService } from '../../shared/ubicacion.service';
 import {Router} from "@angular/router";
-import { UbicacionModel } from '../../modelos/Ubicacion.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -12,30 +10,20 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./agregar-proyecto.component.css']
 })
 export class AgregarProyectoComponent implements OnInit {
-  data: UbicacionModel[] =[];
   addForm : FormGroup ;
   fileTo: any;
   lat: number;
   lng: number;
   @Input() latlong:any;
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
-    , private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       nombreProyecto:['', [Validators.required]],
       fechaTerminacion:['', [Validators.required]],
       direccion:['',[Validators.required]],
-      imgURL:['',[Validators.required]],
-      ubicacionID: ['',[Validators.required]]
-    });
-
-    return this.ubicacionService.getLocantions()
-      .subscribe(res => {
-      this.data = res;
-    }, err => {
-      console.log(err); 
+      imgURL:['',[Validators.required]]
     });
 
   }

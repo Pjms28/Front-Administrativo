@@ -3,7 +3,6 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { CaracteristicaModel } from '../modelos/caracteristicas.model';
-import { CaracteristicaInmuebleModel } from '../modelos/caracteristicainmueble.model';
 import { CaracteristicaProyectoModel } from '../modelos/caracteristicaproyecto.model';
 
 const httpOptions = {
@@ -51,12 +50,6 @@ export class CaracteristicaService {
     ));
   } 
 
-  getCaracteristicasInmueble(id: number):Observable<CaracteristicaModel[]>{
-    const url = `${apiUrl}/${"GetByInmueble/" + id}`;
-    return this.http.get<CaracteristicaModel[]>(url).pipe(
-      tap(_ => catchError(this.handleError<CaracteristicaModel[]>(`getCaracteristica id=${id}`))
-    ));
-  } 
   getCaracteristicasProyecto(id: number):Observable<any>{
     const url = `${apiUrl}/${"GetByProyecto/" + id}`;
     return this.http.get<any>(url).pipe(
@@ -84,14 +77,6 @@ export class CaracteristicaService {
       );
     }
 
-    addCaracteristicaInmueble(caracteristicainmueble: CaracteristicaInmuebleModel){
-      const url = `${apiUrl}/${"CaracteristicaInmueble"}`;
-      return this.http.post<CaracteristicaInmuebleModel>(url,caracteristicainmueble, httpOptions)
-      .pipe(
-        catchError(this.handleError('addCaracteristicainmuble', caracteristicainmueble))
-      );
-    }
-
     addCaracteristicaProyecto(caracteristicaproyecto: CaracteristicaProyectoModel){
       const url = `${apiUrl}/${"CaracteristicaProyecto"}`;
       return this.http.post<CaracteristicaProyectoModel>(url,caracteristicaproyecto, httpOptions)
@@ -100,15 +85,6 @@ export class CaracteristicaService {
       );
     }
     
-    
-    deleteCaracteristicaInmueble (id: number): Observable<{}> {
-      const url = `${apiUrl}/${"DeleteCaracterisiticaByInmueble/"+ id}`;
-      return this.http.delete(url, httpOptions)
-      .pipe(
-      catchError(this.handleError('deleteCaracteristica'))
-      );
-      }
-
     deleteCaracteristicaProyecto (id: number): Observable<{}> {
       const url = `${apiUrl}/${"DeleteCaracterisiticaByProyecto/"+ id}`;
       return this.http.delete(url, httpOptions).pipe(

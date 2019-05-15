@@ -53,7 +53,7 @@
                     <div class="form-row">
                       <div class="form-group">
                         <label>Direccion</label>
-                        <input formControlName="direccion" class="form-control" type="text" minlength="5" maxlength="35"  required/>
+                        <input formControlName="direccion" class="form-control" type="text" minlength="5" maxlength="100"  required/>
                         <div *ngIf="editForm.controls['direccion'].errors && editForm.controls['direccion'].touched" class="validation-error">
                             <div [hidden] = "!editForm.controls['direccion'].errors.required">
                                 El campo es requerido
@@ -62,7 +62,7 @@
                                 El campo requiere mas de 5 caracteres  
                             </div>
                             <div [hidden] = "!editForm.controls['direccion'].errors.maxlength">
-                                El nombre debe tener menos de 35 caracteres  
+                                El nombre debe tener menos de 100 caracteres  
                             </div>
                         </div>
                       </div>
@@ -72,14 +72,14 @@
                       <div class="form-group">
                           <div class="upload-btn-wrapper">
                           <label class="foto" for="file-input">Imagen del proyecto <br> <i class="material-icons"> add_a_photo</i></label>
-                          <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file" class="imagen" id="file-input"  required>
+                          <input (change)="saveFileRequest($event.target.files)" formControlName="imgURL" type = "file" class="imagen" id="file-input">
                           </div>
                       </div>
                   </div>
   
                 
                         
-                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                      <button type="submit"  class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   
                   </form>
                 </div>

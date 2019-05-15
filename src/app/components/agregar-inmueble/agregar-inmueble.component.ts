@@ -8,7 +8,6 @@ import { InmuebleService } from '../../shared/inmueble.service';
 import { ApiService } from '../../shared/api.service';
 import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
 import { CaracteristicaService } from '../../shared/caracteristica.service';
-import { CaracteristicaInmuebleModel } from 'src/app/modelos/caracteristicainmueble.model';
 
 @Component({
   selector: 'app-agregar-inmueble',
@@ -21,7 +20,6 @@ export class AgregarInmuebleComponent implements OnInit {
   inmueble : InmuebleModel;
   addForm: FormGroup;
   checkbox:any [] = [];
-  caracteristicainmueble: CaracteristicaInmuebleModel = new CaracteristicaInmuebleModel();
   
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
     ,private toastr: ToastrService,  public actRoute: ActivatedRoute, private apiCar: CaracteristicaService) { }
@@ -32,7 +30,12 @@ export class AgregarInmuebleComponent implements OnInit {
       precio: ['',[Validators.required]],
       nombreInmueble:['', [Validators.required]],
       descripcionInmueble:['', [Validators.required]],
-      proyectoID: ['', [Validators.required]]
+      proyectoID: ['', [Validators.required]],
+      cantidadHabitaciones:['',[Validators.required]],
+      cantidadBanos:['',[Validators.required]],
+      cantidadParqueos:['',[Validators.required]],
+      moneda:['',[Validators.required]],
+      mts:['',[Validators.required]]
     });
 
     
@@ -45,21 +48,6 @@ export class AgregarInmuebleComponent implements OnInit {
       console.log(err);
      
     });
-
-    this.apiCar.getCaracteristicas()
-    .subscribe(res =>{
-      res.forEach(element => {
-        var obj: Object ={
-          caracteristicaID: element.caracteristicaID,
-          carNombre: element.carNombre,
-          selected: false
-        }
-
-        this.checkbox.push(obj);
-      });
-   
-      
-    })
   }
 
    
@@ -84,26 +72,12 @@ export class AgregarInmuebleComponent implements OnInit {
         }
         else{
           this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
-          var array = this.getSelected();
-          if(array.length != 0){
-            array.forEach(element => {
-              this.caracteristicainmueble.caracteristicaID = element;
-              this.caracteristicainmueble.inmuebleID = data.inmuebleID;
-              this.apiCar.addCaracteristicaInmueble(this.caracteristicainmueble).subscribe(res => {
-              this.router.navigate(['listar-contenido']);
-              })
-          });
-        }
+          this.router.navigate(['listar-contenido']);
         }
       });
     }
   }
 
-  public getSelected() {
-    let result = this.checkbox.filter((c) => { return c.selected })
-                     .map((c) => { return c.caracteristicaID });
-    return result;
-}
 
 
 }

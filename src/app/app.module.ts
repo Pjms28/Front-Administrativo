@@ -16,7 +16,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiService } from './shared/api.service';
-import { UbicacionService } from './shared/ubicacion.service';
 import { InmuebleService } from './shared/inmueble.service';
 import { CaracteristicaService } from './shared/caracteristica.service';
 import { CommonModule } from '@angular/common';
@@ -119,7 +118,7 @@ import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteri
       libraries: ['places']
     })
   ],
-  providers: [ApiService,UbicacionService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService],
+  providers: [ApiService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
