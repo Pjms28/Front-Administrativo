@@ -53,7 +53,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from "../app/guard/auth.guard";
 import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
