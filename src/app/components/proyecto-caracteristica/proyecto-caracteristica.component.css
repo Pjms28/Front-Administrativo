@@ -1,0 +1,60 @@
+body{
+    padding-top: 5%;
+
+}
+
+.form-row{
+    padding-left: 5%;
+    background: #fff;
+    
+}
+
+
+
+h2{
+    padding-top: 10px;
+    font-size: 25px;
+    text-align: center;
+    padding-left: 180px;
+}
+
+.caracteristica{
+    font-size: 18px;
+    font-weight: normal;
+    display: inline;
+    margin-bottom: 5px;
+    
+}
+
+label{
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+input[type="checkbox"] {
+    width:15px;
+    height:15px;
+    margin-left: 5px;
+    display: inline;
+}
+
+button {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    margin-left: 35%;
+    transition: all 0.2s;
+    width: 250px;
+    margin-top: 35px;
+    top: 40px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+  }
+
+
+
+
+

@@ -22,7 +22,7 @@
 
   .card-solicitud .card-body {
     width:1000px ;
-    height:700px ;
+    height:300px ;
     padding-left: 5%;
     margin: auto;
   }
@@ -52,6 +52,14 @@
   .form-label-group {
     position: relative;
     margin-bottom: 1rem;
+    display: inline;
+  }
+
+  h4{
+    display: inline;
+    font-size: 18px;
+    padding-left: 5px;
+    font-weight: bold;
   }
   
   .form-label-group input {
@@ -112,9 +120,19 @@
     color: #777;
   }
 
-  .btn {
+
+  .btn{
+    margin-top: 20px;
+    margin-left: 230px;
+  }
+
+.declinar {
     position: relative;
-    top:20px;
+    /* top:20px; */
+    margin-left: 100px;
+
+    
+    
   }
 
   .form-row .form-control{

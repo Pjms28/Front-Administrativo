@@ -40,7 +40,7 @@
               <td>{{d.nombreProyecto}}</td>
               <td>{{d.fechaTerminacion |date:'dd/MM/yyyy'}}</td>
               <td>{{d.direccion}}</td>
-              <td><a class="btn btn-secondary btn-sm" routerLink="/proyecto-caracteristica/{{d.proyectoID}}"></a></td>
+              <td><a routerLink="/proyecto-caracteristica/{{d.proyectoID}}" class= "carac"><i class="fas fa-plus-square fa-2x"></i></a></td>
               <td><button (click)="updateProject(d)" type="button" class="btn btn-secondary btn-sm"><i class="material-icons">edit</i></button></td>
               <td><button (click)="eliminar(d)" type="button" class="btn btn-danger btn-sm eliminar "><i class="material-icons">delete</i></button></td>
             </tr>

@@ -13,11 +13,22 @@
     
   }
 
+  h4{
+    font-size: 18px;
+    display: inline;
+    font-weight: bold;
+  }
+
+  label{
+    display: inline;
+  }
+
+
 
 
   .card-solicitud .card-body {
     width:1000px ;
-    height:700px ;
+    height:400px ;
     padding-left: 5%;
     margin: auto;
   }
