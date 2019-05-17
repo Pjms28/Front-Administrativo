@@ -41,6 +41,15 @@
                           </div>
                       </div>
 
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label>Ubicacion</label>
+                          <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChooseLocation($event)" >
+                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                        </agm-map>
+                        </div>
+                    </div>
+
                     <div class="form-row">
                       <div class="form-group">
                         <label>Direccion</label>

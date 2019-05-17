@@ -6,11 +6,13 @@ import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, Cal
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { VisitaService } from '../../shared/visita.service';
 import { VisitaModel } from 'src/app/modelos/visita.model';
-import { Router } from '@angular/router';
+import { Router, Data } from '@angular/router';
 import {formatDate} from '@angular/common';
 
 import { ToastrService } from 'ngx-toastr';
 import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
+import { EmailService } from 'src/app/shared/email.service';
+import { EmailModel } from 'src/app/modelos/email.model';
 
 
 const colors: any = {
@@ -71,9 +73,11 @@ export class AgendarVisitaComponent implements OnInit {
   refresh: Subject<any> = new Subject();
   activeDayIsOpen: boolean = true;
   eventValidator: VisitaModel[]=[];
- 
-  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService,private router: Router, private toastr: ToastrService) { }
+  oldFecha: string;
 
+  constructor(private modal: NgbModal, private formBuilder: FormBuilder, private ageService: VisitaService,private router: Router, private toastr: ToastrService
+    , private emailApi:EmailService) { }
+    email: EmailModel = new EmailModel();
   
 
   ngOnInit() {
@@ -201,9 +205,19 @@ export class AgendarVisitaComponent implements OnInit {
     if(this.validator(start,end) === true){
        this.ageService.getVisit(event.numeroVisita).subscribe(res=>{
           this.data = res;
+          this.oldFecha = formatDate(this.data.hora_Inicio, 'yyyy/MM/dd HH:mm:ss aa', 'en');
           this.data.hora_Inicio = formatDate(start, 'yyyy/MM/dd HH:mm:ss', 'en');
           this.data.hora_Fin = formatDate(end, 'yyyy/MM/dd HH:mm:ss', 'en');;
           this.ageService.updateVisit(this.data).subscribe(res =>{
+          this.email.correo = this.data.solicitud.usuario.correoUsuario;
+          this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+          this.email.subject = "Cambio de fecha para la reunion del servicio solicitado" + " " + this.data.servicio.nombreServicio;
+          this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre + "<br>" +  "Le informamos por este medio que la reunion pautada para la fecha" + "" 
+          + "<strong>"+this.oldFecha +"</strong>" + "" + "ha sido modificada y ahora esta pautada para la fecha:" + "" + "<strong>" + this.data.hora_Inicio + "</strong>"+ "."
+          + "<br>" + " Sin nada mas que informar, que pase un feliz resto del dia." + "<br>" + "<strong>Gracias por preferirnos.</strong>"; 
+          this.emailApi.sendEmail(this.email).subscribe(res => {
+            
+          });
             return this.ageService.getVisits().subscribe((res: {}) => {
               this.completeCalendar(res);
             })
@@ -251,6 +265,9 @@ oldEvents(res: VisitaModel[]){
       if(confirm("El evento agendado para el"+ "" + formatDate(element.hora_Inicio,'yyyy/MM/dd', 'en')+ " " + "ya es obsoleto, si el evento ya fue finalizado desea cambiar el estado del evento?")){
         element.estado = "Finalizado";
         this.ageService.updateVisit(element).subscribe(res=>{
+          return this.ageService.getVisits().subscribe((res: {}) => {
+            this.completeCalendar(res);
+          })
         })
 
       }

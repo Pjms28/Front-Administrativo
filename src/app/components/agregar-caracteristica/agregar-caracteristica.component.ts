@@ -15,7 +15,6 @@ export class AgregarCaracteristicaComponent implements OnInit {
   caracteristica : CaracteristicaModel;
   addForm: FormGroup;
   mensaje: string;
-  value: string = "";
 
   constructor( private apiCar: CaracteristicaService,private formBuilder: FormBuilder,
     private router: Router,private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
@@ -24,18 +23,12 @@ export class AgregarCaracteristicaComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       carNombre: ['',[Validators.required]],
       carDescripcion:['',[Validators.required]],
-      tipoCar:[''],
       tipoCarProyecto:['',[Validators.required]]
-
     });
 
   }
-  Select(event:any){
-    this.value = event.target.value;
-  }
 
   onSubmit(){
-    this.addForm.controls["tipoCar"].setValue(this.value);
     if(this.addForm.get("carNombre").value.trim().length === 0){
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }

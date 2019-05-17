@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProyectoComponent } from '../proyecto/proyecto.component';
 import { FormBuilder, FormGroup,Validators} from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
-import { UbicacionService } from '../../shared/ubicacion.service';
 import {Router, ActivatedRoute} from "@angular/router";
-import { UbicacionModel } from '../../modelos/Ubicacion.model';
 import { ToastrService } from 'ngx-toastr';
 import {first} from "rxjs/operators";
 
@@ -15,7 +13,6 @@ import {first} from "rxjs/operators";
 })
 export class EditarProyectoComponent implements OnInit {
   
-  data : UbicacionModel[] = [];
   inmueble : ProyectoComponent;
   editForm: FormGroup;
   fileTo: any;
@@ -23,8 +20,8 @@ export class EditarProyectoComponent implements OnInit {
   lat: number = 18.4855;
   lng: number = -69.8731;
  
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private ubicacionService: UbicacionService
-    , private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, 
+    private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.editForm = this.formBuilder.group({

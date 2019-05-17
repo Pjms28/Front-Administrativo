@@ -9,7 +9,6 @@ import { InmuebleService } from '../../shared/inmueble.service';
 import { ApiService } from '../../shared/api.service';
 import { CaracteristicaService } from 'src/app/shared/caracteristica.service';
 import { CaracteristicaModel } from 'src/app/modelos/caracteristicas.model';
-import { CaracteristicaInmuebleModel } from 'src/app/modelos/caracteristicainmueble.model';
 
 @Component({
   selector: 'app-editar-inmueble',
@@ -23,7 +22,6 @@ export class EditarInmuebleComponent implements OnInit {
   editForm: FormGroup;
   checkbox:any [] = [];
   caraceristicas: CaracteristicaModel [] = [];
-  caracteristicainmueble: CaracteristicaInmuebleModel = new CaracteristicaInmuebleModel();
   id: number;
 
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
@@ -39,7 +37,9 @@ export class EditarInmuebleComponent implements OnInit {
       proyectoID: ['',[Validators.required]],
       cantidadHabitaciones:['',[Validators.required]],
       cantidadBanos:['',[Validators.required]],
-      cantidadParqueos:['',[Validators.required]]
+      cantidadParqueos:['',[Validators.required]],
+      moneda:['',[Validators.required]],
+      mts: ['', [Validators.required]]
     });
 
     let userID = window.localStorage.getItem("editUserID");
