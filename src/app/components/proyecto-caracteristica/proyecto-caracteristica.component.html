@@ -4,34 +4,40 @@
       <div class="form-group">
           <h2>Seleccione las Características para el proyecto</h2>
           <br>
-          <label>Distribución</label>
+          <i class="fas fa-ruler"></i>  <label class="tipo">Distribución</label> 
           <div *ngFor = "let c of checkboxD">
-            <label class="caracteristica">{{c.carNombre}}</label><input [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />
+            <input [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />
+            <label class="caracteristica">{{c.carNombre}}</label>
           </div>
         <br>
-        <label>Amenidades</label>
+        <i class="fas fa-university"></i> <label class="tipo">Amenidades</label>
         <div *ngFor = "let a of checkboxA">
-          <label class="caracteristica">{{a.carNombre}}</label><input [(ngModel)]="a.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{a.caracteristicaID}} id={{a.caracteristicaID}} class="form-control" />
+          <input [(ngModel)]="a.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{a.caracteristicaID}} id={{a.caracteristicaID}} class="form-control" />
+          <label class="caracteristica">{{a.carNombre}}</label>
         </div>
         <br>
-        <label>Seguridad</label>
+        <i class="fas fa-lock"></i> <label class="tipo">Seguridad</label> 
         <div *ngFor = "let s of checkboxS">
-          <label class="caracteristica">{{s.carNombre}}</label><input [(ngModel)]="s.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{s.caracteristicaID}} id={{s.caracteristicaID}} class="form-control" />
+          <input [(ngModel)]="s.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{s.caracteristicaID}} id={{s.caracteristicaID}} class="form-control" />
+          <label class="caracteristica">{{s.carNombre}}</label>
         </div>
         <br>
-        <label>Descripción General</label>
+        <i class="fas fa-building"></i> <label class="tipo">Descripción General</label>
         <div *ngFor = "let dg of checkboxDG">
-          <label class="caracteristica"> {{dg.carNombre}} </label><input [(ngModel)]="dg.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{dg.caracteristicaID}} id={{dg.caracteristicaID}} class="form-control" />
+          <input [(ngModel)]="dg.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{dg.caracteristicaID}} id={{dg.caracteristicaID}} class="form-control" />
+          <label class="caracteristica"> {{dg.carNombre}} </label>
         </div>
         <br>
-        <label>Descripción de Apartamento</label>
+        <i class="fas fa-home"></i> <label class="tipo">Descripción de Apartamento</label>
         <div *ngFor = "let da of checkboxDA">
-          <label class="caracteristica">{{da.carNombre}}</label><input [(ngModel)]="da.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{da.caracteristicaID}} id={{da.caracteristicaID}} class="form-control" />
+          <input [(ngModel)]="da.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{da.caracteristicaID}} id={{da.caracteristicaID}} class="form-control" />
+          <label class="caracteristica">{{da.carNombre}}</label>
         </div>
         <br>
-        <label>Otros</label>
+        <i class="fas fa-plus"></i> <label class="tipo">Otros</label>
         <div *ngFor = "let o of checkboxO">
-            <label class="caracteristica">{{o.carNombre}}</label><input [(ngModel)]="o.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{o.caracteristicaID}} id={{o.caracteristicaID}} class="form-control" />
+            <input [(ngModel)]="o.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{o.caracteristicaID}} id={{o.caracteristicaID}} class="form-control" />
+            <label class="caracteristica">{{o.carNombre}}</label>
         </div>
       </div>
       <button type="submit" (click)="getSelected()" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>

@@ -9,10 +9,10 @@
                   <h5 class="card-title text-center">Editar Caracteristica</h5>
                   <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-editar" autocomplete="off">
   
-                      <div class="form-row">
+                      <div class="form-row"> 
                           <div class="form-group">
-                            <label>Caracteristica</label>
-                            <input formControlName="carNombre" type="text"  class="form-control" minlength="3" maxlength="20" required/> 
+                            <label>Característica</label>
+                            <input formControlName="carNombre" type="text"  class="form-control" minlength="3" maxlength="25" required/> 
                             <div *ngIf="editForm.controls['carNombre'].errors && editForm.controls['carNombre'].touched" class="validation-error">
                                 <div [hidden] = "!editForm.controls['carNombre'].errors.required">
                                     El campo es requerido
@@ -21,7 +21,7 @@
                                     El campo requiere mas de 3 caracteres  
                                   </div>
                                   <div [hidden] = "!editForm.controls['carNombre'].errors.maxlength">
-                                    El nombre debe tener menos de 20 caracteres  
+                                    El nombre debe tener menos de 25 caracteres  
                                   </div>
                             </div>
                        </div>
@@ -30,7 +30,7 @@
 
                       <div class="form-row">
                           <div class="form-group">
-                            <label>Descripcion</label>
+                            <label>Descripción</label>
                             <input formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="50" required/>
                             <div *ngIf="editForm.controls['carDescripcion'].errors && editForm.controls['carDescripcion'].touched" class="validation-error">
                                 <div [hidden] = "!editForm.controls['carDescripcion'].errors.required">

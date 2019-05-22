@@ -5,16 +5,16 @@
               <div class="card card-solicitud flex-row my-5">
                 <div class="card-body">
                   <h5 class="card-title text-center">Descripción de la petición</h5>
-                  <h4>Solicitante: </h4> 
+                  <h4 class="solicitante">Solicitante: </h4> 
                   <label>{{data?.solicitud?.usuario?.nombreUsuario}} {{data?.solicitud?.usuario?.apellidosUsuario}}</label>
                   <br>
-                  <h4>Tipo de petición: </h4> 
+                  <h4 class="peticion">Tipo de petición: </h4> 
                   <label>{{data?.tipo}}</label>
                   <br>
-                  <h4>Comentarios del cliente: </h4> 
+                  <h4 class="comentario">Comentarios del cliente: </h4> 
                   <label>{{data?.comentario}}</label>
                   <br>
-                  <h4>Estado de la petición: </h4> 
+                  <h4 class="estado">Estado de la petición: </h4> 
                   <label>{{data?.estado}}</label>
                   <br>
                   <div *ngIf = "data?.estado == 'Pendiente'">
