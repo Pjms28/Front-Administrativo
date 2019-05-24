@@ -21,6 +21,9 @@ export class AuthGuard implements CanActivate {
       if(this.user.roleId == 1){
         return true;
       }
+      else{
+        window.location.href = 'http://localhost:4200'
+      }
     }
      else {
         window.location.href = 'http://localhost:4200/login'

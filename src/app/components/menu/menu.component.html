@@ -4,8 +4,8 @@
         <a href="#" class="company-logo"></a>
         <div class="sidebar-links">
           <ul>
-          <li class="nav-item active">
-              <i class="fas fa-user" id="usuario"></i> {{data?.nombreUsuario}}
+          <li *ngIf = "data.roleId == 1" class="nav-item active">
+              <i class="fas fa-user" id="usuario"></i>{{data?.nombreUsuario}} 
           </li>
         </ul>
 
