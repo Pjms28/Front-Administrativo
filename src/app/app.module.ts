@@ -51,6 +51,7 @@ import { MapComponent } from './components/map/map.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from "../app/guard/auth.guard";
 import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
+import { CategoriasForoComponent } from './components/categorias-foro/categorias-foro.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteri
     AgregarPostComponent,
     EditarPostComponent,
     ProyectoCaracteristicaComponent,
-    MapComponent
+    MapComponent,
+    CategoriasForoComponent
   ],
   imports: [
     BrowserModule,
@@ -109,6 +111,7 @@ import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteri
       {path: 'Visitas Agendadas', component: AgendarVisitaComponent,canActivate:[AuthGuard]},
       {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent,canActivate:[AuthGuard]},
       {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
+      {path: 'Categorias Foro', component:CategoriasForoComponent,canActivate:[AuthGuard]},
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: '',component: MenuComponent ,canActivate:[AuthGuard]}
     ]),

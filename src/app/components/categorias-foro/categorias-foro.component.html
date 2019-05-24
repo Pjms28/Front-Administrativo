@@ -1,0 +1,60 @@
+<body>
+  <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+              <div class="card card-categorias flex-row my-5">
+                <div class="card-img-left d-none d-md-flex d-sm-none">
+                   <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title text-center">Categorías del Foro</h5>
+                  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-categorias" autocomplete="off">
+  
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Nombre del tema</label>
+                            <input id="carNombre" formControlName="nombreServicio" type="text"  class="form-control" minlength="5" maxlength="50" required/> 
+                            <div *ngIf="addForm.controls['nombreServicio'].errors && addForm.controls['nombreServicio'].touched" class="validation-error">
+                                <div [hidden] = "!addForm.controls['nombreServicio'].errors.required">
+                                    El campo es requerido
+                                </div>
+                                <div [hidden] = "!addForm.controls['nombreServicio'].errors.minlength">
+                                    El campo requiere mas de 5 caracteres  
+                                </div>
+                                <div [hidden] = "!addForm.controls['nombreServicio'].errors.maxlength">
+                                    El nombre debe tener menos de 50 caracteres  
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Descripción</label>
+                            <input formControlName="descripcionServicio" type="text" class="form-control" minlength="5" maxlength="250" required/>
+                            <div *ngIf="addForm.controls['descripcionServicio'].errors && addForm.controls['descripcionServicio'].touched" class="validation-error">
+                                <div [hidden] = "!addForm.controls['descripcionServicio'].errors.required">
+                                    El campo es requerido
+                                </div>
+                                <div [hidden] = "!addForm.controls['descripcionServicio'].errors.minlength">
+                                    El campo requiere mas de 5 caracteres  
+                                </div>
+                                <div [hidden] = "!addForm.controls['descripcionServicio'].errors.maxlength">
+                                    El nombre debe tener menos de 250 caracteres  
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+
+ 
+
+                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </body>
+
