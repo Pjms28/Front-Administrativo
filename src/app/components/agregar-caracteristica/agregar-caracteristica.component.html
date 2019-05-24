@@ -12,7 +12,7 @@
                         <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-caracteristica" autocomplete="off">
                         <div class="form-row">
                             <div class="form-group">
-                              <label>Tipo de Característica de proyecto</label>
+                              <label>Tipo de Característica de Proyecto</label>
                               <select formControlName="tipoCarProyecto" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
                                   <option value="" selected="selected"></option>
                                   <option value="Distribucion">Distribución</option>
@@ -28,7 +28,7 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Característica</label>
-                            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" minlength="3" maxlength="20" required/> 
+                            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" minlength="3" maxlength="25" required/> 
                             <div *ngIf="addForm.controls['carNombre'].errors && addForm.controls['carNombre'].touched" class="validation-error">
                               <div [hidden] = "!addForm.controls['carNombre'].errors.required">
                                 El campo es requerido
@@ -37,7 +37,7 @@
                                 El campo requiere mas de 3 caracteres  
                               </div>
                               <div [hidden] = "!addForm.controls['carNombre'].errors.maxlength">
-                                El nombre debe tener menos de 20 caracteres  
+                                El nombre debe tener menos de 25 caracteres  
                               </div>
                             </div>
                           </div>
