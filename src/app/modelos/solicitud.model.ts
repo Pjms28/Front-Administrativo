@@ -8,5 +8,5 @@ export class SolicitudModel {
     usuarioID: number
     comentario:string
     usuario: UsuarioModel
-    visita: VisitaModel
+    visitaAgendadas: VisitaModel[];
 }
