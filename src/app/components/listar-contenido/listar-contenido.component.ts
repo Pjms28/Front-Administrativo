@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import {Router} from "@angular/router";
 import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap'; 
 import { ServicioService } from 'src/app/shared/servicio.service';
+import { ForoService } from 'src/app/shared/foro.service';
 
 @Component({
   selector: 'app-listar-contenido',
@@ -23,7 +24,7 @@ export class ListarContenidoComponent implements OnInit {
   data: any = [];
   form : any;
   constructor(private router: Router, private config: NgbPaginationConfig, private api: ApiService, private inmuebleApi: InmuebleService, private caracteristicaApi: CaracteristicaService, 
-    private toastr: ToastrService, public apiSer: ServicioService) { }
+    private toastr: ToastrService, public apiSer: ServicioService, public apiCtg: ForoService) { }
   value:string="";
   p: number = 1;
   ngOnInit() {
@@ -71,6 +72,18 @@ export class ListarContenidoComponent implements OnInit {
     });
       }
 
+      if(this.value=="Categoria"){
+        return this.apiCtg.getTemas()
+      .subscribe(res => {
+      this.data = res;
+    
+    }, err => {
+      console.log(err);
+     
+    });
+      }
+
+
     }
 
     loadList() {
@@ -91,7 +104,7 @@ export class ListarContenidoComponent implements OnInit {
       }
 
       if(this.value == "Inmuebles"){
-        if(confirm('¿Esta seguro que desea eliminar este inmueble?, tambien se borraran las caracteristicas existentes asignados a este inmueble.')){
+        if(confirm('¿Esta seguro que desea eliminar este inmueble?')){
           return this.inmuebleApi.deleteInmueble(d.inmuebleID).
           subscribe(res=>{
             this.toastr.warning('Inmueble eliminado exitosamente','Inmueble.Eliminado');
@@ -115,10 +128,10 @@ export class ListarContenidoComponent implements OnInit {
       }
 
       if(this.value == "Servicios"){
-        if(confirm('¿Esta seguro que desea eliminar este servicio')){
+        if(confirm('¿Esta seguro que desea eliminar este servicio?')){
           return this.apiSer.deleteService(d.servicioID).
           subscribe(res=>{
-            this.toastr.warning('Servicio eliminado exitosamente','Servicio.Eliminada');
+            this.toastr.warning('Servicio eliminado exitosamente','Servicio.Eliminado');
             return this.apiSer.getServices().subscribe((res: {}) => {
               this.data = res;
             })
@@ -126,6 +139,17 @@ export class ListarContenidoComponent implements OnInit {
         }
       }
 
+      if(this.value == "Categoria"){
+        if(confirm('¿Esta seguro que desea eliminar esta categoria?, Tambien se eliminaran los post pertenecientes a esta categoria ')){
+          return this.apiCtg.deleteCategoria(d.temaID).
+          subscribe(res=>{
+            this.toastr.warning('Categoria eliminada exitosamente','Categoria.Eliminada');
+            return this.apiCtg.getTemas().subscribe((res: {}) => {
+              this.data = res;
+            })
+          });
+        }
+      }
     }
 
     updateProject(project: any){
@@ -149,7 +173,9 @@ export class ListarContenidoComponent implements OnInit {
         window.localStorage.setItem("editUserID", String(project.servicioID));
         this.router.navigate(['editar-servicio']);
       }
-      
+      if(this.value == "Categoria"){
+        this.router.navigate(['editar-categoria/'+project.temaID]);
+      }
 
     }
 

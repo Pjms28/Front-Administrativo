@@ -8,20 +8,20 @@
                 </div>
                 <div class="card-body">
                   <h5 class="card-title text-center">Categorías del Foro</h5>
-                  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-categorias" autocomplete="off">
+                  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-categorias" autocomplete="off">
   
                       <div class="form-row">
                           <div class="form-group">
                             <label>Nombre del tema</label>
                             <input id="carNombre" formControlName="nombreTema" type="text"  class="form-control" minlength="5" maxlength="50" required/> 
-                            <div *ngIf="addForm.controls['nombreTema'].errors && addForm.controls['nombreTema'].touched" class="validation-error">
-                                <div [hidden] = "!addForm.controls['nombreTema'].errors.required">
+                            <div *ngIf="editForm.controls['nombreTema'].errors && editForm.controls['nombreTema'].touched" class="validation-error">
+                                <div [hidden] = "!editForm.controls['nombreTema'].errors.required">
                                     El campo es requerido
                                 </div>
-                                <div [hidden] = "!addForm.controls['nombreTema'].errors.minlength">
+                                <div [hidden] = "!editForm.controls['nombreTema'].errors.minlength">
                                     El campo requiere mas de 5 caracteres  
                                 </div>
-                                <div [hidden] = "!addForm.controls['nombreTema'].errors.maxlength">
+                                <div [hidden] = "!editForm.controls['nombreTema'].errors.maxlength">
                                     El nombre debe tener menos de 50 caracteres  
                                 </div>
                             </div>
@@ -32,14 +32,14 @@
                           <div class="form-group">
                             <label>Descripción</label>
                             <input formControlName="descripcionTema" type="text" class="form-control" minlength="5" maxlength="250" required/>
-                            <div *ngIf="addForm.controls['descripcionTema'].errors && addForm.controls['descripcionTema'].touched" class="validation-error">
-                                <div [hidden] = "!addForm.controls['descripcionTema'].errors.required">
+                            <div *ngIf="editForm.controls['descripcionTema'].errors && editForm.controls['descripcionTema'].touched" class="validation-error">
+                                <div [hidden] = "!editForm.controls['descripcionTema'].errors.required">
                                     El campo es requerido
                                 </div>
-                                <div [hidden] = "!addForm.controls['descripcionTema'].errors.minlength">
+                                <div [hidden] = "!editForm.controls['descripcionTema'].errors.minlength">
                                     El campo requiere mas de 5 caracteres  
                                 </div>
-                                <div [hidden] = "!addForm.controls['descripcionTema'].errors.maxlength">
+                                <div [hidden] = "!editForm.controls['descripcionTema'].errors.maxlength">
                                     El nombre debe tener menos de 250 caracteres  
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
 
  
 
-                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                      <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   
                   </form>
                 </div>
@@ -57,4 +57,3 @@
           </div>
         </div>
   </body>
-

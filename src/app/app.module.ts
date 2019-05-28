@@ -52,6 +52,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from "../app/guard/auth.guard";
 import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
 import { CategoriasForoComponent } from './components/categorias-foro/categorias-foro.component';
+import { EditarCategoriaComponent } from './components/editar-categoria/editar-categoria.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { CategoriasForoComponent } from './components/categorias-foro/categorias
     EditarPostComponent,
     ProyectoCaracteristicaComponent,
     MapComponent,
-    CategoriasForoComponent
+    CategoriasForoComponent,
+    EditarCategoriaComponent
   ],
   imports: [
     BrowserModule,
@@ -113,6 +115,8 @@ import { CategoriasForoComponent } from './components/categorias-foro/categorias
       {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
       {path: 'Categorias Foro', component:CategoriasForoComponent,canActivate:[AuthGuard]},
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
+      {path: 'Agregar Categoria', component: CategoriasForoComponent, canActivate:[AuthGuard]},
+      {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
       {path: '',component: MenuComponent ,canActivate:[AuthGuard]}
     ]),
     BrowserAnimationsModule,
