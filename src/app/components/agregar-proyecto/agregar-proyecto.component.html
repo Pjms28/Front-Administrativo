@@ -40,18 +40,12 @@
                                 <div *ngIf="addForm.controls['fechaTerminacion'].invalid && addForm.controls['fechaTerminacion'].touched" class="validation-error">Este campo es requerido</div>
                             </div>
                         </div>
-  
+
                         <div class="form-row">
                             <div class="form-group">
-                                <app-map (notify)='onNotify($event)'></app-map>
-                               <!--  <div *ngIf="addForm.controls['ubicacionID'].invalid && addForm.controls['ubicacionID'].touched" class="validation-error">Este campo es requerido</div> 
-                                <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChooseLocation($event)" >
-                                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                                </agm-map> -->
+                                <app-map (Notify)="muestrameLaInfo($event)"></app-map>
                             </div>
-                            
                         </div>
-                       
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Dirección</label>

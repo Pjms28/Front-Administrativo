@@ -14,6 +14,8 @@ export class ProyectoComponent {
   direccion: string;
   imgURL: string;
   ubicacionID: number;
+  latitude: number;
+  longitude: number;
   constructor() { }
 
  

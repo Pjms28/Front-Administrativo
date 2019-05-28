@@ -12,8 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 export class AgregarProyectoComponent implements OnInit {
   addForm : FormGroup ;
   fileTo: any;
-  lat: number;
-  lng: number;
+  latitude: number = 20;
+  longitude: number = 20;
   @Input() latlong:any;
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private toastr: ToastrService) { }
@@ -23,17 +23,21 @@ export class AgregarProyectoComponent implements OnInit {
       nombreProyecto:['', [Validators.required]],
       fechaTerminacion:['', [Validators.required]],
       direccion:['',[Validators.required]],
-      imgURL:['',[Validators.required]]
+      imgURL:['',[Validators.required]],
+      latitude:[''],
+      longitude:['']
     });
 
   }
 
-  onNotify(latlong:any):void {
-    console.log('***** :', latlong);
-    this.lat = latlong.latitude;
-    this.lng = latlong.longitude;
-
+  muestrameLaInfo(event){
+    this.latitude = event.latitude;
+    this.longitude = event.longitude;
   }
+
+
+
+
   onSubmit() {
     if(this.addForm.get("nombreProyecto").value.trim().length === 0){
       this.toastr.warning('Campo vacio','Registro.Fallido');
@@ -45,6 +49,9 @@ export class AgregarProyectoComponent implements OnInit {
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
+      this.addForm.controls["latitude"].setValue(this.latitude);
+      this.addForm.controls["longitude"].setValue(this.longitude);
+
       this.apiService.addProject(this.addForm.value).subscribe(res =>{
         if (res == null){
           this.toastr.error('Existe un proyecto con ese nombre','Proyecto.Registro');
@@ -55,6 +62,10 @@ export class AgregarProyectoComponent implements OnInit {
           let formData = new FormData(); 
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
+        
+          formData.append('fileName',this.fileTo.name);
+          console.log(this.addForm.value);
+          console.log('**************************');
           this.apiService.sendFormData(formData);
         }
       });
@@ -65,10 +76,10 @@ export class AgregarProyectoComponent implements OnInit {
   }
 
   onChooseLocation(cords){
-   this.lat = cords.latitude;
-   this.lng = cords.longitude;
+  this.latitude = cords.latitude;
+  this.longitude = cords.longitude;
   
-   
+
   }
   
   }

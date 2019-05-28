@@ -20,16 +20,22 @@ export class MapComponent implements OnInit {
   public latlongs: any = [];
   public latlong: any = {};
   public searchControl: FormControl;
-  @Output() Notify = new EventEmitter<any>();
+
+  @Output() Notify = new EventEmitter;
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
 
-  notify() {
-    
-  }
+ 
   clearPlace(){
     this.searchControl.reset();
   }
+
+  pasarInfo(evento){
+    console.log('desde el componente hijo: ',this.latitude);
+
+    this.Notify.emit({latitude : this.latitude, longitude : this.longitude});
+  }
+
   ngOnInit() {
     this.zoom = 8;
     this.latitude =  18.501193;

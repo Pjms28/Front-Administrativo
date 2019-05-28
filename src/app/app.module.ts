@@ -51,6 +51,7 @@ import { MapComponent } from './components/map/map.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from "../app/guard/auth.guard";
 import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
+import { DatatableComponent } from './components/datatable/datatable.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteri
     AgregarPostComponent,
     EditarPostComponent,
     ProyectoCaracteristicaComponent,
-    MapComponent
+    MapComponent,
+    DatatableComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +120,7 @@ import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteri
       libraries: ['places']
     })
   ],
-  providers: [ApiService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService],
+  providers: [ ApiService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
