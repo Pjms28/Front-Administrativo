@@ -13,7 +13,7 @@ import {first} from "rxjs/operators";
 })
 export class EditarProyectoComponent implements OnInit {
   
-  inmueble : ProyectoComponent;
+  proyecto : ProyectoComponent = new ProyectoComponent();
   editForm: FormGroup;
   fileTo: any;
   imgNombre: string;
@@ -69,18 +69,28 @@ export class EditarProyectoComponent implements OnInit {
     }
     else{
       if(this.editForm.get("imgURL").value == ""){
-        this.editForm.controls["imgURL"].setValue(this.imgNombre);
+        this.proyecto.proyectoID = this.editForm.get("proyectoID").value;
+        this.proyecto.direccion = this.editForm.get("direccion").value;
+        this.proyecto.nombreProyecto = this.editForm.get("nombreProyecto").value;
+        this.proyecto.fechaTerminacion = this.editForm.get("fechaTerminacion").value;
+        this.proyecto.imgURL = this.imgNombre;
+        this.apiService.updateProject(this.proyecto).subscribe(res =>{
+          this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
+          this.router.navigate(['listar-contenido']);
+        })
       }
-      this.apiService.updateProject(this.editForm.value)
-      .pipe(first())
-      .subscribe(data =>{
-        this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
-        this.router.navigate(['listar-contenido']);
-        let formData = new FormData(); 
-        formData.append(this.fileTo.name, this.fileTo);
-        formData.append('fileName',this.fileTo.name);
-        this.apiService.sendFormData(formData);
-      });
+      else{
+        this.apiService.updateProject(this.editForm.value)
+        .pipe(first())
+        .subscribe(data =>{
+          this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
+          this.router.navigate(['listar-contenido']);
+          let formData = new FormData(); 
+          formData.append(this.fileTo.name, this.fileTo);
+          formData.append('fileName',this.fileTo.name);
+          this.apiService.sendFormData(formData);
+        }); 
+      }
     }
   }
 

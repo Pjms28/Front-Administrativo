@@ -4,6 +4,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { ServicioService } from 'src/app/shared/servicio.service';
 import {first} from "rxjs/operators";
+import { ServicioModel } from 'src/app/modelos/servicio.model';
 
 @Component({
   selector: 'app-editar-servicio',
@@ -15,6 +16,8 @@ export class EditarServicioComponent implements OnInit {
   editForm: FormGroup;
   fileTo: any;
   img: any;
+  imgNombre: string;
+  servicio: ServicioModel = new ServicioModel();
 
   constructor(private formBuilder: FormBuilder, private apiSer: ServicioService,private router: Router,private toastr: ToastrService) { }
 
@@ -23,7 +26,7 @@ export class EditarServicioComponent implements OnInit {
       servicioID:['', [Validators.required]],
       nombreServicio:['', [Validators.required]],
       descripcionServicio:['', [Validators.required]],
-      imgURL:['', [Validators.required]]
+      imgURL:['']
     });
 
     let userID = window.localStorage.getItem("editUserID");
@@ -39,6 +42,7 @@ export class EditarServicioComponent implements OnInit {
       this.editForm.controls['servicioID'].setValue(res.servicioID);
       this.editForm.controls['nombreServicio'].setValue(res.nombreServicio);
       this.editForm.controls['descripcionServicio'].setValue(res.descripcionServicio);
+      this.imgNombre = res.imgURL;
     });
 
   }
@@ -52,6 +56,16 @@ export class EditarServicioComponent implements OnInit {
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
+      if(this.editForm.get("imgURL").value == ""){
+        this.servicio.servicioID = this.editForm.get("servicioID").value;
+        this.servicio.nombreServicio = this.editForm.get("nombreServicio").value;
+        this.servicio.descripcionServicio = this.editForm.get("descripcionServicio").value;
+        this.servicio.imgURL = this.imgNombre;
+        this.apiSer.updateService(this.servicio).subscribe(res =>{
+          this.toastr.info('Servicio ha sido editado','Servicio.Info');
+          this.router.navigate(['listar-contenido']);
+        })
+      }
       this.apiSer.updateService(this.editForm.value)
       .pipe(first())
       .subscribe(data =>{
