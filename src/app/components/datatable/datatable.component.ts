@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import * as $ from 'jquery';
+import 'datatables.net';
 
 @Component({
   selector: 'app-datatable',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./datatable.component.css']
 })
 export class DatatableComponent implements OnInit {
-
-  constructor() { }
+  @ViewChild('dataTable') table: ElementRef;
+  dataTable: any;
+  constructor() {
+  
+  }
 
   ngOnInit() {
+    const table: any = $('table');
+    this.dataTable = table.DataTable();
   }
 
 }

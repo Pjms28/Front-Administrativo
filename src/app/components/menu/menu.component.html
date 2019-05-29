@@ -4,8 +4,8 @@
         <a href="#" class="company-logo"></a>
         <div class="sidebar-links">
           <ul>
-          <li class="nav-item active">
-              <i class="fas fa-user" id="usuario"></i> {{data?.nombreUsuario}}
+          <li *ngIf = "data.roleId == 1" class="nav-item active">
+              <i class="fas fa-user" id="usuario"></i>{{data?.nombreUsuario}} 
           </li>
         </ul>
 
@@ -33,7 +33,7 @@
       
             <ul class="sub-links">
                     <li>
-                            <a routerLink='Agregar Proyecto'>Agregar Proyecto</a>
+                        <a routerLink='Agregar Proyecto'>Agregar Proyecto</a>
                         </li>
                         <li>
                             <a  routerLink='Agregar Inmueble'>Agregar Inmueble</a>
@@ -42,8 +42,15 @@
                             <a  routerLink='Agregar Caracteristica'>Agregar Característica</a>
                         </li>
                         <li>
-                            <a  routerLink='Listar'>Listar</a>
-                        </li>
+                          <a  routerLink='Categorias Foro'>Categorías del Foro</a>
+                      </li>
+                      <li>
+                        <a  routerLink='datos-genericos'>Datos Génericos</a>
+                      </li>
+                      <li>
+                          <a  routerLink='Listar'>Listar</a>
+                      </li>
+                     
             </ul>
           </div>
       

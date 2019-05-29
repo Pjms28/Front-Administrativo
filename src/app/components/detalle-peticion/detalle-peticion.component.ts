@@ -104,6 +104,12 @@ export class DetallePeticionComponent implements OnInit {
       this.data.estado = "Aprobado"
       this.solApi.getServSol(this.data.solicitudID).subscribe(res => {
         res.estadoID = 7;
+        if(res.solicitud.visitaAgendadas.length > 0){
+          res.solicitud.visitaAgendadas.forEach(element => {
+            element.estado = "Finalizado";
+            this.ageService.updateVisit(element).subscribe();
+          })
+      }
         this.solApi.updateServSol(res).subscribe();
       })
       this.pctApi.updatePeticion(this.data).subscribe(res =>{

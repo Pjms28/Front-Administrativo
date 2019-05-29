@@ -11,6 +11,12 @@ input{
     border-radius: .3rem;
 }
 
+.carac{
+    margin: auto;
+    /* margin-left: 20px; */
+    padding-left: 40px;
+
+}
 
 h1{
     padding-top: 50px;

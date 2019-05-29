@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./agregar-proyecto.component.css']
 })
 export class AgregarProyectoComponent implements OnInit {
-  addForm : FormGroup ;
+  addForm : FormGroup;
   fileTo: any;
   latitude: number = 20;
   longitude: number = 20;

@@ -5,25 +5,20 @@
                 <div class="card card-solicitud flex-row my-5">
                   <div class="card-body">
                     <h5 class="card-title text-center">Descripción de la Solicitud</h5>
-                    Solicitante<br>
+                    <h4 class="solicitante">Solicitante:</h4> 
                     <label>{{data?.solicitud?.usuario?.nombreUsuario}} {{data?.solicitud?.usuario?.apellidosUsuario}}</label>
                     <br>
-                    Servicio Solicitado
-                    <br>
+                    <h4 class="servicio">Servicio Solicitado:</h4>
                     <label>{{data?.servicio?.nombreServicio}}</label>
                     <br>
-                    Fecha en la que se realizó la Solicitud
-                    <br>
+                    <h4 class="fecha">Fecha en la que se realizó la Solicitud:</h4> 
                     <label>{{data?.solicitud?.fechaServSol | date:'dd/MM/yyyy'}}</label>
                     <br>
-                    Comentarios del cliente
-                    <br>
+                    <h4 class="comentario">Comentarios del cliente:</h4> 
                     <label>{{data?.solicitud?.comentario}}</label>
                     <br>
-                    Fecha y hora de reunión propuesta por el cliente
-                    <br>
+                    <h4 class="fecha2">Fecha y hora de reunión propuesta por el cliente:</h4> 
                     <label>{{data?.solicitud?.fechaSol | date:"dd/MM/yyyy HH:mm aa"}}</label>
-
                     <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
     
                         <div class="form-row">

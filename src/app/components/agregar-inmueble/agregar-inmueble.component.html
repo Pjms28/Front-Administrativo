@@ -12,7 +12,7 @@
   
                       <div class="form-row">
                           <div class="form-group">
-                              <label>Identificador del inmueble</label>
+                              <label>Identificador del Inmueble</label>
                               <input formControlName="nombreInmueble" type="text"  class="form-control" minlength="3" maxlength="20" required/> 
                               <div *ngIf="addForm.controls['nombreInmueble'].errors && addForm.controls['nombreInmueble'].touched" class="validation-error">
                                   <div [hidden] = "!addForm.controls['nombreInmueble'].errors.required">
@@ -49,9 +49,9 @@
                         <div class="form-group">
                             <label>Moneda</label>
                             <select formControlName="moneda" class="form-control" required>
-                                <option value="DOP">Peso Dominicano</option>
-                                <option value="USD">Dolar</option>
-                                <option value="EUR">Euro</option>
+                                <option value="DOP"> $(RD) Peso Dominicano</option>
+                                <option value="USD"> $(US) Dolar</option>
+                                <option value="EUR"> €(EU) Euro</option>
                             </select>
                             <div *ngIf="addForm.controls['moneda'].errors && addForm.controls['moneda'].touched" class="validation-error">Este campo es requerido</div>
                         </div>
@@ -87,7 +87,7 @@
 
                       <div class="form-row">
                         <div class="form-group">
-                            <label>Cantidad de habitaciones</label>
+                            <label>Cantidad de Habitaciones</label>
                             <select formControlName="cantidadHabitaciones" class="form-control" aria-placeholder="Seleccione una opcion" required>
                               <option value="" selected="selected"></option>
                               <option value="1">1 Habitacion</option>
@@ -107,7 +107,7 @@
 
                     <div class="form-row">
                       <div class="form-group">
-                          <label>Cantidad de baños</label>
+                          <label>Cantidad de Baños</label>
                           <select formControlName="cantidadBanos" class="form-control" aria-placeholder="Seleccione una opcion" required>
                             <option value="" selected="selected"></option>
                             <option value="1">1 Baño</option>
@@ -127,7 +127,7 @@
 
                   <div class="form-row">
                     <div class="form-group">
-                        <label>Cantidad de parqueos</label>
+                        <label>Cantidad de Parqueos</label>
                         <select formControlName="cantidadParqueos" class="form-control" aria-placeholder="Seleccione una opcion" required>
                           <option value="" selected="selected"></option>
                           <option value="1">1 Parqueo</option>
@@ -147,7 +147,7 @@
 
                 <div class="form-row">
                   <div class="form-group">
-                      <label>Metros de construcción</label>
+                      <label>Metros de Construcción</label>
                       <input formControlName="mts" class="form-control" type="text" required/>
                       <div *ngIf="addForm.controls['mts'].errors && addForm.controls['mts'].touched" class="validation-error">Este campo es requerido</div>
                   </div>

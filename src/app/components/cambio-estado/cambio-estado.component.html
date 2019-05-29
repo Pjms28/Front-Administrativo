@@ -6,27 +6,24 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">Detalle de la Solicitud</h5>
 
-                     Solicitante<br>
+                    <h4>Solicitante: </h4> 
                     <label>{{usuario?.nombreUsuario}} {{usuario?.apellidosUsuario}}</label>
                     <br>
-                    Servicio Solicitado
-                    <br>
+                    <h4>Servicio Solicitado: </h4> 
                     <label>{{servicio?.nombreServicio}}</label>
                     <br>
-                    Fecha en la que se realizó la Solicitud
-                    <br>
+                    <h4>Fecha en la que se realizó la Solicitud: </h4> 
                     <label>{{solicitud?.fechaServSol | date:'dd-MM-yyyy'}}</label>
                     <br>
-                    Comentarios del cliente
-                    <br>
+                    <h4>Comentarios del cliente: </h4> 
                     <label>{{solicitud?.comentario}}</label>
                     <br>
-                    <label>Estado actual</label>
-                    <br>
+                    <h4>Estado actual: </h4>
                     <label>{{data?.estado?.estadoNombre}}</label>
                     <br>
+                    <br>
                     <div *ngIf = "this.status?.estadoID != 6 && this.status?.estadoID != 3 && this.status?.estadoID != 7">
-                    <label>Cambiar estado</label>
+                    <h4>Cambiar estado</h4>
                     <br>
                       <form [formGroup]="cambio" (ngSubmit)="onSubmit()">
                         <select formControlName = "estadoID" class="form-control">

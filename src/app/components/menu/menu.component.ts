@@ -25,6 +25,7 @@ data: UsuarioModel;
     });
 
     this.data = this.authApi.getCurrentUser();
+    console.log(this.data);
 
 }
 

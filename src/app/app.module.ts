@@ -52,7 +52,19 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from "../app/guard/auth.guard";
 import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
-
+import { CategoriasForoComponent } from './components/categorias-foro/categorias-foro.component';
+import { EditarCategoriaComponent } from './components/editar-categoria/editar-categoria.component';
+import { GenericdatalistComponent } from './components/genericdata-list/genericdata-list.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DatoGenericoComponent } from './components/dato-generico/dato-generico.component';
+import { GenericDataService } from './services/generic-data.service';
+import {MatGridListModule} from '@angular/material/grid-list'
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +75,7 @@ import { DatatableComponent } from './components/datatable/datatable.component';
     DetalleProyectoComponent,
     NavbarComponent,
     MenuComponent,
+    DatatableComponent,
     AgregarInmuebleComponent,
     AgregarServicioComponent,
     EditarInmuebleComponent,
@@ -81,7 +94,10 @@ import { DatatableComponent } from './components/datatable/datatable.component';
     EditarPostComponent,
     ProyectoCaracteristicaComponent,
     MapComponent,
-    DatatableComponent
+    CategoriasForoComponent,
+    EditarCategoriaComponent,
+    GenericdatalistComponent,
+    DatoGenericoComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +108,14 @@ import { DatatableComponent } from './components/datatable/datatable.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatDialogModule,
+    MatGridListModule,
     NgbModule,
     ToastrModule.forRoot(),
     NgxEditorModule,
@@ -111,8 +135,12 @@ import { DatatableComponent } from './components/datatable/datatable.component';
       {path: 'Visitas Agendadas', component: AgendarVisitaComponent,canActivate:[AuthGuard]},
       {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent,canActivate:[AuthGuard]},
       {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
+      {path: 'Categorias Foro', component:CategoriasForoComponent,canActivate:[AuthGuard]},
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent ,canActivate:[AuthGuard]}
+      {path: 'Agregar Categoria', component: CategoriasForoComponent, canActivate:[AuthGuard]},
+      {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
+      {path: '',component: MenuComponent ,canActivate:[AuthGuard]},
+      {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]}
     ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
@@ -120,7 +148,17 @@ import { DatatableComponent } from './components/datatable/datatable.component';
       libraries: ['places']
     })
   ],
-  providers: [ ApiService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService],
-  bootstrap: [AppComponent]
+  exports:[
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatGridListModule
+  ],
+  providers: [ ApiService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService,GenericDataService],
+  bootstrap: [AppComponent],
+  entryComponents:[DatoGenericoComponent]
 })
 export class AppModule { }

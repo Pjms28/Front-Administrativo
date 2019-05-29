@@ -4,20 +4,17 @@
             <div class="col-lg-10 col-xl-9 mx-auto">
               <div class="card card-solicitud flex-row my-5">
                 <div class="card-body">
-                  <h5 class="card-title text-center">Descripción de la peticion</h5>
-                  Solicitante<br>
+                  <h5 class="card-title text-center">Descripción de la petición</h5>
+                  <h4 class="solicitante">Solicitante: </h4> 
                   <label>{{data?.solicitud?.usuario?.nombreUsuario}} {{data?.solicitud?.usuario?.apellidosUsuario}}</label>
                   <br>
-                  Tipo de peticion
-                  <br>
+                  <h4 class="peticion">Tipo de petición: </h4> 
                   <label>{{data?.tipo}}</label>
                   <br>
-                  Comentarios del cliente
-                  <br>
+                  <h4 class="comentario">Comentarios del cliente: </h4> 
                   <label>{{data?.comentario}}</label>
                   <br>
-                  Estado de la peticion
-                  <br>
+                  <h4 class="estado">Estado de la petición: </h4> 
                   <label>{{data?.estado}}</label>
                   <br>
                   <div *ngIf = "data?.estado == 'Pendiente'">
@@ -61,7 +58,6 @@
                         </div>
                         <div *ngIf = "data?.tipo == 'Cancelar solicitud'">
                           <button type="submit" class="btn btn-success btn-sm aceptar" (click) = "aceptar()">Aceptar</button> 
-                          <br>
                           <button class="btn btn-danger btn-sm declinar" (click) = "rechazar()">Declinar</button>
                         </div>
                         </div>

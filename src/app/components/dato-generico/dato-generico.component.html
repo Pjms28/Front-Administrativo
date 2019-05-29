@@ -1,0 +1,21 @@
+<form [formGroup]="genericDataService.form" class="normal-form">
+
+    <div class="controles-container">
+      <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="key" matInput placeholder="Palabra clave" >
+          <mat-error *ngIf="genericDataService.form.controls['key'].errors?.required">Esta campo es requerido</mat-error>
+          <mat-error *ngIf="genericDataService.form.controls['key'].errors?.minlength">Debe introducir minimo 4 caractares</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input formControlName="value" matInput placeholder="Valor">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input formControlName="descripcion" matInput placeholder="Descripción">
+        </mat-form-field>
+      </div>
+  <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="genericDataService.form.invalid">Guardar</button>
+  
+</form>

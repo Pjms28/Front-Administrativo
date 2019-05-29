@@ -8,6 +8,7 @@ import { AgregarInmuebleComponent } from './components/agregar-inmueble/agregar-
 import { EditarInmuebleComponent } from './components/editar-inmueble/editar-inmueble.component';
 import { AgregarCaracteristicaComponent } from './components/agregar-caracteristica/agregar-caracteristica.component';
 import { EditarCaracteristicaComponent } from './components/editar-caracteristica/editar-caracteristica.component';
+import { CategoriasForoComponent } from './components/categorias-foro/categorias-foro.component';
 import { AdministrarSolicitudesComponent } from './components/administrar-solicitudes/administrar-solicitudes.component';
 import { AgendarVisitaComponent } from './components/agendar-visita/agendar-visita.component';
 import { AgregarServicioComponent } from './components/agregar-servicio/agregar-servicio.component';
@@ -99,6 +100,11 @@ const routes: Routes = [
 {
   path: 'detalle-peticion/: id',
   component: DetallePeticionComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'categorias-foro/: id',
+  component: CategoriasForoComponent,
   canActivate:[AuthGuard]
 },
 {

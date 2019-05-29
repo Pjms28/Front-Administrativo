@@ -218,14 +218,25 @@ export class AgendarVisitaComponent implements OnInit {
           this.emailApi.sendEmail(this.email).subscribe(res => {
             
           });
-            return this.ageService.getVisits().subscribe((res: {}) => {
+          this.ageService.getVisits().subscribe((res: {}) => {
               this.completeCalendar(res);
+            })
+            this.ageService.getVisitsF()
+            .subscribe(res =>{
+            if(res.length >= 1){
+            this.completeCalendarF(res);
+            }
             })
           });
      });
   }
-  return this.ageService.getVisits().subscribe((res: {}) => {
+  this.ageService.getVisits().subscribe((res: {}) => {
     this.completeCalendar(res);
+  })
+  this.ageService.getVisitsF().subscribe(res =>{
+  if(res.length >= 1){
+        this.completeCalendarF(res);
+  }
   })
 }
 
@@ -265,9 +276,16 @@ oldEvents(res: VisitaModel[]){
       if(confirm("El evento agendado para el"+ "" + formatDate(element.hora_Inicio,'yyyy/MM/dd', 'en')+ " " + "ya es obsoleto, si el evento ya fue finalizado desea cambiar el estado del evento?")){
         element.estado = "Finalizado";
         this.ageService.updateVisit(element).subscribe(res=>{
-          return this.ageService.getVisits().subscribe((res: {}) => {
+          this.ageService.getVisits().subscribe((res: {}) => {
             this.completeCalendar(res);
           })
+
+        this.ageService.getVisitsF()
+        .subscribe(res =>{
+        if(res.length >= 1){
+        this.completeCalendarF(res);
+        }
+        })
         })
 
       }
