@@ -13,7 +13,6 @@ export class ProyectoComponent {
   fechaTerminacion: Date;
   direccion: string;
   imgURL: string;
-  ubicacionID: number;
   constructor() { }
 
  
