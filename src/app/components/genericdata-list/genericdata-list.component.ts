@@ -22,6 +22,19 @@ export class GenericdatalistComponent implements OnInit {
   constructor(private genericDataService:GenericDataService,private chRef: ChangeDetectorRef, private matDialog:MatDialog) { }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  onCreate(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+
+    this.matDialog.open(DatoGenericoComponent)
+  }
+
+  loadData(){
     this.genericDataService.getAllGenericData().subscribe(res =>{
       this.datos = res;
 
@@ -34,20 +47,17 @@ export class GenericdatalistComponent implements OnInit {
       console.log(err);
     });
   }
-
-  onCreate(){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-
-    this.matDialog.open(DatoGenericoComponent)
-  }
-
   onEdit(row){
     this.populateForm(row);
   }
 
+
+  onDelete(id){
+    this.genericDataService.deleteGenericData(id).subscribe(res => {
+      console.log('res :', res);
+     this.loadData();
+    });
+  }
   populateForm(data){
     this.genericDataService.pupulateForm(data);
     const dialogConfig = new MatDialogConfig();

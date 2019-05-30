@@ -33,7 +33,7 @@
             <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
             <mat-cell *matCellDef="let row">
               <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button color="warn"(click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
             </mat-cell>
         </ng-container>
 
@@ -57,6 +57,6 @@
         <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
         <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.length==0)}"></mat-footer-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
   </div>
 </div>

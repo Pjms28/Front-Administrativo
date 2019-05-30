@@ -18,7 +18,7 @@ export class GenericDataService {
   constructor(private HttpClient: HttpClient) { }
 
   form: FormGroup = new FormGroup({
-    id : new FormControl(''),
+    id : new FormControl(0),
     key : new FormControl('',[Validators.required,Validators.minLength(4)]),
     value : new FormControl('',[Validators.required]),
     descripcion: new FormControl('')
@@ -42,6 +42,14 @@ export class GenericDataService {
     ));
   }
 
+  deleteGenericData (id: number): Observable<{}> {
+    const url = `${apiUrl}/${id}`; // DELETE api/heroes/42
+    return this.HttpClient.delete(url, httpOptions)
+    .pipe(
+    catchError(this.handleError('deleteProject'))
+    );
+    }
+
   updateGenericData (genericData:any): Observable<GenericData> {
     return this.HttpClient.put<GenericData>(apiUrl +"/"+ genericData.id,genericData, httpOptions)
     .pipe(tap((nuevaDataGenerica: GenericData) => catchError(this.handleError<GenericData>('updateDataGenerica'))
@@ -56,6 +64,7 @@ export class GenericDataService {
   }
 
   addGenericData(data: GenericData){
+    console.log('data :', data);
     return this.HttpClient.post<GenericData>(apiUrl,data,httpOptions)
     .pipe(tap((nuevaDataGenerica: GenericData) => catchError(this.handleError<GenericData>('addGenericData'))
     ));
