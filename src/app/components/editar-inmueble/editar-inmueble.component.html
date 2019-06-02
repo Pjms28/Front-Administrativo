@@ -43,13 +43,13 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Precio</label>
-                            <input formControlName="precio" type="text" class="form-control" minlength="6" maxlength="9" required/>
+                            <input formControlName="precio" type="text" class="form-control" minlength="5" maxlength="9" required/>
                             <div *ngIf="editForm.controls['precio'].errors && editForm.controls['precio'].touched" class="validation-error">
                                 <div [hidden] = "!editForm.controls['precio'].errors.required">
                                     El campo es requerido
                                   </div>
                                   <div [hidden] = "!editForm.controls['precio'].errors.minlength">
-                                    El campo requiere mas de 6 caracteres  
+                                    El campo requiere mas de 5 caracteres  
                                   </div>
                                   <div [hidden] = "!editForm.controls['precio'].errors.maxlength">
                                     El nombre debe tener menos de 9 caracteres  

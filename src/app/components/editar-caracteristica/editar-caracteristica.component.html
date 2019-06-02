@@ -31,7 +31,7 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Descripción</label>
-                            <input formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="50" required/>
+                            <input formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="500" required/>
                             <div *ngIf="editForm.controls['carDescripcion'].errors && editForm.controls['carDescripcion'].touched" class="validation-error">
                                 <div [hidden] = "!editForm.controls['carDescripcion'].errors.required">
                                     El campo es requerido
@@ -40,7 +40,7 @@
                                     El campo requiere mas de 9 caracteres  
                                   </div>
                                   <div [hidden] = "!editForm.controls['carDescripcion'].errors.maxlength">
-                                    El nombre debe tener menos de 50 caracteres  
+                                    El nombre debe tener menos de 500 caracteres  
                                   </div>
                             </div>
                           </div>

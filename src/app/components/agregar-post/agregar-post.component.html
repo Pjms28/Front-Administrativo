@@ -30,7 +30,7 @@
   <br>
   <div class="upload-btn-wrapper">
     <label class="foto" for="file-input">Imagen del proyecto <br> <i class="material-icons"> add_a_photo</i></label>
-    <input formControlName="imgURL" (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" id="file-input"  required>
+    <input formControlName="imgURL" (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" id="file-input" accept="image/*" required>
     </div>
   <br>
   <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >Publicar</button>
