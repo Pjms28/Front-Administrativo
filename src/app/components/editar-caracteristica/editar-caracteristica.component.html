@@ -8,6 +8,21 @@
                 <div class="card-body">
                   <h5 class="card-title text-center">Editar Caracteristica</h5>
                   <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="form-editar" autocomplete="off">
+
+                      <div class="form-row">
+                          <div class="form-group">
+                            <label>Tipo de Característica de Proyecto</label>
+                            <select formControlName="tipoCarProyecto" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                                <option value="" selected="selected"></option>
+                                <option value="Distribucion">Distribución</option>
+                                <option value="Amenidades">Amenidades</option>
+                                <option value="Seguridad">Seguridad</option>
+                                <option value="DescripciónG">Descripción General</option>
+                                <option value="DescripcionA">Descripción de Apartamento</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                          </div>
+                      </div>
   
                       <div class="form-row"> 
                           <div class="form-group">
@@ -31,7 +46,7 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Descripción</label>
-                            <input formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="50" required/>
+                            <textarea formControlName="carDescripcion" type="text" class="form-control" minlength="9" maxlength="500" required></textarea>
                             <div *ngIf="editForm.controls['carDescripcion'].errors && editForm.controls['carDescripcion'].touched" class="validation-error">
                                 <div [hidden] = "!editForm.controls['carDescripcion'].errors.required">
                                     El campo es requerido
@@ -40,7 +55,7 @@
                                     El campo requiere mas de 9 caracteres  
                                   </div>
                                   <div [hidden] = "!editForm.controls['carDescripcion'].errors.maxlength">
-                                    El nombre debe tener menos de 50 caracteres  
+                                    El nombre debe tener menos de 500 caracteres  
                                   </div>
                             </div>
                           </div>
@@ -48,7 +63,7 @@
   
                 
                         
-                      <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                      <button type="submit" [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                   
                   </form>
                 </div>
