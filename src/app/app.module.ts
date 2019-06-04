@@ -64,7 +64,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DatoGenericoComponent } from './components/dato-generico/dato-generico.component';
 import { GenericDataService } from './services/generic-data.service';
-import {MatGridListModule} from '@angular/material/grid-list'
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ProyectosComponent } from './components/proyectos/proyectos.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +98,8 @@ import {MatGridListModule} from '@angular/material/grid-list'
     CategoriasForoComponent,
     EditarCategoriaComponent,
     GenericdatalistComponent,
-    DatoGenericoComponent
+    DatoGenericoComponent,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,
@@ -140,7 +142,9 @@ import {MatGridListModule} from '@angular/material/grid-list'
       {path: 'Agregar Categoria', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
       {path: '',component: MenuComponent ,canActivate:[AuthGuard]},
-      {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]}
+      {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
+      {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]}
+
     ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
