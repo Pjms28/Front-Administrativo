@@ -31,7 +31,8 @@ export class EditarCaracteristicaComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       caracteristicaID:['', [Validators.required]],
       carNombre: ['', [Validators.required]],
-      carDescripcion:['', [Validators.required]]
+      carDescripcion:['', [Validators.required]],
+      tipoCarProyecto:['',[Validators.required]]
     });
 
     this.apiCar.getCaracteristica(Number(userID))

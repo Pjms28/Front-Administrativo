@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import { InmuebleModel } from '../../modelos/inmueble.model';
 import { InmuebleService } from '../../shared/inmueble.service';
 import { ApiService } from '../../shared/api.service';
-import { CaracteristicaModel } from '../../modelos/caracteristicas.model';
 import { CaracteristicaService } from '../../shared/caracteristica.service';
 
 @Component({

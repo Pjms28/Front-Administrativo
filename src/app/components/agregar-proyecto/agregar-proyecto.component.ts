@@ -62,10 +62,6 @@ export class AgregarProyectoComponent implements OnInit {
           let formData = new FormData(); 
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
-        
-          formData.append('fileName',this.fileTo.name);
-          console.log(this.addForm.value);
-          console.log('**************************');
           this.apiService.sendFormData(formData);
         }
       });
