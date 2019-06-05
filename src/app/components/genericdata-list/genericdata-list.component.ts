@@ -11,6 +11,7 @@ import { DatoGenericoComponent } from '../dato-generico/dato-generico.component'
   styleUrls: ['./genericdata-list.component.css']
 })
 export class GenericdatalistComponent implements OnInit {
+  [x: string]: any;
   datos: GenericData[];
   dataTable: any;
   dataSource: MatTableDataSource<any>;
@@ -31,8 +32,14 @@ export class GenericdatalistComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
 
-    this.matDialog.open(DatoGenericoComponent)
+    
+    this.dialogRef = this.matDialog.open(DatoGenericoComponent);
+      this.dialogRef.afterClosed().subscribe((result) => {
+        this.loadData();
+
+      });
   }
+  
 
   loadData(){
     this.genericDataService.getAllGenericData().subscribe(res =>{
@@ -65,6 +72,10 @@ export class GenericdatalistComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
 
-    this.matDialog.open(DatoGenericoComponent)
+    this.dialogRef = this.matDialog.open(DatoGenericoComponent);
+      this.dialogRef.afterClosed().subscribe((result) => {
+        this.loadData();
+
+      });
   }
 }

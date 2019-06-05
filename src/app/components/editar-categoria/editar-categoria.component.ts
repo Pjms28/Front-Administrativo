@@ -39,7 +39,7 @@ export class EditarCategoriaComponent implements OnInit {
     else{
       this.ApiCtg.updateCategoria(this.editForm.value).subscribe(res =>{
       this.toastr.success('La categoria ha sido creada exitosamente','Categoria.Registro');
-      this.router.navigate(['listar-contenido']);
+      this.router.navigate(['temas-foros']);
       });
     }
   }

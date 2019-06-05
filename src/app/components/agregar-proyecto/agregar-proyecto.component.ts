@@ -30,7 +30,7 @@ export class AgregarProyectoComponent implements OnInit {
 
   }
 
-  muestrameLaInfo(event){
+  onChangeLatLong(event){
     this.latitude = event.latitude;
     this.longitude = event.longitude;
   }

@@ -43,10 +43,7 @@
 
                       <div class="form-row">
                         <div class="form-group">
-                          <label>Ubicacion</label>
-                          <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChooseLocation($event)" >
-                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                        </agm-map>
+                          <app-map [Lat]="latitude" [Long]="longitude" (Notify)="onChangeLatLong($event)"></app-map>
                         </div>
                     </div>
 

@@ -64,7 +64,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DatoGenericoComponent } from './components/dato-generico/dato-generico.component';
 import { GenericDataService } from './services/generic-data.service';
-import {MatGridListModule} from '@angular/material/grid-list'
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { InmueblesComponent } from './components/inmuebles/inmuebles.component';
+import { CaracteristicasComponent } from './components/caracteristicas/caracteristicas.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+import { TemasforosComponent } from './components/temasforos/temasforos.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +103,12 @@ import {MatGridListModule} from '@angular/material/grid-list'
     CategoriasForoComponent,
     EditarCategoriaComponent,
     GenericdatalistComponent,
-    DatoGenericoComponent
+    DatoGenericoComponent,
+    ProyectosComponent,
+    InmueblesComponent,
+    CaracteristicasComponent,
+    ServiciosComponent,
+    TemasforosComponent
   ],
   imports: [
     BrowserModule,
@@ -137,10 +148,17 @@ import {MatGridListModule} from '@angular/material/grid-list'
       {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
       {path: 'Categorias Foro', component:CategoriasForoComponent,canActivate:[AuthGuard]},
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
-      {path: 'Agregar Categoria', component: CategoriasForoComponent, canActivate:[AuthGuard]},
+      {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
       {path: '',component: MenuComponent ,canActivate:[AuthGuard]},
-      {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]}
+      {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
+      {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
+      {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},
+      {path: 'caracteristicas',component: CaracteristicasComponent ,canActivate:[AuthGuard]},
+      {path: 'servicios',component: ServiciosComponent ,canActivate:[AuthGuard]},
+      {path: 'temas-foros',component: TemasforosComponent ,canActivate:[AuthGuard]}
+
+
     ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({

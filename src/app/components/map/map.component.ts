@@ -1,4 +1,4 @@
-import { Component, EventEmitter,Output, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, EventEmitter,Output, OnInit, ViewChild, ElementRef, NgZone, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import {} from "googlemaps";
@@ -22,6 +22,8 @@ export class MapComponent implements OnInit {
   public searchControl: FormControl;
 
   @Output() Notify = new EventEmitter;
+  @Input() Lat: number;
+  @Input() Long: number;
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
 
@@ -38,8 +40,6 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.zoom = 8;
-    this.latitude =  18.501193;
-    this.longitude = -69.924145
 
     this.searchControl = new FormControl();
     this.setCurrentPosition();
@@ -74,7 +74,12 @@ export class MapComponent implements OnInit {
     });
   }
 
- 
+  ngOnChanges(){
+    this.latitude = parseFloat(localStorage.getItem('latitude'));
+    this.longitude = parseFloat(localStorage.getItem('longitude'));
+    //console.log('latitude :', localStorage.getItem('latitude'));
+    //console.log('longitude :', localStorage.getItem('longitude'));
+  }
   
   private setCurrentPosition(){
     if('geolocation' in navigator){

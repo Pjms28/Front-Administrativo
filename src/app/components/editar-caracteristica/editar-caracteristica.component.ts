@@ -25,7 +25,7 @@ export class EditarCaracteristicaComponent implements OnInit {
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
       alert("Accion Invalida")
-      this.router.navigate(['listar-contenido']);
+      this.router.navigate(['caracteristicas']);
       return;
     }
     this.editForm = this.formBuilder.group({
@@ -61,7 +61,7 @@ export class EditarCaracteristicaComponent implements OnInit {
       .pipe(first())
       .subscribe(data =>{
         this.toastr.info('Caracteristica ha sido editada','Caracteristica.Info');
-        this.router.navigate(['listar-contenido']);
+        this.router.navigate(['caracteristicas']);
       });
     }
   }

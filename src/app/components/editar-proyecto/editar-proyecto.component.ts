@@ -17,8 +17,8 @@ export class EditarProyectoComponent implements OnInit {
   editForm: FormGroup;
   fileTo: any;
   imgNombre: string;
-  lat: number = 18.4855;
-  lng: number = -69.8731;
+  latitude: number;
+  longitude: number;
  
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, 
     private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
@@ -47,15 +47,21 @@ export class EditarProyectoComponent implements OnInit {
       this.editForm.controls['fechaTerminacion'].setValue(res.fechaTerminacion);
       this.editForm.controls['direccion'].setValue(res.direccion);
       this.imgNombre = res.imgURL;
+      this.latitude = res.latitude;
+      this.longitude = res.longitude;
+
+      console.log('res :', res);
+
+
+      if(this.latitude != undefined || this.latitude != null)
+      {
+        localStorage.setItem('latitude', this.latitude.toString());
+        localStorage.setItem('longitude', this.longitude.toString());
+        
+      } 
     });
   }  
-  onChooseLocation(event){
-    this.lat = event.coords.lat;
-    this.lng = event.coords.lng;
-   
-    
-   }
-
+ 
   onSubmit(){
 
     if(this.editForm.get("nombreProyecto").value.trim().length === 0){
@@ -74,6 +80,8 @@ export class EditarProyectoComponent implements OnInit {
         this.proyecto.nombreProyecto = this.editForm.get("nombreProyecto").value;
         this.proyecto.fechaTerminacion = this.editForm.get("fechaTerminacion").value;
         this.proyecto.imgURL = this.imgNombre;
+        this.proyecto.latitude = this.latitude;
+        this.proyecto.longitude = this.longitude;
         this.apiService.updateProject(this.proyecto).subscribe(res =>{
           this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
           this.router.navigate(['listar-contenido']);
@@ -93,7 +101,17 @@ export class EditarProyectoComponent implements OnInit {
       }
     }
   }
-
+  onChangeLatLong(event){
+    console.log('event :', event);
+    this.latitude = event.latitude;
+    this.longitude = event.longitude;
+    if(this.latitude != undefined || this.latitude != null)
+    {
+      localStorage.setItem('latitude', this.latitude.toString());
+      localStorage.setItem('longitude', this.longitude.toString());
+      
+    } 
+  }
 
   saveFileRequest(files : FileList){
     this.fileTo = files.item(0);

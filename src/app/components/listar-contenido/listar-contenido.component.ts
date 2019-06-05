@@ -7,7 +7,8 @@ import {Router} from "@angular/router";
 import {NgbPaginationConfig} from '@ng-bootstrap/ng-bootstrap'; 
 import { ServicioService } from 'src/app/shared/servicio.service';
 import { ForoService } from 'src/app/shared/foro.service';
-
+import { MatTableDataSource, MatSort, MatPaginator } from "@angular/material";
+import { MatDialog, MatDialogConfig } from "@angular/material";
 @Component({
   selector: 'app-listar-contenido',
   templateUrl: './listar-contenido.component.html',
@@ -27,6 +28,7 @@ export class ListarContenidoComponent implements OnInit {
     private toastr: ToastrService, public apiSer: ServicioService, public apiCtg: ForoService) { }
   value:string="";
   p: number = 1;
+  
   ngOnInit() {
     }
 
