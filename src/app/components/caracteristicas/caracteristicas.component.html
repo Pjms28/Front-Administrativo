@@ -8,40 +8,29 @@
           <!-- ID -->
           <ng-container matColumnDef="id">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-              <mat-cell *matCellDef="let row">{{row.proyectoID}}</mat-cell>
+              <mat-cell *matCellDef="let row">{{row.caracteristicaID}}</mat-cell>
           </ng-container>
   
           <!--  -->
-          <ng-container matColumnDef="project">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Proyecto</mat-header-cell>
-              <mat-cell *matCellDef="let row">{{row.nombreProyecto}}</mat-cell>
+          <ng-container matColumnDef="characteristic">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+              <mat-cell *matCellDef="let row">{{row.carNombre}}</mat-cell>
           </ng-container>
-  
-          <ng-container matColumnDef="enddate">
-              <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de terminación</mat-header-cell>
-              <mat-cell *matCellDef="let row">{{row.fechaTerminacion | date:'MM/dd/yyyy'}}</mat-cell>
-          </ng-container>
+   
   
           <!-- Descripcion -->
-          <ng-container matColumnDef="address">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Dirección</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.direccion}}</mat-cell>
+          <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.carDescripcion}}</mat-cell>
           </ng-container>
-
-          <!-- Caracteristicas  -->
-          <ng-container matColumnDef="caractherictis">
-              <mat-header-cell *matHeaderCellDef>Caracteristicas</mat-header-cell>
-              <mat-cell *matCellDef="let row">
-                <button mat-icon-button (click)="onAddCharacteristic(row)"><mat-icon>add</mat-icon></button>
-              </mat-cell>
-          </ng-container>
-
+  
+    
           <!-- Actions -->
           <ng-container matColumnDef="actions">
               <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
               <mat-cell *matCellDef="let row">
                 <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
-                <button mat-icon-button color="warn"(click)="onDelete(row.proyectoID)"><mat-icon>delete_outline</mat-icon></button>
+                <button mat-icon-button color="warn"(click)="onDelete(row.caracteristicaID)"><mat-icon>delete_outline</mat-icon></button>
               </mat-cell>
           </ng-container>
   

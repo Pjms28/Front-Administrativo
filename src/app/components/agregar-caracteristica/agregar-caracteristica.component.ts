@@ -44,7 +44,7 @@ export class AgregarCaracteristicaComponent implements OnInit {
         }
         else{
           this.toastr.success('Caracteristica ha sido creada exitosamente','Caracteristica.Registro');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['caracteristicas']);
         }
       });
     }

@@ -72,7 +72,7 @@ export class AgregarInmuebleComponent implements OnInit {
         }
         else{
           this.toastr.success('Inmueble ha sido creado exitosamente','Inmueble.Registro');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['inmuebles']);
         }
       });
     }

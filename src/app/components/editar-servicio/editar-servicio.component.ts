@@ -32,7 +32,7 @@ export class EditarServicioComponent implements OnInit {
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
       alert("Accion Invalida")
-      this.router.navigate(['listar-contenido']);
+      this.router.navigate(['servicios']);
       return;
     }
     window.localStorage.removeItem("editUserID");
@@ -70,7 +70,7 @@ export class EditarServicioComponent implements OnInit {
       .pipe(first())
       .subscribe(data =>{
         this.toastr.info('Servicio ha sido editado','Servicio.Info');
-        this.router.navigate(['listar-contenido']);
+        this.router.navigate(['servicios']);
         let formData = new FormData(); 
         formData.append(this.fileTo.name, this.fileTo);
         formData.append('fileName',this.fileTo.name);

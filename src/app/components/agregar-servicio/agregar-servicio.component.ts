@@ -39,7 +39,7 @@ export class AgregarServicioComponent implements OnInit {
         }
         else{
           this.toastr.success('Servicio ha sido creado exitosamente','Servicio.Registro');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['servicios']);
           let formData = new FormData(); 
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);

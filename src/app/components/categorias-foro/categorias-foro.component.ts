@@ -38,7 +38,7 @@ export class CategoriasForoComponent implements OnInit {
         }
         else{
           this.toastr.success('La categoria ha sido creada exitosamente','Categoria.Registro');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['temas-foros']);
         }
       });
     }

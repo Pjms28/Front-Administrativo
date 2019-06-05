@@ -11,11 +11,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
-  [x: string]: any;
   proyectos: ProyectoComponent[];
   dataTable: any;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id','proyect','enddate','address','caractherictis','actions'];
+  displayedColumns: string[] = ['id','project','enddate','address','caractherictis','actions'];
   @ViewChild(MatSort) sort:MatSort;
   @ViewChild(MatPaginator) paginator:MatPaginator;
   searchKey:string;
@@ -24,7 +23,9 @@ export class ProyectosComponent implements OnInit {
   ngOnInit() {
     this.loadData();
   }
-
+  onCreate(){
+    this.router.navigate(['Agregar Proyecto']);
+  }
 
   onDelete(id){
     if(confirm('¿Esta seguro que desea eliminar este proyecto?, tambien se borraran los inmuebles y caracteristicas existentes asignados a este proyecto.')){

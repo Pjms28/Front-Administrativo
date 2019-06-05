@@ -45,7 +45,7 @@ export class EditarInmuebleComponent implements OnInit {
     let userID = window.localStorage.getItem("editUserID");
     if(!userID){
       alert("Accion Invalida")
-      this.router.navigate(['listar-contenido']);
+      this.router.navigate(['inmuebles']);
       return;
     }
     this.id = Number(userID);
@@ -82,7 +82,7 @@ export class EditarInmuebleComponent implements OnInit {
       .pipe(first())
       .subscribe(data =>{
         this.toastr.info('Inmueble ha sido editado','Inmueble.Info');
-        this.router.navigate(['listar-contenido']);
+        this.router.navigate(['inmuebles']);
       })
     }
   }
