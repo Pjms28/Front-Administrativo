@@ -32,7 +32,8 @@
           <ng-container matColumnDef="caractherictis">
               <mat-header-cell *matHeaderCellDef>Caracteristicas</mat-header-cell>
               <mat-cell *matCellDef="let row">
-                <button mat-icon-button (click)="onAddCharacteristic(row)"><mat-icon>add</mat-icon></button>
+                <!-- <button mat-icon-button (click)="onAddCharacteristic(row)"><mat-icon>add</mat-icon></button>-->
+                <a mat-icon-button routerLink="/proyecto-caracteristica/{{row.proyectoID}}" ><mat-icon>add</mat-icon></a>
               </mat-cell>
           </ng-container>
 
