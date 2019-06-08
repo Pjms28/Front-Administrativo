@@ -84,7 +84,7 @@ export class EditarProyectoComponent implements OnInit {
         this.proyecto.longitude = this.longitude;
         this.apiService.updateProject(this.proyecto).subscribe(res =>{
           this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['proyectos']);
         })
       }
       else{
