@@ -4,7 +4,11 @@ li{
 
     
 }
- 
+
+
+.general{
+    margin: auto;
+}
 
 a:hover{
     color: #000;

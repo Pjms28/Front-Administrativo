@@ -71,6 +71,7 @@ import { CaracteristicasComponent } from './components/caracteristicas/caracteri
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
 import { TasacionComponent } from './components/tasacion/tasacion.component';
+import {NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -130,6 +131,7 @@ import { TasacionComponent } from './components/tasacion/tasacion.component';
     MatDialogModule,
     MatGridListModule,
     NgbModule,
+    NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
     NgxEditorModule,
     CalendarModule.forRoot({
