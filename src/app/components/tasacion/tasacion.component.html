@@ -94,16 +94,38 @@
         <div class="form-group">
           <label >Valuador</label>
           <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+        </div>
+        <div class="form-group">
+          <label>Dirección</label>
+          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la dirección">
+        </div>
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono">
           </div>
           <div class="form-group">
-              <label>Dirección</label>
-              <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la dirección">
-              </div>
-              <div class="form-group">
-                  <label>Teléfono</label>
-                  <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                  </form>
+              <label>Nombre del Cliente</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre del cliente">
+          </div>
+          <div class="form-group">
+            <label>Derechos de propiedad avaluada</label><br>
+            <input type="radio" name="propiedad" value="dominio">Pleno dominio.<br>
+            <input type="radio" name="propiedad" value="inmueblealquilado">Inmueble alquilado.<br>
+            <input type="radio" name="propiedad" value="condominio">Condominio.<br>
+            <input type="radio" name="propiedad" value="oupacion">Ocupación/Invasión.<br>
+            <input type="radio" name="propiedad" value="otro">Otro/Especifique.
+        </div>
+        <div class="form-group">
+          <label>Ocupado por</label><br>
+          <input type="radio" name="propiedad" value="propietario">Propietario.<br>
+          <input type="radio" name="propiedad" value="inquilino">Inquilino.<br>
+          <input type="radio" name="propiedad" value="desocupado">Desocupado.
+      </div>
+      <div class="form-group">
+        <label>Utilidad del inmueble</label>
+        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la utilidad del inmueble">
+       </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
   </div>
 </div>
