@@ -5,8 +5,9 @@ li{
     
 }
 
-a{
-    margin-left: 50px;
+
+.general{
+    margin: auto;
 }
 
 a:hover{
