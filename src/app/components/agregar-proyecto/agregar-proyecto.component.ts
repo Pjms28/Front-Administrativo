@@ -58,7 +58,7 @@ export class AgregarProyectoComponent implements OnInit {
         }
         else{
           this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['proyectos']);
           let formData = new FormData(); 
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
