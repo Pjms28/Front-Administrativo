@@ -1,7 +1,10 @@
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" class="general" href="#home">Información general</a></li>
-  <li><a data-toggle="pill" href="#menu1">Menu 1</a></li>
-  <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
+  <li><a data-toggle="pill" href="#menu1">Certificación de avalúo</a></li>
+  <li><a data-toggle="pill" href="#menu2">Informe de avalúo</a></li>
+  <li><a data-toggle="pill" href="#menu3">Informe de avalúo</a></li>
+  <li><a data-toggle="pill" href="#menu4">Informe de avalúo</a></li>
+  <li><a data-toggle="pill" href="#menu5">Informe de avalúo</a></li>
 </ul>
 
 <div class="tab-content">
@@ -55,15 +58,52 @@
                                               <label>Nombre del Banco</label>
                                               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
                                               </div>
-                                              <button type="submit" class="btn btn-primary">Submit</button>
+                                              <button type="submit" class="btn btn-primary">Guardar</button>
                                             </form>
                                           </div>
   <div id="menu1" class="tab-pane fade">
-    <h3>Menu 1</h3>
-    <p>Some content in menu 1.</p>
+    <h3>Certificación de avalúo</h3>
+    <form>
+        <div class="form-group">
+          <label>Designación Catastral No</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el número catastral">
+        </div>
+        <div class="form-group">
+          <label >Matrícula</label>
+          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la matrícula">
+          </div>
+          <div class="form-group">
+              <label>Precio</label>
+              <input input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el precio">
+              </div>
+              <div class="form-group">
+                  <label>Precio en Letra</label>
+                  <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  </form>
+
   </div>
   <div id="menu2" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
+    <h3>Informe de avalúo</h3>
+    <form>
+        <div class="form-group">
+          <label>Propietario</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+        </div>
+        <div class="form-group">
+          <label >Valuador</label>
+          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+          </div>
+          <div class="form-group">
+              <label>Dirección</label>
+              <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la dirección">
+              </div>
+              <div class="form-group">
+                  <label>Teléfono</label>
+                  <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                  </form>
   </div>
 </div>
