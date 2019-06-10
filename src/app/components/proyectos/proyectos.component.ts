@@ -57,4 +57,8 @@ export class ProyectosComponent implements OnInit {
       console.log(err);
     });
   }
+
+  onAddCharacteristic(row){
+    
+  }
 }
