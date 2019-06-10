@@ -70,6 +70,7 @@ import { InmueblesComponent } from './components/inmuebles/inmuebles.component';
 import { CaracteristicasComponent } from './components/caracteristicas/caracteristicas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
+import { TasacionComponent } from './components/tasacion/tasacion.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { TemasforosComponent } from './components/temasforos/temasforos.componen
     InmueblesComponent,
     CaracteristicasComponent,
     ServiciosComponent,
-    TemasforosComponent
+    TemasforosComponent,
+    TasacionComponent
   ],
   imports: [
     BrowserModule,

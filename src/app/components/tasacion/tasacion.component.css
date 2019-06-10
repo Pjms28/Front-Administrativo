@@ -1,0 +1,19 @@
+li{
+    width: 150px;
+    background: rgba(233, 246, 248, 0.842);
+
+    
+}
+
+a{
+    margin-left: 50px;
+}
+
+a:hover{
+    color: #000;
+    text-decoration: none;
+}
+li:hover{
+    background: #fff;
+    color: #000;
+}
