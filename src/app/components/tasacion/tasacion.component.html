@@ -2,7 +2,7 @@
   <li class="active"><a data-toggle="pill" class="general" href="#home">Información general</a></li>
   <li><a data-toggle="pill" href="#menu1">Certificación de avalúo</a></li>
   <li><a data-toggle="pill" href="#menu2">Informe de avalúo</a></li>
-  <li><a data-toggle="pill" href="#menu3">Informe de avalúo</a></li>
+  <li><a data-toggle="pill" href="#menu3">Descripción de la vecindad</a></li>
   <li><a data-toggle="pill" href="#menu4">Informe de avalúo</a></li>
   <li><a data-toggle="pill" href="#menu5">Informe de avalúo</a></li>
 </ul>
@@ -128,4 +128,94 @@
           <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
   </div>
+  
+  <div id="menu3" class="tab-pane fade">
+      <h3>Descripción de la vecindad</h3>
+      <form>
+          <div class="form-group">
+              <label>Tipo de vecindad</label><br>
+              <input type="radio" name="propiedad" value="urbano">Urbano.<br>
+              <input type="radio" name="propiedad" value="rural">Rural.<br>
+              <input type="radio" name="propiedad" value="mixto">Mixto.<br>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
+          </div>
+
+          <div class="form-group">
+              <label>Tendencia de la vecindad</label><br>
+              <input type="radio" name="propiedad" value="mejorar">A mejorar.<br>
+              <input type="radio" name="propiedad" value="estable">Estable.<br>
+              <input type="radio" name="propiedad" value="empeorar">A empeorar.<br>
+              <input type="radio" name="propiedad" value="tansicion">En transición.
+          </div>
+
+          <div class="form-group">
+              <label>Comparación con la propiedad del vecindario</label><br>
+              <input type="radio" name="propiedad" value="urbano">Inferior.<br>
+              <input type="radio" name="propiedad" value="rural">Similar.<br>
+              <input type="radio" name="propiedad" value="mixto">Superior.<br>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
+          </div>
+
+          <div class="form-group">
+              <label>Antigüedad promedio de las propiedades del vecindario</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la antigüedad promedio de las propiedades del vecindario">
+          </div>
+
+          <div class="form-group">
+              <label>Área construida</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el área construida">
+          </div>
+
+          <div class="form-group">
+              <label>Oferta </label><br>
+              <input type="radio" name="propiedad" value="mucha">Mucha.<br>
+              <input type="radio" name="propiedad" value="razonable">Razonable.<br>
+              <input type="radio" name="propiedad" value="poca">Poca.
+          </div>
+
+          <div class="form-group">
+              <label>Demanda</label><br>
+              <input type="radio" name="propiedad" value="mucha">Mucha.<br>
+              <input type="radio" name="propiedad" value="razonable">Razonable.<br>
+              <input type="radio" name="propiedad" value="poca">Poca.
+          </div>
+
+          <div class="form-group">
+              <label>Deseabilidad de la propiedad</label><br>
+              <input type="radio" name="propiedad" value="mucha">Mucha.<br>
+              <input type="radio" name="propiedad" value="razonable">Razonable.<br>
+              <input type="radio" name="propiedad" value="poca">Poca.
+          </div>
+
+          <div class="form-group">
+              <label>Distancia a Escuela Primaria</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Escuela Primaria">
+          </div>
+
+          <div class="form-group">
+              <label>Distancia a Escuela Secundaria</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Escuela Secundaria.">
+          </div>
+
+          <div class="form-group">
+              <label>Distancia al Transporte Público</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia al Transporte Público.">
+          </div>
+
+          <div class="form-group">
+              <label>Distancia a Comercios</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Comercios.">
+          </div>
+
+          <div class="form-group">
+              <label>Distancia a Centro de la ciudad</label>
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Centro de la ciudad.">
+          </div>
+
+
+
+
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
 </div>
