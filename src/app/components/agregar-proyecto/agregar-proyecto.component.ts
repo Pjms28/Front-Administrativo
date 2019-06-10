@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
 import {Router} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
+import { ImagenProyecto } from 'imagen-proyecto.model';
+import { Proyecto } from 'src/app/modelos/proyecto.model';
 
 @Component({
   selector: 'app-agregar-proyecto',
@@ -15,6 +17,11 @@ export class AgregarProyectoComponent implements OnInit {
   latitude: number = 20;
   longitude: number = 20;
   @Input() latlong:any;
+  proyecto: Proyecto
+  proyectImages: any[] = [];
+  proyectImagesData: any[] = [];
+  proyectPlanosPictures: any = [];
+  
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private toastr: ToastrService) { }
 
@@ -25,7 +32,8 @@ export class AgregarProyectoComponent implements OnInit {
       direccion:['',[Validators.required]],
       imgURL:['',[Validators.required]],
       latitude:[''],
-      longitude:['']
+      longitude:[''],
+
     });
 
   }
@@ -51,18 +59,28 @@ export class AgregarProyectoComponent implements OnInit {
     else{
       this.addForm.controls["latitude"].setValue(this.latitude);
       this.addForm.controls["longitude"].setValue(this.longitude);
+  
 
-      this.apiService.addProject(this.addForm.value).subscribe(res =>{
+      this.buildProyect(this.addForm.value);
+      this.proyecto.Imagenes = this.proyectImagesData;
+      /* this.addForm.controls['Imagenes'].setValue("asdasdasd"); */
+      console.log('this.addForm.value :', this.addForm.value);
+
+      this.apiService.addProject(this.proyecto).subscribe(res =>{
         if (res == null){
           this.toastr.error('Existe un proyecto con ese nombre','Proyecto.Registro');
         }
         else{
+          console.log('res :', res);
           this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['proyectos']);
           let formData = new FormData(); 
+         
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
           this.apiService.sendFormData(formData);
+
+          this.uploadFiles();
         }
       });
     }
@@ -71,6 +89,45 @@ export class AgregarProyectoComponent implements OnInit {
     this.fileTo = files.item(0);
   }
 
+  uploadFiles(){
+   for(const file of this.proyectImages){
+    let imagenProyecto = {
+      'Url' : file.name,
+      'Descripcion' : 'Imagen para proyecto',
+      'Tipo' : 'imagen-proyecto'
+    }
+
+    this.proyectImagesData.push(imagenProyecto);
+    let fd = new FormData(); 
+         
+    fd.append(file.name, file);
+    fd.append('fileName',this.fileTo.name);
+    this.apiService.sendFormData(fd);
+   }
+
+  }
+  onFileProyectsSelect(files){
+   /*  console.log('files :',files); */
+
+   for (const file of files){
+    let currentFile = <File>file;
+    this.proyectImages.push(currentFile);
+   }
+
+    console.log('this.proyectImages :', this.proyectImages);
+  }
+
+  buildProyect(form){
+    this.proyecto = new Proyecto;
+    this.proyecto.Direccion = form.direccion;
+    this.proyecto.ImgUrl = form.imgURL;
+    this.proyecto.FechaTerminacion = form.fechaTerminacion;
+    this.proyecto.Latitude = form.latitude;
+    this.proyecto.Longitude = form.longitude;
+    this.proyecto.NombreProyecto = form.nombreProyecto;
+
+    return this.proyecto;
+  }
   onChooseLocation(cords){
   this.latitude = cords.latitude;
   this.longitude = cords.longitude;

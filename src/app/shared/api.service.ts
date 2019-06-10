@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ProyectoComponent } from '../components/proyecto/proyecto.component';
+import { Proyecto } from '../modelos/proyecto.model';
 
 
 const httpOptions = {
@@ -45,8 +46,11 @@ export class ApiService {
   }
 
   sendFormData(formData: any){
+  /*   console.log('formData :', formData);
+    return; */
     var t = `${apiUrl}/${'SaveFile'}`;
     this.http.post(t, formData).subscribe((val) => {
+      console.log('val :', val);
     });
   }
 
@@ -55,9 +59,10 @@ export class ApiService {
     .toPromise().then(res => this.list = res as ProyectoComponent[]);
   }
 
-  addProject(proyecto: ProyectoComponent){
-    return this.http.post<ProyectoComponent>(apiUrl,proyecto,httpOptions)
-    .pipe(tap((nuevoProyecto: ProyectoComponent) => catchError(this.handleError<ProyectoComponent>('addProject'))
+  addProject(proyecto: Proyecto){
+    console.log('proyecto :', proyecto);
+    return this.http.post<Proyecto>(apiUrl,proyecto,httpOptions)
+    .pipe(tap((nuevoProyecto: Proyecto) => catchError(this.handleError<Proyecto>('addProject'))
     ));
   }
 
