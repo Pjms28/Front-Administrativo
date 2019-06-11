@@ -1,10 +1,10 @@
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" class="general" href="#home">Información general</a></li>
-  <li><a data-toggle="pill" href="#menu1">Certificación de avalúo</a></li>
-  <li><a data-toggle="pill" href="#menu2">Informe de avalúo</a></li>
-  <li><a data-toggle="pill" href="#menu3">Descripción de la vecindad</a></li>
-  <li><a data-toggle="pill" href="#menu4">Informe de avalúo</a></li>
-  <li><a data-toggle="pill" href="#menu5">Informe de avalúo</a></li>
+  <li class="active"><a data-toggle="pill" class="general" href="#home">Información General</a></li>
+  <li><a data-toggle="pill" href="#menu1">Certificación de Avalúo</a></li>
+  <li><a data-toggle="pill" href="#menu2">Informe de Avalúo</a></li>
+  <li><a data-toggle="pill" href="#menu3">Descripción de la Vecindad</a></li>
+  <li><a data-toggle="pill" href="#menu4">Descripción de la Zona</a></li>
+  <li><a data-toggle="pill" href="#menu5">Descripción de las Mejoras</a></li>
 </ul>
 
 <div class="tab-content">
@@ -218,4 +218,108 @@
       <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
     </div>
+
+    <div id="menu4" class="tab-pane fade">
+        <h3>Descripción de la zona</h3>
+        <form>
+            <div class="form-group">
+                <label>Límites Naturales</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca los límites naturales">
+            </div>
+
+            <div class="form-group">
+                <label>La zona posee</label><br>
+                <input type="radio" name="propiedad" value="callepavimentada">Calle Pavimentada.<br>
+                <input type="radio" name="propiedad" value="callesinpavimentar">Calle sin Pavimentar.<br>
+                <input type="radio" name="propiedad" value="acera">Acera.<br>
+                <input type="radio" name="propiedad" value="contenes">Contenes.<br>
+                <input type="radio" name="propiedad" value="alumbradoelectrico">Alumbrado Electrico.<br>
+                <input type="radio" name="propiedad" value="televisionporcable">Television por Cable.<br>
+                <input type="radio" name="propiedad" value="telefono">Telefono.<br>
+                <input type="radio" name="propiedad" value="gas">Gas.<br>
+                <input type="radio" name="propiedad" value="aguapotable">Agua Potable.<br>
+                <input type="radio" name="propiedad" value="pozoprivado">Pozo Privado.<br>
+                <input type="radio" name="propiedad" value="pozopublico">Pozo Publico.<br>
+                <input type="radio" name="propiedad" value="alcantarillasanitario">Alcantarillado Sanitario.<br>
+                <input type="radio" name="propiedad" value="pozoseptico">Pozo Séptico.<br>
+                <input type="radio" name="propiedad" value="alcantarillapluvial">Alcantarilla Pluvial<br>
+                <input type="radio" name="propiedad" value="dranajedezanjasabiertas">Drenaje de Zanjas abiertas<br>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
+            </div>
+
+            <div class="form-group">
+                <label>Área</label>
+                <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el área">
+            </div>
+
+            <div class="form-group">
+                <label>Fuente</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la fuente">
+            </div>
+
+            <div class="form-group">
+                <label>Topografía</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la topografía">
+            </div>
+
+            <div class="form-group">
+                <label>Configuración</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la configuración">
+            </div>
+
+            <div class="form-group">
+                <label>Zonificación</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la zonificación">
+            </div>
+
+            <div class="form-group">
+                <label>Esta conforme con el uso actual de la propiedad</label><br>
+                <input type="radio" name="propiedad" value="mucha">Si.<br>
+                <input type="radio" name="propiedad" value="razonable">No. 
+            </div>
+
+            <div class="form-group">
+                <label>Paisajismo o área verdes</label><br>
+                <input type="radio" name="propiedad" value="mucha">Excelente.<br>
+                <input type="radio" name="propiedad" value="razonable">Buena. <br>
+                <input type="radio" name="propiedad" value="mucha">Muy Buena.<br>
+                <input type="radio" name="propiedad" value="razonable">Regular. <br>
+                <input type="radio" name="propiedad" value="mucha">Mala.<br>
+                <input type="radio" name="propiedad" value="razonable">Inexistente.  
+            </div>
+            
+            <div class="form-group">
+                <label>Paisajismo o área verdes</label><br>
+                <input type="radio" name="propiedad" value="mucha">Servicios Públicos.<br>
+                <input type="radio" name="propiedad" value="razonable">De Paso. <br>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros"> 
+            </div>
+
+            <div class="form-group">
+                <label>Entrada y Salida de la Marquesina</label><br>
+                <input type="radio" name="propiedad" value="mucha">Privada.<br>
+                <input type="radio" name="propiedad" value="razonable">Común. <br>
+                <input type="radio" name="propiedad" value="mucha">Ninguna.<br>
+                <input type="radio" name="propiedad" value="razonable">Única <br>
+                <input type="radio" name="propiedad" value="mucha">Doble.<br>
+                <input type="radio" name="propiedad" value="razonable">Adecuada. <br>
+                <input type="radio" name="propiedad" value="mucha">Pavimentada.<br>
+                <input type="radio" name="propiedad" value="razonable">Hormigon Estampado <br>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros"> 
+            </div>
+
+            <div class="form-group">
+                <label>Instalación Eléctrica </label><br>
+                <input type="radio" name="propiedad" value="mucha">Subterránea.<br>
+                <input type="radio" name="propiedad" value="razonable">En Postes.<br>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
+            </div>
+
+
+            
+
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+     </div>
+    
 </div>
