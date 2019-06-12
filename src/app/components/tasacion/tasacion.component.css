@@ -5,6 +5,32 @@ li{
     
 }
 
+.tab-content{
+    width:550;
+}
+
+form{
+    padding-top: 10px;
+    width: 500px;
+    margin: auto;
+    background: #fff;
+    border-radius: 25px;
+}
+
+.form-group{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+h3{
+    padding-top: 10px;
+    text-align: center;
+}
+
+button{
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
 
 .general{
     margin: auto;
@@ -17,4 +43,8 @@ a:hover{
 li:hover{
     background: #fff;
     color: #000;
+}
+
+textarea{
+    max-height: 200px;
 }
