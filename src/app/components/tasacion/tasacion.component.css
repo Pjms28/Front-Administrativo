@@ -48,3 +48,17 @@ li:hover{
 textarea{
     max-height: 200px;
 }
+
+.comp{
+    width: 720px;
+}
+
+h4{
+    padding-left: 25px;
+}
+
+.comparable{
+    display: inline-block;
+    margin: auto;
+    border-right: #000;
+}
