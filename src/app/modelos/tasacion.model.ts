@@ -1,6 +1,10 @@
+import { TmplAstTextAttribute } from '@angular/compiler';
+
 export class TasacionModel{
 
-    tasacionID: number 
+    tasacionID: number
+
+    //informe general 
     descripcionInmueble: string
     tasadorNombre: string
     asesorNombre: string
@@ -9,7 +13,7 @@ export class TasacionModel{
     telefonoConstructora: string
     correoCompañia: string
     clienteNombre: string
-    fecha: string
+    fecha: Date
     ciudad: string
     pais: string
     banco: string 
@@ -54,6 +58,7 @@ export class TasacionModel{
     //Descripcion de la zona
 
     limitesNaturales: string
+    caracteristicasZona:[]
     area: number
     fuente: string
     topografia: string
@@ -65,20 +70,21 @@ export class TasacionModel{
     marquesina: string
     instalacionElectrica: string
 
-    //Descripcion de las mejoras
+    //Descripcion de las mejoras agregar propiedad al modelo del back
     construccionTerminada: string
+    añoEstimado:Date
     xtotal: number
     ventanaMarco: string
     sotano: string
+    areaTotalSotano: number
     tipoInmueble: string
     estructura: string
-    materialConstruccion: string
+    materialConstruccion: []
     revestimientoExterior: string
     materialTecho: string
     condicionExterna: string
 
     //Descripcion del interior de la propiedad
-
     tipoPiso: string
     distribucionArq: string
     armarios: string
@@ -92,16 +98,17 @@ export class TasacionModel{
     murosCimientos: string
     tuberiasSanitarias: string
     calentadorAgua: string
-    sistemaElectrico: string
+    capacidadCalentador: number
+    sistemaElectrico: []
     artefactosAdicionales: []
+    amenidades:[]
     noParqueos: number
     otrasMejoras: string
     comentarios: string
 
     //Distribucion Habitaciones
 
-    nivelesCasa: number
-    cantidadPiso: number
+    numeroPiso: number
     habitaciones: number
     entrada: number
     salaEstar: number
@@ -118,6 +125,9 @@ export class TasacionModel{
 
     fuenteManualCosto: string
     valorTerreno: number
+    metroTerraza: number
+    costoMetroInmueble:number
+    costoMetroTerraza: number
 
     //Enfoque de venta comparables
 
@@ -129,16 +139,43 @@ export class TasacionModel{
     estilo: string
     valorAjustado: number
 
+    //Descripcion 2
+
+    direccion2: string
+    fechaVenta2: Date
+    precioVenta2: number
+    tamaño2: number
+    precioMetro2: number
+    condicion2: string
+    estilo2: string
+    noHabitacion2:number
+    noParquero2:number
+    condicionFisica2: string
+    valoresAjustados2:number
+
+    //Descripcion 3
+
+    direccion3: string
+    fechaVenta3: Date
+    precioVenta3: number
+    tamaño3: number
+    precioMetro3: number
+    condicion3: string
+    estilo3: string
+    noHabitacion3:number
+    noParquero3:number
+    condicionFisica3: string
+    valoresAjustados3:number
 
     //Conclusiones
     conclusiones: string
     valorEnfoqueVentas: number
-    opnionValorMercado: number
+    //opnionValorMercado: number
     opinionValorLiquidacion: number
     valorDelMismo: number
     comentariosVentas: string
     fechaDiaTasacion: Date
-    valorConsiderado: number
+    //valorConsiderado: number
     ventaAdicional: string
     suplementoInformativo: string
     plano: string
