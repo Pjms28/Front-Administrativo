@@ -24,6 +24,58 @@ export class TasacionComponent implements OnInit {
   }
 
   tasacionForm: FormGroup
+  checkboxA = [
+    {nombre:"Calle Pavimentada", valor: "callepavimentada", checked:false },
+    {nombre:"Calle sin Pavimentar", valor: "callesinpavimentar", checked:false },
+    {nombre:"Acera", valor: "acera", checked:false },
+    {nombre:"Contenes", valor: "contenes", checked:false },
+    {nombre:"Alumbrado Electrico", valor: "alumbradoelectrico", checked:false },
+    {nombre:"Television por Cable", valor: "televisionporcable", checked:false },
+    {nombre:"Telefono", valor: "telefono", checked:false },
+    {nombre:"Gas", valor: "gas", checked:false },
+    {nombre:"Agua Potable", valor: "aguapotable", checked:false },
+    {nombre:"Pozo Privado", valor: "pozoprivado", checked:false },
+    {nombre:"Pozo Publico", valor: "pozopublico", checked:false },
+    {nombre:"Alcantarillado Sanitario", valor: "alcantarillasanitario", checked:false },
+    {nombre:"Pozo Séptico", valor: "pozoseptico", checked:false },
+    {nombre:"Alcantarilla Pluvial", valor: "alcantarillapluvial", checked:false },
+    {nombre:"Drenaje de Zanjas abiertas", valor: "dranajedezanjasabiertas", checked:false }
+  ];
+  
+  checkboxB = [
+    {nombre:"Madera", valor: "madera", checked:false },
+    {nombre:"Acero", valor: "acero", checked:false },
+    {nombre:"Bloques de H.A", valor: "BloquesHA", checked:false },
+    {nombre:"Bloques de Hormigon Armado", valor: "BloquesHormigon", checked:false }   
+  ];
+
+  checkboxC = [
+    {nombre:"Cisterna", valor: "cisterna", checked:false },
+    {nombre:"Jacuzzy", valor: "jacuzzy", checked:false },
+    {nombre:"Piscina", valor: "piscina", checked:false } 
+  ];
+
+  checkboxD = [
+    {nombre:"Fusibles", valor: "fusibles", checked:false },
+    {nombre:"Breakers", valor: "breakers", checked:false },
+    {nombre:"Inversor en Areas Comunes", valor: "inversor", checked:false } 
+  ];
+
+  checkboxE = [
+    {nombre:"Alarmas de Robo", valor: "robo", checked:false },
+    {nombre:"Alarmas de Incendio", valor: "incendio", checked:false },
+    {nombre:"Verja Perimetral", valor: "verja", checked:false },
+    {nombre:"Barrera de Alambre de Pua", valor: "alambrepua", checked:false },
+    {nombre:"Eliminador de Basura", valor: "eliminarbasura", checked:false },
+    {nombre:"Chimenea", valor: "chimenea", checked:false },
+    {nombre:"Sauna", valor: "sauna", checked:false },
+    {nombre:"Tratamiento de Agua", valor: "tratamientoagua", checked:false },
+    {nombre:"Tragaluces/Domos", valor: "domos", checked:false },
+    {nombre:"Gas Común", valor: "gascomun", checked:false },
+    {nombre:"Puerta de Garaje Automática", valor: "puertaelectrica", checked:false },
+    {nombre:"Intercom", valor: "intercom", checked:false }
+  ];
+
   
   constructor(private formBuilder: FormBuilder) { }
 
@@ -100,6 +152,7 @@ export class TasacionComponent implements OnInit {
     //Descripcion de las mejoras agregar propiedad al modelo del back
     construccionTerminada: [''],
     añoEstimado: [''],
+    areaPiso:[''],
     xtotal: [''],
     ventanaMarco: [''],
     sotano: [''],
@@ -152,9 +205,10 @@ export class TasacionComponent implements OnInit {
 
     fuenteManualCosto: [''],
     valorTerreno: [''],
-    metroTerraza: [''],
-    costoMetroInmueble:[''],
-    costoMetroTerraza: [''],
+    metroInmueble: this.metrosI,
+    metroTerraza: this.metrosT,
+    costoMetroInmueble: this.costoMI,
+    costoMetroTerraza: this.costoMT,
 
     //Enfoque de venta comparables
 
@@ -168,6 +222,7 @@ export class TasacionComponent implements OnInit {
 
     //Descripcion 2
 
+    descripcion2:[''],
     direccion2: [''],
     fechaVenta2: [''],
     precioVenta2: [''],
@@ -176,12 +231,14 @@ export class TasacionComponent implements OnInit {
     condicion2: [''],
     estilo2: [''],
     noHabitacion2:[''],
+    noBaños2:[''],
     noParquero2:[''],
     condicionFisica2: [''],
     valoresAjustados2: [''],
 
     //Descripcion 3
 
+    descripcion3:[''],
     direccion3: [''],
     fechaVenta3:[''],
     precioVenta3: [''],
@@ -190,6 +247,7 @@ export class TasacionComponent implements OnInit {
     condicion3: [''],
     estilo3: [''],
     noHabitacion3:[''],
+    noBaños3:[''],
     noParquero3:[''],
     condicionFisica3: [''],
     valoresAjustados3:[''],
@@ -209,13 +267,46 @@ export class TasacionComponent implements OnInit {
     revisor: [''],
     numeroRegistro: [''],
     fechaInspeccion:['']
-
-
-
-
-
-
   }) 
   }
 
+  get selectedOptions() { // right now: ['1','3']
+    return this.checkboxA
+              .filter(opt => opt.checked)
+              .map(opt => opt.valor)
+  }
+
+  get selectedOptionsb() { // right now: ['1','3']
+    return this.checkboxB
+              .filter(opt => opt.checked)
+              .map(opt => opt.valor)
+  }
+
+  get selectedOptionsc() { // right now: ['1','3']
+  return this.checkboxC
+            .filter(opt => opt.checked)
+            .map(opt => opt.valor)
+}
+
+get selectedOptionsd() { // right now: ['1','3']
+  return this.checkboxD
+            .filter(opt => opt.checked)
+            .map(opt => opt.valor)
+}
+
+get selectedOptionse() { // right now: ['1','3']
+  return this.checkboxE
+            .filter(opt => opt.checked)
+            .map(opt => opt.valor)
+}
+
+onSubmit(){
+  this.tasacionForm.controls['caracteristicasZona'].setValue(this.selectedOptions);
+  this.tasacionForm.controls['materialConstruccion'].setValue(this.selectedOptionsb);
+  this.tasacionForm.controls['amenidades'].setValue(this.selectedOptionsc);
+  this.tasacionForm.controls['sistemaElectrico'].setValue(this.selectedOptionsd);
+  this.tasacionForm.controls['artefactosAdicionales'].setValue(this.selectedOptionse);
+  console.log(this.tasacionForm.value);
+
+}
 }

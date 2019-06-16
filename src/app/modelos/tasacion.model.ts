@@ -73,6 +73,7 @@ export class TasacionModel{
     //Descripcion de las mejoras agregar propiedad al modelo del back
     construccionTerminada: string
     añoEstimado:Date
+    areaPiso:string
     xtotal: number
     ventanaMarco: string
     sotano: string
@@ -125,6 +126,7 @@ export class TasacionModel{
 
     fuenteManualCosto: string
     valorTerreno: number
+    metroInmueble:number
     metroTerraza: number
     costoMetroInmueble:number
     costoMetroTerraza: number
@@ -148,6 +150,7 @@ export class TasacionModel{
     precioMetro2: number
     condicion2: string
     estilo2: string
+    noBaños2: number
     noHabitacion2:number
     noParquero2:number
     condicionFisica2: string
@@ -163,6 +166,7 @@ export class TasacionModel{
     condicion3: string
     estilo3: string
     noHabitacion3:number
+    noBaños3:number
     noParquero3:number
     condicionFisica3: string
     valoresAjustados3:number
