@@ -64,7 +64,8 @@ h4{
 
 .comparable{
     display: inline-block;
-    margin: auto;
+    /* margin: auto; */
     border-right: #000;
 }
+
 
