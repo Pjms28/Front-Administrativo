@@ -12,13 +12,14 @@ li{
 .tab-pane{
     background: #fff;
     margin-left: -100px;
+    padding-bottom: 10px;
+    border-radius: 25px;
 }
 
 form{
     padding-top: 10px;
     width: 500px;
     margin: auto;
-    border-radius: 25px;
 }
 
 .form-group{
