@@ -11,58 +11,58 @@
 
 </ul>
 
-<form>
+<form [formGroup] = "tasacionForm">
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
       <h3>Información General</h3>
  
       <div class="form-group">
         <label>Descripción del Apartamento o Inmueble</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Descripción">
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Descripción" formControlName = "descripcionInmueble">
       </div>
       <div class="form-group">
         <label >Nombre del Tasador</label>
-        <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+        <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre" formControlName="tasadorNombre">
         </div>
           <div class="form-group">
               <label >Nombre del Asesor</label>
-              <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+              <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre" formControlName="asesorNombre">
               </div>
             <div class="form-group">
                 <label >Nombre del Técnico</label>
-                <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+                <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre" formControlName="tecnicoNombre">
                 </div>
                 <div class="form-group">
                     <label>Dirección de la Constructora</label>
-                    <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la dirección">
+                    <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la dirección" formControlName="direccionConstructora">
                     </div>
                     <div class="form-group">
                         <label>Teléfono de la Constructora</label>
-                        <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono">
+                        <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono" formControlName="telefonoConstructora">
                         </div>
                         <div class="form-group">
                             <label >Correo de la Constructora</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="correoCompañia">
                           </div>
                           <div class="form-group">
                               <label>Nombre del Cliente</label>
-                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre" formControlName="clienteNombre">
                               </div>
                               <div class="form-group">
                                   <label>Fecha</label>
-                                  <input type="date" class="form-control">
+                                  <input type="date" class="form-control" formControlName="fecha">
                                   </div>
                                   <div class="form-group">
                                       <label>Ciudad</label>
-                                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la ciudad">
+                                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la ciudad" formControlName="ciudad">
                                       </div>
                                       <div class="form-group">
                                           <label>País</label>
-                                          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el país">
+                                          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el país" formControlName="pais">
                                           </div>
                                           <div class="form-group">
                                               <label>Nombre del Banco</label>
-                                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+                                              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre" formControlName="banco">
                                               </div>
                                               <button type="submit" class="btn btn-primary">Siguiente</button>
                                  
@@ -72,19 +72,19 @@
  
         <div class="form-group">
           <label>Designación Catastral No</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el número catastral">
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el número catastral" formControlName="noCatastral">
         </div>
         <div class="form-group">
           <label >Matrícula</label>
-          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la matrícula">
+          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la matrícula" formControlName="matricula">
           </div>
           <div class="form-group">
               <label>Precio</label>
-              <input input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el precio">
+              <input input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el precio" formControlName="precio">
               </div>
               <div class="form-group">
                   <label>Precio en Letra</label>
-                  <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono">
+                  <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono" formControlName="letraPrecio">
                   </div>
                   <button type="submit" class="btn btn-primary">Siguiente</button>
          
@@ -94,41 +94,41 @@
    
         <div class="form-group">
           <label>Propietario</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre" formControlName="propietario">
         </div>
         <div class="form-group">
           <label >Valuador</label>
-          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre">
+          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre" formControlName="valuador">
         </div>
         <div class="form-group">
           <label>Dirección</label>
-          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la dirección">
+          <input input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la dirección" formControlName="direccion">
         </div>
         <div class="form-group">
             <label>Teléfono</label>
-            <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono">
+            <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono" formControlName="telefono">
           </div>
-          <div class="form-group">
+         <!-- <div class="form-group">
               <label>Nombre del Cliente</label>
               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el nombre del cliente">
-          </div>
+          </div>-->
           <div class="form-group">
             <label>Derechos de propiedad avaluada</label><br>
-            <input type="radio" name="propiedad" value="dominio">Pleno dominio.<br>
-            <input type="radio" name="propiedad" value="inmueblealquilado">Inmueble alquilado.<br>
-            <input type="radio" name="propiedad" value="condominio">Condominio.<br>
-            <input type="radio" name="propiedad" value="oupacion">Ocupación/Invasión.<br>
-            <input type="radio" name="propiedad" value="otro">Otro/Especifique.
+            <input type="radio" name="propiedad" value="dominio" formControlName="derechoPropiedad">Pleno dominio.<br>
+            <input type="radio" name="propiedad" value="inmueblealquilado" formControlName="derechoPropiedad">Inmueble alquilado.<br>
+            <input type="radio" name="propiedad" value="condominio" formControlName="derechoPropiedad">Condominio.<br>
+            <input type="radio" name="propiedad" value="oupacion" formControlName="derechoPropiedad">Ocupación/Invasión.<br>
+            <input type="radio" name="propiedad" value="otro" formControlName="derechoPropiedad">Otro/Especifique.
         </div>
         <div class="form-group">
           <label>Ocupado por</label><br>
-          <input type="radio" name="propiedad" value="propietario">Propietario.<br>
-          <input type="radio" name="propiedad" value="inquilino">Inquilino.<br>
-          <input type="radio" name="propiedad" value="desocupado">Desocupado.
+          <input type="radio" name="propiedad" value="propietario" formControlName="ocupadoPor">Propietario.<br>
+          <input type="radio" name="propiedad" value="inquilino" formControlName="ocupadoPor">Inquilino.<br>
+          <input type="radio" name="propiedad" value="desocupado" formControlName="ocupadoPor">Desocupado.
       </div>
       <div class="form-group">
         <label>Utilidad del inmueble</label>
-        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la utilidad del inmueble">
+        <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la utilidad del inmueble" formControlName="utilidadInmueble">
        </div>
           <button type="submit" class="btn btn-primary">Siguiente</button>
     
@@ -139,82 +139,82 @@
  
           <div class="form-group">
               <label>Tipo de vecindad</label><br>
-              <input type="radio" name="tipo" value="urbano">Urbano.<br>
-              <input type="radio" name="tipo" value="rural">Rural.<br>
-              <input type="radio" name="tipo" value="mixto">Mixto.<br>
+              <input type="radio" name="tipo" value="urbano" formControlName="tipoVecindad">Urbano.<br>
+              <input type="radio" name="tipo" value="rural" formControlName="tipoVecindad">Rural.<br>
+              <input type="radio" name="tipo" value="mixto" formControlName="tipoVecindad">Mixto.<br>
               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
           </div>
 
           <div class="form-group">
               <label>Tendencia de la vecindad</label><br>
-              <input type="radio" name="vecindad" value="mejorar">A mejorar.<br>
-              <input type="radio" name="vecindad" value="estable">Estable.<br>
-              <input type="radio" name="vecindad" value="empeorar">A empeorar.<br>
-              <input type="radio" name="vecindad" value="tansicion">En transición.
+              <input type="radio" name="vecindad" value="mejorar" formControlName ="tendenciaVecindad">A mejorar.<br>
+              <input type="radio" name="vecindad" value="estable" formControlName ="tendenciaVecindad">Estable.<br>
+              <input type="radio" name="vecindad" value="empeorar" formControlName ="tendenciaVecindad">A empeorar.<br>
+              <input type="radio" name="vecindad" value="tansicion" formControlName ="tendenciaVecindad">En transición.
           </div>
 
           <div class="form-group">
               <label>Comparación con la propiedad del vecindario</label><br>
-              <input type="radio" name="vecindario" value="urbano">Inferior.<br>
-              <input type="radio" name="vecindario" value="rural">Similar.<br>
-              <input type="radio" name="vecindario" value="mixto">Superior.<br>
+              <input type="radio" name="vecindario" value="urbano" formControlName = "comparacionVecindario">Inferior.<br>
+              <input type="radio" name="vecindario" value="rural" formControlName = "comparacionVecindario">Similar.<br>
+              <input type="radio" name="vecindario" value="mixto" formControlName = "comparacionVecindario">Superior.<br>
               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
           </div>
 
           <div class="form-group">
               <label>Antigüedad promedio de las propiedades del vecindario</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la antigüedad promedio de las propiedades del vecindario">
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la antigüedad promedio de las propiedades del vecindario" formControlName ="antiguedadPromedio">
           </div>
 
           <div class="form-group">
               <label>Área construida</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el área construida">
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el área construida" formControlName="areaConstruida">
           </div>
 
           <div class="form-group">
               <label>Oferta </label><br>
-              <input type="radio" name="oferta" value="mucha">Mucha.<br>
-              <input type="radio" name="oferta" value="razonable">Razonable.<br>
-              <input type="radio" name="oferta" value="poca">Poca.
+              <input type="radio" name="oferta" value="mucha" formControlName="oferta">Mucha.<br>
+              <input type="radio" name="oferta" value="razonable" formControlName="oferta">Razonable.<br>
+              <input type="radio" name="oferta" value="poca" formControlName="oferta">Poca.
           </div>
 
           <div class="form-group">
               <label>Demanda</label><br>
-              <input type="radio" name="demanda" value="mucha">Mucha.<br>
-              <input type="radio" name="demanda" value="razonable">Razonable.<br>
-              <input type="radio" name="demanda" value="poca">Poca.
+              <input type="radio" name="demanda" value="mucha" formControlName ="demanda">Mucha.<br>
+              <input type="radio" name="demanda" value="razonable" formControlName ="demanda">Razonable.<br>
+              <input type="radio" name="demanda" value="poca" formControlName ="demanda">Poca.
           </div>
 
           <div class="form-group">
               <label>Deseabilidad de la propiedad</label><br>
-              <input type="radio" name="propiedad" value="mucha">Mucha.<br>
-              <input type="radio" name="propiedad" value="razonable">Razonable.<br>
-              <input type="radio" name="propiedad" value="poca">Poca.
+              <input type="radio" name="propiedad" value="mucha" formControlName="deseabilidadPropiedad">Mucha.<br>
+              <input type="radio" name="propiedad" value="razonable" formControlName="deseabilidadPropiedad">Razonable.<br>
+              <input type="radio" name="propiedad" value="poca" formControlName="deseabilidadPropiedad">Poca.
           </div>
 
           <div class="form-group">
               <label>Distancia a Escuela Primaria</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Escuela Primaria">
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Escuela Primaria"  formControlName="distanciaEscuelaP">
           </div>
 
           <div class="form-group">
               <label>Distancia a Escuela Secundaria</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Escuela Secundaria.">
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Escuela Secundaria." formControlName="distanciaEscuelaS">
           </div>
 
           <div class="form-group">
               <label>Distancia al Transporte Público</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia al Transporte Público.">
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia al Transporte Público." formControlName="distanciaTransporte">
           </div>
 
           <div class="form-group">
               <label>Distancia a Comercios</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Comercios.">
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Comercios." formControlName="distanciaComercio">
           </div>
 
           <div class="form-group">
               <label>Distancia a Centro de la ciudad</label>
-              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Centro de la ciudad.">
+              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la distancia a Centro de la ciudad." formControlName="distanciaCiudad">
           </div>
 
 
