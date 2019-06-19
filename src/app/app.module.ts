@@ -72,6 +72,7 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
 import { TasacionComponent } from './components/tasacion/tasacion.component';
 import {NgxMaskModule} from 'ngx-mask';
+import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import {NgxMaskModule} from 'ngx-mask';
     CaracteristicasComponent,
     ServiciosComponent,
     TemasforosComponent,
-    TasacionComponent
+    TasacionComponent,
+    EditarTasacionComponent
   ],
   imports: [
     BrowserModule,
@@ -154,7 +156,7 @@ import {NgxMaskModule} from 'ngx-mask';
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent ,canActivate:[AuthGuard]},
+      {path: '',component: MenuComponent},
       {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
       {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
       {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},

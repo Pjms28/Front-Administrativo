@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { TasacionService } from 'src/app/shared/tasacion.service';
 
 @Component({
   selector: 'app-tasacion',
@@ -77,7 +78,7 @@ export class TasacionComponent implements OnInit {
   ];
 
   
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private tscApi: TasacionService) { }
 
   ngOnInit() {
   this.tasacionForm = this.formBuilder.group({
@@ -307,6 +308,7 @@ onSubmit(){
   this.tasacionForm.controls['sistemaElectrico'].setValue(this.selectedOptionsd);
   this.tasacionForm.controls['artefactosAdicionales'].setValue(this.selectedOptionse);
   console.log(this.tasacionForm.value);
-
+  this.tscApi.addTasacion(this.tasacionForm.value).subscribe(res =>{
+  })
 }
 }

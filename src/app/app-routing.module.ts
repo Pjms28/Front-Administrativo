@@ -20,6 +20,7 @@ import { DetallePeticionComponent } from './components/detalle-peticion/detalle-
 import { AuthGuard } from "../app/guard/auth.guard";
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
 import { TasacionComponent } from './components/tasacion/tasacion.component';
+import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.component';
 
 
 const routes: Routes = [
@@ -111,6 +112,11 @@ const routes: Routes = [
 {
   path: 'editar-post/: id',
   component: EditarPostComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'editar-tasacion/: id',
+  component:EditarTasacionComponent,
   canActivate:[AuthGuard]
 },
 {
