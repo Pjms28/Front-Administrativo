@@ -58,7 +58,7 @@ export class TasacionModel{
     //Descripcion de la zona
 
     limitesNaturales: string
-    caracteristicasZona:[]
+    caracteristicasZona:any[]
     area: number
     fuente: string
     topografia: string
@@ -80,7 +80,7 @@ export class TasacionModel{
     areaTotalSotano: number
     tipoInmueble: string
     estructura: string
-    materialConstruccion: []
+    materialConstruccion: any[]
     revestimientoExterior: string
     materialTecho: string
     condicionExterna: string
@@ -100,9 +100,9 @@ export class TasacionModel{
     tuberiasSanitarias: string
     calentadorAgua: string
     capacidadCalentador: number
-    sistemaElectrico: []
-    artefactosAdicionales: []
-    amenidades:[]
+    sistemaElectrico: any[]
+    artefactosAdicionales: any[]
+    amenidades: any[]
     noParqueos: number
     otrasMejoras: string
     comentarios: string

@@ -33,7 +33,6 @@ export class EditarPostComponent implements OnInit {
 
 
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
-    console.log(this.ID);
     this.blogApi.getBlog(this.ID).subscribe(res =>{
       if(res == null){
         this.toastr.error("Accion invalida", "Error");

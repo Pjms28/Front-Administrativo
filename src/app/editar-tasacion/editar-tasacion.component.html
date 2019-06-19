@@ -638,22 +638,22 @@
     
                             <div class="form-group">
                                 <label>Metros Cuadrados del Inmueble</label><br>
-                                <input type="text" [(ngModel)]="metrosI" [ngModelOptions]="{standalone: true}"> mask="comma_separator" name="metros"  placeholder="Introduzca la cantidad"><br>
+                                <input type="text" formControlName="metroInmueble" mask="comma_separator" name="metros"  placeholder="Introduzca la cantidad"><br>
                             </div>
 
                             <div class="form-group">
                                 <label>Costo por Metros Cuadrados (Inmueble)</label><br>
-                                <input type="text" [(ngModel)]="costoMI" [ngModelOptions]="{standalone: true}"> mask="comma_separator" name="cosm" placeholder="Introduzca el valor"><br>
+                                <input type="text" formControlName="costoMetroInmueble" mask="comma_separator" name="cosm" placeholder="Introduzca el valor"><br>
                             </div>
 
                             <div class="form-group">
                                 <label>Metros Cuadrados de Terraza</label><br>
-                                <input type="text" [(ngModel)]="metrosT" [ngModelOptions]="{standalone: true}"> mask="comma_separator" name="metroos"  placeholder="Introduzca la cantidad"><br>
+                                <input type="text" formControlName="metroTerraza" mask="comma_separator" name="metroos"  placeholder="Introduzca la cantidad"><br>
                             </div>
 
                             <div class="form-group">
                                 <label>Costo por Metros Cuadrados (Terraza)</label><br>
-                                <input type="text" [(ngModel)]="costoMT" [ngModelOptions]="{standalone: true}"> mask="comma_separator" name="cosm"  placeholder="Introduzca el valor"><br>
+                                <input type="text" formControlName="costoMetroTerraza" mask="comma_separator" name="cosm"  placeholder="Introduzca el valor"><br>
                             </div>
 
                 
@@ -664,7 +664,6 @@
                             <h3>Enfoque de Ventas Comparables</h3>
 
                                 <div class="comparable">
-                                    <div class="comp1">
                                     <h4>Comparable #1</h4>
                                 
                                 <div class="form-group"> 
@@ -702,7 +701,6 @@
                                     <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va" placeholder="Introduzca monto" formControlName ="valorAjustado"><br>
                                 </div>
                             </div>
-                        </div>
 
                                 <div class="comparable">
                                         <h4>Comparable #2</h4>
