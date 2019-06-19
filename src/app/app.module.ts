@@ -73,6 +73,7 @@ import { TemasforosComponent } from './components/temasforos/temasforos.componen
 import { TasacionComponent } from './components/tasacion/tasacion.component';
 import {NgxMaskModule} from 'ngx-mask';
 import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.compo
     ServiciosComponent,
     TemasforosComponent,
     TasacionComponent,
-    EditarTasacionComponent
+    EditarTasacionComponent,
+    PdfComponent
   ],
   imports: [
     BrowserModule,

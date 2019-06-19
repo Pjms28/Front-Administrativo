@@ -1,0 +1,256 @@
+<!-- Información General -->
+<div class="padre">
+<div class="general">
+<h1 id="nombre" #nombre>"Nombre Compañía"</h1>
+<h3 id="servicios" #servicios >Servicios de Tasaciones, Consultoría y Asesoría de Inversiones y Construcciones</h3>
+<br>
+<h4 id="tasacion" #tasacion><b>Informe de Tasación</b> </h4>
+<div id="content" #content>
+  <p>"Descripción del apartamento"</p>
+  <br>
+  <h4>"Tasador"</h4>
+  <h4>"Asesor"</h4>
+  <h4>"Direccion"</h4>
+  <h4>"Telefono"</h4>
+  <h4>"Correo"</h4>
+</div>
+</div>
+
+<h2>Información General</h2>
+<button (click)="InforGen()">Exportar como PDF</button>
+
+<!-- Solicitud de Avalúo -->
+
+<div class="solicitud">
+  <div id="der" #der>
+    <p>"Fecha"</p>
+    <p>"Ciudad"</p>
+    <p>"País"</p>
+  </div>
+  <div id="solicitud" #solicitud>
+  <p>Sr. (a)</p>
+  <p>"Nombre del cliente"</p>
+  <p>"Direccion"</p>
+  <p> </p>
+  <p>"Nombre del banco"</p>
+  <p> </p>
+  <p>Distinguido (a) Sr. (a):</p>
+  <p>De acuerdo con su solicitud de Tasación del Inmueble <b>"Descripción y Direccion";</b> Le anexamos un original y copia firmada del Informe y Certificación de Avalúo del mismo para los fines que se juzgue de lugar. </p>
+  <p>Esperamos haber satisfecho su solicitud y nos reiteramos a sus ordenes.</p>
+  <p>Sin más, se despide de usted muy atentamente,</p>
+  <p>"Tasador"</p>
+</div>
+<p id="tecnico" #tecnico>"Técnico"</p>
+</div>
+
+<h2>Solicitud Aváluo</h2>
+<button (click)="Solicitud()">Exportar como PDF</button>
+
+<!-- Certificación de Avalúo -->
+
+<div class="certificacion">
+    <div id="certificacion" #certificacion>
+      <h1>Certificación de Avalúo</h1>
+      <p>El abajo suscrito, quien declara no prever, ni tener interés personal en la propiedad de referencia, deja constancia que las informaciones, declaraciones y datos suministrados son verídicos y correctos a mi ciencia y conciencia y que he procurado no ignorar ni esconder informaciones importantes.</p>
+      <p>Certifico que después de haber visitado, analizado y procesado los datos del inmueble <b>"Descripción y Direccion",</b> y correspondiente a la Designación Catastral No. <b>"No Catastral",</b> con la Matricula No. <b>"Matricula",</b> <b>"Ciudad";</b> he estimado su valor de mercado en la suma de RD$ <b>"precio"</b> ( <b> "letraPrecio"</b> ) </p>
+      <p> <b>"ciudad"</b>, <b>"pais"</b>, <b>"fecha"</b> </p>
+    </div>
+  </div>
+
+  
+  <h2>Certificacion Aváluo</h2>
+  <button (click)="Certificacion()">Exportar como PDF</button>
+
+  <!-- Informe de Avalúo de Propiedad-->
+
+<div class="informe">
+    <div id="informe" #informe>
+      <h1>Informe de Avalúo de Propiedad</h1>
+      <p> <b>"fecha"</b> </p>
+      <p>Propietario: <b>"propietario"</b></p>
+      <p> Dirección: <b>"direccion"</b> </p>
+      <p> Derechos de la Propiedad Evaluada: <b>"derechoPropiedad"</b> </p>
+      <p> Ocuapada por: <b>"ocupadoPor"</b> </p>
+      <p> Porcentaje de Utilidad del Inmueble: <b>"utilidadInmueble"</b> </p>
+      <p> Valuador: <b>"valuador"</b> </p>
+      <p> No. de Teléfono: <b>"telefono"</b> </p>
+    </div>
+  </div>
+
+  
+  <h2>Informe de Aváluo de Propiedad</h2>
+  <button (click)="Informe()">Exportar como PDF</button>
+
+  <!-- Descripción de la Vecindad-->
+
+<div class="vecindad">
+    <div id="vecindad" #vecindad>
+      <h1>Descripción de la Vecindad </h1>
+      <p> Tipo de Vecindad: <b>"tipoVecindad"</b> </p>
+      <p>Tendencia de la Vecindad: <b>"tendenciaVecindad"</b></p>
+      <p> Comparación con las Propiedades del Vecindario: <b>"comparacionVecindario"</b> </p>
+      <p> Antiguedad Promedio de las Propiedades del Vecindario: <b>"antiguedadPromedio"</b> </p>
+      <p> Àrea Construida: <b>"areaConstruida"</b> </p>
+      <p> Oferta: <b>"oferta"</b> </p>
+      <p> Distancia de Escuela Primaria: <b>"distanciaEscuelaP"</b> </p>
+      <p> Distancia de Escuela Secundaria: <b>"distanciaEscuelaS"</b> </p>
+      <p> Distancia de Transporte Público: <b>"distanciaTransporte"</b> </p>
+      <p> Distancia de Comercios: <b>"distanciaComercio"</b> </p>
+      <p> Distancia a Centro de la Ciudad: <b>"distanciaCiudad"</b> </p>
+      <p> Deseabilidad de la Propiedad: <b>"deseabilidadPropiedad"</b> </p>
+    </div>
+  </div>
+
+  
+  <h2>Descripción de la Vecindad</h2>
+  <button (click)="Vecindad()">Exportar como PDF</button>
+
+  <!-- Descripción de la Zona -->
+
+  <div class="zona">
+      <div id="zona" #zona>
+        <h1>Descripción de la Zona</h1>
+        <p> Limites Naturales: <b>"limitesNaturales"</b> </p>
+        <p>Características de la Zona: <b>"caracteristicasZona"</b></p>
+        <p> Àrea: <b>"area"</b> </p>
+        <p> Fuente: <b>"fuente"</b> </p>
+        <p> Topografía: <b>"topografia"</b> </p>
+        <p> Configuración: <b>"configuracion"</b> </p>
+        <p> Zonificación: <b>"zonificacion"</b> </p>
+        <p> El Uso de la Propiedad esta Conforme con lo Permitido: <b>"usoPropiedad"</b> </p>
+        <p> Paisajismo o Àreas Verdes: <b>"areaVerde"</b> </p>
+        <p> Servidumbre: <b>"servidumbre"</b> </p>
+        <p> Entrada y Salida de la Marquesina: <b>"marquesina"</b> </p>
+        <p> Instalación Eléctrica: <b>"instalacionElectrica"</b> </p>
+      </div>
+    </div>
+  
+    
+    <h2>Descripción de la Zona</h2>
+    <button (click)="Zona()">Exportar como PDF</button>
+
+      <!-- Descripción de las Mejoras -->
+
+  <div class="mejoras">
+      <div id="mejoras" #mejoras>
+        <h1>Descripción de la Mejoras</h1>
+        <p> Año de Construcción Estimado: <b>"añoEstimado"</b> </p>
+        <p>Construcción Terminada: <b>"construccionTerminada"</b></p>
+        <p> Àrea por piso del Inmueble: <b>"areaPiso"</b> </p>
+        <p> X Total: <b>"xtotal"</b> </p>
+        <p> Tipo de Marcos de Ventana: <b>"ventanaMarco"</b> </p>
+        <p> Sótano: <b>"sotano"</b> </p>
+        <p> Àrea Total del Sótano: <b>"areaTotalSotano"</b> </p>
+        <p> Tipo de Inmueble: <b>"tipoInmueble"</b> </p>
+        <p> Estructura: <b>"estructura"</b> </p>
+        <p> Material de Construcción: <b>"materialConstruccion"</b> </p>
+        <p> Revestimiento Exterior: <b>"revestimientoExterior"</b> </p>
+        <p> Material del Techo: <b>"materialTecho"</b> </p>
+        <p> Condición General Externa: <b>"condicionExterna"</b> </p>
+      </div>
+    </div>
+  
+    
+    <h2>Descripción de las Mejoras</h2>
+    <button (click)="Mejoras()">Exportar como PDF</button>
+
+      <!-- Descripción del Interior de la Propiedad -->
+
+  <div class="interior">
+      <div id="interior" #interior>
+        <h1>Descripción del Interior de la Propiedad</h1>
+        <p> Pisos: <b>"tipoPiso"</b> </p>
+        <p> Distribución Arquitectónica: <b>"distribucionArq"</b></p>
+        <p> Armarios: <b>"armarios"</b> </p>
+        <p> Dormitorios: <b>"dormitorios"</b> </p>
+        <p> Número de Baños: <b>"noBaños"</b> </p>
+        <p> Baños: <b>"baños"</b> </p>
+        <p> Condición General Interna: <b>"condicionInterna"</b> </p>
+        <p> Material de las Paredes: <b>"paredesMaterial"</b> </p>
+        <p> Material de Techos: <b>"techos"</b> </p>
+        <p> Otros Detalles: <b>"otrosDetalles"</b> </p>
+        <p> Instalación Sanitaria Tuberías: <b>"tuberiasSanitarias"</b> </p>
+        <p> Amenidades: <b>"amenidades"</b> </p>
+        <p> Calentador de Agua: <b>"calentadorAgua"</b> </p>
+        <p> Capacidad del Calentador: <b>"capacidadCalentador"</b> </p>
+        <p> Sistema Eléctrico: <b>"sistemaElectrico"</b> </p>
+        <p> Artefactos Empotrados e Instalaciones Adicionales: <b>"artefactosAdicionales"</b> </p>
+        <p> Número de Parqueos: <b>"noParqueos"</b> </p>
+        <p> Terraza, Patios, Otras Mejoras: <b>"otrasMejoras"</b> </p>
+        <p> Comentarios: <b>"comentarios"</b> </p>
+      </div>
+    </div>
+  
+    
+    <h2>Descripción del Interior de la Propiedad</h2>
+    <button (click)="Interior()">Exportar como PDF</button>
+
+
+  <!-- Distribución de las Habitaciones-->
+
+  <div class="habitaciones">
+      <div id="habitaciones" #habitaciones>
+        <h1>Distribución de las Habitaciones</h1>
+        <p> Número de Piso: <b>"numeroPiso"</b> </p>
+        <p> Habitaciones: <b>"habitaciones"</b></p>
+        <p> Entrada: <b>"entrada"</b> </p>
+        <p> Sala de Estar: <b>"salaEstar"</b> </p>
+        <p> Comedor: <b>"comedor"</b> </p>
+        <p> Cocina: <b>"cocina"</b> </p>
+        <p> Baño Completo: <b>"bañoCompleto"</b> </p>
+        <p> Baño Parcial: <b>"bañoParcial"</b> </p>
+        <p> Terraza Descubierta: <b>"terraza"</b> </p>
+        <p> Lavanderia: <b>"lavanderia"</b> </p>
+        <p> Cuarto de Servicio: <b>"cuartoServicio"</b> </p>
+        <p> Parqueos: <b>"parqueos"</b> </p>
+      </div>
+    </div>
+  
+    
+    <h2>Distribución de las Habitaciones</h2>
+    <button (click)="Habitaciones()">Exportar como PDF</button>
+
+      <!-- Metodología de Ventas Comparables de Mercado-->
+
+  <div class="metodologia">
+      <div id="metodologia" #metodologia>
+        <h1>Metodología de Ventas Comparables de Mercado</h1>
+        <p> Fuente de Datos del Costo: <b>"fuenteManualCosto"</b> </p>
+        <p> Valor del Terreno: <b>"valorTerreno"</b></p>
+        <p> M2 del Inmueble: <b>"metroInmueble"</b> </p>
+        <p> Costo por m2 del Inmueble: <b>"costoMetroInmueble"</b> </p>
+        <p> M2 de la Terraza: <b>"metroTerraza"</b> </p>
+        <p> Costo por m2 de la Terraza: <b>"costoMetroTerraza"</b> </p>
+        <p> Costo Total del Inmueble: <b>"Total Inmueble"</b> </p>
+        <p> Costo Total de la Terraza: <b>"total Terraza"</b> </p>
+        <p> Valor Total Según Enfoque de Mercado: <b>"total"</b> </p>
+      </div>
+    </div>
+  
+    
+    <h2>Metodología de Ventas Comparables de Mercado</h2>
+    <button (click)="Metodologia()">Exportar como PDF</button>
+
+          <!-- Enfoque de Ventas Comparables -->
+
+  <div class="comparables">
+      <div id="comparables" #comparables>
+        <h1>Enfoque de Ventas Comparables </h1>
+        <p> Fuente de Datos del Costo: <b>"fuenteManualCosto"</b> </p>
+        <p> Valor del Terreno: <b>"valorTerreno"</b></p>
+        <p> M2 del Inmueble: <b>"metroInmueble"</b> </p>
+        <p> Costo por m2 del Inmueble: <b>"costoMetroInmueble"</b> </p>
+        <p> M2 de la Terraza: <b>"metroTerraza"</b> </p>
+        <p> Costo por m2 de la Terraza: <b>"costoMetroTerraza"</b> </p>
+        <p> Costo Total del Inmueble: <b>"Total Inmueble"</b> </p>
+        <p> Costo Total de la Terraza: <b>"total Terraza"</b> </p>
+        <p> Valor Total Según Enfoque de Mercado: <b>"total"</b> </p>
+      </div>
+    </div>
+  
+    
+    <h2>Enfoque de Ventas Comparables </h2>
+    <button (click)="Comparable()">Exportar como PDF</button>
+
+
+</div>
