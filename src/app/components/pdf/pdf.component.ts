@@ -15,10 +15,43 @@ export class PdfComponent implements OnInit {
   @ViewChild('nombre') nombre: ElementRef
   @ViewChild('servicios') servicios: ElementRef
   @ViewChild('tasacion') tasacion: ElementRef
+  // Solicitud Avalúo
+  @ViewChild('solicitud') solicitud: ElementRef
+  @ViewChild('der') der: ElementRef
+  @ViewChild('tecnico') tecnico: ElementRef
+  // Certificación Avalúo
+  @ViewChild('certificacion') certificacion: ElementRef
+  // Informe de Avalúo de Propiedad
+  @ViewChild('informe') informe: ElementRef
+  // Descripción de la Vecindad
+  @ViewChild('vecindad') vecindad: ElementRef
+  // Descripción de la Zona
+  @ViewChild('zona') zona: ElementRef
+  // Descripción de las Mejoras
+  @ViewChild('mejoras') mejoras: ElementRef
+  // Descripción del Interior de la Propiedad
+  @ViewChild('interior') interior: ElementRef
+  // Distribución de las Habitaciones
+  @ViewChild('habitaciones') habitaciones: ElementRef
+  // Metodología de Ventas Comparables de Mercado
+  @ViewChild('metodologia') metodologia: ElementRef
+  // Conclusiones
+  @ViewChild('conclusiones') conclusiones: ElementRef
 
-  public InforGen(){
+  public GenerarPDF(){
 
-    let doc = new jsPDF();
+    let info = new jsPDF();
+    let avaluo = new jsPDF();
+    let certif = new jsPDF();
+    let propiedad = new jsPDF();
+    let desVecindad = new jsPDF();
+    let desZona = new jsPDF();
+    let desMejoras = new jsPDF();
+    let desInterior = new jsPDF();
+    let distribucion = new jsPDF();
+    let metVentas = new jsPDF();
+    let conclu = new jsPDF();
+
     let specialElementHandlers = {
       '#editor': function(element, renderer){
         return true;
@@ -29,331 +62,136 @@ export class PdfComponent implements OnInit {
     let nombre = this.nombre.nativeElement;
     let servicios = this.servicios.nativeElement;
     let tasacion = this.tasacion.nativeElement;
-
-    
-    doc.fromHTML(nombre.innerHTML, 80, 10, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-
-    doc.fromHTML(servicios.innerHTML, 30, 20, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-
-    doc.fromHTML(tasacion.innerHTML, 80, 30, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-    
-    doc.fromHTML(content.innerHTML, 10, 40, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-
-    
-    doc.save('InformaciónGeneral.pdf');
-    
-
-  }
-
-  // Solicitud Avalúo
-
-  @ViewChild('solicitud') solicitud: ElementRef
-  @ViewChild('der') der: ElementRef
-  @ViewChild('tecnico') tecnico: ElementRef
-
-  public Solicitud(){
-
-    let doc = new jsPDF();
-    let specialElementHandlers = {
-      '#editor': function(element, renderer){
-        return true;
-      }
-    };
-
     let solicitud = this.solicitud.nativeElement;
     let der = this.der.nativeElement;
     let tecnico = this.tecnico.nativeElement;
-
-    
-    doc.fromHTML(der.innerHTML, 180, 10, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-
-
-    doc.fromHTML(tecnico.innerHTML, 180, 120, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-    
-    doc.fromHTML(solicitud.innerHTML, 10, 30, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-
-    
-    doc.save('SolicitudAváluo.pdf');
-    
-
-  }
-
-  // Certificación Avalúo
-
-  @ViewChild('certificacion') certificacion: ElementRef
-
-
-  public Certificacion(){
-
-    let doc = new jsPDF();
-    let specialElementHandlers = {
-      '#editor': function(element, renderer){
-        return true;
-      }
-    };
-
     let certificacion = this.certificacion.nativeElement;
-
-
-    
-    doc.fromHTML(certificacion.innerHTML, 10, 10, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-
-    
-    doc.save('CertificaciónAváluo.pdf');
-    
-
-  }
-
-
-  // Informe de Avalúo de Propiedad
-
-  @ViewChild('informe') informe: ElementRef
-
-
-  public Informe(){
-
-    let doc = new jsPDF();
-    let specialElementHandlers = {
-      '#editor': function(element, renderer){
-        return true;
-      }
-    };
-
     let informe = this.informe.nativeElement;
-
-
-    
-    doc.fromHTML(informe.innerHTML, 10, 10, {
-      'width': 190,
-      'elementHandlers': specialElementHandlers
-    });
-
-    
-    doc.save('InformeAváluoPropiedad.pdf');
-    
-
-  }
-
-  // Descripción de la Vecindad
-
-  @ViewChild('vecindad') vecindad: ElementRef
-
-
-  public Vecindad(){
-
-    let doc = new jsPDF();
-    let specialElementHandlers = {
-      '#editor': function(element, renderer){
-        return true;
-      }
-    };
-
     let vecindad = this.vecindad.nativeElement;
+    let zona = this.zona.nativeElement;
+    let mejoras = this.mejoras.nativeElement;
+    let interior = this.interior.nativeElement;
+    let habitaciones = this.habitaciones.nativeElement;
+    let metodologia = this.metodologia.nativeElement;
+    let conclusiones  = this.conclusiones.nativeElement;
 
 
     
-    doc.fromHTML(vecindad.innerHTML, 10, 10, {
+    // Información General
+    info.fromHTML(nombre.innerHTML, 80, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    info.fromHTML(servicios.innerHTML, 30, 20, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    info.fromHTML(tasacion.innerHTML, 80, 30, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+    
+    info.fromHTML(content.innerHTML, 10, 40, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+ // Solicitud Avalúo
+    avaluo.fromHTML(der.innerHTML, 180, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+
+    avaluo.fromHTML(tecnico.innerHTML, 180, 120, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+    
+    avaluo.fromHTML(solicitud.innerHTML, 10, 30, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+     // Certificación Avalúo
+
+     certif.fromHTML(certificacion.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // Informe de Avalúo de Propiedad
+    
+    propiedad.fromHTML(informe.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // Descripción de la Vecindad
+
+    desVecindad.fromHTML(vecindad.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+     // Descripción de la Zona
+
+     desZona.fromHTML(zona.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // Descripción de las Mejoras
+
+    desMejoras.fromHTML(mejoras.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // Descripción del Interior de la Propiedad
+    desInterior.fromHTML(interior.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // Distribución de las Habitaciones
+    distribucion.fromHTML(habitaciones.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // Metodología de Ventas Comparables de Mercado
+    metVentas.fromHTML(metodologia.innerHTML, 10, 10, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+
+    // Conclusiones
+    conclu.fromHTML(conclusiones.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
 
     
-    doc.save('DescripciónVecindad.pdf');
     
+
+    info.save('InformaciónGeneral.pdf');
+    avaluo.save('SolicitudAváluo.pdf');
+    certif.save('CertificaciónAváluo.pdf');
+    propiedad.save('InformeAváluoPropiedad.pdf');
+    desVecindad.save('DescripciónVecindad.pdf');
+    desZona.save('DescripciónZona.pdf');
+    desMejoras.save('DescripciónMejoras.pdf');
+    desInterior.save('DescripciónInterior.pdf');
+    distribucion.save('DistribuciónHabitaciones.pdf');
+    metVentas.save('MetodologíiaVentasComparables.pdf');
+    conclu.save('Conclusiones.pdf');
 
   }
 
-   // Descripción de la Zona
 
-   @ViewChild('zona') zona: ElementRef
-
-
-   public Zona(){
- 
-     let doc = new jsPDF();
-     let specialElementHandlers = {
-       '#editor': function(element, renderer){
-         return true;
-       }
-     };
- 
-     let zona = this.zona.nativeElement;
- 
- 
-     
-     doc.fromHTML(zona.innerHTML, 10, 10, {
-       'width': 190,
-       'elementHandlers': specialElementHandlers
-     });
- 
-     
-     doc.save('DescripciónZona.pdf');
-     
- 
-   }
-
-      // Descripción de las Mejoras
-
-      @ViewChild('mejoras') mejoras: ElementRef
-
-
-      public Mejoras(){
-    
-        let doc = new jsPDF();
-        let specialElementHandlers = {
-          '#editor': function(element, renderer){
-            return true;
-          }
-        };
-    
-        let mejoras = this.mejoras.nativeElement;
-    
-    
-        
-        doc.fromHTML(mejoras.innerHTML, 10, 10, {
-          'width': 190,
-          'elementHandlers': specialElementHandlers
-        });
-    
-        
-        doc.save('DescripciónMejoras.pdf');
-        
-    
-      }
-
-        // Descripción del Interior de la Propiedad
-
-        @ViewChild('interior') interior: ElementRef
-
-
-        public Interior(){
-      
-          let doc = new jsPDF();
-          let specialElementHandlers = {
-            '#editor': function(element, renderer){
-              return true;
-            }
-          };
-      
-          let interior = this.interior.nativeElement;
-      
-      
-          
-          doc.fromHTML(interior.innerHTML, 10, 10, {
-            'width': 190,
-            'elementHandlers': specialElementHandlers
-          });
-      
-          
-          doc.save('DescripciónInterior.pdf');
-          
-      
-        }
-
-                // Distribución de las Habitaciones
-
-        @ViewChild('habitaciones') habitaciones: ElementRef
-
-
-        public Habitaciones(){
-      
-          let doc = new jsPDF();
-          let specialElementHandlers = {
-            '#editor': function(element, renderer){
-              return true;
-            }
-          };
-      
-          let habitaciones = this.habitaciones.nativeElement;
-      
-      
-          
-          doc.fromHTML(habitaciones.innerHTML, 10, 10, {
-            'width': 190,
-            'elementHandlers': specialElementHandlers
-          });
-      
-          
-          doc.save('DistribuciónHabitaciones.pdf');
-          
-      
-        }
-
-// Distribución de las Habitaciones
-
-
-        @ViewChild('metodologia') metodologia: ElementRef
-
-
-        public Metodologia(){
-      
-          let doc = new jsPDF();
-          let specialElementHandlers = {
-            '#editor': function(element, renderer){
-              return true;
-            }
-          };
-      
-          let metodologia = this.metodologia.nativeElement;
-      
-      
-          
-          doc.fromHTML(metodologia.innerHTML, 10, 10, {
-            'width': 190,
-            'elementHandlers': specialElementHandlers
-          });
-      
-          
-          doc.save('MetodologíiaVentasComparables.pdf');
-          
-      
-        }
-
-        // Com
-
-
-        @ViewChild('comparables') comparables: ElementRef
-
-
-        public Comparable(){
-      
-          let columns = ["ID", "Name", "Country"];
-          let rows = [
-              [1, "Shaw", "Tanzania"],
-              [2, "Nelson", "Kazakhstan"],
-              [3, "Garcia", "Madagascar"],
-          ];
-  
-          let doc = new jsPDF('l', 'pt');
-          doc.autoTable(columns, rows); // typescript compile time error
-          doc.save('table.pdf');
-          
-      
-        }
 
   constructor() { }
 

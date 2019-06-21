@@ -1,43 +1,4 @@
 .padre{
-    display: inline-block;
-}
-
-.general{
     display: none;
 }
 
-.solicitud{
-    display: none;
-}
-
-.certificacion{
-    display: none;
-}
-
-.informe{
-    display: none;
-}
-
-.vecindad{
-    display: none;
-}
-
-.zona{
-    display: none;
-}
-
-.mejoras{
-    display: none;
-}
-
-.interior{
-    display: none;
-}
-
-.habitaciones{
-    display: none;
-}
-
-.metodologia{
-    display: none;
-}
