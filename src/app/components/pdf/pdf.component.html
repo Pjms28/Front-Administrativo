@@ -1,42 +1,42 @@
 <!-- Información General -->
 <div class="padre">
 
-<h1 id="nombre" #nombre>"Nombre Compañía"</h1>
+<h1 id="nombre" #nombre>Constructora Mejia Polanco</h1>
 <h3 id="servicios" #servicios >Servicios de Tasaciones, Consultoría y Asesoría de Inversiones y Construcciones</h3>
 <br>
 <h4 id="tasacion" #tasacion><b>Informe de Tasación</b> </h4>
 <div id="content" #content>
-  <p>"Descripción del apartamento"</p>
+  <p>{{iT?.descripcionInmueble}}</p>
   <br>
-  <h4>"Tasador"</h4>
-  <h4>"Asesor"</h4>
-  <h4>"Direccion"</h4>
-  <h4>"Telefono"</h4>
-  <h4>"Correo"</h4>
+  <h4>{{iT?.tasadorNombre}}}</h4>
+  <h4>{{iT?.asesorNombre}}</h4>
+  <h4>{{iT?.direccionConstructora}}</h4>
+  <h4>{{iT?.telefonoConstructora}}</h4>
+  <h4>{{iT?.correoCompania}}</h4>
 </div>
 
 
 <!-- Solicitud Aváluo -->
 
   <div id="der" #der>
-    <p>"Fecha"</p>
-    <p>"Ciudad"</p>
-    <p>"País"</p>
+    <p>{{iT?.fecha}}</p>
+    <p>{{iT?.ciudad}}</p>
+    <p>{{iT?.pais}}</p>
   </div>
   <div id="solicitud" #solicitud>
   <p>Sr. (a)</p>
-  <p>"Nombre del cliente"</p>
-  <p>"Direccion"</p>
+  <p>{{iT?.clienteNombre}}</p>
+  <p>{{iT?.direccion}}</p>
   <p> </p>
-  <p>"Nombre del banco"</p>
+  <p>{{iT?.banco}}</p>
   <p> </p>
   <p>Distinguido (a) Sr. (a):</p>
-  <p>De acuerdo con su solicitud de Tasación del Inmueble <b>"Descripción y Direccion";</b> Le anexamos un original y copia firmada del Informe y Certificación de Avalúo del mismo para los fines que se juzgue de lugar. </p>
+  <p>De acuerdo con su solicitud de Tasación del Inmueble <b>{{iT?.descripcionInmueble}}, {{iT?.direccion}};</b> Le anexamos un original y copia firmada del Informe y Certificación de Avalúo del mismo para los fines que se juzgue de lugar. </p>
   <p>Esperamos haber satisfecho su solicitud y nos reiteramos a sus ordenes.</p>
   <p>Sin más, se despide de usted muy atentamente,</p>
-  <p>"Tasador"</p>
+  <p>{{iT?.tasadorNombre}}}</p>
 </div>
-<p id="tecnico" #tecnico>"Técnico"</p>
+<p id="tecnico" #tecnico>{{iT?.tecnicoNombre}}</p>
 
 
 <!-- Certificación de Avalúo -->
@@ -45,8 +45,8 @@
     <div id="certificacion" #certificacion>
       <h1>Certificación de Avalúo</h1>
       <p>El abajo suscrito, quien declara no prever, ni tener interés personal en la propiedad de referencia, deja constancia que las informaciones, declaraciones y datos suministrados son verídicos y correctos a mi ciencia y conciencia y que he procurado no ignorar ni esconder informaciones importantes.</p>
-      <p>Certifico que después de haber visitado, analizado y procesado los datos del inmueble <b>"Descripción y Direccion",</b> y correspondiente a la Designación Catastral No. <b>"No Catastral",</b> con la Matricula No. <b>"Matricula",</b> <b>"Ciudad";</b> he estimado su valor de mercado en la suma de RD$ <b>"precio"</b> ( <b> "letraPrecio"</b> ) </p>
-      <p> <b>"ciudad"</b>, <b>"pais"</b>, <b>"fecha"</b> </p>
+      <p>Certifico que después de haber visitado, analizado y procesado los datos del inmueble <b>"Descripción y Direccion",</b> y correspondiente a la Designación Catastral No. <b>{{iT?.noCatastral}}},</b> con la Matricula No. <b>{{iT?.matricula}},</b> <b>{{iT?.ciudad}};</b> he estimado su valor de mercado en la suma de RD$ <b>{{iT?.precio}}</b> ( <b> {{iT.letraPrecio}}</b> ) </p>
+      <p> <b>{{iT?.ciudad}}</b>, <b>{{iT?.pais}}</b>, <b>{{iT?.fecha}}</b> </p>
     </div>
 
 
@@ -57,14 +57,14 @@
 
     <div id="informe" #informe>
       <h1>Informe de Avalúo de Propiedad</h1>
-      <p> <b>"fecha"</b> </p>
-      <p>Propietario: <b>"propietario"</b></p>
-      <p> Dirección: <b>"direccion"</b> </p>
-      <p> Derechos de la Propiedad Evaluada: <b>"derechoPropiedad"</b> </p>
-      <p> Ocuapada por: <b>"ocupadoPor"</b> </p>
-      <p> Porcentaje de Utilidad del Inmueble: <b>"utilidadInmueble"</b> </p>
-      <p> Valuador: <b>"valuador"</b> </p>
-      <p> No. de Teléfono: <b>"telefono"</b> </p>
+      <p> <b>{{iT?.fecha}}</b> </p>
+      <p>Propietario: <b>{{iT?.propietario}}</b></p>
+      <p> Dirección: <b>{{iT?.direccion}}</b> </p>
+      <p> Derechos de la Propiedad Evaluada: <b>{{iT?.derechoPropiedad}}</b> </p>
+      <p> Ocuapada por: <b>{{iT?.ocupadoPor}}</b> </p>
+      <p> Porcentaje de Utilidad del Inmueble: <b>{{iT?.utilidadInmueble}}</b> </p>
+      <p> Valuador: <b>{{iT?.valuador}}</b> </p>
+      <p> No. de Teléfono: <b>{{iT?.telefono}}</b> </p>
     </div>
 
 
@@ -75,18 +75,19 @@
 
     <div id="vecindad" #vecindad>
       <h1>Descripción de la Vecindad </h1>
-      <p> Tipo de Vecindad: <b>"tipoVecindad"</b> </p>
-      <p>Tendencia de la Vecindad: <b>"tendenciaVecindad"</b></p>
-      <p> Comparación con las Propiedades del Vecindario: <b>"comparacionVecindario"</b> </p>
-      <p> Antiguedad Promedio de las Propiedades del Vecindario: <b>"antiguedadPromedio"</b> </p>
-      <p> Àrea Construida: <b>"areaConstruida"</b> </p>
-      <p> Oferta: <b>"oferta"</b> </p>
-      <p> Distancia de Escuela Primaria: <b>"distanciaEscuelaP"</b> </p>
-      <p> Distancia de Escuela Secundaria: <b>"distanciaEscuelaS"</b> </p>
-      <p> Distancia de Transporte Público: <b>"distanciaTransporte"</b> </p>
-      <p> Distancia de Comercios: <b>"distanciaComercio"</b> </p>
-      <p> Distancia a Centro de la Ciudad: <b>"distanciaCiudad"</b> </p>
-      <p> Deseabilidad de la Propiedad: <b>"deseabilidadPropiedad"</b> </p>
+      <p> Tipo de Vecindad: <b>{{iT?.tipoVecindad}}</b> </p>
+      <p>Tendencia de la Vecindad: <b>{{iT?.tendenciaVecindad}}</b></p>
+      <p> Comparación con las Propiedades del Vecindario: <b>{{iT?.comparacionVecindario}}</b> </p>
+      <p> Antiguedad Promedio de las Propiedades del Vecindario: <b>{{iT?.antiguedadPromedio}}</b> </p>
+      <p> Àrea Construida: <b>{{iT?.areaConstruida}}</b> </p>
+      <p> Oferta: <b>{{iT?.oferta}}</b> </p>
+      <p>Demanda: <b>{{iT?.demanda}}</b></p>
+      <p> Distancia de Escuela Primaria: <b>{{iT?.distanciaEscuelaP}}</b> </p>
+      <p> Distancia de Escuela Secundaria: <b>{{iT?.distanciaEscuelaS}}</b> </p>
+      <p> Distancia de Transporte Público: <b>{{iT?.distanciaTransporte}}</b> </p>
+      <p> Distancia de Comercios: <b>{{iT?.distanciaComercio}}</b> </p>
+      <p> Distancia a Centro de la Ciudad: <b>{{iT?.distanciaCiudad}}</b> </p>
+      <p> Deseabilidad de la Propiedad: <b>{{iT?.deseabilidadPropiedad}}</b> </p>
     </div>
 
 
@@ -96,18 +97,18 @@
 
       <div id="zona" #zona>
         <h1>Descripción de la Zona</h1>
-        <p> Limites Naturales: <b>"limitesNaturales"</b> </p>
-        <p>Características de la Zona: <b>"caracteristicasZona"</b></p>
-        <p> Àrea: <b>"area"</b> </p>
-        <p> Fuente: <b>"fuente"</b> </p>
-        <p> Topografía: <b>"topografia"</b> </p>
-        <p> Configuración: <b>"configuracion"</b> </p>
-        <p> Zonificación: <b>"zonificacion"</b> </p>
-        <p> El Uso de la Propiedad esta Conforme con lo Permitido: <b>"usoPropiedad"</b> </p>
-        <p> Paisajismo o Àreas Verdes: <b>"areaVerde"</b> </p>
-        <p> Servidumbre: <b>"servidumbre"</b> </p>
-        <p> Entrada y Salida de la Marquesina: <b>"marquesina"</b> </p>
-        <p> Instalación Eléctrica: <b>"instalacionElectrica"</b> </p>
+        <p> Limites Naturales: <b>{{iT?.limitesNaturales}}</b> </p>
+        <p>Características de la Zona: <b *ngFor = "let c of iT?.caracteristicasZona">{{c}}</b></p>
+        <p> Àrea: <b>{{iT?.area}}</b> </p>
+        <p> Fuente: <b>{{iT?.fuente}}</b> </p>
+        <p> Topografía: <b>{{iT?.topografia}}</b> </p>
+        <p> Configuración: <b>{{iT?.configuracion}}</b> </p>
+        <p> Zonificación: <b>{{iT?.zonificacion}}</b> </p>
+        <p> El Uso de la Propiedad esta Conforme con lo Permitido: <b>{{iT?.usoPropiedad}}</b> </p>
+        <p> Paisajismo o Àreas Verdes: <b>{{iT?.areaVerde}}</b> </p>
+        <p> Servidumbre: <b>{{iT?.servidumbre}}</b> </p>
+        <p> Entrada y Salida de la Marquesina: <b>{{iT?.marquesina}}</b> </p>
+        <p> Instalación Eléctrica: <b>{{iT?.instalacionElectrica}}</b> </p>
       </div>
 
   
@@ -118,19 +119,19 @@
   
       <div id="mejoras" #mejoras>
         <h1>Descripción de la Mejoras</h1>
-        <p> Año de Construcción Estimado: <b>"añoEstimado"</b> </p>
-        <p>Construcción Terminada: <b>"construccionTerminada"</b></p>
-        <p> Àrea por piso del Inmueble: <b>"areaPiso"</b> </p>
-        <p> X Total: <b>"xtotal"</b> </p>
-        <p> Tipo de Marcos de Ventana: <b>"ventanaMarco"</b> </p>
-        <p> Sótano: <b>"sotano"</b> </p>
-        <p> Àrea Total del Sótano: <b>"areaTotalSotano"</b> </p>
-        <p> Tipo de Inmueble: <b>"tipoInmueble"</b> </p>
-        <p> Estructura: <b>"estructura"</b> </p>
-        <p> Material de Construcción: <b>"materialConstruccion"</b> </p>
-        <p> Revestimiento Exterior: <b>"revestimientoExterior"</b> </p>
-        <p> Material del Techo: <b>"materialTecho"</b> </p>
-        <p> Condición General Externa: <b>"condicionExterna"</b> </p>
+        <p> Año de Construcción Estimado: <b>{{iT?.construccionTerminada}}</b> </p>
+        <p>Construcción Terminada: <b>{{iT?.anoEstimado}}</b></p>
+        <p> Àrea por piso del Inmueble: <b>{{iT?.areaPiso}}</b> </p>
+        <p> X Total: <b>{{iT?.xtotal}}</b> </p>
+        <p> Tipo de Marcos de Ventana: <b>{{iT?.ventanaMarco}}</b> </p>
+        <p> Sótano: <b>{{iT?.sotano}}</b> </p>
+        <p> Àrea Total del Sótano: <b>{{iT?.areaTotalSotano}}</b> </p>
+        <p> Tipo de Inmueble: <b>{{iT?.tipoInmueble}}</b> </p>
+        <p> Estructura: <b>{{iT?.estructura}}</b> </p>
+        <p> Material de Construcción: <b *ngFor = "let m of iT?.materialConstruccion">{{m}}</b> </p>
+        <p> Revestimiento Exterior: <b>{{iT?.revestimientoExterior}}</b> </p>
+        <p> Material del Techo: <b>{{iT?.materialTecho}}</b> </p>
+        <p> Condición General Externa: <b>{{iT?.condicionExterna}}</b> </p>
       </div>
 
   
@@ -142,25 +143,25 @@
 
       <div id="interior" #interior>
         <h1>Descripción del Interior de la Propiedad</h1>
-        <p> Pisos: <b>"tipoPiso"</b> </p>
-        <p> Distribución Arquitectónica: <b>"distribucionArq"</b></p>
-        <p> Armarios: <b>"armarios"</b> </p>
-        <p> Dormitorios: <b>"dormitorios"</b> </p>
-        <p> Número de Baños: <b>"noBaños"</b> </p>
-        <p> Baños: <b>"baños"</b> </p>
-        <p> Condición General Interna: <b>"condicionInterna"</b> </p>
-        <p> Material de las Paredes: <b>"paredesMaterial"</b> </p>
-        <p> Material de Techos: <b>"techos"</b> </p>
-        <p> Otros Detalles: <b>"otrosDetalles"</b> </p>
-        <p> Instalación Sanitaria Tuberías: <b>"tuberiasSanitarias"</b> </p>
-        <p> Amenidades: <b>"amenidades"</b> </p>
-        <p> Calentador de Agua: <b>"calentadorAgua"</b> </p>
-        <p> Capacidad del Calentador: <b>"capacidadCalentador"</b> </p>
-        <p> Sistema Eléctrico: <b>"sistemaElectrico"</b> </p>
-        <p> Artefactos Empotrados e Instalaciones Adicionales: <b>"artefactosAdicionales"</b> </p>
-        <p> Número de Parqueos: <b>"noParqueos"</b> </p>
-        <p> Terraza, Patios, Otras Mejoras: <b>"otrasMejoras"</b> </p>
-        <p> Comentarios: <b>"comentarios"</b> </p>
+        <p> Pisos: <b>{{iT?.tipoPiso}}</b> </p>
+        <p> Distribución Arquitectónica: <b>{{iT?.distribucionArq}}</b></p>
+        <p> Armarios: <b>{{iT?.armarios}}</b> </p>
+        <p> Dormitorios: <b>{{iT?.dormitorios}}</b> </p>
+        <p> Número de Baños: <b>{{iT?.noBanos}}</b> </p>
+        <p> Baños: <b>{{iT?.banos}}</b> </p>
+        <p> Condición General Interna: <b>{{iT?.codicionInterna}}</b> </p>
+        <p> Material de las Paredes: <b>{{iT?.paredesMaterial}}</b> </p>
+        <p> Material de Techos: <b>{{iT?.techos}}</b> </p>
+        <p> Otros Detalles: <b>{{iT?.otrosDetalles}}</b> </p>
+        <p> Instalación Sanitaria Tuberías: <b>{{iT?.tuberiasSanitarias}}</b> </p>
+        <p> Amenidades: <b *ngFor = "let a of iT?.amenidades">{{a}}</b> </p>
+        <p> Calentador de Agua: <b>{{iT?.calentadorAgua}}</b> </p>
+        <p> Capacidad del Calentador: <b>{{iT?.capacidadCalentador}}</b> </p>
+        <p> Sistema Eléctrico: <b *ngFor = "let s of iT?.sistemaElectrico">{{s}}}</b> </p>
+        <p> Artefactos Empotrados e Instalaciones Adicionales: <b *ngFor = "let a of iT?.artefactosAdicionales">{{a}}</b> </p>
+        <p> Número de Parqueos: <b>{{iT?.noParqueos}}</b> </p>
+        <p> Terraza, Patios, Otras Mejoras: <b>{{iT?.otrasMejoras}}</b> </p>
+        <p> Comentarios: <b>{{iT?.comentarios}}</b> </p>
       </div>
 
   
@@ -173,18 +174,18 @@
 
       <div id="habitaciones" #habitaciones>
         <h1>Distribución de las Habitaciones</h1>
-        <p> Número de Piso: <b>"numeroPiso"</b> </p>
-        <p> Habitaciones: <b>"habitaciones"</b></p>
-        <p> Entrada: <b>"entrada"</b> </p>
-        <p> Sala de Estar: <b>"salaEstar"</b> </p>
-        <p> Comedor: <b>"comedor"</b> </p>
-        <p> Cocina: <b>"cocina"</b> </p>
-        <p> Baño Completo: <b>"bañoCompleto"</b> </p>
-        <p> Baño Parcial: <b>"bañoParcial"</b> </p>
-        <p> Terraza Descubierta: <b>"terraza"</b> </p>
-        <p> Lavanderia: <b>"lavanderia"</b> </p>
-        <p> Cuarto de Servicio: <b>"cuartoServicio"</b> </p>
-        <p> Parqueos: <b>"parqueos"</b> </p>
+        <p> Número de Piso: <b>{{iT?.numeroPiso}}</b> </p>
+        <p> Habitaciones: <b>{{iT?.habitaciones}}</b></p>
+        <p> Entrada: <b>{{iT?.entrada}}</b> </p>
+        <p> Sala de Estar: <b>{{iT?.salaEstar}}</b> </p>
+        <p> Comedor: <b>{{iT?.comedor}}</b> </p>
+        <p> Cocina: <b>{{iT?.cocina}}</b> </p>
+        <p> Baño Completo: <b>{{iT?.banoCompleto}}</b> </p>
+        <p> Baño Parcial: <b>{{iT?.banoParcial}}</b> </p>
+        <p> Terraza Descubierta: <b>{{iT?.terraza}}</b> </p>
+        <p> Lavanderia: <b>{{iT?.lavanderia}}</b> </p>
+        <p> Cuarto de Servicio: <b>{{iT?.cuartoServicio}}</b> </p>
+        <p> Parqueos: <b>{{iT?.parqueos}}</b> </p>
       </div>
 
   
@@ -196,15 +197,15 @@
 
       <div id="metodologia" #metodologia>
         <h1>Metodología de Ventas Comparables de Mercado</h1>
-        <p> Fuente de Datos del Costo: <b>"fuenteManualCosto"</b> </p>
-        <p> Valor del Terreno: <b>"valorTerreno"</b></p>
-        <p> M2 del Inmueble: <b>"metroInmueble"</b> </p>
-        <p> Costo por m2 del Inmueble: <b>"costoMetroInmueble"</b> </p>
-        <p> M2 de la Terraza: <b>"metroTerraza"</b> </p>
-        <p> Costo por m2 de la Terraza: <b>"costoMetroTerraza"</b> </p>
-        <p> Costo Total del Inmueble: <b>"Total Inmueble"</b> </p>
-        <p> Costo Total de la Terraza: <b>"total Terraza"</b> </p>
-        <p> Valor Total Según Enfoque de Mercado: <b>"total"</b> </p>
+        <p> Fuente de Datos del Costo: <b>{{iT?.fuenteManualCosto}}"</b> </p>
+        <p> Valor del Terreno: <b>{{iT?.valorTerreno}}</b></p>
+        <p> M2 del Inmueble: <b>{{iT?.metroInmueble}}</b> </p>
+        <p> Costo por m2 del Inmueble: <b>{{iT?.costoMetroInmueble}}</b> </p>
+        <p> M2 de la Terraza: <b>{{iT?.metroTerraza}}</b> </p>
+        <p> Costo por m2 de la Terraza: <b>{{iT?.costoMetroTerraza}}</b> </p>
+        <p> Costo Total del Inmueble: <b>{{costoTotalI}}</b> </p>
+        <p> Costo Total de la Terraza: <b>{{costoTotalT}}</b> </p>
+        <p> Valor Total Según Enfoque de Mercado: <b>{{valorTotal}}</b> </p>
       </div>
 
   
@@ -215,16 +216,16 @@
 
  
       <div id="comparables" #comparables>
-        <h1>Enfoque de Ventas Comparables </h1>
-        <p> Fuente de Datos del Costo: <b>"fuenteManualCosto"</b> </p>
-        <p> Valor del Terreno: <b>"valorTerreno"</b></p>
-        <p> M2 del Inmueble: <b>"metroInmueble"</b> </p>
-        <p> Costo por m2 del Inmueble: <b>"costoMetroInmueble"</b> </p>
-        <p> M2 de la Terraza: <b>"metroTerraza"</b> </p>
-        <p> Costo por m2 de la Terraza: <b>"costoMetroTerraza"</b> </p>
-        <p> Costo Total del Inmueble: <b>"Total Inmueble"</b> </p>
-        <p> Costo Total de la Terraza: <b>"total Terraza"</b> </p>
-        <p> Valor Total Según Enfoque de Mercado: <b>"total"</b> </p>
+        <h1>Metodología de Ventas Comparables de Mercado</h1>
+        <p> Fuente de Datos del Costo: <b>{{iT?.fuenteManualCosto}}"</b> </p>
+        <p> Valor del Terreno: <b>{{iT?.valorTerreno}}</b></p>
+        <p> M2 del Inmueble: <b>{{iT?.metroInmueble}}</b> </p>
+        <p> Costo por m2 del Inmueble: <b>{{iT?.costoMetroInmueble}}</b> </p>
+        <p> M2 de la Terraza: <b>{{iT?.metroTerraza}}</b> </p>
+        <p> Costo por m2 de la Terraza: <b>{{iT?.costoMetroTerraza}}</b> </p>
+        <p> Costo Total del Inmueble: <b>{{costoTotalI}}</b> </p>
+        <p> Costo Total de la Terraza: <b>{{costoTotalT}}</b> </p>
+        <p> Valor Total Según Enfoque de Mercado: <b>{{valorTotal}}</b> </p>
       </div>
 
   
@@ -236,21 +237,20 @@
 
       <div id="consclusiones" #conclusiones>
         <h1>Conclusiones</h1>
-        <p> Conclusiones: <b>"Conclusiones"</b> </p>
-        <p> Valor Según Enfoque de Ventas Comparables: <b>"valorTerreno"</b></p>
-        <p> Opinión del Valor de Liquidación Ordenada: <b>"metroInmueble"</b> </p>
-        <p> Comentario y Análisis de Ventas, Anuncios Publicados u Ofertas de Compra de la Propiedad en Cuestión Durante el Año Pasado: <b>"costoMetroInmueble"</b> </p>
-        <p> Como resultado de mi avalúo y análisis considero que el valor de la propiedad en el mercado al: <b>"fechaDiaTasacion"</b> es de <b>"total"</b> este informe se llevó a cabo el <b>"fechaDiaTasacion"</b></p>
-        <p> Ventas Adicionales: <b>"ventaAdicional"</b> </p>
-        <p> Suplemento Informativo: <b>"suplementoInformativo"</b> </p>
-        <p> Plano: <b>"plano"</b> </p>
-        <p> Condiciones Restrictivas: <b>"condicionesRestrictivas"</b> </p>
-        <p> Otro: <b>"otro"</b> </p>
-        <p> Valuador: <b>"valuador"</b> </p>
-        <p> Revisor: <b>"valuador"</b> </p>
-        <p> Valuador: <b>"revisor"</b> </p>
-        <p> Número de Registro: <b>"numeroRegistro"</b> </p>
-        <p> Fecha de Inspección de la Propiedad : <b>"fechaInspeccion"</b> </p>
+        <p> Conclusiones: <b>{{iT?.conclusiones}}</b> </p>
+        <p> Valor Según Enfoque de Ventas Comparables: <b>{{iT?.valorEnfoqueVentas}}</b></p>
+        <p> Opinión del Valor de Liquidación Ordenada: <b>{{iT?.opinionValorLiquidacion}}</b> </p>
+        <p> Comentario y Análisis de Ventas, Anuncios Publicados u Ofertas de Compra de la Propiedad en Cuestión Durante el Año Pasado: <b>{{iT?.comentariosVentas}}</b> </p>
+        <p> Como resultado de mi avalúo y análisis considero que el valor de la propiedad en el mercado al: <b>{{iT?.fechaDiaTasacion}}</b> es de <b>{{iT?.valorDelMismo}}</b> este informe se llevó a cabo el <b>{{iT?.fechaDiaTasacion}}</b></p>
+        <p> Ventas Adicionales: <b>{{iT?.ventaAdicional}}</b> </p>
+        <p> Suplemento Informativo: <b>{{iT?.suplementoInformativo}}</b> </p>
+        <p> Plano: <b>{{iT?.plano}}</b> </p>
+        <p> Condiciones Restrictivas: <b>{{iT?.condicionesRestrictivas}}</b> </p>
+        <p> Otro: <b>{{iT?.otro}}</b> </p>
+        <p> Valuador: <b>{{iT?.valuador}}</b> </p>
+        <p> Revisor: <b>{{iT?.revisor}}</b> </p>
+        <p> Número de Registro: <b>{{iT?.numeroRegistro}}</b> </p>
+        <p> Fecha de Inspección de la Propiedad : <b>{{iT?.fechaInspeccion}}</b> </p>
       </div>
     
   

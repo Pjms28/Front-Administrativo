@@ -83,8 +83,6 @@ export class TasacionComponent implements OnInit {
   ngOnInit() {
   this.tasacionForm = this.formBuilder.group({
 
-    tasacionID:[''],
-
     //informe general 
     descripcionInmueble:[''],
     tasadorNombre: [''],
@@ -183,7 +181,6 @@ export class TasacionComponent implements OnInit {
      sistemaElectrico: [''],
      artefactosAdicionales: [''],
      amenidades:[''],
-     noParqueos: [''],
      otrasMejoras: [''],
      comentarios: [''],
 
@@ -274,39 +271,39 @@ export class TasacionComponent implements OnInit {
   get selectedOptions() { // right now: ['1','3']
     return this.checkboxA
               .filter(opt => opt.checked)
-              .map(opt => opt.valor)
+              .map(opt => opt.nombre)
   }
 
   get selectedOptionsb() { // right now: ['1','3']
     return this.checkboxB
               .filter(opt => opt.checked)
-              .map(opt => opt.valor)
+              .map(opt => opt.nombre)
   }
 
   get selectedOptionsc() { // right now: ['1','3']
   return this.checkboxC
             .filter(opt => opt.checked)
-            .map(opt => opt.valor)
+            .map(opt => opt.nombre)
 }
 
 get selectedOptionsd() { // right now: ['1','3']
   return this.checkboxD
             .filter(opt => opt.checked)
-            .map(opt => opt.valor)
+            .map(opt => opt.nombre)
 }
 
 get selectedOptionse() { // right now: ['1','3']
   return this.checkboxE
             .filter(opt => opt.checked)
-            .map(opt => opt.valor)
+            .map(opt => opt.nombre)
 }
 
 onSubmit(){
-  this.tasacionForm.controls['caracteristicasZona'].setValue(this.selectedOptions);
-  this.tasacionForm.controls['materialConstruccion'].setValue(this.selectedOptionsb);
-  this.tasacionForm.controls['amenidades'].setValue(this.selectedOptionsc);
-  this.tasacionForm.controls['sistemaElectrico'].setValue(this.selectedOptionsd);
-  this.tasacionForm.controls['artefactosAdicionales'].setValue(this.selectedOptionse);
+  this.tasacionForm.controls['caracteristicasZona'].setValue(JSON.stringify(this.selectedOptions));
+  this.tasacionForm.controls['materialConstruccion'].setValue(JSON.stringify(this.selectedOptionsb));
+  this.tasacionForm.controls['amenidades'].setValue(JSON.stringify(this.selectedOptionsc));
+  this.tasacionForm.controls['sistemaElectrico'].setValue(JSON.stringify(this.selectedOptionsd));
+  this.tasacionForm.controls['artefactosAdicionales'].setValue(JSON.stringify(this.selectedOptionse));
   console.log(this.tasacionForm.value);
   this.tscApi.addTasacion(this.tasacionForm.value).subscribe(res =>{
   })
