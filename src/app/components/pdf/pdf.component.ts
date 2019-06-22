@@ -48,17 +48,8 @@ private ID: any;
 
   public GenerarPDF(){
 
-    let info = new jsPDF();
-    let avaluo = new jsPDF();
-    let certif = new jsPDF();
-    let propiedad = new jsPDF();
-    let desVecindad = new jsPDF();
-    let desZona = new jsPDF();
-    let desMejoras = new jsPDF();
-    let desInterior = new jsPDF();
-    let distribucion = new jsPDF();
-    let metVentas = new jsPDF();
-    let conclu = new jsPDF();
+    let pdf = new jsPDF();
+  
 
     let specialElementHandlers = {
       '#editor': function(element, renderer){
@@ -86,98 +77,119 @@ private ID: any;
 
     
     // Información General
-    info.fromHTML(nombre.innerHTML, 80, 10, {
+    pdf.fromHTML(nombre.innerHTML, 80, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
 
-    info.fromHTML(servicios.innerHTML, 30, 20, {
+
+    pdf.fromHTML(servicios.innerHTML, 30, 20, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
 
-    info.fromHTML(tasacion.innerHTML, 80, 30, {
+    pdf.fromHTML(tasacion.innerHTML, 80, 30, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
     
-    info.fromHTML(content.innerHTML, 10, 40, {
+    pdf.fromHTML(content.innerHTML, 10, 40, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
  // Solicitud Avalúo
-    avaluo.fromHTML(der.innerHTML, 180, 10, {
+    pdf.fromHTML(der.innerHTML, 180, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
 
 
-    avaluo.fromHTML(tecnico.innerHTML, 180, 120, {
+    pdf.fromHTML(tecnico.innerHTML, 180, 120, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
     
-    avaluo.fromHTML(solicitud.innerHTML, 10, 30, {
+    pdf.fromHTML(solicitud.innerHTML, 10, 30, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
      // Certificación Avalúo
 
-     certif.fromHTML(certificacion.innerHTML, 10, 10, {
+     pdf.fromHTML(certificacion.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
     // Informe de Avalúo de Propiedad
     
-    propiedad.fromHTML(informe.innerHTML, 10, 10, {
+    pdf.fromHTML(informe.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
     // Descripción de la Vecindad
 
-    desVecindad.fromHTML(vecindad.innerHTML, 10, 10, {
+    pdf.fromHTML(vecindad.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
      // Descripción de la Zona
 
-     desZona.fromHTML(zona.innerHTML, 10, 10, {
+     pdf.fromHTML(zona.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
     // Descripción de las Mejoras
 
-    desMejoras.fromHTML(mejoras.innerHTML, 10, 10, {
+    pdf.fromHTML(mejoras.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
     // Descripción del Interior de la Propiedad
-    desInterior.fromHTML(interior.innerHTML, 10, 10, {
+    pdf.fromHTML(interior.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
     // Distribución de las Habitaciones
-    distribucion.fromHTML(habitaciones.innerHTML, 10, 10, {
+    pdf.fromHTML(habitaciones.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
     // Metodología de Ventas Comparables de Mercado
-    metVentas.fromHTML(metodologia.innerHTML, 10, 10, {
+    pdf.fromHTML(metodologia.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+
+    pdf.addPage()
 
     // Conclusiones
-    conclu.fromHTML(conclusiones.innerHTML, 10, 10, {
+    pdf.fromHTML(conclusiones.innerHTML, 10, 10, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
@@ -185,17 +197,8 @@ private ID: any;
     
     
 
-    info.save('InformaciónGeneral.pdf');
-    avaluo.save('SolicitudAváluo.pdf');
-    certif.save('CertificaciónAváluo.pdf');
-    propiedad.save('InformeAváluoPropiedad.pdf');
-    desVecindad.save('DescripciónVecindad.pdf');
-    desZona.save('DescripciónZona.pdf');
-    desMejoras.save('DescripciónMejoras.pdf');
-    desInterior.save('DescripciónInterior.pdf');
-    distribucion.save('DistribuciónHabitaciones.pdf');
-    metVentas.save('MetodologíiaVentasComparables.pdf');
-    conclu.save('Conclusiones.pdf');
+    
+    pdf.save('InformeTasación.pdf');
 
   }
 
