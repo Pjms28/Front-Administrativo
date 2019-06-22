@@ -319,7 +319,7 @@
    
             <div class="form-group">
                 <label>Año de construcción estimado</label>
-                <input type="number" class="form-control" id="formGroupExampleInput" minlength="2" maxlength="4" placeholder="Introduzca el año de construcción estimado"  formControlName="añoEstimado">
+                <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el año de construcción estimado"  formControlName="añoEstimado">
             </div>
 
             <div class="form-group">
@@ -549,6 +549,11 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label>Comentarios</label><br>
+                            <textarea name="textarea" rows="10" cols="50" placeholder="Escriba comentario adicional" formControlName ="comentarios"></textarea>
+                          </div>
+
             </div>
           
 
@@ -674,7 +679,7 @@
 
                                 <div class="form-group">
                                     <label>Precio de la venta</label><br>
-                                    <input type="text" mask="comma_separator" maxlength="30" name="Pv" placeholder="Introduzca monto" formControlName ="precioVenta"><br>
+                                    <input type="number" mask="comma_separator" maxlength="30" name="Pv" placeholder="Introduzca monto" formControlName ="precioVenta"><br>
                                 </div>
 
                                 <div class="form-group">
@@ -859,11 +864,11 @@
                                       </div>
                                       <div class="form-group">
                                             <label >Opinión Valor Liquidación</label>
-                                            <input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Valor" formControlName="opinionValorLiquidacion">
+                                            <input type="number" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Valor" formControlName="opinionValorLiquidacion">
                                             </div>
                                             <div class="form-group">
                                                     <label >Valor del Mismo</label>
-                                                    <input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Valor" formControlName="valorDelMismo">
+                                                    <input type="number" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Valor" formControlName="valorDelMismo">
                                                     </div>
                                         <div class="form-group">
                                             <label >Comentarios Ventas</label>

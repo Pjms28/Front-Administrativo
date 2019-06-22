@@ -210,6 +210,11 @@ private ID: any;
     this.tscApi.getTasacion(this.ID).subscribe(res => {
       this.iT = res
       this.iT.caracteristicasZona = JSON.parse(res.caracteristicasZona);
+      this.iT.amenidades = JSON.parse(res.amenidades);
+      this.iT.materialConstruccion = JSON.parse(res.materialConstruccion);
+      this.iT.sistemaElectrico = JSON.parse(res.sistemaElectrico);
+      this.iT.artefactosAdicionales = JSON.parse(res.artefactosAdicionales);
+      this.iT.correoCompania = res.correoCompañia;
     })
     this.costoTotalI = this.iT.metroInmueble * this.iT.costoMetroInmueble;
     this.costoTotalT = this.iT.metroTerraza * this.iT.costoMetroTerraza;
