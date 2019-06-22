@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as jsPDF from 'jspdf';
+import { TasacionService } from 'src/app/shared/tasacion.service';
+import { TasacionModel } from 'src/app/modelos/tasacion.model';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -8,6 +11,11 @@ import * as jsPDF from 'jspdf';
   styleUrls: ['./pdf.component.css']
 })
 export class PdfComponent implements OnInit {
+
+//Variable que contiene las variables del informe.
+private iT: TasacionModel = new TasacionModel();
+private ID: any;
+
 
 // Información General
 
@@ -194,11 +202,26 @@ export class PdfComponent implements OnInit {
 
   }
 
+  private costoTotalI: number;
+  private costoTotalT: number;
+  private valorTotal: number;
 
-
-  constructor() { }
+  constructor(public tscApi: TasacionService,private actvRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.ID = this.actvRoute.snapshot.paramMap.get(' id');
+    this.tscApi.getTasacion(this.ID).subscribe(res => {
+      this.iT = res
+      this.iT.caracteristicasZona = JSON.parse(res.caracteristicasZona);
+      this.iT.amenidades = JSON.parse(res.amenidades);
+      this.iT.materialConstruccion = JSON.parse(res.materialConstruccion);
+      this.iT.sistemaElectrico = JSON.parse(res.sistemaElectrico);
+      this.iT.artefactosAdicionales = JSON.parse(res.artefactosAdicionales);
+      
+    })
+    this.costoTotalI = this.iT.metroInmueble * this.iT.costoMetroInmueble;
+    this.costoTotalT = this.iT.metroTerraza * this.iT.costoMetroTerraza;
+    this.valorTotal = this.costoTotalI + this.costoTotalT;
   }
 
 }

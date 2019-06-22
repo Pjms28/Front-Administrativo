@@ -101,7 +101,7 @@ export class EditarTasacionComponent implements OnInit {
       tecnicoNombre: [''],    
       direccionConstructora:[''],
       telefonoConstructora: [''],
-      correoCompañia: [''],
+      correoCompania: [''],
       clienteNombre: [''],
       fecha:[''],
       ciudad:[''],
@@ -161,7 +161,7 @@ export class EditarTasacionComponent implements OnInit {
   
       //Descripcion de las mejoras agregar propiedad al modelo del back
       construccionTerminada: [''],
-      añoEstimado: [''],
+      anoEstimado: [''],
       areaPiso:[''],
       xtotal: [''],
       ventanaMarco: [''],
@@ -179,8 +179,8 @@ export class EditarTasacionComponent implements OnInit {
        distribucionArq: [''],
        armarios: [''],
        dormitorios: [''],
-       baños: [''],
-       noBaños: [''],
+       banos: [''],
+       noBanos: [''],
        codicionInterna: [''],
        paredesMaterial: [''],
        techos: [''],
@@ -192,7 +192,6 @@ export class EditarTasacionComponent implements OnInit {
        sistemaElectrico: [''],
        artefactosAdicionales: [''],
        amenidades:[''],
-       noParqueos: [''],
        otrasMejoras: [''],
        comentarios: [''],
   
@@ -204,8 +203,8 @@ export class EditarTasacionComponent implements OnInit {
       salaEstar: [''],
       cocina: [''],
       comedor: [''],
-      bañoCompleto: [''],
-      bañoParcial: [''],
+      banoCompleto: [''],
+      banoParcial: [''],
       terraza: [''],
       lavanderia: [''],
       cuartoServicio:[''],
@@ -285,11 +284,11 @@ export class EditarTasacionComponent implements OnInit {
         //this.toastr.error("Accion invalida", "Error");
       }
       else{
-        this.generar(res.caracteristicasZona,this.checkboxA,this.A);
-        this.generar(res.materialConstruccion,this.checkboxB,this.B);
-        this.generar(res.amenidades,this.checkboxC,this.C);
-        this.generar(res.sistemaElectrico,this.checkboxD,this.D);
-        this.generar(res.artefactosAdicionales,this.checkboxE,this.E);
+        this.generar(JSON.parse(res.caracteristicasZona),this.checkboxA,this.A);
+        this.generar(JSON.parse(res.materialConstruccion),this.checkboxB,this.B);
+        this.generar(JSON.parse(res.amenidades),this.checkboxC,this.C);
+        this.generar(JSON.parse(res.sistemaElectrico),this.checkboxD,this.D);
+        this.generar(JSON.parse(res.artefactosAdicionales),this.checkboxE,this.E);
         res.caracteristicasZona = this.A;
         res.materialConstruccion = this.B;
         res.amenidades = this.C;
@@ -304,39 +303,39 @@ export class EditarTasacionComponent implements OnInit {
   get selectedOptions() { // right now: ['1','3']
   return this.checkboxA
             .filter(opt => opt.checked)
-            .map(opt => opt.valor)
+            .map(opt => opt.nombre)
 }
 
 get selectedOptionsb() { // right now: ['1','3']
   return this.checkboxB
             .filter(opt => opt.checked)
-            .map(opt => opt.valor)
+            .map(opt => opt.nombre)
 }
 
 get selectedOptionsc() { // right now: ['1','3']
 return this.checkboxC
           .filter(opt => opt.checked)
-          .map(opt => opt.valor)
+          .map(opt => opt.nombre)
 }
 
 get selectedOptionsd() { // right now: ['1','3']
 return this.checkboxD
           .filter(opt => opt.checked)
-          .map(opt => opt.valor)
+          .map(opt => opt.nombre)
 }
 
 get selectedOptionse() { // right now: ['1','3']
 return this.checkboxE
           .filter(opt => opt.checked)
-          .map(opt => opt.valor)
+          .map(opt => opt.nombre)
 }
 
 onSubmit(){
-this.tasacionForm.controls['caracteristicasZona'].setValue(this.selectedOptions);
-this.tasacionForm.controls['materialConstruccion'].setValue(this.selectedOptionsb);
-this.tasacionForm.controls['amenidades'].setValue(this.selectedOptionsc);
-this.tasacionForm.controls['sistemaElectrico'].setValue(this.selectedOptionsd);
-this.tasacionForm.controls['artefactosAdicionales'].setValue(this.selectedOptionse);
+this.tasacionForm.controls['caracteristicasZona'].setValue(JSON.stringify(this.selectedOptions));
+this.tasacionForm.controls['materialConstruccion'].setValue(JSON.stringify(this.selectedOptionsb));
+this.tasacionForm.controls['amenidades'].setValue(JSON.stringify(this.selectedOptionsc));
+this.tasacionForm.controls['sistemaElectrico'].setValue(JSON.stringify(this.selectedOptionsd));
+this.tasacionForm.controls['artefactosAdicionales'].setValue(JSON.stringify(this.selectedOptionse));
 this.tscApi.updateTasacion(this.tasacionForm.value).subscribe(res =>{
   
 })

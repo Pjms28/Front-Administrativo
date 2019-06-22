@@ -21,6 +21,7 @@ import { AuthGuard } from "../app/guard/auth.guard";
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
 import { TasacionComponent } from './components/tasacion/tasacion.component';
 import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 
 const routes: Routes = [
@@ -122,6 +123,11 @@ const routes: Routes = [
 {
   path: 'Tasacion',
   component: TasacionComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'pdf/: id',
+  component: PdfComponent,
   canActivate:[AuthGuard]
 },
 {

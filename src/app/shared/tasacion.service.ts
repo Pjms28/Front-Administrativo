@@ -7,7 +7,7 @@ import { TasacionModel } from '../modelos/tasacion.model';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/";
+const apiUrl = "http://localhost:61756/api/Tasaciones";
 
 @Injectable({
   providedIn: 'root'

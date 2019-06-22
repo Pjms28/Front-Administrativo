@@ -11,7 +11,7 @@ export class TasacionModel{
     tecnicoNombre: string
     direccionConstructora: string
     telefonoConstructora: string
-    correoCompañia: string
+    correoCompania: string
     clienteNombre: string
     fecha: Date
     ciudad: string
@@ -58,7 +58,7 @@ export class TasacionModel{
     //Descripcion de la zona
 
     limitesNaturales: string
-    caracteristicasZona:any[]
+    caracteristicasZona: any //array
     area: number
     fuente: string
     topografia: string
@@ -72,7 +72,7 @@ export class TasacionModel{
 
     //Descripcion de las mejoras agregar propiedad al modelo del back
     construccionTerminada: string
-    añoEstimado:Date
+    anoEstimado:Date
     areaPiso:string
     xtotal: number
     ventanaMarco: string
@@ -80,7 +80,7 @@ export class TasacionModel{
     areaTotalSotano: number
     tipoInmueble: string
     estructura: string
-    materialConstruccion: any[]
+    materialConstruccion: any //array
     revestimientoExterior: string
     materialTecho: string
     condicionExterna: string
@@ -90,8 +90,8 @@ export class TasacionModel{
     distribucionArq: string
     armarios: string
     dormitorios: string
-    baños: string
-    noBaños: number
+    banos: string
+    noBanos: number
     codicionInterna: string
     paredesMaterial: string
     techos: string
@@ -100,10 +100,9 @@ export class TasacionModel{
     tuberiasSanitarias: string
     calentadorAgua: string
     capacidadCalentador: number
-    sistemaElectrico: any[]
-    artefactosAdicionales: any[]
-    amenidades: any[]
-    noParqueos: number
+    sistemaElectrico: any // Array
+    artefactosAdicionales: any //Array
+    amenidades: any //Array
     otrasMejoras: string
     comentarios: string
 
@@ -115,8 +114,8 @@ export class TasacionModel{
     salaEstar: number
     cocina: number
     comedor: number
-    bañoCompleto: number
-    bañoParcial: number
+    banoCompleto: number
+    banoParcial: number
     terraza: number
     lavanderia: number
     cuartoServicio: number
