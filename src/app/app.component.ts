@@ -3,6 +3,7 @@ import { AuthService } from './services/auth.service';
 import { SolicitudService } from 'src/app/shared/solicitud.service';
 import { PeticionService } from 'src/app/shared/peticion.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthGuard } from './guard/auth.guard';
 
 @Component({
   selector: 'app-root',
@@ -15,22 +16,12 @@ import { ToastrService } from 'ngx-toastr';
 export class AppComponent {
   title = 'Front-Administrativo-BRICK';
 
-  constructor(private authAPi:AuthService, private solApi:SolicitudService, private ptcApi: PeticionService, private toastr: ToastrService){
+  constructor(private authAPi:AuthService, private solApi:SolicitudService, private ptcApi: PeticionService, private toastr: ToastrService, private auth:AuthGuard){
 
   }
   ngOnInit() {
 
-    this.solApi.getServSols().subscribe(res => {
-      if(res.length > 0){
-        this.toastr.info("Existen solicitudes pendientes", "Solicitudes recibidas");
-      }
-    })
-
-    this.ptcApi.getPeticionesP().subscribe(res => {
-      if(res.length > 0){
-        this.toastr.info("Existen peticiones pendientes", "Peticiones recibidas");
-      }
-    })
+   
 }
 
 }

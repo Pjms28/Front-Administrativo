@@ -70,9 +70,14 @@ import { InmueblesComponent } from './components/inmuebles/inmuebles.component';
 import { CaracteristicasComponent } from './components/caracteristicas/caracteristicas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
+import { TasacionComponent } from './components/tasacion/tasacion.component';
+import {NgxMaskModule} from 'ngx-mask';
+import { EditarTasacionComponent } from '../app/components/editar-tasacion/editar-tasacion.component';
+import { PdfComponent } from './components/pdf/pdf.component';
+import { ImagenesComponent } from './components/imagenes/imagenes.component';
+import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/jwt.interceptor';
-import { LoginComponent } from './components/login/login.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 
 @NgModule({
@@ -113,7 +118,11 @@ import { AppMaterialModule } from './app-material/app-material.module';
     CaracteristicasComponent,
     ServiciosComponent,
     TemasforosComponent,
-    LoginComponent
+    LoginComponent,
+    TasacionComponent,
+    EditarTasacionComponent,
+    PdfComponent,
+    ImagenesComponent
   ],
   imports: [
     BrowserModule,
@@ -133,6 +142,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
     MatDialogModule,
     MatGridListModule,
     NgbModule,
+    NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
     NgxEditorModule,
     AppMaterialModule,
@@ -156,7 +166,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent ,canActivate:[AuthGuard]},
+      {path: '',component: MenuComponent, canActivate:[AuthGuard]},
       {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
       {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
       {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},

@@ -16,7 +16,9 @@ export class EditarProyectoComponent implements OnInit {
   proyecto : ProyectoComponent = new ProyectoComponent();
   editForm: FormGroup;
   fileTo: any;
+  fileTo2: any;
   imgNombre: string;
+  pdf: string;
   latitude: number;
   longitude: number;
  
@@ -29,7 +31,8 @@ export class EditarProyectoComponent implements OnInit {
       nombreProyecto:['',[Validators.required]],
       fechaTerminacion:['',[Validators.required]],
       direccion: ['',[Validators.required]],
-      imgURL:['']
+      imgURL:[''],
+      documentoResumenPdf:['']
     });
 
     let userID = window.localStorage.getItem("editUserID");
@@ -42,17 +45,16 @@ export class EditarProyectoComponent implements OnInit {
     
     this.apiService.getProject(Number(userID))
     .subscribe(res => {
+
       this.editForm.controls['proyectoID'].setValue(res.proyectoID);
       this.editForm.controls['nombreProyecto'].setValue(res.nombreProyecto);
       this.editForm.controls['fechaTerminacion'].setValue(res.fechaTerminacion);
       this.editForm.controls['direccion'].setValue(res.direccion);
       this.imgNombre = res.imgURL;
+      this.pdf = res.documentoResumenPdf;
       this.latitude = res.latitude;
       this.longitude = res.longitude;
-
-      console.log('res :', res);
-
-
+      
       if(this.latitude != undefined || this.latitude != null)
       {
         localStorage.setItem('latitude', this.latitude.toString());
@@ -74,7 +76,7 @@ export class EditarProyectoComponent implements OnInit {
       this.toastr.warning('Campo vacio','Registro.Fallido');
     }
     else{
-      if(this.editForm.get("imgURL").value == ""){
+      if(this.editForm.get("imgURL").value == "" || this.editForm.get("documentoResumenPdf").value == ""){
         this.proyecto.proyectoID = this.editForm.get("proyectoID").value;
         this.proyecto.direccion = this.editForm.get("direccion").value;
         this.proyecto.nombreProyecto = this.editForm.get("nombreProyecto").value;
@@ -93,10 +95,19 @@ export class EditarProyectoComponent implements OnInit {
         .subscribe(data =>{
           this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
           this.router.navigate(['listar-contenido']);
+
+          //IMG
           let formData = new FormData(); 
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
           this.apiService.sendFormData(formData);
+
+
+          //PDF
+          let formData2 = new FormData();
+          formData2.append(this.fileTo2.name, this.fileTo2);
+          formData2.append('fileName',this.fileTo2.name);
+          this.apiService.sendPDFData(formData2);
         }); 
       }
     }
@@ -117,4 +128,7 @@ export class EditarProyectoComponent implements OnInit {
     this.fileTo = files.item(0);
   }
 
+  savePDFRequest(files : FileList){
+    this.fileTo2 = files.item(0);
+  }
 }

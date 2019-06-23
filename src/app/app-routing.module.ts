@@ -21,6 +21,10 @@ import { AuthGuard } from "../app/guard/auth.guard";
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { TasacionComponent } from './components/tasacion/tasacion.component';
+import { EditarTasacionComponent } from '../app/components/editar-tasacion/editar-tasacion.component';
+import { PdfComponent } from './components/pdf/pdf.component';
+import { ImagenesComponent } from './components/imagenes/imagenes.component';
 
 
 const routes: Routes = [
@@ -113,6 +117,31 @@ const routes: Routes = [
   path: 'editar-post/: id',
   component: EditarPostComponent,
   canActivate:[AuthGuard]
+},
+{
+  path: 'editar-tasacion/: id',
+  component:EditarTasacionComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Tasacion',
+  component: TasacionComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'pdf/: id',
+  component: PdfComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'img/: id',
+  component: ImagenesComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path:'',
+  redirectTo: '/',
+  pathMatch: 'full',
 }
 ];
 

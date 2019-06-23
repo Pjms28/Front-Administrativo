@@ -14,7 +14,7 @@ export class ProyectosComponent implements OnInit {
   proyectos: ProyectoComponent[];
   dataTable: any;
   dataSource: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id','project','enddate','address','caractherictis','actions'];
+  displayedColumns: string[] = ['id','project','enddate','address','image','caractherictis','actions'];
   @ViewChild(MatSort) sort:MatSort;
   @ViewChild(MatPaginator) paginator:MatPaginator;
   searchKey:string;
@@ -37,7 +37,6 @@ export class ProyectosComponent implements OnInit {
     }
   }
   onEdit(row){
-    console.log('row :', row);
     let id = row.proyectoID;
     window.localStorage.removeItem("editUserID");
     window.localStorage.setItem("editUserID", String(id));
@@ -46,7 +45,6 @@ export class ProyectosComponent implements OnInit {
 
   loadData(){
     this.apiServiceProyects.getProjects().subscribe(res =>{
-      console.log('res :', res);
       this.proyectos = res;
       this.dataSource = new MatTableDataSource(this.proyectos);
       this.dataSource.sort = this.sort;
@@ -56,9 +54,5 @@ export class ProyectosComponent implements OnInit {
     }, err =>{
       console.log(err);
     });
-  }
-
-  onAddCharacteristic(row){
-    
   }
 }

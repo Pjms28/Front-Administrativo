@@ -1,0 +1,73 @@
+li{
+    width: 150px;
+    background: rgba(233, 246, 248, 0.842);
+
+    
+}
+
+.tab-content{
+    width:550;
+}
+
+.tab-pane{
+    background: #fff;
+    margin-left: -100px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+}
+
+form{
+    padding-top: 10px;
+    width: 500px;
+    margin: auto;
+}
+
+.form-group{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+h3{
+    padding-top: 10px;
+    text-align: center;
+}
+
+button{
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.general{
+    margin: auto;
+}
+
+a:hover{
+    color: #000;
+    text-decoration: none;
+}
+li:hover{
+    background: #fff;
+    color: #000;
+}
+
+textarea{
+    max-height: 200px;
+}
+
+.comp{
+    width: 720px;
+}
+
+h4{
+    padding-left: 25px;
+}
+
+.comparable{
+    display: inline-block;
+    /* margin: auto; */
+    border-right: #000;
+}
+
+
+
+

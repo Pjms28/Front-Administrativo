@@ -28,7 +28,7 @@
                       <div class="form-row">
                           <div class="form-group">
                             <label>Característica</label>
-                            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" minlength="3" maxlength="25" required/> 
+                            <input id="carNombre" formControlName="carNombre" type="text"  class="form-control" minlength="3" maxlength="100" required/> 
                             <div *ngIf="addForm.controls['carNombre'].errors && addForm.controls['carNombre'].touched" class="validation-error">
                               <div [hidden] = "!addForm.controls['carNombre'].errors.required">
                                 El campo es requerido

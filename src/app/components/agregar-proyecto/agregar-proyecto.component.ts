@@ -14,6 +14,7 @@ import { Proyecto } from 'src/app/modelos/proyecto.model';
 export class AgregarProyectoComponent implements OnInit {
   addForm : FormGroup;
   fileTo: any;
+  fileTo2: any;
   latitude: number = 20;
   longitude: number = 20;
   @Input() latlong:any;
@@ -34,7 +35,7 @@ export class AgregarProyectoComponent implements OnInit {
       imgURL:['',[Validators.required]],
       latitude:[''],
       longitude:[''],
-
+      documentoResumenPdf:['']
     });
 
   }
@@ -62,8 +63,8 @@ export class AgregarProyectoComponent implements OnInit {
       this.addForm.controls["longitude"].setValue(this.longitude);
   
 
-      this.buildProyect(this.addForm.value);
-      this.mergeImages();
+      /* this.buildProyect(this.addForm.value);
+      this.mergeImages(); */
       /* this.addForm.controls['Imagenes'].setValue("asdasdasd"); */
       console.log('Project:', this.proyecto);
 
@@ -76,13 +77,19 @@ export class AgregarProyectoComponent implements OnInit {
           console.log('res :', res);
           this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
           this.router.navigate(['proyectos']);
+
+          //IMG
           let formData = new FormData(); 
          
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
           this.apiService.sendFormData(formData);
 
-          this.uploadFiles();
+          //PDF
+          let formData2 = new FormData();
+          formData2.append(this.fileTo2.name, this.fileTo2);
+          formData2.append('fileName',this.fileTo2.name);
+          this.apiService.sendPDFData(formData2);
         }
       });
     }
@@ -91,75 +98,10 @@ export class AgregarProyectoComponent implements OnInit {
     this.fileTo = files.item(0);
   }
 
-  mergeImages(){
-    for(const file of this.proyectImages){
-      let imagenProyecto = {
-        'Url' : file.name,
-        'Descripcion' : 'Imagen para proyecto',
-        'Tipo' : 'imagen-proyecto'
-      }
-  
-      this.proyectImagesData.push(imagenProyecto);
-    }
-
-    for(const imagen of this.proyectPlanosPictures){
-      let planoProyecto =  {
-        'Url' : imagen.name,
-        'Descripcion' : 'Imagen para plano/vista del proyecto',
-        'Tipo' : 'plano-proyecto'
-      }
-      this.proyectImagesData.push(planoProyecto);
-    }
-
-
-    this.proyecto.Imagenes = this.proyectImagesData;
+  savePDFRequest(files : FileList){
+    this.fileTo2 = files.item(0);
   }
 
-  uploadFiles(){
-    //Construye arreglo para imagenes
-  for(const file of this.proyectImages){
-    let fd = new FormData(); 
-    fd.append(file.name, file);
-    fd.append('fileName',file.name);
-    this.apiService.sendFormData(fd);
-   }
-
-    for(const imagen of this.proyectPlanosPictures){
-      let fd = new FormData();
-      fd.append(imagen.name,imagen);
-      fd.append('fileName',imagen)
-      this.apiService.sendFormData(fd);
-    }
-
-  }
-  onImagesProyectsSelect(files){
-    for (const file of files){
-      let currentFile = <File>file;
-      this.proyectImages.push(currentFile);
-    }
-
-  }
-
-  onPlanosProyectsSelect(imagens){
-    for (const imagen of imagens){
-      let currentImagen = <File>imagen;
-      this.proyectPlanosPictures.push(currentImagen);
-    }
-  
-      console.log('this.proyectImages :', this.proyectImages);
-  }
-
-  buildProyect(form){
-    this.proyecto = new Proyecto;
-    this.proyecto.Direccion = form.direccion;
-    this.proyecto.ImgUrl = form.imgURL;
-    this.proyecto.FechaTerminacion = form.fechaTerminacion;
-    this.proyecto.Latitude = form.latitude;
-    this.proyecto.Longitude = form.longitude;
-    this.proyecto.NombreProyecto = form.nombreProyecto;
-
-    return this.proyecto;
-  }
   onChooseLocation(cords){
   this.latitude = cords.latitude;
   this.longitude = cords.longitude;
