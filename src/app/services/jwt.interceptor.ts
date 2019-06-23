@@ -2,6 +2,7 @@ import { HttpInterceptor, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -9,7 +10,7 @@ export class AuthInterceptor implements HttpInterceptor {
     /**
      *
      */
-    constructor(private router: Router) {
+    constructor(private router: Router,private cookieService: CookieService) {
         
     }
     private handleAuthError(err: HttpErrorResponse): Observable<any> {
@@ -25,7 +26,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: import("@angular/common/http").HttpRequest<any>, next: import("@angular/common/http").HttpHandler): import("rxjs").Observable<import("@angular/common/http").HttpEvent<any>> {
 
-        const token = localStorage.getItem("tkn");
+        const token = this.cookieService.get("tkn");
 
         if(token){
             
