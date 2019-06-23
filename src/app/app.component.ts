@@ -21,19 +21,7 @@ export class AppComponent {
   }
   ngOnInit() {
 
-    if(this.auth.canActivate){
-      this.solApi.getServSols().subscribe(res => {
-        if(res.length > 0){
-          this.toastr.info("Existen solicitudes pendientes", "Solicitudes recibidas");
-        }
-      })
-  
-      this.ptcApi.getPeticionesP().subscribe(res => {
-        if(res.length > 0){
-          this.toastr.info("Existen peticiones pendientes", "Peticiones recibidas");
-        }
-      })
-    }
+   
 }
 
 }

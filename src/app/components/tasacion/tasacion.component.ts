@@ -90,7 +90,7 @@ export class TasacionComponent implements OnInit {
     tecnicoNombre: [''],    
     direccionConstructora:[''],
     telefonoConstructora: [''],
-    correoCompañia: [''],
+    correoCompania: [''],
     clienteNombre: [''],
     fecha:[''],
     ciudad:[''],
@@ -168,8 +168,8 @@ export class TasacionComponent implements OnInit {
      distribucionArq: [''],
      armarios: [''],
      dormitorios: [''],
-     baños: [''],
-     noBaños: [''],
+     banos: [''],
+     noBanos: [''],
      codicionInterna: [''],
      paredesMaterial: [''],
      techos: [''],
@@ -192,8 +192,8 @@ export class TasacionComponent implements OnInit {
     salaEstar: [''],
     cocina: [''],
     comedor: [''],
-    bañoCompleto: [''],
-    bañoParcial: [''],
+    banoCompleto: [''],
+    banoParcial: [''],
     terraza: [''],
     lavanderia: [''],
     cuartoServicio:[''],
@@ -203,10 +203,11 @@ export class TasacionComponent implements OnInit {
 
     fuenteManualCosto: [''],
     valorTerreno: [''],
-    metroInmueble: this.metrosI,
-    metroTerraza: this.metrosT,
-    costoMetroInmueble: this.costoMI,
-    costoMetroTerraza: this.costoMT,
+    metroInmueble: [''],
+    metroTerraza: [''],
+    costoMetroInmueble:[''],
+    costoMetroTerraza:[''],
+
 
     //Enfoque de venta comparables
 
@@ -230,9 +231,9 @@ export class TasacionComponent implements OnInit {
     estilo2: [''],
     noHabitacion2:[''],
     noBaños2:[''],
-    noParquero2:[''],
+    noParqueos2:[''],
     condicionFisica2: [''],
-    valoresAjustados2: [''],
+    valorAjustado2: [''],
 
     //Descripcion 3
 
@@ -246,9 +247,9 @@ export class TasacionComponent implements OnInit {
     estilo3: [''],
     noHabitacion3:[''],
     noBaños3:[''],
-    noParquero3:[''],
+    noParqueos3:[''],
     condicionFisica3: [''],
-    valoresAjustados3:[''],
+    valorAjustado3:[''],
 
     //Conclusiones
     conclusiones: [''],
@@ -304,6 +305,10 @@ onSubmit(){
   this.tasacionForm.controls['amenidades'].setValue(JSON.stringify(this.selectedOptionsc));
   this.tasacionForm.controls['sistemaElectrico'].setValue(JSON.stringify(this.selectedOptionsd));
   this.tasacionForm.controls['artefactosAdicionales'].setValue(JSON.stringify(this.selectedOptionse));
+  this.tasacionForm.controls['metroInmueble'].setValue(this.metrosI);
+  this.tasacionForm.controls['metroTerraza'].setValue(this.metrosT);
+  this.tasacionForm.controls['costoMetroInmueble'].setValue(this.metrosI);
+  this.tasacionForm.controls['costoMetroTerraza'].setValue(this.metrosT);
   console.log(this.tasacionForm.value);
   this.tscApi.addTasacion(this.tasacionForm.value).subscribe(res =>{
   })

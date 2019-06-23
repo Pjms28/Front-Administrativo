@@ -151,7 +151,7 @@ export class TasacionModel{
     estilo2: string
     noBaños2: number
     noHabitacion2:number
-    noParquero2:number
+    noParqueos2:number
     condicionFisica2: string
     valoresAjustados2:number
 
@@ -166,7 +166,7 @@ export class TasacionModel{
     estilo3: string
     noHabitacion3:number
     noBaños3:number
-    noParquero3:number
+    noParqueos3:number
     condicionFisica3: string
     valoresAjustados3:number
 
