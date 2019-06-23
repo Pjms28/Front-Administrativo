@@ -11,6 +11,7 @@ import { DatoGenericoComponent } from '../dato-generico/dato-generico.component'
   styleUrls: ['./genericdata-list.component.css']
 })
 export class GenericdatalistComponent implements OnInit {
+  dialogRef: any;
   [x: string]: any;
   datos: GenericData[];
   dataTable: any;
@@ -77,5 +78,11 @@ export class GenericdatalistComponent implements OnInit {
         this.loadData();
 
       });
+  }
+
+  canDelete(){
+    let user =  window.localStorage.getItem("currentUser");
+    user = JSON.parse(user);
+    return user['roleId'] == '1' ? true: false;
   }
 }

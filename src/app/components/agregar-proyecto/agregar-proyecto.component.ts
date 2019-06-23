@@ -21,6 +21,7 @@ export class AgregarProyectoComponent implements OnInit {
   proyectImages: any[] = [];
   proyectImagesData: any[] = [];
   proyectPlanosPictures: any = [];
+  proyectPlanosData: any[] = []
   
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private toastr: ToastrService) { }
@@ -62,9 +63,10 @@ export class AgregarProyectoComponent implements OnInit {
   
 
       this.buildProyect(this.addForm.value);
-      this.proyecto.Imagenes = this.proyectImagesData;
+      this.mergeImages();
       /* this.addForm.controls['Imagenes'].setValue("asdasdasd"); */
-      console.log('this.addForm.value :', this.addForm.value);
+      console.log('Project:', this.proyecto);
+
 
       this.apiService.addProject(this.proyecto).subscribe(res =>{
         if (res == null){
@@ -89,32 +91,62 @@ export class AgregarProyectoComponent implements OnInit {
     this.fileTo = files.item(0);
   }
 
-  uploadFiles(){
-   for(const file of this.proyectImages){
-    let imagenProyecto = {
-      'Url' : file.name,
-      'Descripcion' : 'Imagen para proyecto',
-      'Tipo' : 'imagen-proyecto'
+  mergeImages(){
+    for(const file of this.proyectImages){
+      let imagenProyecto = {
+        'Url' : file.name,
+        'Descripcion' : 'Imagen para proyecto',
+        'Tipo' : 'imagen-proyecto'
+      }
+  
+      this.proyectImagesData.push(imagenProyecto);
     }
 
-    this.proyectImagesData.push(imagenProyecto);
+    for(const imagen of this.proyectPlanosPictures){
+      let planoProyecto =  {
+        'Url' : imagen.name,
+        'Descripcion' : 'Imagen para plano/vista del proyecto',
+        'Tipo' : 'plano-proyecto'
+      }
+      this.proyectImagesData.push(planoProyecto);
+    }
+
+
+    this.proyecto.Imagenes = this.proyectImagesData;
+  }
+
+  uploadFiles(){
+    //Construye arreglo para imagenes
+  for(const file of this.proyectImages){
     let fd = new FormData(); 
-         
     fd.append(file.name, file);
-    fd.append('fileName',this.fileTo.name);
+    fd.append('fileName',file.name);
     this.apiService.sendFormData(fd);
    }
 
+    for(const imagen of this.proyectPlanosPictures){
+      let fd = new FormData();
+      fd.append(imagen.name,imagen);
+      fd.append('fileName',imagen)
+      this.apiService.sendFormData(fd);
+    }
+
   }
-  onFileProyectsSelect(files){
-   /*  console.log('files :',files); */
+  onImagesProyectsSelect(files){
+    for (const file of files){
+      let currentFile = <File>file;
+      this.proyectImages.push(currentFile);
+    }
 
-   for (const file of files){
-    let currentFile = <File>file;
-    this.proyectImages.push(currentFile);
-   }
+  }
 
-    console.log('this.proyectImages :', this.proyectImages);
+  onPlanosProyectsSelect(imagens){
+    for (const imagen of imagens){
+      let currentImagen = <File>imagen;
+      this.proyectPlanosPictures.push(currentImagen);
+    }
+  
+      console.log('this.proyectImages :', this.proyectImages);
   }
 
   buildProyect(form){

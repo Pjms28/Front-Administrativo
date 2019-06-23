@@ -74,14 +74,19 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="file" multiple (change)="onFileProyectsSelect($event.target.files)">
+                                <label for="imagesDetalle">Imagenes para Detalle de Proyecto</label>
+                                <input type="file" id="filesDetalle" multiple (change)="onImagesProyectsSelect($event.target.files)">
                                 <br>
                             </div>
                         </div>
-    
-    
-                  
-                          
+                        <div class="form-row">
+                                <div class="form-group">
+                                    <label for="imagesPlanos">Planos o vistas</label>
+                                    <input type="file" id="imagesPlanos" multiple (change)="onPlanosProyectsSelect($event.target.files)">
+                                    <br>
+                                </div>
+                            </div>
+                        <br> 
                         <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                     
                     </form>

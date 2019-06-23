@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
+import { Observable } from 'rxjs';
 
 declare var Jquery: any;
 declare var $: any;
@@ -11,8 +12,9 @@ declare var $: any;
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  isLoggedIn$: Observable<boolean>;
 data: UsuarioModel;
-  constructor(private authApi: AuthService) { }
+  constructor(private AuthService: AuthService) { }
 
   ngOnInit() {
     $(function () {
@@ -23,8 +25,8 @@ data: UsuarioModel;
         $(this).addClass('selected');
       });
     });
-
-    this.data = this.authApi.getCurrentUser();
+    this.isLoggedIn$ = this.AuthService.isLoggedIn;
+    this.data = this.AuthService.getCurrentUser();
 
 }
 

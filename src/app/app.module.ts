@@ -13,7 +13,7 @@ import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MenuComponent } from "./components/menu/menu.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiService } from './shared/api.service';
 import { InmuebleService } from './shared/inmueble.service';
@@ -70,6 +70,10 @@ import { InmueblesComponent } from './components/inmuebles/inmuebles.component';
 import { CaracteristicasComponent } from './components/caracteristicas/caracteristicas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/jwt.interceptor';
+import { LoginComponent } from './components/login/login.component';
+import { AppMaterialModule } from './app-material/app-material.module';
 
 @NgModule({
   declarations: [
@@ -108,7 +112,8 @@ import { TemasforosComponent } from './components/temasforos/temasforos.componen
     InmueblesComponent,
     CaracteristicasComponent,
     ServiciosComponent,
-    TemasforosComponent
+    TemasforosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -130,6 +135,7 @@ import { TemasforosComponent } from './components/temasforos/temasforos.componen
     NgbModule,
     ToastrModule.forRoot(),
     NgxEditorModule,
+    AppMaterialModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -156,7 +162,8 @@ import { TemasforosComponent } from './components/temasforos/temasforos.componen
       {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},
       {path: 'caracteristicas',component: CaracteristicasComponent ,canActivate:[AuthGuard]},
       {path: 'servicios',component: ServiciosComponent ,canActivate:[AuthGuard]},
-      {path: 'temas-foros',component: TemasforosComponent ,canActivate:[AuthGuard]}
+      {path: 'temas-foros',component: TemasforosComponent ,canActivate:[AuthGuard]},
+      {path: 'login', component: LoginComponent}
 
 
     ]),
@@ -175,7 +182,23 @@ import { TemasforosComponent } from './components/temasforos/temasforos.componen
     MatInputModule,
     MatGridListModule
   ],
-  providers: [ ApiService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService,GenericDataService],
+  providers: [ 
+    ApiService,
+    InmuebleService,
+    CaracteristicaService, 
+    SolicitudService,
+    ServicioService,
+    VisitaService, 
+    PeticionService, 
+    CookieService,
+    GenericDataService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   entryComponents:[DatoGenericoComponent]
 })

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../services/auth.service';
 import { UsuarioModel } from '../modelos/usuario.model';
 
 @Injectable({
@@ -16,42 +16,23 @@ export class AuthGuard implements CanActivate {
 
     //Con cookies
     
-      this.user = this.authService.getCurrentUser()
+    this.user = this.authService.getCurrentUser()
+
     if (this.user != null){
-      if(this.user.roleId == 1){
+      let roles = this.user['roles'];
+      let isAdmin = roles.includes('Admin')
+
+      if(isAdmin){
         return true;
       }
       else{
-        window.location.href = 'http://localhost:4200'
-      }
-    }
-     else {
-        window.location.href = 'http://localhost:4200/login'
         return false;
       }
-    
-    
-    
-    /*this.user = this.authService.getCurrentUser()
-    if (this.user != null){
-      if(this.user.roleId == 1){
-        return true;
-      }
     }
-    else{
-      this.authService.set();
-      this.user = this.authService.getCurrentUser()
-      if(this.user != null){
-        if(this.user.roleId == 1){
-          return true;
-        }
-      }
-      else {
-        window.location.href = 'http://localhost:4200/login'
+    else {
+        this.router.navigate(['/login'])
         return false;
       }
-    }*/
-      
     }
   }
   

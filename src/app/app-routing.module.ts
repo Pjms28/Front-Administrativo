@@ -19,6 +19,8 @@ import { AdministrarPeticionesComponent } from './components/administrar-peticio
 import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
 import { AuthGuard } from "../app/guard/auth.guard";
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
@@ -111,11 +113,6 @@ const routes: Routes = [
   path: 'editar-post/: id',
   component: EditarPostComponent,
   canActivate:[AuthGuard]
-},
-{
-  path:'',
-  redirectTo: '/',
-  pathMatch: 'full',
 }
 ];
 

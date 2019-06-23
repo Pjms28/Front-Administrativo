@@ -4,7 +4,7 @@ import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { formatDate } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { BlogService } from 'src/app/shared/blog.service';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

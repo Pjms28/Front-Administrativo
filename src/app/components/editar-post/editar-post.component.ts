@@ -4,7 +4,7 @@ import { BlogService } from 'src/app/shared/blog.service';
 import { ToastrService } from 'ngx-toastr';
 import { BlogModel } from 'src/app/modelos/Blog.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-editar-post',
