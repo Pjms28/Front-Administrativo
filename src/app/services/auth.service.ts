@@ -24,6 +24,15 @@ constructor(private http: HttpClient, private router: Router,private cookieServi
   }
 
 get isLoggedIn() {
+    let token = this.cookieService.get('tkn');
+    if(token)
+    {
+      this.loggedIn.next(true);
+    }
+    else
+    {
+      this.loggedIn.next(false);
+    }
     return this.loggedIn.asObservable();
 }
 
