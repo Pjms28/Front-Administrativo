@@ -217,11 +217,10 @@ private ID: any;
       this.iT.materialConstruccion = JSON.parse(res.materialConstruccion);
       this.iT.sistemaElectrico = JSON.parse(res.sistemaElectrico);
       this.iT.artefactosAdicionales = JSON.parse(res.artefactosAdicionales);
-      
+      this.costoTotalI = this.iT.metroInmueble * this.iT.costoMetroInmueble;
+      this.costoTotalT = this.iT.metroTerraza * this.iT.costoMetroTerraza;
+      this.valorTotal = this.costoTotalI + this.costoTotalT;
     })
-    this.costoTotalI = this.iT.metroInmueble * this.iT.costoMetroInmueble;
-    this.costoTotalT = this.iT.metroTerraza * this.iT.costoMetroTerraza;
-    this.valorTotal = this.costoTotalI + this.costoTotalT;
   }
 
 }

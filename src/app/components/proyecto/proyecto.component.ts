@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImagenesModel } from 'src/app/modelos/imagenes.model';
 
 
 @Component({
@@ -16,6 +17,10 @@ export class ProyectoComponent {
   ubicacionID: number;
   latitude: number;
   longitude: number;
+  imagenes: ImagenesModel[];
+
+
+
   constructor() { }
 
  

@@ -1,0 +1,926 @@
+<ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" class="general" href="#home">Información General</a></li>
+    <li><a data-toggle="pill" href="#menu1">Certificación de Avalúo</a></li>
+    <li><a data-toggle="pill" href="#menu2">Informe de Avalúo</a></li>
+    <li><a data-toggle="pill" href="#menu3">Descripción de la Vecindad</a></li>
+    <li><a data-toggle="pill" href="#menu4">Descripción de la Zona</a></li>
+    <li><a data-toggle="pill" href="#menu5">Descripción de las Mejoras</a></li>
+    <li><a data-toggle="pill" href="#menu6">Descripción interior propiedad</a></li>
+    <li><a data-toggle="pill" href="#menu7">Distribución de las Habitaciones</a></li>
+    <li><a data-toggle="pill" href="#menu8">Metodología de Ventas Comparables de Mercado</a></li>
+    <li><a data-toggle="pill" href="#menu9">Enfoque de Ventas Comparables</a></li>
+    <li><a data-toggle="pill" href="#menu10">Conclusiones</a></li>
+  
+  
+  </ul>
+  
+  <form [formGroup] = "tasacionForm" (ngSubmit)="onSubmit()">
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <h3>Información General</h3>
+   
+        <div class="form-group">
+          <label>Descripción del Apartamento o Inmueble</label>
+          <input type="text" class="form-control" id="formGroupExampleInput"   maxlength="100" placeholder="Descripción" formControlName="descripcionInmueble">
+        </div>
+        <div class="form-group">
+          <label >Nombre del Tasador</label>
+          <input input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40"  placeholder="Introduzca el nombre" formControlName="tasadorNombre">
+          </div>
+            <div class="form-group">
+                <label >Nombre del Asesor</label>
+                <input input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Introduzca el nombre" formControlName="asesorNombre">
+                </div>
+              <div class="form-group">
+                  <label >Nombre del Técnico</label>
+                  <input input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Introduzca el nombre" formControlName="tecnicoNombre">
+                  </div>
+                  <div class="form-group">
+                      <label>Dirección de la Constructora</label>
+                      <input input type="text" class="form-control" id="formGroupExampleInput"  maxlength="60" placeholder="Introduzca la dirección" formControlName="direccionConstructora">
+                      </div>
+                      <div class="form-group">
+                          <label>Teléfono de la Constructora</label>
+                          <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono" formControlName="telefonoConstructora">
+                          </div>
+                          <div class="form-group">
+                              <label >Correo de la Constructora</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxlength="30" placeholder="Enter email" formControlName="correoCompania">
+                            </div>
+                            <div class="form-group">
+                                <label>Nombre del Cliente</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Introduzca el nombre" formControlName="clienteNombre">
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha</label>
+                                    <input type="date" class="form-control" formControlName="fecha" formControlName="fecha">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ciudad</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput"  maxlength="20" placeholder="Introduzca la ciudad" formControlName="ciudad">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>País</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput"  maxlength="20" placeholder="Introduzca el país" formControlName="pais">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nombre del Banco</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput"  maxlength="20" placeholder="Introduzca el nombre" formControlName="banco">
+                                                </div>
+                                   
+                                            </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Certificación de avalúo</h3>
+   
+          <div class="form-group">
+            <label>Designación Catastral No</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Introduzca el número catastral" formControlName="noCatastral">
+          </div>
+          <div class="form-group">
+            <label >Matrícula</label>
+            <input input type="text" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Introduzca la matrícula" formControlName="matricula">
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <input input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Introduzca el precio" formControlName="precio">
+                </div>
+                <div class="form-group">
+                    <label>Precio en Letra</label>
+                    <input type='text'  class="form-control" id="formGroupExampleInput" minlength="3" maxlength="50" placeholder="Introduzca el teléfono" formControlName="letraPrecio">
+                    </div>
+  
+           
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Informe de avalúo</h3>
+     
+          <div class="form-group">
+            <label>Propietario</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" minlength="2" maxlength="40" placeholder="Introduzca el nombre" formControlName="propietario">
+          </div>
+          <div class="form-group">
+            <label >Valuador</label>
+            <input input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40"maxlength="30" placeholder="Introduzca el nombre" formControlName="valuador">
+          </div>
+          <div class="form-group">
+            <label>Dirección</label>
+            <input input type="text" class="form-control" id="formGroupExampleInput"  maxlength="60" placeholder="Introduzca la dirección" formControlName="direccion">
+          </div>
+          <div class="form-group">
+              <label>Teléfono</label>
+              <input type='text'  mask="(000) 000 0000" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el teléfono" name="telefono" formControlName="telefono">
+            </div>
+         <!--<div class="form-group">
+                <label>Nombre del Cliente</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" minlength="2" maxlength="40" maxlength="30" placeholder="Introduzca el nombre del cliente">
+            </div>-->
+            <div class="form-group">
+              <label>Derechos de propiedad avaluada</label><br>
+              <input type="radio" name="derechoPropiedad" value="dominio" formControlName="derechoPropiedad">Pleno dominio.<br>
+              <input type="radio" name="derechoPropiedad" value="inmueblealquilado" formControlName="derechoPropiedad">Inmueble alquilado.<br>
+              <input type="radio" name="derechoPropiedad" value="condominio" formControlName="derechoPropiedad">Condominio.<br>
+              <input type="radio" name="derechoPropiedad" value="oupacion" formControlName="derechoPropiedad">Ocupación/Invasión.<br>
+              <input type="radio" name="derechoPropiedad" value="otro" formControlName="derechoPropiedad">Otro/Especifique.
+          </div>
+          <div class="form-group">
+            <label>Ocupado por</label><br>
+            <input type="radio" name="ocupadoPor" value="propietario" formControlName="ocupadoPor">Propietario.<br>
+            <input type="radio" name="ocupadoPor" value="inquilino" formControlName="ocupadoPor">Inquilino.<br>
+            <input type="radio" name="ocupadoPor" value="desocupado" formControlName="ocupadoPor">Desocupado.
+        </div>
+        <div class="form-group">
+          <label>Utilidad del inmueble</label>
+          <input type="text" mask="percent" sufix="%" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la utilidad del inmueble" formControlName="utilidadInmueble">
+         </div>
+  
+      
+    </div>
+    
+    <div id="menu3" class="tab-pane fade">
+        <h3>Descripción de la vecindad</h3>
+   
+            <div class="form-group">
+                <label>Tipo de vecindad</label><br>
+                <input type="radio" name="tipoVecindad" value="urbano" formControlName="tipoVecindad">Urbano.<br>
+                <input type="radio" name="tipoVecindad" value="rural" formControlName="tipoVecindad">Rural.<br>
+                <input type="radio" name="tipoVecindad" value="mixto" formControlName="tipoVecindad">Mixto.<br>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
+            </div>
+  
+            <div class="form-group">
+                <label>Tendencia de la vecindad</label><br>
+                <input type="radio" name="tendenciaVecindad" value="mejorar" formControlName ="tendenciaVecindad">A mejorar<br>
+                <input type="radio" name="tendenciaVecindad" value="estable" formControlName ="tendenciaVecindad">Estable<br>
+                <input type="radio" name="tendenciaVecindad" value="empeorar" formControlName ="tendenciaVecindad">A empeorar<br>
+                <input type="radio" name="tendenciaVecindad" value="tansicion" formControlName ="tendenciaVecindad">En transición
+            </div>
+  
+            <div class="form-group">
+                <label>Comparación con la propiedad del vecindario</label><br>
+                <input type="radio" name="comparacionVecindario" value="inferior" formControlName = "comparacionVecindario">Inferior<br>
+                <input type="radio" name="comparacionVecindario" value="similar" formControlName = "comparacionVecindario">Similar<br>
+                <input type="radio" name="comparacionVecindario" value="superior" formControlName = "comparacionVecindario">Superior<br>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
+            </div>
+  
+            <div class="form-group">
+                <label>Antigüedad promedio de las propiedades del vecindario</label>
+                <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="20" placeholder="Introduzca la antigüedad promedio de las propiedades del vecindario" formControlName="antiguedadPromedio">
+            </div>
+  
+            <div class="form-group">
+                <label>Área construida</label>
+                <input type="text" mask="percent" sufix="%" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el área construida" formControlName="areaConstruida">
+            </div>
+  
+            <div class="form-group">
+                <label>Oferta </label><br>
+                <input type="radio" name="oferta" value="mucha" formControlName="oferta">Mucha<br>
+                <input type="radio" name="oferta" value="razonable" formControlName="oferta">Razonable<br>
+                <input type="radio" name="oferta" value="poca" formControlName="oferta">Poca
+            </div>
+  
+            <div class="form-group">
+                <label>Demanda</label><br>
+                <input type="radio" name="demanda" value="mucha" formControlName="demanda">Mucha<br>
+                <input type="radio" name="demanda" value="razonable" formControlName="demanda">Razonable<br>
+                <input type="radio" name="demanda" value="poca" formControlName="demanda">Poca
+            </div>
+  
+            <div class="form-group">
+                <label>Deseabilidad de la propiedad</label><br>
+                <input type="radio" name="deseabilidadPropiedad" value="mucha" formControlName="deseabilidadPropiedad">Mucha.<br>
+                <input type="radio" name="deseabilidadPropiedad" value="razonable" formControlName="deseabilidadPropiedad">Razonable.<br>
+                <input type="radio" name="deseabilidadPropiedad" value="poca" formControlName="deseabilidadPropiedad">Poca.
+            </div>
+  
+            <div class="form-group">
+                <label>Distancia a Escuela Primaria</label>
+                <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="20" placeholder="Introduzca la distancia a Escuela Primaria" formControlName="distanciaEscuelaP">
+            </div>
+  
+            <div class="form-group">
+                <label>Distancia a Escuela Secundaria</label>
+                <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="20" placeholder="Introduzca la distancia a Escuela Secundaria." formControlName="distanciaEscuelaS">
+            </div>
+  
+            <div class="form-group">
+                <label>Distancia al Transporte Público</label>
+                <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="20" placeholder="Introduzca la distancia al Transporte Público." formControlName="distanciaTransporte">
+            </div>
+  
+            <div class="form-group">
+                <label>Distancia a Comercios</label>
+                <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="20" placeholder="Introduzca la distancia a Comercios." formControlName="distanciaComercio">
+            </div>
+  
+            <div class="form-group">
+                <label>Distancia a Centro de la ciudad</label>
+                <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="20" placeholder="Introduzca la distancia a Centro de la ciudad." formControlName="distanciaCiudad">
+            </div>
+  
+   
+      </div>
+  
+      <div id="menu4" class="tab-pane fade">
+          <h3>Descripción de la zona</h3>
+   
+              <div class="form-group">
+                  <legend>Límites Naturales</legend> 
+                  <input type="text" class="form-control" id="formGroupExampleInput" maxlength="50" placeholder="Introduzca los límites naturales" formControlName="limitesNaturales">
+              </div>
+  
+              <div class="form-group">
+                <fieldset>
+                  <legend>La zona posee</legend><br>
+                  <div *ngFor ="let option of a">
+                  <input type="checkbox" name="options" value="{{option.valor}}" [(ngModel)] ="option.checked" [ngModelOptions]="{standalone: true}">>{{option.nombre}}.<br>
+                  </div>
+                </fieldset>
+              </div>
+  
+              <div class="form-group">
+                  <label>Área</label>
+                  <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="30" placeholder="Introduzca el área" formControlName="area">
+              </div>
+  
+              <div class="form-group">
+                  <label>Fuente</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" minlength="2" maxlength="30" placeholder="Introduzca la fuente" formControlName="fuente">
+              </div>
+  
+              <div class="form-group">
+                  <label>Topografía</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="30" placeholder="Introduzca la topografía" formControlName="topografia">
+              </div>
+  
+              <div class="form-group">
+                  <label>Configuración</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="30" placeholder="Introduzca la configuración" formControlName="configuracion">
+              </div>
+  
+              <div class="form-group">
+                  <label>Zonificación</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="30" placeholder="Introduzca la zonificación" formControlName="zonificacion">
+              </div>
+  
+              <div class="form-group">
+                  <label>Esta conforme con el uso actual de la propiedad</label><br>
+                  <input type="radio" name="usoPropiedad" value="si" formControlName="usoPropiedad">Si.<br>
+                  <input type="radio" name="usoPropiedad" value="no" formControlName="usoPropiedad">No. 
+              </div>
+  
+              <div class="form-group">
+                <fieldset>
+                  <legend>Paisajismo o área verdes</legend><br>
+                  <input type="radio" name="areaVerde" value="excelente" formControlName="areaVerde">Excelente.<br>
+                  <input type="radio" name="areaVerde" value="buena" formControlName="areaVerde">Buena. <br>
+                  <input type="radio" name="areaVerde" value="muybuena" formControlName="areaVerde">Muy Buena.<br>
+                  <input type="radio" name="areaVerde" value="regular" formControlName="areaVerde">Regular. <br>
+                  <input type="radio" name="areaVerde" value="mala" formControlName="areaVerde">Mala.<br>
+                  <input type="radio" name="areaVerde" value="inexistente" formControlName="areaVerde">Inexistente.  
+                </fieldset>
+              </div>
+              
+              <div class="form-group">
+                <fieldset>
+                  <legend>Servidumbre</legend><br>
+                  <input type="radio" name="servidumbre" value="serviciopublico" formControlName="servidumbre">Servicios Públicos.<br>
+                  <input type="radio" name="servidumbre" value="depaso" formControlName="servidumbre">De Paso. <br>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros"> 
+                </fieldset>
+              </div>
+  
+              <div class="form-group">
+                <fieldset>
+                  <legend>Entrada y Salida de la Marquesina</legend><br>
+                  <input type="radio" name="marquesina" value="privada" formControlName="marquesina">Privada<br>
+                  <input type="radio" name="marquesina" value="comun" formControlName="marquesina">Común<br>
+                  <input type="radio" name="marquesina" value="ninguna" formControlName="marquesina">Ninguna<br>
+                  <input type="radio" name="marquesina" value="unica" formControlName="marquesina">Única <br>
+                  <input type="radio" name="marquesina" value="doble" formControlName="marquesina">Doble<br>
+                </fieldset>
+              </div>
+  
+              <div class="form-group">
+                  <label>Instalación Eléctrica </label><br>
+                  <input type="radio" name="instalacionElectrica" value="subterranea"  formControlName="instalacionElectrica">Subterránea.<br>
+                  <input type="radio" name="instalacionElectrica" value="enpostes"  formControlName="instalacionElectrica">En Postes.<br>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Otros">
+              </div>
+  
+  
+              
+   
+       </div>
+  
+       <div id="menu5" class="tab-pane fade">
+          <h3>Descripción de las Mejoras</h3>
+     
+              <div class="form-group">
+                  <label>Año de construcción estimado</label>
+                  <input type="date" class="form-control" id="formGroupExampleInput" placeholder="Introduzca el año de construcción estimado"  formControlName="anoEstimado">
+              </div>
+  
+              <div class="form-group">
+                  <label>Construcción terminada</label><br>
+                  <select formControlName="construccionTerminada">
+                      <option value="Si">Si</option>
+                      <option value="No">No</option>
+                  </select>      
+              </div>
+  
+              <div class="form-group">
+                  <label>Área por piso de apartamento </label><br>
+                  <input type="number" class="form-control" id="formGroupExampleInput" minlength="1" maxlength="30" placeholder="Introduzca el Área por piso de apartamento" formControlName="areaPiso">
+              </div>
+  
+              <div class="form-group">
+                  <label> X total</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la X total" formControlName="xtotal">
+              </div>
+  
+              <div class="form-group">
+                  <label> Tipo marco ventanas</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" minlength="1"axlength="30" placeholder="Introduzca el tipo marco ventanas" formControlName="ventanaMarco">
+              </div>
+  
+              <div class="form-group">
+                  <label>Sótano</label><br>
+                  <input type="radio" name="sotano" value="completo" formControlName="sotano">Completo<br>
+                  <input type="radio" name="sotano" value="parcial" formControlName="sotano">Parcial<br>
+                  <input type="radio" name="sotano" value="peqaltura" formControlName="sotano">Sótano de pequeña altura<br>
+                  <input type="radio" name="sotano" value="areato" formControlName="sotano">Área total<br>
+              </div>
+  
+              <div class="form-group">
+                  <label>Area Total del Sótano</label>
+                  <input type="number" class="form-control" id="formGroupExampleInput" placeholder="m2" formControlName="areaTotalSotano">
+              </div>
+              
+  
+              <div class="form-group">
+                  <label>Tipo inmueble</label><br>
+                  <input type="radio" name="tipoInmueble" value="aislado" formControlName="tipoInmueble">Asilado<br>
+                  <input type="radio" name="tipoInmueble" value="hileras" formControlName="tipoInmueble">En hileras<br>
+                  <input type="radio" name="tipoInmueble" value="townhouse" formControlName="tipoInmueble">Townhouse <br>
+                  <input type="radio" name="tipoInmueble" value="apartamento" formControlName="tipoInmueble">Apartamento<br>
+                  <input type="radio" name="tipoInmueble" value="duplex" formControlName="tipoInmueble">Duplex<br>
+                  <input type="radio" name="tipoInmueble" value="triplex" formControlName="tipoInmueble">Triplex<br>
+                  
+              </div>
+  
+              <div class="form-group">
+                  <label>Estructura</label><br>
+                  <input type="radio" name="estructura" value="unpiso" formControlName="estructura">Un piso<br>
+                  <input type="radio" name="estructura" value="dospiso" formControlName="estructura">2 Piso<br>
+                  <input type="radio" name="estructura" value="desnivel" formControlName="estructura">Piso en desnivel
+              </div>
+  
+              <div class="form-group">
+                  <label>Material de construcción</label><br>
+                  <div *ngFor = "let optionb of b ">
+                      <input type="checkbox" name="{{optionb.nombre}}" value="{{optionb.valor}}" [(ngModel)] = "optionb.checked" [ngModelOptions]="{standalone: true}">{{optionb.nombre}}.<br>
+                  </div>
+              </div>
+  
+              <div class="form-group">
+                  <label>Material de techo</label><br>
+                  <input type="radio" name="materialTecho" value="asfaltica" formControlName="materialTecho">Teja Asfaltica<br>
+                  <input type="radio" name="materialTecho" value="barro" formControlName="materialTecho">Teja de Barro<br>
+                  <input type="radio" name="materialTecho" value="metalica" formControlName="materialTecho">Cubierta Metalica<br>
+                  <input type="radio" name="materialTecho" value="ha" formControlName="materialTecho">Losa De H.A <br>
+                  <input type="radio" name="materialTecho" value="cedro" formControlName="materialTecho">Shingles de Cedro <br>
+                  <input type="radio" name="materialTecho" value="otros" formControlName="materialTecho">Otros
+              </div>
+  
+              <div class="form-group">
+                  <label>Revestimiento exterior</label><br>
+                  <input type="radio" name="revestimientoExterior" value="cemento" formControlName ="revestimientoExterior">Pañete cemento<br>
+                  <input type="radio" name="revestimientoExterior" value="ladrillo" formControlName ="revestimientoExterior">Ladrillo Macizo<br>
+                  <input type="radio" name="revestimientoExterior" value="piedra" formControlName ="revestimientoExterior">Piedra/Laja<br>
+                  <input type="radio" name="revestimientoExterior" value="coralina" formControlName ="revestimientoExterior">Coralina <br>
+                  <input type="radio" name="revestimientoExterior" value="pintura" formControlName ="revestimientoExterior">Pintura<br>
+                  <input type="radio" name="revestimientoExterior" value="aluminio" formControlName ="revestimientoExterior">Aluminio<br>
+                  <input type="radio" name="revestimientoExterior" value="vinilo" formControlName ="revestimientoExterior">Vinilo<br>
+                  <input type="radio" name="revestimientoExterior" value="aislante" formControlName ="revestimientoExterior">Ladrillo aislante <br>
+                  <input type="radio" name="revestimientoExterior" value="otro" formControlName ="revestimientoExterior">Otro
+              </div>
+  
+              <div class="form-group">
+                  <label>Condición general externa</label><br>
+                  <input type="radio" name="condicionExterna" value="buena" formControlName ="condicionExterna">Buena <br>
+                  <input type="radio" name="condicionExterna" value="muybuena" formControlName ="condicionExterna">Muy Buena<br>
+                  <input type="radio" name="condicionExterna" value="regular" formControlName ="condicionExterna">Regular <br>
+                  <input type="radio" name="condicionExterna" value="mala" formControlName ="condicionExterna">Mala<br>
+              </div>
+   
+          </div>
+  
+          <div id="menu6" class="tab-pane fade">
+              <h3>Descripción del Interior de la Propiedad</h3>
+    
+                  
+                  <div class="form-group">
+                      <label>Pisos</label><br>
+                      <input type="radio" name="tipoPiso" value="granito" formControlName ="tipoPiso">Granito<br>
+                      <input type="radio" name="tipoPiso" value="porcelanato" formControlName ="tipoPiso">Porcelanato<br>
+                      <input type="radio" name="tipoPiso" value="marmol" formControlName ="tipoPiso">Mármol<br>
+                      <input type="radio" name="tipoPiso" value="parquet" formControlName ="tipoPiso">Parquet<br>
+                      <input type="radio" name="tipoPiso" value="terrazo" formControlName ="tipoPiso">Terrazo<br>
+                      <input type="radio" name="tipoPiso" value="alfombra" formControlName ="tipoPiso">Alfombra<br>
+                      <input type="radio" name="tipoPiso" value="madera" formControlName ="tipoPiso">Madera<br>
+                      <input type="radio" name="tipoPiso" value="mosaico" formControlName ="tipoPiso">Mosaico<br>
+                      <input type="radio" name="tipoPiso" value="ceramica" formControlName ="tipoPiso">Cerámica<br>
+                      <input type="radio" name="tipoPiso" value="vinillo" formControlName ="tipoPiso">Laminado de Vinillo<br>
+                      <input type="radio" name="tipoPiso" value="baldosas" formControlName ="tipoPiso">Baldosas Vinílicas<br>
+                  </div>
+      
+                  <div class="form-group">
+                      <label>Distribución Arquitectónica</label><br>
+                      <input type="radio" name="distribucionArq" value="muybuena" formControlName ="distribucionArq">Muy Buena<br>
+                      <input type="radio" name="distribucionArq" value="buena" formControlName ="distribucionArq">Buena<br>
+                      <input type="radio" name="distribucionArq" value="regular" formControlName ="distribucionArq">Regular<br>
+                      <input type="radio" name="distribucionArq" value="mala" formControlName ="distribucionArq">Mala<br>
+                      
+                  </div>
+      
+                  <div class="form-group">
+                      <label>Armarios</label><br>
+                      <input type="radio" name="armarios" value="muybuena" formControlName ="armarios">Muy Buenos<br>
+                      <input type="radio" name="armarios" value="buenos" formControlName ="armarios">Buenos<br>
+                      <input type="radio" name="armarios" value="regulares" formControlName ="armarios">Regulares<br>
+                      <input type="radio" name="armarios" value="malos" formControlName ="armarios">Malos<br> 
+                  </div>
+      
+                  <div class="form-group">
+                      <label>Dormitorios</label><br>
+                      <input type="radio" name="dormitorios" value="grandes" formControlName ="dormitorios">Grandes<br>
+                      <input type="radio" name="dormitorios" value="medianos" formControlName ="dormitorios">Medianos<br>
+                      <input type="radio" name="dormitorios" value="pequenos" formControlName ="dormitorios">Pequeños   
+                  </div>
+      
+                  <div class="form-group">
+                      <label>Baños (# de piezas)</label><br>
+                      <input type="radio" name="noBanos" value="2" formControlName ="noBanos">2<br>
+                      <input type="radio" name="noBanos" value="3" formControlName ="noBanos">3<br>
+                      <input type="radio" name="noBanos" value="4" formControlName ="noBanos">4<br>
+                      <input type="radio" name="noBanos" value="5" formControlName ="noBanos">5<br>
+                  </div>
+  
+                  <div class="form-group">
+                      <label>Baños</label><br>
+                      <input type="radio" name="banos" value="muybuenos" formControlName ="banos">Muy Buenos<br>
+                      <input type="radio" name="banos" value="buenos" formControlName ="banos">Buenos<br>
+                      <input type="radio" name="banos" value="malos" formControlName ="banos">Malos<br>
+                      <input type="radio" name="banos" value="cliente" formControlName ="banos">Fabricados a Gusto del Cliente<br>
+                  </div>
+  
+                  <div class="form-group">
+                      <label>Condición General Interna</label><br>
+                      <input type="radio" name="codicionInterna" value="muybuena" formControlName ="codicionInterna">Muy Buena<br>
+                      <input type="radio" name="codicionInterna" value="buena" formControlName ="codicionInterna">Buena<br>
+                      <input type="radio" name="codicionInterna" value="regular" formControlName ="codicionInterna">Regular<br>
+                      <input type="radio" name="codicionInterna" value="mala" formControlName ="codicionInterna">Mala<br>
+                  </div>
+      
+  
+                  <div class="form-group">
+                      <label>Paredes Materiales</label><br>
+                      <textarea name="textarea" rows="10" cols="50" placeholder="Detalles del material de las paredes" formControlName ="paredesMaterial"></textarea>
+                    </div>
+  
+                    <div class="form-group">
+                        <label>Techos Materiales</label><br>
+                        <textarea name="textarea" rows="10" cols="50" placeholder="Detalles del material de los techos" formControlName ="techos"></textarea>
+                      </div>
+  
+                      <div class="form-group">
+                          <label>Otros Detalles</label><br>
+                          <textarea name="textarea" rows="10" cols="50" placeholder="Escriba sobre otros detalles" formControlName ="otrosDetalles"></textarea>
+                        </div>
+  
+                        <div class="form-group">
+                              <label>Muros de Cimientos</label><br>
+                              <input type="radio" name="murosCimientos" value="vaciado" formControlName ="murosCimientos">H.A Vaciado<br>
+                              <input type="radio" name="murosCimientos" value="bloques" formControlName ="murosCimientos">Bloques de H.A <br>
+                              <input type="radio" name="murosCimientos" value="losa" formControlName ="murosCimientos">Losa de H.A<br>
+                              <input type="radio" name="murosCimientos" value="ladrillo" formControlName ="murosCimientos">Ladrillo y Piedra<br>
+                              <input type="radio" name="murosCimientos" value="na" formControlName ="murosCimientos">N/A<br>
+                          </div>
+              
+                          <div class="form-group">
+                              <label>Instalación Sanitaria </label><br>
+                              <input type="radio" name="tuberiasSanitarias" value="cobre" formControlName ="tuberiasSanitarias">Cobre<br>
+                              <input type="radio" name="tuberiasSanitarias" value="pvc" formControlName ="tuberiasSanitarias">PVC<br>
+                              <input type="radio" name="tuberiasSanitarias" value="galvanizado" formControlName ="tuberiasSanitarias">Galvanizado<br>
+                              
+                          </div>
+              
+                          <div class="form-group">
+                              <label>Amenidades</label><br>
+                              <div *ngFor = "let optionc of c">
+                                  <input type="checkbox" name="{{optionc.nombre}}" value="{{optionc.valor}}" [(ngModel)] = "optionc.checked" [ngModelOptions]="{standalone: true}">{{optionc.nombre}}<br>
+                              </div>
+                          </div>
+              
+                          <div class="form-group">
+                              <label>Calentador de Agua</label><br>
+                              <input type="radio" name="calentadorAgua" value="gas" formControlName ="calentadorAgua">Gas<br>
+                              <input type="radio" name="calentadorAgua" value="electrico" formControlName ="calentadorAgua">Eléctrico<br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label> Capacidad Calentador de Agua</label>
+                              <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Introduzca la capacidad" formControlName ="capacidadCalentador">
+                          </div>
+              
+                          <div class="form-group">
+                              <label>Sistema Eléctrico</label><br>
+                              <div *ngFor = "let optiond of d ">
+                                  <input type="checkbox" name="{{optiond.nombre}}" value="{{optiond.valor}}" [(ngModel)]="optiond.checked" [ngModelOptions]="{standalone: true}">{{optiond.nombre}}<br>
+                              </div>
+                          </div>
+          
+                          <div class="form-group">
+                              <label>Artefactos Empotrados e Instalaciones Adicioneales</label><br>
+                              <div *ngFor ="let optione of e">
+                                  <input type="checkbox" name="{{optione.nombre}}" value="{{optione.valor}}" [(ngModel)] = "optione.checked" [ngModelOptions]="{standalone: true}">{{optione.nombre}}<br>
+                              </div>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Otras Mejoras</label><br>
+                              <textarea name="textarea" rows="10" cols="50" placeholder="Escriba comentario adicional" formControlName ="otrasMejoras"></textarea>
+                            </div>
+  
+                          <div class="form-group">
+                              <label>Comentarios</label><br>
+                              <textarea name="textarea" rows="10" cols="50" placeholder="Escriba comentario adicional" formControlName ="comentarios"></textarea>
+                            </div>
+  
+              </div>
+            
+  
+  
+                  <div id="menu7" class="tab-pane fade">
+                      <h3>Distribución de las Habitaciones</h3>
+  
+                          
+                          <div class="form-group">
+                              <label>Piso</label><br>
+                              <input type="text" name="pisoo" placeholder="No. de piso" formControlName ="numeroPiso"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Habitaciones</label><br>
+                              <input type="text" mask="00" name="habi"  placeholder="No. de habitaciones" formControlName ="habitaciones"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Entrada</label><br>
+                              <input type="text" mask="00" name="entrada"  placeholder="No. de entradas" formControlName ="entrada"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Sala de Estar</label><br>
+                              <input type="text" mask="00" name="sala"  placeholder="No. de salas" formControlName ="salaEstar"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Comedor</label><br>
+                              <input type="text" mask="00" name="comedor"  placeholder="No. de comedores" formControlName ="comedor"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Cocina</label><br>
+                              <input type="text" mask="00" name="cocina"  placeholder="No. de habitaciones" formControlName ="cocina"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Baño Completo</label><br>
+                              <input type="text" mask="00" name="bc"  placeholder="No. de Baños completos" formControlName ="banoCompleto"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Baño Parcial</label><br>
+                              <input type="text" mask="00" name="bp"  placeholder="No. de baños parciales" formControlName ="banoParcial"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Terraza Descubierta</label><br>
+                              <input type="text" mask="00" name="terraza"  placeholder="No. de terrazas" formControlName ="terraza"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Lavandería</label><br>
+                              <input type="text" mask="00" name="lavanderia"  placeholder="No. de lavanderías" formControlName ="lavanderia"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Cuarto de Servicios</label><br>
+                              <input type="text" mask="00" name="servic"  placeholder="No. de cuartos de servicios" formControlName ="cuartoServicio"><br>
+                          </div>
+  
+                          <div class="form-group">
+                              <label>Parqueos</label><br>
+                              <input type="text" mask="00" name="parqueo"  placeholder="No. de parqueos" formControlName ="parqueos"><br>
+                          </div>
+              
+  
+                      </div>
+  
+                      <div id="menu8" class="tab-pane fade">
+                          <h3>Metodología de Ventas Comparables de Mercado</h3>
+  
+                              
+                              <div class="form-group">
+                                  <label>Fuente de datos del costo</label><br>
+                                  <input type="radio" name="fuenteManualCosto" value="manual" formControlName ="fuenteManualCosto"> Manual<br>
+                                  <input type="radio" name="fuenteManualCosto" value="contratista" formControlName ="fuenteManualCosto"> Contratista Local<br>
+                                  <input type="radio" name="fuenteManualCosto" value="otro" formControlName ="fuenteManualCosto"> Otro<br>
+                              </div>
+      
+                              <div class="form-group">
+                                  <label>Valor del Terreno</label><br>
+                                  <input type="text" mask="comma_separator" name="val"  placeholder="Introduzca el valor" formControlName ="valorTerreno"><br>
+                              </div>
+      
+                              <div class="form-group">
+                                  <label>Metros Cuadrados del Inmueble</label><br>
+                                  <input type="text" formControlName="metroInmueble" mask="comma_separator" name="metros"  placeholder="Introduzca la cantidad"><br>
+                              </div>
+  
+                              <div class="form-group">
+                                  <label>Costo por Metros Cuadrados (Inmueble)</label><br>
+                                  <input type="text" formControlName="costoMetroInmueble" mask="comma_separator" name="cosm" placeholder="Introduzca el valor"><br>
+                              </div>
+  
+                              <div class="form-group">
+                                  <label>Metros Cuadrados de Terraza</label><br>
+                                  <input type="text" formControlName="metroTerraza"  mask="comma_separator" name="metroos"  placeholder="Introduzca la cantidad"><br>
+                              </div>
+  
+                              <div class="form-group">
+                                  <label>Costo por Metros Cuadrados (Terraza)</label><br>
+                                  <input type="text" formControlName="costoMetroTerraza"  mask="comma_separator" name="cosm"  placeholder="Introduzca el valor"><br>
+                              </div>
+  
+                  
+  
+                          </div>
+  
+                          <div id="menu9" class="tab-pane fade comp">
+                              <h3>Enfoque de Ventas Comparables</h3>
+  
+                                  <div class="comparable">
+                                      <div class="comp1">
+                                      <h4>Comparable #1</h4>
+                                  
+                                  <div class="form-group"> 
+                                      <label>Fecha de la venta</label><br>
+                                      <input type="date" name="fv" formControlName ="fechaVenta"><br>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>Precio de la venta</label><br>
+                                      <input type="text" mask="comma_separator" maxlength="30" name="Pv" placeholder="Introduzca monto" formControlName ="precioVenta"><br>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>Tamaño</label><br>
+                                      <input type="text"  name="tam" placeholder="Introduzca tamaño" formControlName ="tamaño"><br>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>Precio por M2</label><br>
+                                      <input type="text" mask="comma_separator" name="Pm" maxlength="30" placeholder="Introduzca monto" formControlName ="precioPorM2"><br>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>Condición de Antigüedad</label><br>
+                                      <input type="text" name="antiguedad" minlength="1" maxlength="20" placeholder="Condición Antigüedad" formControlName ="condicion"><br>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>Estilo</label><br>
+                                      <input type="text" name="estilo" minlength="1" maxlength="20" placeholder="Estilo" formControlName ="estilo"><br>
+                                  </div>
+  
+                                  <div class="form-group">
+                                      <label>Valores Ajustados</label><br>
+                                      <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va" placeholder="Introduzca monto" formControlName ="valorAjustado"><br>
+                                  </div>
+                              </div>
+                          </div>
+  
+                                  <div class="comparable">
+                                          <h4>Comparable #2</h4>
+                                          <div class="form-group">
+                                                  <label>Descripción</label><br>
+                                                  <input type="text" name="Descripción2" minlength="1" maxlength="100"placeholder="Descripción" formControlName ="descripcion2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Dirección</label><br>
+                                                  <input type="text" name="direc2" minlength="1" maxlength="50" placeholder="Dirección" formControlName ="direccion2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Fecha de la venta</label><br>
+                                                  <input type="date" name="fv2" formControlName ="fechaVenta2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Precio de la venta</label><br>
+                                                  <input type="text" mask="comma_separator" minlength="1" maxlength="30"name="Pv2" placeholder="Introduzca monto" formControlName ="precioVenta2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Tamaño</label><br>
+                                                  <input type="text"  name="tam2" minlength="1" maxlength="20" placeholder="Introduzca tamaño" formControlName ="tamaño2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Precio por M2</label><br>
+                                                  <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="Pm2" placeholder="Introduzca monto" formControlName ="precioMetro2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Condición de Antigüedad</label><br>
+                                                  <input type="text" name="antiguedad2" minlength="1" maxlength="20" placeholder="Condición Antigüedad" formControlName ="condicion2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Estilo</label><br>
+                                                  <input type="text" name="estilo2" minlength="1" maxlength="20" placeholder="Estilo" formControlName ="estilo2"><br>
+                                              </div>
+              
+                      
+                                              <div class="form-group">
+                                                  <label>Habitaciones</label><br>
+                                                  <input type="text" mask="00" name="habii2"  placeholder="No. de habitaciones" formControlName ="noHabitacion2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Baños</label><br>
+                                                  <input type="text" mask="00" name="banio2"  placeholder="No. de habitaciones" formControlName ="noBaños2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>No. de Parqueos</label><br>
+                                                  <input type="text" mask="00" name="park2" placeholder="No. de parqueos" formControlName ="noParqueos2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Condición Física</label><br>
+                                                  <input type="text" name="física2" minlength="1" maxlength="20" placeholder="Condición física" formControlName ="condicionFisica2"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Valores Ajustados</label><br>
+                                                  <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va2" placeholder="Introduzca monto" formControlName ="valorAjustado2"><br>
+                                              </div>
+  
+                                  </div>
+  
+                                  <div class="comparable">
+                                          <h4>Comparable #3</h4>
+                                          <div class="form-group">
+                                                  <label>Descripción</label><br>
+                                                  <input type="text" name="Descripción3" minlength="1" maxlength="100" placeholder="Descripción" formControlName ="descripcion3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Dirección</label><br>
+                                                  <input type="text" name="direc3" minlength="1" maxlength="50" placeholder="Dirección" formControlName ="direccion3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Fecha de la venta</label><br>
+                                                  <input type="date" name="fv3" formControlName ="fechaVenta3" ><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Precio de la venta</label><br>
+                                                  <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="Pv3" placeholder="Introduzca monto" formControlName ="precioVenta3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Tamaño</label><br>
+                                                  <input type="text"  name="tam3" minlength="1" maxlength="20" placeholder="Introduzca monto" formControlName ="tamaño3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Precio por M2</label><br>
+                                                  <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="Pm3" placeholder="Introduzca monto" formControlName ="precioMetro3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Condición de Antigüedad</label><br>
+                                                  <input type="text" name="antiguedad3" minlength="1" maxlength="20" placeholder="Condición Antigüedad" formControlName ="condicion3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Estilo</label><br>
+                                                  <input type="text" name="estilo3" minlength="1" maxlength="20" placeholder="Estilo" formControlName ="estilo3"><br>
+                                              </div>
+              
+                      
+                                              <div class="form-group">
+                                                  <label>Habitaciones</label><br>
+                                                  <input type="text" mask="00" name="habii3"  placeholder="No. de habitaciones" formControlName ="noHabitacion3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Baños</label><br>
+                                                  <input type="text" mask="00" name="banio3"  placeholder="No. de habitaciones" formControlName ="noBaños3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>No. de Parqueos</label><br>
+                                                  <input type="text" mask="00" name="park3" placeholder="No. de parqueos" formControlName ="noParqueos3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Condición Física</label><br>
+                                                  <input type="text" name="física3" minlength="1" maxlength="20" placeholder="Condición física" formControlName ="condicionFisica3"><br>
+                                              </div>
+              
+                                              <div class="form-group">
+                                                  <label>Valores Ajustados</label><br>
+                                                  <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va3" placeholder="Introduzca monto" formControlName ="valorAjustado3"><br>
+                                              </div>
+  
+                                  </div>
+                      
+  
+                              </div>
+                              <div id="menu10" class="tab-pane fade">
+                                      <h3>Conclusiones</h3>
+                                 
+                                      <div class="form-group">
+                                        <label>Conclusiones</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput"   maxlength="100" placeholder="Conclusiones" formControlName="conclusiones">
+                                      </div>
+                                      <div class="form-group">
+                                        <label >Valor Enfoque de Ventas Comparables</label>
+                                        <input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Valor" formControlName="valorEnfoqueVentas">
+                                        </div>
+                                        <div class="form-group">
+                                              <label >Opinión Valor Liquidación</label>
+                                              <input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Valor" formControlName="opinionValorLiquidacion">
+                                              </div>
+                                              <div class="form-group">
+                                                      <label >Valor del Mismo</label>
+                                                      <input type="text" mask= "comma_separator" class="form-control" id="formGroupExampleInput" minlength="3" maxlength="30" placeholder="Valor" formControlName="valorDelMismo">
+                                                      </div>
+                                          <div class="form-group">
+                                              <label >Comentarios Ventas</label>
+                                              <input input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Comentarios" formControlName="comentariosVentas">
+                                              </div>
+                                              <div class="form-group">
+                                                  <label>Fecha día Tasación</label>
+                                                  <input type="date" class="form-control" formControlName="fecha" formControlName="fechaDiaTasacion">
+                                                  </div>
+                                            <div class="form-group">
+                                                <label >Venta Adicional</label>
+                                                <input input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Venta adicional" formControlName="ventaAdicional">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Suplemento Informativo</label>
+                                                    <input input type="text" class="form-control" id="formGroupExampleInput"  maxlength="60" placeholder="Suplemento informativo" formControlName="suplementoInformativo">
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <label>Plano</label>
+                                                      <input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Plano" formControlName="plano">
+                                                      </div>
+                                                      <div class="form-group">
+                                                              <label>Condiciones Restrictivas</label>
+                                                              <input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Condiciones" formControlName="condicionesRestrictivas">
+                                                              </div>
+                                                      <div class="form-group">
+                                                          <label>Otro</label>
+                                                          <input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Otro" formControlName="otro">
+                                                      </div>
+                                                      <div class="form-group">
+                                                              <label>Revisor</label>
+                                                              <input type="text" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="40" placeholder="Revisor" formControlName="revisor">
+                                                          </div>
+                                                          <div class="form-group">
+                                                                  <label>Número Registro</label>
+                                                                  <input type="number" class="form-control" id="formGroupExampleInput"  minlength="2" maxlength="20" placeholder="Número de registro" formControlName="numeroRegistro">
+                                                              </div>
+                                                              <div class="form-group">
+                                                                  <label>Fecha Inspección</label>
+                                                                  <input type="date" class="form-control" formControlName="fecha" formControlName="fechaInspeccion">
+                                                              </div>
+                                                              <button type="submit" class="btn btn-primary">Guardar</button>
+                                                      </div>
+          
+             
+      
+  </div>
+  
+  
+  </form>

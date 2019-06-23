@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { TasacionService } from '../shared/tasacion.service';
+import { TasacionService } from '../../shared/tasacion.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,11 +21,11 @@ export class EditarTasacionComponent implements OnInit {
   ID: any;
 
   //Arreglos para los check
-  public A = [] = []
-  public B = []
-  public C = []
-  public D = []
-  public E = []
+  public a = [] = []
+  public b = []
+  public c = []
+  public d = []
+  public e = []
 
   public add() {
     this.costoI  = this.metrosI * this.costoMI;
@@ -241,9 +241,9 @@ export class EditarTasacionComponent implements OnInit {
       estilo2: [''],
       noHabitacion2:[''],
       noBaños2:[''],
-      noParquero2:[''],
+      noParqueos2:[''],
       condicionFisica2: [''],
-      valoresAjustados2: [''],
+      valorAjustado2: [''],
   
       //Descripcion 3
   
@@ -257,9 +257,9 @@ export class EditarTasacionComponent implements OnInit {
       estilo3: [''],
       noHabitacion3:[''],
       noBaños3:[''],
-      noParquero3:[''],
+      noParqueos3:[''],
       condicionFisica3: [''],
-      valoresAjustados3:[''],
+      valorAjustado3:[''],
   
       //Conclusiones
       conclusiones: [''],
@@ -284,17 +284,14 @@ export class EditarTasacionComponent implements OnInit {
         //this.toastr.error("Accion invalida", "Error");
       }
       else{
-        this.generar(JSON.parse(res.caracteristicasZona),this.checkboxA,this.A);
-        this.generar(JSON.parse(res.materialConstruccion),this.checkboxB,this.B);
-        this.generar(JSON.parse(res.amenidades),this.checkboxC,this.C);
-        this.generar(JSON.parse(res.sistemaElectrico),this.checkboxD,this.D);
-        this.generar(JSON.parse(res.artefactosAdicionales),this.checkboxE,this.E);
-        res.caracteristicasZona = this.A;
-        res.materialConstruccion = this.B;
-        res.amenidades = this.C;
-        res.sistemaElectrico = this.D;
-        res.artefactosAdicionales = this.E;
+        this.generar(JSON.parse(res.caracteristicasZona),this.checkboxA,this.a);
+        this.generar(JSON.parse(res.materialConstruccion),this.checkboxB,this.b);
+        this.generar(JSON.parse(res.amenidades),this.checkboxC,this.c);
+        this.generar(JSON.parse(res.sistemaElectrico),this.checkboxD,this.d);
+        this.generar(JSON.parse(res.artefactosAdicionales),this.checkboxE,this.e);
         this.tasacionForm.patchValue(res);
+
+        console.log(res);
       }
     })
 

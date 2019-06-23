@@ -72,8 +72,9 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
 import { TasacionComponent } from './components/tasacion/tasacion.component';
 import {NgxMaskModule} from 'ngx-mask';
-import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.component';
+import { EditarTasacionComponent } from '../app/components/editar-tasacion/editar-tasacion.component';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { ImagenesComponent } from './components/imagenes/imagenes.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { PdfComponent } from './components/pdf/pdf.component';
     TemasforosComponent,
     TasacionComponent,
     EditarTasacionComponent,
-    PdfComponent
+    PdfComponent,
+    ImagenesComponent
   ],
   imports: [
     BrowserModule,
@@ -158,7 +160,7 @@ import { PdfComponent } from './components/pdf/pdf.component';
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent},
+      {path: '',component: MenuComponent, canActivate:[AuthGuard]},
       {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
       {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
       {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},

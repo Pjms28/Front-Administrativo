@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label >Correo de la Constructora</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxlength="30" placeholder="Enter email" formControlName="correoCompañia">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxlength="30" placeholder="Enter email" formControlName="correoCompania">
                           </div>
                           <div class="form-group">
                               <label>Nombre del Cliente</label>
@@ -462,18 +462,18 @@
     
                 <div class="form-group">
                     <label>Baños (# de piezas)</label><br>
-                    <input type="radio" name="noBaños" value="2" formControlName ="noBaños">2<br>
-                    <input type="radio" name="noBaños" value="3" formControlName ="noBaños">3<br>
-                    <input type="radio" name="noBaños" value="4" formControlName ="noBaños">4<br>
-                    <input type="radio" name="noBaños" value="5" formControlName ="noBaños">5<br>
+                    <input type="radio" name="noBanos" value="2" formControlName ="noBanos">2<br>
+                    <input type="radio" name="noBanos" value="3" formControlName ="noBanos">3<br>
+                    <input type="radio" name="noBanos" value="4" formControlName ="noBanos">4<br>
+                    <input type="radio" name="noBanos" value="5" formControlName ="noBanos">5<br>
                 </div>
 
                 <div class="form-group">
                     <label>Baños</label><br>
-                    <input type="radio" name="baños" value="muybuenos" formControlName ="baños">Muy Buenos<br>
-                    <input type="radio" name="baños" value="buenos" formControlName ="baños">Buenos<br>
-                    <input type="radio" name="baños" value="malos" formControlName ="baños">Malos<br>
-                    <input type="radio" name="baños" value="cliente" formControlName ="baños">Fabricados a Gusto del Cliente<br>
+                    <input type="radio" name="banos" value="muybuenos" formControlName ="banos">Muy Buenos<br>
+                    <input type="radio" name="banos" value="buenos" formControlName ="banos">Buenos<br>
+                    <input type="radio" name="banos" value="malos" formControlName ="banos">Malos<br>
+                    <input type="radio" name="banos" value="cliente" formControlName ="banos">Fabricados a Gusto del Cliente<br>
                 </div>
 
                 <div class="form-group">
@@ -550,6 +550,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label>Otras Mejoras</label><br>
+                            <textarea name="textarea" rows="10" cols="50" placeholder="Escriba comentario adicional" formControlName ="otrasMejoras"></textarea>
+                          </div>
+
+                        <div class="form-group">
                             <label>Comentarios</label><br>
                             <textarea name="textarea" rows="10" cols="50" placeholder="Escriba comentario adicional" formControlName ="comentarios"></textarea>
                           </div>
@@ -594,12 +599,12 @@
 
                         <div class="form-group">
                             <label>Baño Completo</label><br>
-                            <input type="text" mask="00" name="bc"  placeholder="No. de Baños completos" formControlName ="bañoCompleto"><br>
+                            <input type="text" mask="00" name="bc"  placeholder="No. de Baños completos" formControlName ="banoCompleto"><br>
                         </div>
 
                         <div class="form-group">
                             <label>Baño Parcial</label><br>
-                            <input type="text" mask="00" name="bp"  placeholder="No. de baños parciales" formControlName ="bañoParcial"><br>
+                            <input type="text" mask="00" name="bp"  placeholder="No. de baños parciales" formControlName ="banoParcial"><br>
                         </div>
 
                         <div class="form-group">
@@ -764,7 +769,7 @@
             
                                             <div class="form-group">
                                                 <label>No. de Parqueos</label><br>
-                                                <input type="text" mask="00" name="park2" placeholder="No. de parqueos" formControlName ="noParquero2"><br>
+                                                <input type="text" mask="00" name="park2" placeholder="No. de parqueos" formControlName ="noParqueos2"><br>
                                             </div>
             
                                             <div class="form-group">
@@ -774,7 +779,7 @@
             
                                             <div class="form-group">
                                                 <label>Valores Ajustados</label><br>
-                                                <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va2" placeholder="Introduzca monto" formControlName ="valoresAjustados2"><br>
+                                                <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va2" placeholder="Introduzca monto" formControlName ="valorAjustado2"><br>
                                             </div>
 
                                 </div>
@@ -834,7 +839,7 @@
             
                                             <div class="form-group">
                                                 <label>No. de Parqueos</label><br>
-                                                <input type="text" mask="00" name="park3" placeholder="No. de parqueos" formControlName ="noParquero3"><br>
+                                                <input type="text" mask="00" name="park3" placeholder="No. de parqueos" formControlName ="noParqueos3"><br>
                                             </div>
             
                                             <div class="form-group">
@@ -844,7 +849,7 @@
             
                                             <div class="form-group">
                                                 <label>Valores Ajustados</label><br>
-                                                <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va3" placeholder="Introduzca monto" formControlName ="valoresAjustados3"><br>
+                                                <input type="text" mask="comma_separator" minlength="1" maxlength="30" name="va3" placeholder="Introduzca monto" formControlName ="valorAjustado3"><br>
                                             </div>
 
                                 </div>
