@@ -9,27 +9,28 @@
                   </div>
                   <div class="card-body">
                     <h5 class="card-title text-center">Agregar Imagenes</h5>
-                          <form [formGroup]="addForm" class="form-imagenes" autocomplete="off">
-                                  <div class="form-row">
-                                      <div class="form-group">
-                                          <div class="upload-btn-wrapper">
-                                          <label class="foto" for="file-input">Agregar imagen 1 <br> <i class="material-icons"> add_a_photo</i></label>
-                                          <input  formControlName="imgURL" type = "file" class="imagen" id="file-input" accept="image/*"  required>
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="form-row">
-                                      <div class="form-group">
-                                          <div class="upload-btn-wrapper">
-                                          <label class="foto" for="file-input">Agregar imagen 2 <br> <i class="material-icons"> add_a_photo</i></label>
-                                          <input  formControlName="imgURL" type = "file" class="imagen" id="file-input" accept="image/*"  required>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  
-                                  
-                        <button type="submit" [disabled]="addForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
+                          <form  (ngSubmit)="onSubmit()" class="form-imagenes" autocomplete="off">
+                            <div class="form-row">
+                              <div class="form-group">
+                                <label>Seleccione que tipo de imagenes va a subir.</label>
+                                <select (change)="Select($event)" [(ngModel)] = "tipo" [ngModelOptions]="{standalone: true}" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                                    <option value="" selected="selected"></option>
+                                    <option value="Proyectos">Imagenes del proyecto</option>
+                                    <option value="Inmuebles">Planos del proyecto</option>
+                                </select>
+                              </div>
+                            </div>
+                          <div *ngIf ="value != ''">
+                            <div class="form-row">
+                              <div class="form-group">
+                                <div class="upload-btn-wrapper">
+                                  <label class="foto" for="file-input">Agregar imagenes <br> <i class="material-icons"> add_a_photo</i></label>
+                                  <input (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" id="file-input" accept="image/*" multiple  required>
+                                </div>
+                              </div>
+                            </div>
+                          </div>                                  
+                        <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                       </form>
                   </div>
                 </div>

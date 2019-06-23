@@ -18,6 +18,7 @@ export class ProyectoComponent {
   latitude: number;
   longitude: number;
   imagenes: ImagenesModel[];
+  documentoResumenPdf:string;
 
 
 

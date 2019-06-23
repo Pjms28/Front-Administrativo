@@ -50,6 +50,12 @@ export class ApiService {
     });
   }
 
+  sendPDFData(formData: any){
+    var t = `${apiUrl}/${'SaveFilePDF'}`;
+    this.http.post(t, formData).subscribe((val) => {
+    });
+  }
+
   refreshList(){
     this.http.get(apiUrl)
     .toPromise().then(res => this.list = res as ProyectoComponent[]);

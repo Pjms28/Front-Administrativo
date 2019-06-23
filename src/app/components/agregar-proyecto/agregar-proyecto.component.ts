@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AgregarProyectoComponent implements OnInit {
   addForm : FormGroup;
   fileTo: any;
+  fileTo2: any;
   latitude: number = 20;
   longitude: number = 20;
   @Input() latlong:any;
@@ -25,7 +26,8 @@ export class AgregarProyectoComponent implements OnInit {
       direccion:['',[Validators.required]],
       imgURL:['',[Validators.required]],
       latitude:[''],
-      longitude:['']
+      longitude:[''],
+      documentoResumenPdf:['']
     });
 
   }
@@ -59,16 +61,28 @@ export class AgregarProyectoComponent implements OnInit {
         else{
           this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
           this.router.navigate(['proyectos']);
+
+          //IMG
           let formData = new FormData(); 
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
           this.apiService.sendFormData(formData);
+
+          //PDF
+          let formData2 = new FormData();
+          formData2.append(this.fileTo2.name, this.fileTo2);
+          formData2.append('fileName',this.fileTo2.name);
+          this.apiService.sendPDFData(formData2);
         }
       });
     }
   }
   saveFileRequest(files : FileList){
     this.fileTo = files.item(0);
+  }
+
+  savePDFRequest(files : FileList){
+    this.fileTo2 = files.item(0);
   }
 
   onChooseLocation(cords){

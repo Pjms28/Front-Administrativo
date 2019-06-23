@@ -22,6 +22,7 @@ import { EditarPostComponent } from './components/editar-post/editar-post.compon
 import { TasacionComponent } from './components/tasacion/tasacion.component';
 import { EditarTasacionComponent } from '../app/components/editar-tasacion/editar-tasacion.component';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { ImagenesComponent } from './components/imagenes/imagenes.component';
 
 
 const routes: Routes = [
@@ -128,6 +129,11 @@ const routes: Routes = [
 {
   path: 'pdf/: id',
   component: PdfComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'img/: id',
+  component: ImagenesComponent,
   canActivate:[AuthGuard]
 },
 {
