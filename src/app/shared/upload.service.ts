@@ -28,13 +28,13 @@ export class UploadService {
   }
 
   addImage(imagenes: ImagenesModel){
-    return this.http.post<ImagenesModel>(apiUrl,imagenes,httpOptions)
+    return this.http.post<ImagenesModel>(apiUrl + "imagenes",imagenes,httpOptions)
     .pipe(tap((nuevaImagen: ImagenesModel) => catchError(this.handleError<ImagenesModel>('addImagen'))
     ));
   }
 
   sendFormData(formData: any){
-    var t = `${apiUrl}/${'SaveFile'}`;
+    var t = `${apiUrl + "Upload"}`;
     this.http.post(t, formData).subscribe((val) => {
     });
   }

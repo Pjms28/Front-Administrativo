@@ -39,13 +39,17 @@ export class ImagenesComponent implements OnInit {
 
   onSubmit(){
    this.fileTo.forEach(element => {
-    this.addForm.controls['url'].setValue(element.name);
-    this.addForm.contains['tipo'].setValue(this.tipo);
-    let formData = new FormData(); 
-    formData.append(this.fileTo.name, this.fileTo);
-    formData.append('fileName',this.fileTo.name);
-    this.updApi.addImage(this.addForm.value).subscribe();
-    this.updApi.sendFormData(formData);
+
+      this.addForm.controls['url'].setValue(element.name);
+      this.addForm.contains['tipo'].setValue(this.tipo);
+
+      let formData = new FormData(); 
+      formData.append(this.fileTo.name, this.fileTo);
+      formData.append('fileName',this.fileTo.name);
+
+      this.updApi.addImage(this.addForm.value).subscribe();
+      
+      this.updApi.sendFormData(formData);
    });
   }
 
