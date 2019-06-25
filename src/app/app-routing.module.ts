@@ -25,6 +25,7 @@ import { TasacionComponent } from './components/tasacion/tasacion.component';
 import { EditarTasacionComponent } from '../app/components/editar-tasacion/editar-tasacion.component';
 import { PdfComponent } from './components/pdf/pdf.component';
 import { ImagenesComponent } from './components/imagenes/imagenes.component';
+import { TasacionesComponent } from './components/tasaciones/tasaciones.component';
 
 
 const routes: Routes = [
@@ -124,7 +125,7 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'Tasacion',
+  path: 'agregar-tasacion',
   component: TasacionComponent,
   canActivate:[AuthGuard]
 },
@@ -136,6 +137,11 @@ const routes: Routes = [
 {
   path: 'img/: id',
   component: ImagenesComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'tasacion',
+  component: TasacionesComponent,
   canActivate:[AuthGuard]
 },
 {

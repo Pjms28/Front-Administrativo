@@ -66,10 +66,10 @@ export class AgregarProyectoComponent implements OnInit {
       /* this.buildProyect(this.addForm.value);
       this.mergeImages(); */
       /* this.addForm.controls['Imagenes'].setValue("asdasdasd"); */
-      console.log('Project:', this.proyecto);
+      console.log('Project:', this.addForm.value);
 
 
-      this.apiService.addProject(this.proyecto).subscribe(res =>{
+      this.apiService.addProject(this.addForm.value).subscribe(res =>{
         if (res == null){
           this.toastr.error('Existe un proyecto con ese nombre','Proyecto.Registro');
         }

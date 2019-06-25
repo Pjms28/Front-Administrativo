@@ -3,6 +3,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ImagenesModel } from '../modelos/imagenes.model';
+import { ImagenesMultiples } from '../modelos/imagenesMultiple.model';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -27,9 +28,9 @@ export class UploadService {
     };
   }
 
-  addImage(imagenes: ImagenesModel){
-    return this.http.post<ImagenesModel>(apiUrl + "imagenes",imagenes,httpOptions)
-    .pipe(tap((nuevaImagen: ImagenesModel) => catchError(this.handleError<ImagenesModel>('addImagen'))
+  addImage(imagenes: ImagenesMultiples){
+    return this.http.post<ImagenesMultiples>(apiUrl + "Proyectos/ImagenesProyecto",imagenes,httpOptions)
+    .pipe(tap((nuevaImagen: ImagenesMultiples) => catchError(this.handleError<ImagenesModel>('addImagen'))
     ));
   }
 
