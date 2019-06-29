@@ -8,32 +8,27 @@
         <!-- ID -->
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
+            <mat-cell *matCellDef="let row">{{row.tasacionID}}</mat-cell>
         </ng-container>
 
         <!--  -->
-        <ng-container matColumnDef="key">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Palabra clave</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.key}}</mat-cell>
+        <ng-container matColumnDef="nombreCliente">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Cliente</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.clienteNombre}}</mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="value">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Valor</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.value}}</mat-cell>
+        <ng-container matColumnDef="fecha">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.fechaDiaTasacion | date:'MM/dd/yyyy'}}</mat-cell>
         </ng-container>
 
-        <!-- Descripcion -->
-        <ng-container matColumnDef="descripcion">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</mat-header-cell>
-          <mat-cell *matCellDef="let row">{{row.descripcion}}</mat-cell>
-        </ng-container>
-        
         <!-- Actions -->
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
             <mat-cell *matCellDef="let row">
-              <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button color="warn"(click)="onDelete(row.id)" *ngIf="canDelete()"><mat-icon>delete_outline</mat-icon></button>
+              <a mat-icon-button routerLink="/editar-tasacion/{{row.tasacionID}}" ><mat-icon>launch</mat-icon></a>
+              <button mat-icon-button color="warn"(click)="onDelete(row.tasacionID)"><mat-icon>delete_outline</mat-icon></button>
+              <app-pdf [id]= "row.tasacionID"></app-pdf>
             </mat-cell>
         </ng-container>
 
@@ -57,6 +52,6 @@
         <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
         <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.length==0)}"></mat-footer-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
   </div>
 </div>

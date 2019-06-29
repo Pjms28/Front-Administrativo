@@ -28,6 +28,13 @@
             <mat-cell *matCellDef="let row">{{row.direccion}}</mat-cell>
           </ng-container>
 
+          <ng-container matColumnDef="image">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Imagenes</mat-header-cell>
+              <mat-cell *matCellDef="let row">
+              <a mat-icon-button routerLink="/img/{{row.proyectoID}}" ><mat-icon>add</mat-icon></a>
+              </mat-cell>
+            </ng-container>
+
           <!-- Caracteristicas  -->
           <ng-container matColumnDef="caractherictis">
               <mat-header-cell *matHeaderCellDef>Caracteristicas</mat-header-cell>

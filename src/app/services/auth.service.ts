@@ -1,0 +1,111 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { tap, catchError } from 'rxjs/operators';
+import { isNullOrUndefined } from 'util';
+import { CookieService } from 'ngx-cookie-service';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
+const apiUrl = "http://localhost:61756/api/Auth/Login";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+
+constructor(private http: HttpClient, private router: Router,private cookieService: CookieService) {
+      
+  }
+
+get isLoggedIn() {
+    let token = this.cookieService.get('tkn');
+    if(token)
+    {
+      this.loggedIn.next(true);
+    }
+    else
+    {
+      this.loggedIn.next(false);
+    }
+    return this.loggedIn.asObservable();
+}
+
+logout() {
+  this.loggedIn.next(false);
+  this.router.navigate(['/login']);
+}
+
+private handleError<T> (operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+
+    // TODO: send the error to remote logging infrastructure
+    console.error(error); // log to console instead
+
+    // Let the app keep running by returning an empty result.
+    return of(result as T);
+  };
+}
+
+login(user:User)
+{
+  let promise = new Promise((resolve,reject) =>{
+    this.http.post<User>(apiUrl,user,httpOptions)
+      .toPromise()
+      .then(
+        res => {
+          //console.log(res,'*****');
+          this.setUser(res);
+          this.loggedIn.next(true);
+          this.router.navigate(['/'])
+          resolve();
+        },
+        msg => {
+          reject(msg)
+        }
+      );
+  });
+
+  return promise;
+  
+}
+
+setUser(user:any): void{
+  let _user = user['user_info']
+  let struser = JSON.stringify(_user);  
+  
+  this.cookieService.set('currentUser', struser);
+
+  //sessionStorage.setItem('currentUser', user_string);
+  this.setToken(user.token);
+}
+
+setToken(token): void{
+  //Con cookies
+  
+  this.cookieService.set('tkn', token);
+  
+  //sessionStorage.setItem('tkn', token);
+}
+
+getCurrentUser()
+{
+    let user_string = this.cookieService.get("currentUser");
+    if(!isNullOrUndefined(user_string) && user_string != ""){
+        let user = JSON.parse(user_string);
+        return user;
+    }
+    else{
+        return null;
+    } 
+}
+}
+export interface User {
+  email: string;
+  password: string;
+}

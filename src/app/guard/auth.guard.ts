@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../services/auth.service';
 import { UsuarioModel } from '../modelos/usuario.model';
+import { take, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,47 +13,26 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router){
 
   }
-  canActivate() {
 
-    //Con cookies
-    
-      this.user = this.authService.getCurrentUser()
-    if (this.user != null){
-      if(this.user.roleId == 1){
-        return true;
-      }
-      else{
-        window.location.href = 'http://localhost:4200'
-      }
-    }
-     else {
-        window.location.href = 'http://localhost:4200/login'
-        return false;
-      }
-    
-    
-    
-    /*this.user = this.authService.getCurrentUser()
-    if (this.user != null){
-      if(this.user.roleId == 1){
-        return true;
-      }
-    }
-    else{
-      this.authService.set();
-      this.user = this.authService.getCurrentUser()
-      if(this.user != null){
-        if(this.user.roleId == 1){
-          return true;
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    return this.authService.isLoggedIn.pipe(
+      take(1),
+      map((isLoggedIn: boolean) => {
+        this.user = this.authService.getCurrentUser()
+        let isAdmin = false;
+        if (this.user != null){
+          let roles = this.user['roles'];
+          isAdmin = roles.includes('Admin')
         }
-      }
-      else {
-        window.location.href = 'http://localhost:4200/login'
-        return false;
-      }
-    }*/
-      
-    }
+        if (!isLoggedIn && !isAdmin) {
+          this.router.navigate(['/login']);
+          return false;
+        }
+        return true;
+      })
+    );
+  }
   }
   
 

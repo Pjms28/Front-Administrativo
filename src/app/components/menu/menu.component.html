@@ -1,12 +1,12 @@
 
-
+<div  *ngIf="isLoggedIn$ | async as isLoggedIn">
 <aside class="sidebar-left-collapse">
         <a href="#" class="company-logo"></a>
         <div class="sidebar-links">
           <ul>
-          <li *ngIf = "data.roleId == 1" class="nav-item active">
+         <!--  <li *ngIf = "data.roleId == 1" class="nav-item active">
               <i class="fas fa-user" id="usuario"></i>{{data?.nombreUsuario}} 
-          </li>
+          </li> -->
         </ul>
 
         <div class="link-white">
@@ -23,7 +23,7 @@
               <li><a routerLink='Administrar Solicitudes'>Administrar Solicitudes</a></li>
               <li><a routerLink='Administrar Peticiones'>Admministrar Peticiones</a></li>
               <li><a routerLink='Visitas Agendadas'>Visitas Agendadas</a></li>
-              <li><a routerLink='Tasacion'>Formularios Tasación</a></li>
+              <li><a routerLink='tasacion'>Formularios Tasación</a></li>
               
             </ul>
           </div>
@@ -83,7 +83,7 @@
         </div>
       
       </aside>
-
+    </div>
       <!-- <div class="main">
         <router-outlet></router-outlet>        
       </div> -->

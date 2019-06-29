@@ -13,7 +13,7 @@ import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MenuComponent } from "./components/menu/menu.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApiService } from './shared/api.service';
 import { InmuebleService } from './shared/inmueble.service';
@@ -72,8 +72,14 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
 import { TasacionComponent } from './components/tasacion/tasacion.component';
 import {NgxMaskModule} from 'ngx-mask';
-import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.component';
+import { EditarTasacionComponent } from '../app/components/editar-tasacion/editar-tasacion.component';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { ImagenesComponent } from './components/imagenes/imagenes.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/jwt.interceptor';
+import { AppMaterialModule } from './app-material/app-material.module';
+import { TasacionesComponent } from './components/tasaciones/tasaciones.component';
 
 @NgModule({
   declarations: [
@@ -113,9 +119,12 @@ import { PdfComponent } from './components/pdf/pdf.component';
     CaracteristicasComponent,
     ServiciosComponent,
     TemasforosComponent,
+    LoginComponent,
     TasacionComponent,
     EditarTasacionComponent,
-    PdfComponent
+    PdfComponent,
+    ImagenesComponent,
+    TasacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -138,6 +147,7 @@ import { PdfComponent } from './components/pdf/pdf.component';
     NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
     NgxEditorModule,
+    AppMaterialModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -158,13 +168,14 @@ import { PdfComponent } from './components/pdf/pdf.component';
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent, canActivate:[AuthGuard] },
+      {path: '',component: MenuComponent, canActivate:[AuthGuard]},
       {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
       {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
       {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},
       {path: 'caracteristicas',component: CaracteristicasComponent ,canActivate:[AuthGuard]},
       {path: 'servicios',component: ServiciosComponent ,canActivate:[AuthGuard]},
-      {path: 'temas-foros',component: TemasforosComponent ,canActivate:[AuthGuard]}
+      {path: 'temas-foros',component: TemasforosComponent ,canActivate:[AuthGuard]},
+      {path: 'login', component: LoginComponent}
 
 
     ]),
@@ -183,7 +194,24 @@ import { PdfComponent } from './components/pdf/pdf.component';
     MatInputModule,
     MatGridListModule
   ],
-  providers: [ ApiService,InmuebleService,CaracteristicaService, SolicitudService,ServicioService,VisitaService, PeticionService, CookieService,GenericDataService],
+  providers: [ 
+    ApiService,
+    InmuebleService,
+    CaracteristicaService, 
+    SolicitudService,
+    ServicioService,
+    VisitaService, 
+    PeticionService, 
+    CookieService,
+    GenericDataService,
+    AuthService,
+    PdfComponent,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   entryComponents:[DatoGenericoComponent]
 })

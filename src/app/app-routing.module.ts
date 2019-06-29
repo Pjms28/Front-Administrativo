@@ -19,9 +19,13 @@ import { AdministrarPeticionesComponent } from './components/administrar-peticio
 import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
 import { AuthGuard } from "../app/guard/auth.guard";
 import { EditarPostComponent } from './components/editar-post/editar-post.component';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
 import { TasacionComponent } from './components/tasacion/tasacion.component';
-import { EditarTasacionComponent } from './editar-tasacion/editar-tasacion.component';
+import { EditarTasacionComponent } from '../app/components/editar-tasacion/editar-tasacion.component';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { ImagenesComponent } from './components/imagenes/imagenes.component';
+import { TasacionesComponent } from './components/tasaciones/tasaciones.component';
 
 
 const routes: Routes = [
@@ -121,13 +125,23 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'Tasacion',
+  path: 'agregar-tasacion',
   component: TasacionComponent,
   canActivate:[AuthGuard]
 },
 {
   path: 'pdf/: id',
   component: PdfComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'img/: id',
+  component: ImagenesComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'tasacion',
+  component: TasacionesComponent,
   canActivate:[AuthGuard]
 },
 {

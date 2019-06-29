@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
 import {Router} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
+import { ImagenProyecto } from 'imagen-proyecto.model';
+import { Proyecto } from 'src/app/modelos/proyecto.model';
 
 @Component({
   selector: 'app-agregar-proyecto',
@@ -12,9 +14,16 @@ import { ToastrService } from 'ngx-toastr';
 export class AgregarProyectoComponent implements OnInit {
   addForm : FormGroup;
   fileTo: any;
+  fileTo2: any;
   latitude: number = 20;
   longitude: number = 20;
   @Input() latlong:any;
+  proyecto: Proyecto
+  proyectImages: any[] = [];
+  proyectImagesData: any[] = [];
+  proyectPlanosPictures: any = [];
+  proyectPlanosData: any[] = []
+  
 
   constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router, private toastr: ToastrService) { }
 
@@ -25,7 +34,8 @@ export class AgregarProyectoComponent implements OnInit {
       direccion:['',[Validators.required]],
       imgURL:['',[Validators.required]],
       latitude:[''],
-      longitude:['']
+      longitude:[''],
+      documentoResumenPdf:['']
     });
 
   }
@@ -51,24 +61,45 @@ export class AgregarProyectoComponent implements OnInit {
     else{
       this.addForm.controls["latitude"].setValue(this.latitude);
       this.addForm.controls["longitude"].setValue(this.longitude);
+  
+
+      /* this.buildProyect(this.addForm.value);
+      this.mergeImages(); */
+      /* this.addForm.controls['Imagenes'].setValue("asdasdasd"); */
+      console.log('Project:', this.addForm.value);
+
 
       this.apiService.addProject(this.addForm.value).subscribe(res =>{
         if (res == null){
           this.toastr.error('Existe un proyecto con ese nombre','Proyecto.Registro');
         }
         else{
+          console.log('res :', res);
           this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
           this.router.navigate(['proyectos']);
+
+          //IMG
           let formData = new FormData(); 
+         
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
           this.apiService.sendFormData(formData);
+
+          //PDF
+          let formData2 = new FormData();
+          formData2.append(this.fileTo2.name, this.fileTo2);
+          formData2.append('fileName',this.fileTo2.name);
+          this.apiService.sendPDFData(formData2);
         }
       });
     }
   }
   saveFileRequest(files : FileList){
     this.fileTo = files.item(0);
+  }
+
+  savePDFRequest(files : FileList){
+    this.fileTo2 = files.item(0);
   }
 
   onChooseLocation(cords){
