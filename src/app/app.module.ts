@@ -158,7 +158,7 @@ import { PdfComponent } from './components/pdf/pdf.component';
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent},
+      {path: '',component: MenuComponent, canActivate:[AuthGuard] },
       {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
       {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
       {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},
