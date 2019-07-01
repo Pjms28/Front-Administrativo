@@ -13,7 +13,7 @@
                             <div class="form-row">
                               <div class="form-group">
                                 <label>Seleccione que tipo de imagenes va a subir.</label>
-                                <select (change)="Select($event)" [(ngModel)] = "tipo" [ngModelOptions]="{standalone: true}" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
+                                <select (change)="Select($event)" [(ngModel)]="tipo"  [ngModelOptions]="{standalone: true}" class="form-control" aria-placeholder="Seleccione una opcion" id="select">
                                     <option value="" selected="selected"></option>
                                     <option value="Proyectos">Imagenes del proyecto</option>
                                     <option value="Inmuebles">Planos del proyecto</option>
@@ -25,11 +25,12 @@
                               <div class="form-group">
                                 <div class="upload-btn-wrapper">
                                   <label class="foto" for="file-input">Agregar imagenes <br> <i class="material-icons"> add_a_photo</i></label>
-                                  <input (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" id="file-input" accept="image/*" multiple  required>
+                                  <input  [(ngModel)]="file"  [ngModelOptions]="{standalone: true}" (change)="saveFileRequest($event.target.files)" type = "file" class="imagen" id="file-input" accept="image/*" multiple  required>
                                 </div>
                               </div>
                             </div>
-                          </div>                                  
+                          </div>
+                          <br>                                  
                         <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
                       </form>
                   </div>

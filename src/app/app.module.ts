@@ -79,6 +79,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/jwt.interceptor';
 import { AppMaterialModule } from './app-material/app-material.module';
+import { TasacionesComponent } from './components/tasaciones/tasaciones.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { AppMaterialModule } from './app-material/app-material.module';
     TasacionComponent,
     EditarTasacionComponent,
     PdfComponent,
-    ImagenesComponent
+    ImagenesComponent,
+    TasacionesComponent
   ],
   imports: [
     BrowserModule,
@@ -203,6 +205,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
     CookieService,
     GenericDataService,
     AuthService,
+    PdfComponent,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

@@ -86,7 +86,7 @@ export class EditarProyectoComponent implements OnInit {
         this.proyecto.longitude = this.longitude;
         this.apiService.updateProject(this.proyecto).subscribe(res =>{
           this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
-          this.router.navigate(['proyectos']);
+          this.router.navigate(['/proyectos']);
         })
       }
       else{
@@ -94,7 +94,7 @@ export class EditarProyectoComponent implements OnInit {
         .pipe(first())
         .subscribe(data =>{
           this.toastr.info('Proyecto ha sido editado','Proyecto.Info');
-          this.router.navigate(['listar-contenido']);
+          this.router.navigate(['/proyectos']);
 
           //IMG
           let formData = new FormData(); 
@@ -108,7 +108,11 @@ export class EditarProyectoComponent implements OnInit {
           formData2.append(this.fileTo2.name, this.fileTo2);
           formData2.append('fileName',this.fileTo2.name);
           this.apiService.sendPDFData(formData2);
-        }); 
+        },(error:any) =>
+        {
+          this.toastr.error("Ha ocurrido un error favor agregar todos los campos necesarios al formulario" )
+        }
+        ); 
       }
     }
   }

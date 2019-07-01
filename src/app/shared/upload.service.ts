@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { ImagenesModel } from '../modelos/imagenes.model';
 import config from '../../config.js';
+import { ImagenesMultiples } from '../modelos/imagenesMultiple.model';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -28,14 +29,14 @@ export class UploadService {
     };
   }
 
-  addImage(imagenes: ImagenesModel){
-    return this.http.post<ImagenesModel>(apiUrl,imagenes,httpOptions)
-    .pipe(tap((nuevaImagen: ImagenesModel) => catchError(this.handleError<ImagenesModel>('addImagen'))
+  addImage(imagenes: ImagenesMultiples){
+    return this.http.post<ImagenesMultiples>(apiUrl + "Proyectos/ImagenesProyecto",imagenes,httpOptions)
+    .pipe(tap((nuevaImagen: ImagenesMultiples) => catchError(this.handleError<ImagenesModel>('addImagen'))
     ));
   }
 
   sendFormData(formData: any){
-    var t = `${apiUrl}/${'SaveFile'}`;
+    var t = `${apiUrl + "Upload"}`;
     this.http.post(t, formData).subscribe((val) => {
     });
   }

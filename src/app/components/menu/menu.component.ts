@@ -26,6 +26,7 @@ data: UsuarioModel;
       });
     });
     this.isLoggedIn$ = this.AuthService.isLoggedIn;
+    console.log(this.isLoggedIn$)
     this.data = this.AuthService.getCurrentUser();
 
 }

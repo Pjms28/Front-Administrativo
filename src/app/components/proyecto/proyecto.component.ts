@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ImagenProyecto } from 'imagen-proyecto.model';
 import { ImagenesModel } from 'src/app/modelos/imagenes.model';
 
 
