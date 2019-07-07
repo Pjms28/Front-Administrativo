@@ -5,11 +5,13 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
 import { CookieService } from 'ngx-cookie-service';
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/Auth/Login";
+
+const apiUrl = config.api+"/Auth/Login";
 
 @Injectable({
   providedIn: 'root'

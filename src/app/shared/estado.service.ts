@@ -3,10 +3,10 @@ import { Observable, of } from 'rxjs';
 import { EstadoModel } from '../modelos/estado.model';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import config from '../../config.js';
 
 
-
-const apiUrl = "http://localhost:61756/api/Estados";
+const apiUrl = config.api+"/Estados";
 
 @Injectable({
   providedIn: 'root'
