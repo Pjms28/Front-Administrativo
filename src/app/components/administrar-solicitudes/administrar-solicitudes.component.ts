@@ -13,6 +13,7 @@ export class AdministrarSolicitudesComponent implements OnInit {
  
   data:ServicioSolicitudModel[] = [];
   data1:ServicioSolicitudModel[] = [];
+  p:any;
   
 
   constructor(private solApi: SolicitudService,  private router: Router) { }

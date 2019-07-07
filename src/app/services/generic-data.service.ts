@@ -24,7 +24,7 @@ export class GenericDataService {
     descripcion: new FormControl('')
   });
 
-  private handleError<T> (operation = 'operation', result?: T) {
+   handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
       // TODO: send the error to remote logging infrastructure

@@ -154,6 +154,7 @@ export class TasacionModel{
     noParqueos2:number
     condicionFisica2: string
     valoresAjustados2:number
+    noParqueos:number;
 
     //Descripcion 3
 

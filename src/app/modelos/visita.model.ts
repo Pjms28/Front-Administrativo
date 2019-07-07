@@ -1,4 +1,6 @@
 import { UsuarioModel } from './usuario.model';
+import { SolicitudModel } from './Solicitud.model';
+import { ServicioModel } from './servicio.model';
 
 export class VisitaModel {
 
@@ -10,6 +12,8 @@ export class VisitaModel {
     descripcion: string;
     solicitudID: number;
     estado: string;
-    usuario: UsuarioModel
+    usuario: UsuarioModel;
+    solicitud: SolicitudModel;
+    servicio: ServicioModel;
    
   }

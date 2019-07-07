@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { Observable } from 'rxjs';
+import config from '../../../config.js';
 
 declare var Jquery: any;
 declare var $: any;
@@ -33,7 +34,7 @@ data: UsuarioModel;
 
 inicio(){
   //this.authApi.change();
-  return "http://localhost:4200";
+  return config.admin;
 }
 
 }

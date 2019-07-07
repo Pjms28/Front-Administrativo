@@ -39,7 +39,7 @@ import { DescripcionSolicitudComponent } from './components/descripcion-solicitu
 import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
 import {DatePipe} from '@angular/common';
 import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
-import { DescripcionVisitaComponent } from './components/descripcion-visita/descripcion-visita.component';
+
 import { AdministrarPeticionesComponent } from './components/administrar-peticiones/administrar-peticiones.component';
 import { PeticionService } from './shared/peticion.service';
 import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
@@ -80,6 +80,11 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/jwt.interceptor';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { TasacionesComponent } from './components/tasaciones/tasaciones.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { NavigateComponent } from './components/navigate/navigate.component';
+import { NavegacionComponent } from './components/navegacion/navegacion.component';
+
 
 @NgModule({
   declarations: [
@@ -103,7 +108,6 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
     DescripcionSolicitudComponent,
     CambioEstadoComponent,
     EditarServicioComponent,
-    DescripcionVisitaComponent,
     AdministrarPeticionesComponent,
     DetallePeticionComponent,
     AgregarPostComponent,
@@ -124,7 +128,10 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
     EditarTasacionComponent,
     PdfComponent,
     ImagenesComponent,
-    TasacionesComponent
+    TasacionesComponent,
+    NavigateComponent,
+    NavegacionComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -183,7 +190,11 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',
       libraries: ['places']
-    })
+    }),
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   exports:[
     MatTableModule,
