@@ -122,7 +122,6 @@ export class EditarProyectoComponent implements OnInit {
     }
   }
   onChangeLatLong(event){
-    console.log('event :', event);
     this.latitude = event.latitude;
     this.longitude = event.longitude;
     if(this.latitude != undefined || this.latitude != null)
