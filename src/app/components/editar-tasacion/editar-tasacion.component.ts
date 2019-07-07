@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { TasacionService } from '../../shared/tasacion.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-editar-tasacion',
@@ -87,7 +88,7 @@ export class EditarTasacionComponent implements OnInit {
     {nombre:"Intercom", valor: "intercom", checked:false }
   ];
 
-  constructor(private formBuilder: FormBuilder, private tscApi: TasacionService,private actvRoute: ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder, private tscApi: TasacionService,private actvRoute: ActivatedRoute, public toastr: ToastrService, public router: Router) { }
 
   ngOnInit() {
     this.tasacionForm = this.formBuilder.group({
@@ -281,7 +282,7 @@ export class EditarTasacionComponent implements OnInit {
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
     this.tscApi.getTasacion(this.ID).subscribe(res =>{
       if(res == null){
-        //this.toastr.error("Accion invalida", "Error");
+        this.toastr.error("Accion invalida", "Error");
       }
       else{
         this.generar(JSON.parse(res.caracteristicasZona),this.checkboxA,this.a);
@@ -290,10 +291,13 @@ export class EditarTasacionComponent implements OnInit {
         this.generar(JSON.parse(res.sistemaElectrico),this.checkboxD,this.d);
         this.generar(JSON.parse(res.artefactosAdicionales),this.checkboxE,this.e);
         this.tasacionForm.patchValue(res);
-
-        console.log(res);
       }
-    })
+    },
+    err =>{
+      this.toastr.error('Ha ocurrido un error:' + err);
+      this.router.navigate['tasaciones'];
+    }
+    )
 
   }
 

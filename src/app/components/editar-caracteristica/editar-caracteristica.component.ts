@@ -22,9 +22,9 @@ export class EditarCaracteristicaComponent implements OnInit {
     ,private toastr: ToastrService,  public actRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    let userID = window.localStorage.getItem("editUserID");
+    let userID = this.actRoute.snapshot.paramMap.get(' id');
     if(!userID){
-      alert("Accion Invalida")
+      this.toastr.error("Acción invalida")
       this.router.navigate(['caracteristicas']);
       return;
     }
@@ -38,14 +38,19 @@ export class EditarCaracteristicaComponent implements OnInit {
     this.apiCar.getCaracteristica(Number(userID))
     .subscribe(res => {
       this.editForm.patchValue(res);
-    });
+    },
+    err => {
+      this.toastr.error("Ha ocurrido un error:" + err)
+      this.router.navigate['caracteristicas']
+    }
+    );
 
     return this.apiIn.getInmuebles()
       .subscribe(res => {
       this.data = res;
     }, err => {
-      console.log(err);
-     
+    this.toastr.error('Ha ocurrido un error:' + err);
+    this.router.navigate['caracteristicas']
     });
   }
 
@@ -62,7 +67,12 @@ export class EditarCaracteristicaComponent implements OnInit {
       .subscribe(data =>{
         this.toastr.info('Caracteristica ha sido editada','Caracteristica.Info');
         this.router.navigate(['caracteristicas']);
-      });
+      },
+      err => {
+        this.toastr.error("Ha ocurrido un error:" + err);
+        this.router.navigate['caracteristicas']
+      }
+      );
     }
   }
 

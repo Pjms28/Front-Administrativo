@@ -36,12 +36,6 @@ export class ProyectosComponent implements OnInit {
       });
     }
   }
-  onEdit(row){
-    let id = row.proyectoID;
-    window.localStorage.removeItem("editUserID");
-    window.localStorage.setItem("editUserID", String(id));
-    this.router.navigate(['editar-proyecto']);
-  }
 
   loadData(){
     this.apiServiceProyects.getProjects().subscribe(res =>{
@@ -52,7 +46,7 @@ export class ProyectosComponent implements OnInit {
 
 
     }, err =>{
-      console.log(err);
+      this.toastr.error("Ha ocurrido un error:" + err);
     });
   }
 }

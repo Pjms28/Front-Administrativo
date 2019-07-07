@@ -45,7 +45,7 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'editar-proyecto',
+  path: 'editar-proyecto/: id',
   component: EditarProyectoComponent,
   canActivate:[AuthGuard]
 },
@@ -55,7 +55,7 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path:'editar-inmueble',
+  path:'editar-inmueble/: id',
   component: EditarInmuebleComponent,
   canActivate:[AuthGuard]
 },
@@ -65,7 +65,7 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'editar-caracteristica',
+  path: 'editar-caracteristica/: id',
   component: EditarCaracteristicaComponent,
   canActivate:[AuthGuard]
 },
