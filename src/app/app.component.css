@@ -1,0 +1,5 @@
+.company-logo{
+    background-image: scroll center url('src\assets\brick2.jpeg');
+    background-size: cover;
+    /* width: 80px; */
+  }

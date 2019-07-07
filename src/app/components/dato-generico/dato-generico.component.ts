@@ -9,7 +9,7 @@ import { MatDialogRef } from "@angular/material";
 })
 export class DatoGenericoComponent implements OnInit {
 
-  constructor(private genericDataService: GenericDataService, private matDialogRef: MatDialogRef<DatoGenericoComponent>) { }
+  constructor(public genericDataService: GenericDataService, private matDialogRef: MatDialogRef<DatoGenericoComponent>) { }
 
 
   ngOnInit() {

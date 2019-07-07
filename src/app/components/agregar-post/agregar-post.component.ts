@@ -18,6 +18,7 @@ export class AgregarPostComponent implements OnInit {
   addForm: FormGroup;
   fileTo: any
   user: UsuarioModel;
+  htmlContent: any;
 
   constructor(private FormBuilder: FormBuilder, private toastr: ToastrService, private apiBlog: BlogService, private authService: AuthService, private router: Router ) { }
 

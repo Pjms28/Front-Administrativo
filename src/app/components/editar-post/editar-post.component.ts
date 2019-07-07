@@ -18,6 +18,7 @@ export class EditarPostComponent implements OnInit {
  fileTo: any;
  imgNombre: string;
  post: BlogModel = new BlogModel();
+ htmlContent:any;
   constructor(private actvRoute: ActivatedRoute, private blogApi: BlogService, private toastr: ToastrService, private formBuilder: FormBuilder, private autApi: AuthService) { }
 
   ngOnInit() {

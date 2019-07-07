@@ -36,7 +36,7 @@
                                             <td>{{d.servicio.nombreServicio}}</td>
                                             <td>{{d.estado.estadoNombre}}</td>
                                             <td>{{d.solicitud.fechaServSol | date:'dd-MM-yyyy'}}</td>
-                                            <td><a href="descripcion-solicitud/{{d.solicitudID}}" class="btn btn-success">Ver Mas</a></td>
+                                            <td><a routerLink="/descripcion-solicitud/{{d.solicitudID}}" class="btn btn-success">Ver Mas</a></td>
                                           </tr>
                                         </tbody>
                                         <pagination-controls (pageChange)="p = $event"></pagination-controls>

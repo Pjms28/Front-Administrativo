@@ -1,4 +1,8 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/dcbdd7f3-d0dd-4c2f-ad28-7d174d8dd0c5/resourceGroups/resourcesCMP/providers/Microsoft.Web/sites/constructoramp",
-    "appService.deploySubpath": ""
+    "appService.defaultWebAppToDeploy": "/subscriptions/dcbdd7f3-d0dd-4c2f-ad28-7d174d8dd0c5/resourceGroups/resourcesCMP/providers/Microsoft.Web/sites/app-constructoramp",
+    "appService.deploySubpath": "dist\\Front-Administrativo-BRICK",
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.zipIgnorePattern": [
+        ".vscode{,/**}"
+    ]
 }

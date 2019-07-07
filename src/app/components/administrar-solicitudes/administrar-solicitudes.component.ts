@@ -14,7 +14,11 @@ export class AdministrarSolicitudesComponent implements OnInit {
  
   data:ServicioSolicitudModel[] = [];
   data1:ServicioSolicitudModel[] = [];
+<<<<<<< HEAD
   p: any
+=======
+  p:any;
+>>>>>>> 71b715fc0dfd400af3ebebd2112ae52eb038993e
   
 
   constructor(private solApi: SolicitudService,  private router: Router, public toarst: ToastrService) { }

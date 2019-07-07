@@ -5,6 +5,22 @@
 @import '../node_modules/flatpickr/dist/flatpickr.min.css';
 @import "../node_modules/ngx-toastr/toastr.css";
 
+
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+/* .mat-drawer { 
+    background-color:  #2f8ce2;
+    color:#fff
+} */
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
 html, body { height: 100%;
 background-image: url(src\assets\natural_paper.png) }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -72,5 +88,18 @@ ngb-panel{
     color: #fff;
     
 }
-
+.mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer { 
+    background-color: #2f8ce2;
+    color:#fff
+}
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
 

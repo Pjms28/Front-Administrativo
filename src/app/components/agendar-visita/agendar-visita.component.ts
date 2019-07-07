@@ -160,7 +160,7 @@ export class AgendarVisitaComponent implements OnInit {
       var event: Object= {
         start: startOfHour(element.hora_Inicio),
         end: startOfHour(element.hora_Fin),
-        title: element.motivo+" "+"de"+" "+element.solicitud.usuario.nombreUsuario+" "+element.solicitud.usuario.apellidosUsuario,
+        title: element.motivo+" "+"de"+" "+element.solicitud.usuario.nombre+" "+element.solicitud.usuario.apellidos,
         servicio: element.solicitud.servicioSolicituds[0].servicio.nombreServicio,
         estado: element.solicitud.servicioSolicituds[0].estado.estadoNombre,
         numeroVisita: element.visitaID,
@@ -209,9 +209,9 @@ export class AgendarVisitaComponent implements OnInit {
           this.data.hora_Inicio = formatDate(start, 'yyyy/MM/dd HH:mm:ss', 'en');
           this.data.hora_Fin = formatDate(end, 'yyyy/MM/dd HH:mm:ss', 'en');;
           this.ageService.updateVisit(this.data).subscribe(res =>{
-          this.email.correo = this.data.solicitud.usuario.correoUsuario;
-          this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
-          this.email.subject = "Cambio de fecha para la reunion del servicio solicitado" + " " + this.data.servicio.nombreServicio;
+          this.email.correo = this.data.solicitud.usuario.email;
+          this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
+          this.email.subject = "Cambio de fecha para la reunion del servicio solicitado" + " " + this.data.solicitud.servicioSolicituds[0].servicio.nombreServicio;
           this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre + "<br>" +  "Le informamos por este medio que la reunion pautada para la fecha" + "" 
           + "<strong>"+this.oldFecha +"</strong>" + "" + "ha sido modificada y ahora esta pautada para la fecha:" + "" + "<strong>" + this.data.hora_Inicio + "</strong>"+ "."
           + "<br>" + " Sin nada mas que informar, que pase un feliz resto del dia." + "<br>" + "<strong>Gracias por preferirnos.</strong>"; 
