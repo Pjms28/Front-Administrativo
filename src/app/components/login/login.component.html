@@ -16,7 +16,11 @@
             Por favor ingresa tu contraseña
           </mat-error>
         </mat-form-field>
-        <button mat-raised-button color="primary">Acceder</button>
+        <div class="row d-flex justify-content-center">
+            <button mat-raised-button color="primary" [ngClass]="{'hide':hideenButton==true}">Acceder</button> &nbsp; &nbsp;
+            <mat-spinner [ngClass]="{'hide':hidden==true}" class="spinner"[diameter]="40"></mat-spinner>
+        </div>
+
       </form>
     </mat-card-content>
   </mat-card>

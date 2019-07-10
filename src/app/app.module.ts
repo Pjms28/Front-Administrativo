@@ -10,7 +10,6 @@ import { ListarContenidoComponent } from './components/listar-contenido/listar-c
 import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { EditarProyectoComponent } from './components/editar-proyecto/editar-proyecto.component';
 import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-proyecto.component';
-import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MenuComponent } from "./components/menu/menu.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -83,7 +82,7 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
 import { NavigateComponent } from './components/navigate/navigate.component';
-import { NavegacionComponent } from './components/navegacion/navegacion.component';
+
 
 
 @NgModule({
@@ -94,7 +93,6 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
     ProyectoComponent,
     EditarProyectoComponent,
     DetalleProyectoComponent,
-    NavbarComponent,
     MenuComponent,
     DatatableComponent,
     AgregarInmuebleComponent,
@@ -129,8 +127,7 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
     PdfComponent,
     ImagenesComponent,
     TasacionesComponent,
-    NavigateComponent,
-    NavegacionComponent,
+    NavigateComponent
 
   ],
   imports: [
@@ -175,7 +172,7 @@ import { NavegacionComponent } from './components/navegacion/navegacion.componen
       {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
       {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
       {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent, canActivate:[AuthGuard]},
+     /*  {path: '',component: MenuComponent, canActivate:[AuthGuard]}, */
       {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
       {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
       {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},
