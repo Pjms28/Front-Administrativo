@@ -40,6 +40,7 @@ get isLoggedIn() {
 
 logout() {
   this.loggedIn.next(false);
+  this.cookieService.deleteAll(); 
   this.router.navigate(['/login']);
 }
 

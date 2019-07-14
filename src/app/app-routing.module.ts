@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListarContenidoComponent } from './components/listar-contenido/listar-contenido.component';
+/* import { ListarContenidoComponent } from './components/listar-contenido/listar-contenido.component'; */
 import { AgregarProyectoComponent } from './components/agregar-proyecto/agregar-proyecto.component';
 import { EditarProyectoComponent } from './components/editar-proyecto/editar-proyecto.component';
 import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-proyecto.component';
@@ -26,13 +26,21 @@ import { EditarTasacionComponent } from '../app/components/editar-tasacion/edita
 import { PdfComponent } from './components/pdf/pdf.component';
 import { ImagenesComponent } from './components/imagenes/imagenes.component';
 import { TasacionesComponent } from './components/tasaciones/tasaciones.component';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
+import { GenericdatalistComponent } from './components/genericdata-list/genericdata-list.component';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
 
 
 const routes: Routes = [
 {
-  path: 'listar-contenido',
-  component: ListarContenidoComponent,
-  canActivate:[AuthGuard]
+  path : 'login',
+  component: LoginComponent,
+  canActivate : [AuthGuard]
+},
+{
+  path: 'proyectos',
+  component : ProyectosComponent,
+  canActivate: [AuthGuard]
 },
 {
   path: 'detalle-proyecto/:id',
@@ -78,6 +86,11 @@ const routes: Routes = [
   path: 'agendar-visita',
   component: AgendarVisitaComponent,
   canActivate:[AuthGuard]
+},
+{
+  path: 'datos-genericos',
+  component: GenericdatalistComponent,
+  canActivate: [AuthGuard]
 },
 {
   path: 'agregar-servicio',
@@ -148,7 +161,7 @@ const routes: Routes = [
   path:'',
   redirectTo: '/',
   pathMatch: 'full',
-}
+},
 ];
 
 @NgModule({

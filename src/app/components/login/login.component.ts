@@ -8,7 +8,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;                    
+  form: FormGroup;         
+  hidden: Boolean = true;  
+  hideenButton: Boolean= false;         
   private formSubmitAttempt: boolean; // {2}
 
   constructor(
@@ -31,7 +33,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+
     if (this.form.valid) {
+      this.hidden = false;
+      this.hideenButton = true;
       this.authService.login(this.form.value); 
     }
     this.formSubmitAttempt = true;            

@@ -1,20 +1,86 @@
-    
-<div class="wrapper fondo">
-    
-
-    <div class="row">
-      <div class="col-2" style="background-color: red">
-        
-          <app-menu></app-menu> 
-      </div>
-        
-       
-        
-        <div class="col-10" >
-                <router-outlet></router-outlet> 
-              
-             
-             
-        </div>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav  #sidenav opened mode="side">
+    <div class="company-logo">
     </div>
-  </div> 
+    <br>
+    <br>
+    <button mat-button class="button-menu" style="text-align:left">
+      <mat-icon>home</mat-icon>
+      <a class="not-active" style="color:white;"routerLink="/" >Página principal</a>
+    </button>
+    <br>
+    <button class="button-menu" mat-button [matMenuTriggerFor]="menuServicios"  style="text-align:left" >
+      <mat-icon>present_to_all</mat-icon>
+      Servicios
+    </button>
+    <mat-menu #menuServicios="matMenu">
+      <button mat-menu-item >
+          <a routerLink='Agregar Servicio'>Agregar Servicio</a>
+      </button>
+      <button mat-menu-item>
+          <a routerLink='Administrar Solicitudes'>Administrar Solicitudes</a>
+      </button>
+      <button mat-menu-item>
+          <a routerLink='Administrar Peticiones'>Admministrar Peticiones</a>
+      </button>
+      <button mat-menu-item>
+          <a routerLink='Visitas Agendadas'>Visitas Agendadas</a>
+      </button>
+      <button mat-menu-item>
+          <a routerLink='tasacion'>Formularios Tasación</a>
+      </button>
+    </mat-menu>
+    <br>
+
+    <button class="button-menu" mat-button [matMenuTriggerFor]="menu"  style="text-align:left">
+      <mat-icon>ballot</mat-icon>
+      Administrar contenido</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <a style="color:black;" routerLink="proyectos">Proyectos</a>
+      </button>
+      <button mat-menu-item>
+          <a class="not-active"  style="color:black;" routerLink="inmuebles">Inmuebles</a>
+      </button>
+      <button mat-menu-item>
+          <a class="not-active" style="color:black;" routerLink="caracteristicas">Caracteristicas</a>
+      </button>
+      <button mat-menu-item>
+        <a class="not-active" style="color:black;" routerLink="servicios">Servicios</a>
+      </button>
+      <button mat-menu-item>
+        <a class="not-active" style="color:black;" routerLink="temas-foros">Temas Foros</a>
+      </button>
+      <button mat-menu-item>
+        <a class="not-active" style="color:black;"  routerLink="datos-genericos">Datos genéricos</a>
+      </button>
+    </mat-menu>
+    <br>
+    <button mat-button class="button-menu" style="text-align:left">
+      <mat-icon>book</mat-icon>
+      Blog</button>
+    <br>
+    <button mat-button class="button-menu" style="text-align:left">
+      <mat-icon>comment</mat-icon>
+      Foro</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar *ngIf="isLoggedIn$ | async as isLoggedIn">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      Administración
+      <span class="toolbar-spacer"></span>
+      <app-navigate></app-navigate>
+    </mat-toolbar>
+
+
+    <div class="">
+        <router-outlet></router-outlet>
+    </div>
+
+   
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet></router-outlet>
