@@ -1,7 +1,7 @@
 function env(env) {
     switch (env) {
         case 'api-netcore':
-            return 'https://api-constructoramp.azurewebsites.net/api';
+            return 'http://localhost:61756/api';
         case 'front-admi':
             return 'http://constructoramejiapolanco.azurewebsites.net/login';
     }
