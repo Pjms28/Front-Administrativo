@@ -29,13 +29,19 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { GenericdatalistComponent } from './components/genericdata-list/genericdata-list.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { EditarCategoriaComponent } from './components/editar-categoria/editar-categoria.component';
+import { ProyectoCaracteristicaComponent } from './components/proyecto-caracteristica/proyecto-caracteristica.component';
+import { AgregarPostComponent } from './components/agregar-post/agregar-post.component';
+import { InmueblesComponent } from './components/inmuebles/inmuebles.component';
+import { CaracteristicasComponent } from './components/caracteristicas/caracteristicas.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+import { TemasforosComponent } from './components/temasforos/temasforos.component';
 
 
 const routes: Routes = [
 {
   path : 'login',
-  component: LoginComponent,
-  canActivate : [AuthGuard]
+  component: LoginComponent
 },
 {
   path: 'proyectos',
@@ -48,18 +54,8 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'agregar-proyecto',
-  component: AgregarProyectoComponent,
-  canActivate:[AuthGuard]
-},
-{
   path: 'editar-proyecto/: id',
   component: EditarProyectoComponent,
-  canActivate:[AuthGuard]
-},
-{
-  path:'agregar-inmueble',
-  component: AgregarInmuebleComponent,
   canActivate:[AuthGuard]
 },
 {
@@ -68,34 +64,14 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'agregar-caracteristica',
-  component: AgregarCaracteristicaComponent,
-  canActivate:[AuthGuard]
-},
-{
   path: 'editar-caracteristica/: id',
   component: EditarCaracteristicaComponent,
-  canActivate:[AuthGuard]
-},
-{
-  path: 'administrar-solicitudes',
-  component: AdministrarSolicitudesComponent,
-  canActivate:[AuthGuard]
-},
-{
-  path: 'agendar-visita',
-  component: AgendarVisitaComponent,
   canActivate:[AuthGuard]
 },
 {
   path: 'datos-genericos',
   component: GenericdatalistComponent,
   canActivate: [AuthGuard]
-},
-{
-  path: 'agregar-servicio',
-  component: AgregarServicioComponent,
-  canActivate:[AuthGuard]
 },
 {
   path: 'descripcion-solicitud/: id',
@@ -113,18 +89,8 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'administrar-peticiones',
-  component: AdministrarPeticionesComponent,
-  canActivate:[AuthGuard]
-},
-{
   path: 'detalle-peticion/: id',
   component: DetallePeticionComponent,
-  canActivate:[AuthGuard]
-},
-{
-  path: 'categorias-foro/: id',
-  component: CategoriasForoComponent,
   canActivate:[AuthGuard]
 },
 {
@@ -155,6 +121,81 @@ const routes: Routes = [
 {
   path: 'tasacion',
   component: TasacionesComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Agregar Proyecto', 
+  component: AgregarProyectoComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Agregar Caracteristica', 
+  component: AgregarCaracteristicaComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Agregar Inmueble', 
+  component: AgregarInmuebleComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Administrar Solicitudes', 
+  component: AdministrarSolicitudesComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Agregar Servicio', 
+  component: AgregarServicioComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Visitas Agendadas', 
+  component: AgendarVisitaComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Administrar Peticiones', 
+  component:AdministrarPeticionesComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Agregar Post', 
+  component:AgregarPostComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'Categorias Foro', 
+  component:CategoriasForoComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'proyecto-caracteristica/: id', 
+  component: ProyectoCaracteristicaComponent, 
+  canActivate:[AuthGuard]
+},
+{
+  path: 'editar-categoria/: id', 
+  component: EditarCategoriaComponent, 
+  canActivate:[AuthGuard]
+}, 
+{
+  path: 'inmuebles',
+  component: InmueblesComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'caracteristicas',
+  component: CaracteristicasComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'servicios',
+  component: ServiciosComponent,
+  canActivate:[AuthGuard]
+},
+{
+  path: 'temas-foros',
+  component: TemasforosComponent,
   canActivate:[AuthGuard]
 },
 {

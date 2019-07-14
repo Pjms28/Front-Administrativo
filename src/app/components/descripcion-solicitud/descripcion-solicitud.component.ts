@@ -37,14 +37,6 @@ export class DescripcionSolicitudComponent implements OnInit {
       estado:['']
     });
 
-    /*let ID = window.localStorage.getItem("solID");
-    if(!ID){
-      alert("Accion Invalida")
-      this.router.navigate(['administrar-solicitudes']);
-      return;
-    }
-    window.localStorage.removeItem("solID");*/
-
     this.ageService.getVisits().subscribe(res =>{
       this.events = res;
     });
