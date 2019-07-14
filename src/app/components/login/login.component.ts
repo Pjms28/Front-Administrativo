@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { SidenavService } from 'src/app/services/sidenav.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,         // {3}
-    private authService: AuthService // {4}
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       this.hidden = false;
       this.hideenButton = true;
-      this.authService.login(this.form.value); 
+      this.authService.login(this.form.value);
+      
     }
     this.formSubmitAttempt = true;            
   }

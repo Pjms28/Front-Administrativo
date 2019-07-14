@@ -3,7 +3,7 @@ function env(env) {
         case 'api-netcore':
             return 'https://api-constructoramp.azurewebsites.net/api';
         case 'front-admi':
-            return 'http://localhost:4200';
+            return 'http://constructoramejiapolanco.azurewebsites.net/login';
     }
 }
 

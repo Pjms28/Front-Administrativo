@@ -82,6 +82,9 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
 import { NavigateComponent } from './components/navigate/navigate.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { SidenavService } from './services/sidenav.service';
+
 
 
 
@@ -127,7 +130,8 @@ import { NavigateComponent } from './components/navigate/navigate.component';
     PdfComponent,
     ImagenesComponent,
     TasacionesComponent,
-    NavigateComponent
+    NavigateComponent,
+    NavigationComponent
 
   ],
   imports: [
@@ -177,6 +181,7 @@ import { NavigateComponent } from './components/navigate/navigate.component';
   ],
   providers: [ 
     ApiService,
+    SidenavService,
     InmuebleService,
     CaracteristicaService, 
     SolicitudService,
