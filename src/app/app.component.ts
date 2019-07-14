@@ -25,13 +25,6 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    let route =  window.location.pathname;
-
-    if(route == "/login")
-    {
-      this.isForLogin = true;
-    }
-
     this.isLoggedIn$ = this.authAPi.isLoggedIn;
    
 }

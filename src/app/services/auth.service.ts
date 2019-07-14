@@ -6,6 +6,9 @@ import { tap, catchError } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
 import { CookieService } from 'ngx-cookie-service';
 import config from '../../config.js';
+import { SidenavService } from './sidenav.service.js';
+
+
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -21,7 +24,8 @@ export class AuthService {
 private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
-constructor(private http: HttpClient, private router: Router,private cookieService: CookieService) {
+constructor(private http: HttpClient, private router: Router,private cookieService: CookieService, 
+  private sideNavService:SidenavService) {
       
   }
 
@@ -55,7 +59,7 @@ private handleError<T> (operation = 'operation', result?: T) {
   };
 }
 
-login(user:User)
+async login(user:User)
 {
   let promise = new Promise((resolve,reject) =>{
     this.http.post<User>(apiUrl,user,httpOptions)
@@ -66,6 +70,7 @@ login(user:User)
           this.setUser(res);
           this.loggedIn.next(true);
           this.router.navigate(['/'])
+
           resolve();
         },
         msg => {
