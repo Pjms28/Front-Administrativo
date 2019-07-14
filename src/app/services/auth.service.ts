@@ -59,38 +59,28 @@ private handleError<T> (operation = 'operation', result?: T) {
   };
 }
 
-async login(user:User)
+/* 
+ return this.http.get<ProyectoComponent>(url).pipe(
+      tap(_ => catchError(this.handleError<ProyectoComponent>(`getProject id=${id}`))
+    ));
+*/
+
+login(user:User)
 {
-  let promise = new Promise((resolve,reject) =>{
-    this.http.post<User>(apiUrl,user,httpOptions)
-      .toPromise()
-      .then(
-        res => {
-          //console.log(res,'*****');
-          this.setUser(res);
-          this.loggedIn.next(true);
-          this.router.navigate(['/'])
-
-          resolve();
-        },
-        msg => {
-          reject(msg)
-        }
-      );
-  });
-
-  return promise;
-  
+  return this.http.post<User>(apiUrl,user,httpOptions)
+  .pipe(tap((login: User) => catchError(this.handleError<User>('login'))
+  ));
 }
 
 setUser(user:any): void{
   let _user = user['user_info']
   let struser = JSON.stringify(_user);  
-  
+
   this.cookieService.set('currentUser', struser);
 
   //sessionStorage.setItem('currentUser', user_string);
   this.setToken(user.token);
+   this.loggedIn.next(true);
 }
 
 setToken(token): void{
