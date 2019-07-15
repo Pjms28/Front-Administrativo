@@ -4,11 +4,11 @@ import { GenericData } from '../modelos/GenericData.model';
 import { tap, catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup,FormBuilder, FormControl, Validators } from "@angular/forms";
-
+import config from '../../config.js';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/DatosGenericos";
+const apiUrl = config.api+"/DatosGenericos";
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class GenericDataService {
     descripcion: new FormControl('')
   });
 
-  private handleError<T> (operation = 'operation', result?: T) {
+   handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
   
       // TODO: send the error to remote logging infrastructure

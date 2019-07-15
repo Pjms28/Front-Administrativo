@@ -12,6 +12,7 @@ export class AdministrarPeticionesComponent implements OnInit {
 
   data: PeticionModel [] = [];
   data1: PeticionModel [] = [];
+  p: any;
 
   constructor(private router: Router, private actvRouter: ActivatedRoute, private ptcApi: PeticionService) { }
 

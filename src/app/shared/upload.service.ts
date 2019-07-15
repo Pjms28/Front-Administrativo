@@ -3,12 +3,13 @@ import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ImagenesModel } from '../modelos/imagenes.model';
+import config from '../../config.js';
 import { ImagenesMultiples } from '../modelos/imagenesMultiple.model';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/";
+const apiUrl = config.api;
 
 @Injectable({
   providedIn: 'root'

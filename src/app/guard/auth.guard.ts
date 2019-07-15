@@ -15,7 +15,8 @@ export class AuthGuard implements CanActivate {
   }
 
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    const redirectUrl = route['_routerState']['url'];
     return this.authService.isLoggedIn.pipe(
       take(1),
       map((isLoggedIn: boolean) => {
@@ -24,9 +25,18 @@ export class AuthGuard implements CanActivate {
         if (this.user != null){
           let roles = this.user['roles'];
           isAdmin = roles.includes('Admin')
+          this.router.navigate(['']);
         }
         if (!isLoggedIn && !isAdmin) {
-          this.router.navigate(['/login']);
+          this.router.navigateByUrl(
+            this.router.createUrlTree(
+              ['/login'], {
+                queryParams: {
+                  redirectUrl
+                }
+              }
+            )
+          );
           return false;
         }
         return true;

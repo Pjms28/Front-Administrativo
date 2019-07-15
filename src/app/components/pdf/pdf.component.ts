@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PdfComponent implements OnInit {
 
 //Variable que contiene las variables del informe.
-private iT: TasacionModel = new TasacionModel();
+public iT: TasacionModel = new TasacionModel();
 
 @Input('id') ID:any;
 
@@ -204,9 +204,9 @@ private iT: TasacionModel = new TasacionModel();
 
   }
 
-  private costoTotalI: number;
-  private costoTotalT: number;
-  private valorTotal: number;
+  costoTotalI: number;
+  costoTotalT: number;
+  valorTotal: number;
 
   constructor(public tscApi: TasacionService,private actvRoute: ActivatedRoute) { }
 

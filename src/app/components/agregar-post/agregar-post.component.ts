@@ -18,6 +18,7 @@ export class AgregarPostComponent implements OnInit {
   addForm: FormGroup;
   fileTo: any
   user: UsuarioModel;
+  htmlContent: any;
 
   constructor(private FormBuilder: FormBuilder, private toastr: ToastrService, private apiBlog: BlogService, private authService: AuthService, private router: Router ) { }
 
@@ -49,7 +50,7 @@ export class AgregarPostComponent implements OnInit {
         formData.append(this.fileTo.name, this.fileTo);
         formData.append('fileName',this.fileTo.name);
         this.apiBlog.sendFormData(formData);
-        window.location.href = 'http://localhost:4200/blog';
+        //window.location.href = '';
       })
     }
   }

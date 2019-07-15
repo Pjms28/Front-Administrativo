@@ -25,7 +25,7 @@ export class EditarInmuebleComponent implements OnInit {
   id: number;
 
   constructor(private formBuilder: FormBuilder, private apiIn: InmuebleService, private apiService: ApiService, private router: Router
-    ,private toastr: ToastrService, private apiCar: CaracteristicaService) { }
+    ,private toastr: ToastrService, private apiCar: CaracteristicaService, public actvRouter: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -42,24 +42,28 @@ export class EditarInmuebleComponent implements OnInit {
       mts: ['', [Validators.required]]
     });
 
-    let userID = window.localStorage.getItem("editUserID");
+    let userID = this.actvRouter.snapshot.paramMap.get(' id');
     if(!userID){
       alert("Accion Invalida")
       this.router.navigate(['inmuebles']);
       return;
     }
     this.id = Number(userID);
-    window.localStorage.removeItem("editUserID");
     this.apiIn.getInmueble(Number(userID))
     .subscribe(res => {
       this.editForm.patchValue(res);
-    });
+    },
+      err =>{
+        this.toastr.error("Ha ocurrido un error:" + err)
+        this.router.navigate(['inmuebles'])
+      }
+    );
 
     this.apiService.getProjects()
       .subscribe(res => {
       this.data = res;    
     }, err => {
-      console.log(err);
+      this.toastr.error("Ha ocurrido un error:" + err);
      
     }); 
   }

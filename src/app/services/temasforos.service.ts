@@ -3,11 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { TemaForo } from '../modelos/TemaForo.model';
 import { tap, catchError } from 'rxjs/operators';
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/TemasForo";
+const apiUrl = config.api+"/TemasForo";
 
 @Injectable({
   providedIn: 'root'

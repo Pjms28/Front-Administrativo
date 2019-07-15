@@ -35,13 +35,12 @@ export class EditarProyectoComponent implements OnInit {
       documentoResumenPdf:['']
     });
 
-    let userID = window.localStorage.getItem("editUserID");
+    let userID = this.actRoute.snapshot.paramMap.get(' id')
     if(!userID){
-      this.router.navigate(['listar-contenido']);
-      alert("Acción Invalida")
+      this.router.navigate(['proyectos']);
+      this.toastr.error("Accion invalida");
       return;
     }
-    window.localStorage.removeItem("editUserID");
     
     this.apiService.getProject(Number(userID))
     .subscribe(res => {
@@ -61,7 +60,13 @@ export class EditarProyectoComponent implements OnInit {
         localStorage.setItem('longitude', this.longitude.toString());
         
       } 
-    });
+    },
+    err=>{
+      this.toastr.error("Ha ocurrido un error:" + err);
+      this.router.navigate['proyectos']
+    }
+    
+    );
   }  
  
   onSubmit(){
@@ -117,7 +122,6 @@ export class EditarProyectoComponent implements OnInit {
     }
   }
   onChangeLatLong(event){
-    console.log('event :', event);
     this.latitude = event.latitude;
     this.longitude = event.longitude;
     if(this.latitude != undefined || this.latitude != null)

@@ -1,23 +1,36 @@
-
-<div class="signin-content">
-  <mat-card>
-    <mat-card-content>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <p>Inicia sesión para continuar.</p>
-        <mat-form-field class="full-width-input">
-          <input matInput placeholder="Correo" formControlName="email" required>
-          <mat-error *ngIf="isFieldInvalid('email')">
-            Por favor ingresa tu correo
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="full-width-input">
-          <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
-          <mat-error *ngIf="isFieldInvalid('email')">
-            Por favor ingresa tu contraseña
-          </mat-error>
-        </mat-form-field>
-        <button mat-raised-button color="primary">Acceder</button>
-      </form>
-    </mat-card-content>
-  </mat-card>
+<div class="row">
+  <div class="col-md-6">
+   <img class="img-fluid" style="margin-left:250px" width="" src="../../../assets/undraw_online_page_cq94.svg" alt="">
+  </div>
+  <div class="col-md-4" >
+      <div class="signin-content" style="margin-right: -100px">
+          <mat-card>
+            <mat-card-content>
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <p>Inicia sesión para continuar.</p>
+                <mat-form-field class="full-width-input">
+                  <input matInput placeholder="Correo" formControlName="email" required>
+                  <mat-error *ngIf="isFieldInvalid('email')">
+                    Por favor ingresa tu correo
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                  <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
+                  <mat-error *ngIf="isFieldInvalid('email')">
+                    Por favor ingresa tu contraseña
+                  </mat-error>
+                </mat-form-field>
+                <div class="row d-flex justify-content-center">
+                    <button mat-raised-button color="primary" [ngClass]="{'hide':hideenButton==true}">Acceder</button> &nbsp; &nbsp;
+                    <mat-spinner [ngClass]="{'hide':hidden==true}" class="spinner"[diameter]="40"></mat-spinner>
+                  </div>
+                <div style="margin-top:10px;" class="row d-flex justify-content-center">
+                    <br> <br>
+                    <p>¿Olvidaste tu contraseña?</p>
+                </div>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </div>
+    </div>
 </div>

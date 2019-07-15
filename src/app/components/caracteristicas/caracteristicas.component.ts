@@ -27,12 +27,6 @@ export class CaracteristicasComponent implements OnInit {
   onCreate(){
     this.router.navigate(['Agregar Caracteristica']);
   }
-
-  onEdit(row){
-    window.localStorage.removeItem("editUserID");
-    window.localStorage.setItem("editUserID", String(row.caracteristicaID));
-    this.router.navigate(['editar-caracteristica']);
-  }
   
   onDelete(id){
     if(confirm('¿Esta seguro que desea eliminar esta caracteristica?')){
@@ -50,9 +44,8 @@ export class CaracteristicasComponent implements OnInit {
           this.dataSource = new MatTableDataSource(this.caracteristicas);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
-          console.log('this.inmuebles :', this.caracteristicas);
         }, err =>{
-          console.log(err);
+          this.toastr.error('Ha ocurrido un error:' + err);
         });
   }
 

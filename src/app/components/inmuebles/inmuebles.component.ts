@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { InmuebleService } from 'src/app/shared/inmueble.service';
 import { InmuebleModel } from 'src/app/modelos/inmueble.model';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -30,12 +30,6 @@ export class InmueblesComponent implements OnInit {
     
   }
 
-  onEdit(row){
-    window.localStorage.removeItem("editUserID");
-    window.localStorage.setItem("editUserID", String(row.inmuebleID));
-    this.router.navigate(['editar-inmueble']);
-  }
-
   onDelete(id){
     if(confirm('¿Esta seguro que desea eliminar este inmueble?')){
       return this.inmueblesApiService.deleteInmueble(id).
@@ -53,10 +47,8 @@ export class InmueblesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.inmuebles);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      console.log('this.inmuebles :', this.inmuebles);
-
     }, err =>{
-      console.log(err);
+      this.toastr.error("Ha ocurrido un error:" + err)
     });
   }
 }

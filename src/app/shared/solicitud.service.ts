@@ -4,12 +4,12 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { catchError, tap, map } from 'rxjs/operators';
 import { SolicitudModel } from '../modelos/Solicitud.model';
 import { ServicioSolicitudModel } from '../modelos/ServicioSolicitud.model';
-
+import config from '../../config.js';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:61756/api/Solicitud";
+const apiUrl = config.api+"/Solicitud";
 
 
 @Injectable({

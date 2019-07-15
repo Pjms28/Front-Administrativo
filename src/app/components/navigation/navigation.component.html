@@ -1,0 +1,84 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav *ngIf="isLoggedIn$ | async as isLoggedIn"  #sidenav opened mode="side">
+      <div class="company-logo">
+      </div>
+      <br>
+      <br>
+      <a mat-button  class="button-menu not-active" style="text-align:left; color:white" >
+          <mat-icon>home</mat-icon>
+          Página principal
+      </a>
+      <br>
+      <button class="button-menu" mat-button [matMenuTriggerFor]="menuServicios"  style="text-align:left" >
+        <mat-icon>present_to_all</mat-icon>
+        Servicios
+      </button>
+      <mat-menu #menuServicios="matMenu">
+        <a mat-menu-item routerLink='Agregar Servicio'>
+          Agregar Servicio
+        </a>
+        <a mat-menu-item routerLink='Administrar Solicitudes'>
+          Administrar Solicitudes
+        </a>
+        <a mat-menu-item routerLink='Administrar Peticiones'>
+          Admministrar Peticiones
+        </a>
+        <a mat-menu-item routerLink='Visitas Agendadas'>
+          Visitas Agendadas
+        </a>
+        <a mat-menu-item routerLink='tasacion'>
+          Formularios Tasación
+        </a>
+      </mat-menu>
+      <br>
+  
+      <button class="button-menu" mat-button [matMenuTriggerFor]="menu"  style="text-align:left">
+        <mat-icon>ballot</mat-icon>
+        Administrar contenido</button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item class="not-active" style="color:black;" routerLink="proyectos">
+          Proyectos
+        </a>
+        <a mat-menu-item  routerLink="inmuebles">
+          Inmuebles
+        </a>
+        <a mat-menu-item routerLink="caracteristicas">
+          Caracteristicas
+        </a>
+        <a mat-menu-item  routerLink="servicios">
+         Servicios
+        </a>
+        <a mat-menu-item routerLink="temas-foros">
+          Temas Foros
+        </a>
+        <a mat-menu-item routerLink="datos-genericos">
+          Datos genéricos
+        </a>
+      </mat-menu>
+      <br>
+      <button mat-button class="button-menu" style="text-align:left" routerLink="Agregar Post">
+        <mat-icon>book</mat-icon>
+        Blog</button>
+      <br>
+      <button mat-button class="button-menu" style="text-align:left">
+        <mat-icon>comment</mat-icon>
+        Foro</button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar *ngIf="isLoggedIn$ | async as isLoggedIn">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        Administración
+        <span class="toolbar-spacer"></span>
+        <app-navigate></app-navigate>
+      </mat-toolbar>
+  
+  
+      <div class="">
+          <router-outlet></router-outlet>
+      </div>
+  
+     
+    </mat-sidenav-content>
+  </mat-sidenav-container>

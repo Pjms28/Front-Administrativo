@@ -10,7 +10,6 @@ import { ListarContenidoComponent } from './components/listar-contenido/listar-c
 import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { EditarProyectoComponent } from './components/editar-proyecto/editar-proyecto.component';
 import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-proyecto.component';
-import { NavbarComponent } from "./components/navbar/navbar.component";
 import { MenuComponent } from "./components/menu/menu.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -39,7 +38,7 @@ import { DescripcionSolicitudComponent } from './components/descripcion-solicitu
 import { CambioEstadoComponent } from './components/cambio-estado/cambio-estado.component';
 import {DatePipe} from '@angular/common';
 import { EditarServicioComponent } from './components/editar-servicio/editar-servicio.component';
-import { DescripcionVisitaComponent } from './components/descripcion-visita/descripcion-visita.component';
+
 import { AdministrarPeticionesComponent } from './components/administrar-peticiones/administrar-peticiones.component';
 import { PeticionService } from './shared/peticion.service';
 import { DetallePeticionComponent } from './components/detalle-peticion/detalle-peticion.component';
@@ -80,6 +79,14 @@ import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/jwt.interceptor';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { TasacionesComponent } from './components/tasaciones/tasaciones.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { NavigateComponent } from './components/navigate/navigate.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { SidenavService } from './services/sidenav.service';
+
+
+
 
 @NgModule({
   declarations: [
@@ -89,7 +96,6 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
     ProyectoComponent,
     EditarProyectoComponent,
     DetalleProyectoComponent,
-    NavbarComponent,
     MenuComponent,
     DatatableComponent,
     AgregarInmuebleComponent,
@@ -103,7 +109,6 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
     DescripcionSolicitudComponent,
     CambioEstadoComponent,
     EditarServicioComponent,
-    DescripcionVisitaComponent,
     AdministrarPeticionesComponent,
     DetallePeticionComponent,
     AgregarPostComponent,
@@ -124,7 +129,10 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
     EditarTasacionComponent,
     PdfComponent,
     ImagenesComponent,
-    TasacionesComponent
+    TasacionesComponent,
+    NavigateComponent,
+    NavigationComponent
+
   ],
   imports: [
     BrowserModule,
@@ -152,38 +160,15 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    NgbModule.forRoot(),
-    RouterModule.forRoot([
-      {path: 'Agregar Proyecto', component: AgregarProyectoComponent,canActivate:[AuthGuard]},
-      {path: 'Listar', component: ListarContenidoComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Inmueble', component: AgregarInmuebleComponent,canActivate:[AuthGuard]},
-      {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Servicio', component: AgregarServicioComponent,canActivate:[AuthGuard]},
-      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent,canActivate:[AuthGuard]},
-      {path: 'Visitas Agendadas', component: AgendarVisitaComponent,canActivate:[AuthGuard]},
-      {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
-      {path: 'Categorias Foro', component:CategoriasForoComponent,canActivate:[AuthGuard]},
-      {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
-      {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
-      {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-      {path: '',component: MenuComponent, canActivate:[AuthGuard]},
-      {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
-      {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
-      {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},
-      {path: 'caracteristicas',component: CaracteristicasComponent ,canActivate:[AuthGuard]},
-      {path: 'servicios',component: ServiciosComponent ,canActivate:[AuthGuard]},
-      {path: 'temas-foros',component: TemasforosComponent ,canActivate:[AuthGuard]},
-      {path: 'login', component: LoginComponent}
-
-
-    ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',
       libraries: ['places']
-    })
+    }),
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   exports:[
     MatTableModule,
@@ -196,6 +181,7 @@ import { TasacionesComponent } from './components/tasaciones/tasaciones.componen
   ],
   providers: [ 
     ApiService,
+    SidenavService,
     InmuebleService,
     CaracteristicaService, 
     SolicitudService,

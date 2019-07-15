@@ -1,4 +1,4 @@
-import { ImagenProyecto } from 'imagen-proyecto.model';
+
 
 export class Proyecto {
     proyectoID: number;

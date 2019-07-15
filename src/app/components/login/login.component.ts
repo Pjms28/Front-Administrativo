@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { SidenavService } from 'src/app/services/sidenav.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +11,18 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;                    
+  form: FormGroup;         
+  hidden: Boolean = true;  
+  hideenButton: Boolean= false;  
+  logginFail: Boolean = true;
+  failMessage: string ='Usuario o contraseña incorrectos.';       
   private formSubmitAttempt: boolean; // {2}
 
   constructor(
     private fb: FormBuilder,         // {3}
-    private authService: AuthService // {4}
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -31,8 +40,34 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+
     if (this.form.valid) {
-      this.authService.login(this.form.value); 
+      this.hidden = false;
+      this.hideenButton = true;
+      this.authService.login(this.form.value).subscribe(res => {
+       if(res['status'] == 'error')
+       {
+         console.log(res['message']);
+         let message = res['message'];
+        this.toastr.error(message,'Datos incorrectos');
+          this.hidden = true;
+          this.hideenButton = false;
+       }
+       else
+       {
+        
+        let message = res['message'];
+        console.log('message :', message);
+        this.authService.setUser(res);
+        this.router.navigate(['/']);
+        this.toastr.success('Sesión iniciada con éxito');
+       }
+      
+      }, err => {
+        console.log('error en login:',err);
+       
+      });
+      
     }
     this.formSubmitAttempt = true;            
   }
