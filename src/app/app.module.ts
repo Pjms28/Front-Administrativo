@@ -84,7 +84,7 @@ import { MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/mate
 import { NavigateComponent } from './components/navigate/navigate.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SidenavService } from './services/sidenav.service';
-
+import { UserIdleModule } from 'angular-user-idle';
 
 
 
@@ -136,6 +136,7 @@ import { SidenavService } from './services/sidenav.service';
   ],
   imports: [
     BrowserModule,
+    UserIdleModule.forRoot({idle: 1200, timeout: 300, ping: 120}),
     NgxPaginationModule,
     FlatpickrModule.forRoot(),
     CommonModule,
