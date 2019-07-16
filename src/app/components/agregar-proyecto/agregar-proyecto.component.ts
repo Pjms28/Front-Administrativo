@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../shared/api.service';
 import {Router} from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
-import { ImagenProyecto } from 'imagen-proyecto.model';
 import { Proyecto } from 'src/app/modelos/proyecto.model';
 
 @Component({

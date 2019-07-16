@@ -161,33 +161,6 @@ import { UserIdleModule } from 'angular-user-idle';
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    NgbModule.forRoot(),
-    RouterModule.forRoot([
-      {path: 'Agregar Proyecto', component: AgregarProyectoComponent,canActivate:[AuthGuard]},
-      {path: 'Listar', component: ListarContenidoComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Caracteristica', component: AgregarCaracteristicaComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Inmueble', component: AgregarInmuebleComponent,canActivate:[AuthGuard]},
-      {path: 'Administrar Solicitudes', component: AdministrarSolicitudesComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Servicio', component: AgregarServicioComponent,canActivate:[AuthGuard]},
-      {path: 'Descripcion Solicitud', component: DescripcionSolicitudComponent,canActivate:[AuthGuard]},
-      {path: 'Visitas Agendadas', component: AgendarVisitaComponent,canActivate:[AuthGuard]},
-      {path: 'Administrar Peticiones', component:AdministrarPeticionesComponent,canActivate:[AuthGuard]},
-      {path: 'Agregar Post', component:AgregarPostComponent,canActivate:[AuthGuard]},
-      {path: 'Categorias Foro', component:CategoriasForoComponent,canActivate:[AuthGuard]},
-      {path: 'proyecto-caracteristica/: id', component: ProyectoCaracteristicaComponent, canActivate:[AuthGuard]},
-      {path: 'agregar-categoria-foro', component: CategoriasForoComponent, canActivate:[AuthGuard]},
-      {path: 'editar-categoria/: id', component: EditarCategoriaComponent, canActivate:[AuthGuard]},
-     /*  {path: '',component: MenuComponent, canActivate:[AuthGuard]}, */
-      {path: 'datos-genericos',component: GenericdatalistComponent ,canActivate:[AuthGuard]},
-      {path: 'proyectos',component: ProyectosComponent ,canActivate:[AuthGuard]},
-      {path: 'inmuebles',component: InmueblesComponent ,canActivate:[AuthGuard]},
-      {path: 'caracteristicas',component: CaracteristicasComponent ,canActivate:[AuthGuard]},
-      {path: 'servicios',component: ServiciosComponent ,canActivate:[AuthGuard]},
-      {path: 'temas-foros',component: TemasforosComponent ,canActivate:[AuthGuard]},
-      {path: 'login', component: LoginComponent}
-
-
-    ]),
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBgZsUHQRjS7qHQCfX9LaGJNN6G4iVicKY',

@@ -50,7 +50,7 @@ export class AgregarPostComponent implements OnInit {
         formData.append(this.fileTo.name, this.fileTo);
         formData.append('fileName',this.fileTo.name);
         this.apiBlog.sendFormData(formData);
-        window.location.href = 'http://localhost:4200/blog';
+        //window.location.href = '';
       })
     }
   }
