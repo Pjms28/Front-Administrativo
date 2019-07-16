@@ -52,6 +52,8 @@ export class DescripcionSolicitudComponent implements OnInit {
 
     return this.solApi.getServSol(Number(this.ID)).subscribe(res =>{
       this.data = res;
+      console.log(res);
+      
     });
   }
 
