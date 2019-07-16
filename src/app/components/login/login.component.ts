@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { SidenavService } from 'src/app/services/sidenav.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;         
+  form: FormGroup;
   hidden: Boolean = true;  
   hideenButton: Boolean= false;  
   logginFail: Boolean = true;
@@ -26,6 +26,11 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    this.form = new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl(''),
+    });     
     if(this.authService.getCurrentUser()){
       this.router.navigate(['/']);
     }

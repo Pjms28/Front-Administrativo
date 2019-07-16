@@ -37,6 +37,7 @@ import { CaracteristicasComponent } from './components/caracteristicas/caracteri
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -204,6 +205,11 @@ const routes: Routes = [
   redirectTo: '/',
   pathMatch: 'full'
 },
+{
+  path:'dashboard',
+  component :DashboardComponent,
+  canActivate: [AuthGuard]
+}
 ];
 
 @NgModule({

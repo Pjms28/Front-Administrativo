@@ -85,6 +85,7 @@ import { NavigateComponent } from './components/navigate/navigate.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SidenavService } from './services/sidenav.service';
 import { UserIdleModule } from 'angular-user-idle';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -131,7 +132,8 @@ import { UserIdleModule } from 'angular-user-idle';
     ImagenesComponent,
     TasacionesComponent,
     NavigateComponent,
-    NavigationComponent
+    NavigationComponent,
+    DashboardComponent
 
   ],
   imports: [

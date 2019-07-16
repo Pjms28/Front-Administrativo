@@ -6,27 +6,31 @@
       <br>
       <a mat-button  class="button-menu not-active" style="text-align:left; color:white" >
           <mat-icon>home</mat-icon>
-          Página principal
+          Inicio
       </a>
       <br>
+      <button class="button-menu" mat-button   style="text-align:left" >
+        <mat-icon>web</mat-icon>
+        Visualizar sitio web
+      </button>
       <button class="button-menu" mat-button [matMenuTriggerFor]="menuServicios"  style="text-align:left" >
         <mat-icon>present_to_all</mat-icon>
         Servicios
       </button>
       <mat-menu #menuServicios="matMenu">
-        <a mat-menu-item routerLink='Agregar Servicio'>
+        <a mat-menu-item class="not-active" routerLink='Agregar Servicio'>
           Agregar Servicio
         </a>
-        <a mat-menu-item routerLink='Administrar Solicitudes'>
+        <a mat-menu-item class="not-active" routerLink='Administrar Solicitudes'>
           Administrar Solicitudes
         </a>
-        <a mat-menu-item routerLink='Administrar Peticiones'>
+        <a mat-menu-item class="not-active" routerLink='Administrar Peticiones'>
           Admministrar Peticiones
         </a>
-        <a mat-menu-item routerLink='Visitas Agendadas'>
+        <a mat-menu-item class="not-active" routerLink='Visitas Agendadas'>
           Visitas Agendadas
         </a>
-        <a mat-menu-item routerLink='tasacion'>
+        <a mat-menu-item class="not-active" routerLink='tasacion'>
           Formularios Tasación
         </a>
       </mat-menu>
@@ -39,30 +43,32 @@
         <a mat-menu-item class="not-active" style="color:black;" routerLink="proyectos">
           Proyectos
         </a>
-        <a mat-menu-item  routerLink="inmuebles">
+        <a mat-menu-item class="not-active" style="color:black;"  routerLink="inmuebles">
           Inmuebles
         </a>
-        <a mat-menu-item routerLink="caracteristicas">
+        <a mat-menu-item class="not-active" style="color:black;" routerLink="caracteristicas">
           Caracteristicas
         </a>
-        <a mat-menu-item  routerLink="servicios">
+        <a mat-menu-item class="not-active" style="color:black;"  routerLink="servicios">
          Servicios
         </a>
-        <a mat-menu-item routerLink="temas-foros">
+        <a mat-menu-item class="not-active" style="color:black;" routerLink="temas-foros">
           Temas Foros
         </a>
-        <a mat-menu-item routerLink="datos-genericos">
+        <a mat-menu-item class="not-active button-menu" style="color:black;"  routerLink="datos-genericos">
           Datos genéricos
         </a>
       </mat-menu>
       <br>
-      <button mat-button class="button-menu" style="text-align:left" routerLink="Agregar Post">
+      <a mat-button class="button-menu" style="text-align:left" routerLink="Agregar Post">
         <mat-icon>book</mat-icon>
-        Blog</button>
+        Blog
+      </a>
       <br>
-      <button mat-button class="button-menu" style="text-align:left">
+      <a mat-button class="button-menu" style="text-align:left" routerLink="Categorias Foro">
         <mat-icon>comment</mat-icon>
-        Foro</button>
+        Foro
+      </a>
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar *ngIf="isLoggedIn$ | async as isLoggedIn">
