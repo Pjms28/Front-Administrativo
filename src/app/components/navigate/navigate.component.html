@@ -1,4 +1,4 @@
-<button mat-button [matMenuTriggerFor]="menu">Mi cuenta</button>
+<button mat-button [matMenuTriggerFor]="menu">{{user | uppercase}}</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item>
     <mat-icon>account_box</mat-icon>

@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { MatSidenav } from '@angular/material';
 import { SidenavService } from 'src/app/services/sidenav.service';
 import { Router } from '@angular/router';
+import config from '../../../../src/config.js'
+
 
 @Component({
   selector: 'app-navigation',
@@ -13,10 +15,15 @@ import { Router } from '@angular/router';
 export class NavigationComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   isLoggedIn: boolean;
+  urlWebSite: string;
+  urlChatApp: string;
   @ViewChild('sidenav') public sidenav: MatSidenav;
   constructor(private authApi:AuthService,private sideNavService: SidenavService, private router: Router) { }
 
   ngOnInit() {
+    this.urlWebSite = config.client;
+    this.urlChatApp = config.chat;
+    
     this.isLoggedIn$ = this.authApi.isLoggedIn;
     if(this.isLoggedIn){
       this.sideNavService.setSidenav(this.sidenav);

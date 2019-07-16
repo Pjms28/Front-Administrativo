@@ -1,8 +1,8 @@
 export class UsuarioModel{
 
     usuarioID:number;
-    nombreUsuario: string;
-    apellidosUsuario: string;
+    nombre: string;
+    apellidos: string;
     correoUsuario: string;
     fechaNacimiento: Date;
     contraseña: string;

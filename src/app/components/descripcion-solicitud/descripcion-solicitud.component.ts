@@ -69,7 +69,7 @@ export class DescripcionSolicitudComponent implements OnInit {
         this.data.estadoID = 1;
         this.solApi.updateServSol(this.data).subscribe(res => {
           this.email.correo = this.data.solicitud.usuario.correoUsuario;
-          this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+          this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
           this.email.subject = "Solicitud del servicio:" + " " + this.data.servicio.nombreServicio;
           this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre + "<br>" + "El servicio:" + " " + this.data.servicio.nombreServicio + " " + "Solicitado en la fecha:"+ " " + formatDate(this.data.solicitud.fechaServSol,'yyyy/MM/dd', 'en') 
           + " " + "<strong>ha sido aprobada</strong>, y la visita se asigno a la fecha:" + " " + "<strong>"+ formatDate(this.addForm.get('hora_Inicio').value, 'yyyy/MM/dd HH:mm:ss aa', 'en')+ "</strong>" + "<br>" + " Sin nada mas que informar, que pase un feliz resto del dia." + "<br>" 

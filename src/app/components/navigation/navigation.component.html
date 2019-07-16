@@ -4,15 +4,11 @@
       </div>
       <br>
       <br>
-      <a mat-button  class="button-menu not-active" style="text-align:left; color:white" >
+      <a class="button-menu not-active" mat-button   style="text-align:left; color:white" >
           <mat-icon>home</mat-icon>
           Inicio
       </a>
       <br>
-      <button class="button-menu" mat-button   style="text-align:left" >
-        <mat-icon>web</mat-icon>
-        Visualizar sitio web
-      </button>
       <button class="button-menu" mat-button [matMenuTriggerFor]="menuServicios"  style="text-align:left" >
         <mat-icon>present_to_all</mat-icon>
         Servicios
@@ -60,15 +56,24 @@
         </a>
       </mat-menu>
       <br>
-      <a mat-button class="button-menu" style="text-align:left" routerLink="Agregar Post">
+      <a class="button-menu not-active" mat-button   style="text-align:left; color:white" href="{{urlWebSite}}" target="_blank">
+        <mat-icon>web</mat-icon>
+        Visualizar sitio web
+      </a>
+      <a class="button-menu not-active" mat-button   style="text-align:left; color:white" href="{{urlChatApp}}" target="_blank">
+        <mat-icon>chat</mat-icon>
+        Chat en Línea
+      </a>
+      <a  class="button-menu not-active" mat-button style="text-align:left; color:white" routerLink="Agregar Post">
         <mat-icon>book</mat-icon>
         Blog
       </a>
       <br>
-      <a mat-button class="button-menu" style="text-align:left" routerLink="Categorias Foro">
+      <a class="button-menu not-active" mat-button style="text-align:left; color:white" routerLink="Categorias Foro">
         <mat-icon>comment</mat-icon>
         Foro
       </a>
+
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar *ngIf="isLoggedIn$ | async as isLoggedIn">

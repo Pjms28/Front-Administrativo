@@ -1,17 +1,45 @@
 mat-card {
-    max-width: 400px;
+    max-width: 900px;
     margin: 2em auto;
     text-align: center;
     margin-top: 80px;
-  }
-  .signin-content {
-    padding: 60px 1rem;
-  }
-  .full-width-input {
-    width: 100%;
-  }
+    width: 500px;
+    height: 400px;
+}
+.signin-content {
+  padding: 80px 1rem;
+}
+.full-width-input {
+  width: 100%;
+}
 
+.app-title{
+  font-size: 20px;
+}
 .hide {
   display: none;
 }
+.shadow{
+  box-shadow: 0 4px 28px 0px rgba(0, 0, 0, 0.19);
+}
+.superior-card
+{
+  background-color: #2f8ce2; padding-bottom:250px;
+}
+.left{
+  position: absolute; top:-5%; left:30%
+}
 
+/* @media(max-width:1125px){
+  .left{
+    left: 25%;
+  }
+
+}
+
+@media(max-width:1000px){
+  .left{
+    left: 20%;
+  }
+  
+} */
