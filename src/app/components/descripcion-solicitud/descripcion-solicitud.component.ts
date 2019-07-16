@@ -51,7 +51,6 @@ export class DescripcionSolicitudComponent implements OnInit {
    
     if(this.addForm.get('hora_Inicio').value >= this.addForm.get('hora_Fin').value){
       this.toastr.error('Fecha Incorreta','Fecha.Incorrecta');
-      return
     }
 
     else{
