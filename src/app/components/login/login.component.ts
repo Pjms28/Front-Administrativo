@@ -29,12 +29,11 @@ export class LoginComponent implements OnInit {
     if(this.authService.getCurrentUser()){
       this.router.navigate(['/']);
     }
-    else{
-      this.form = this.fb.group({    
-        email: ['', Validators.required],
-        password: ['', Validators.required]
-      });
-    }
+    this.form = this.fb.group({    
+    email: ['', Validators.required],
+    password: ['', Validators.required]
+    });
+    
    
   }
 
