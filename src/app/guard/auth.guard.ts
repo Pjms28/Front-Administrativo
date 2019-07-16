@@ -25,7 +25,6 @@ export class AuthGuard implements CanActivate {
         if (this.user != null){
           let roles = this.user['roles'];
           isAdmin = roles.includes('Admin')
-          this.router.navigate(['']);
         }
         if (!isLoggedIn && !isAdmin) {
           this.router.navigateByUrl(
