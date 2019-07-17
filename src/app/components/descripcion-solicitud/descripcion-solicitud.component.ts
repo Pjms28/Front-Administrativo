@@ -51,7 +51,6 @@ export class DescripcionSolicitudComponent implements OnInit {
    
     if(this.addForm.get('hora_Inicio').value >= this.addForm.get('hora_Fin').value){
       this.toastr.error('Fecha Incorreta','Fecha.Incorrecta');
-      return
     }
 
     else{
@@ -63,7 +62,7 @@ export class DescripcionSolicitudComponent implements OnInit {
         this.addForm.controls['descripcion'].setValue(this.data.solicitud.comentario);
         this.addForm.controls['estado'].setValue("Aprobada");
        this.ageService.addVisit(this.addForm.value).subscribe(res =>{
-        this.router.navigate(['agendar-visita']);
+        this.router.navigate(['Visitas Agendadas']);
       });
         this.data.estadoID = 1;
         this.solApi.updateServSol(this.data).subscribe(res => {
@@ -104,7 +103,7 @@ export class DescripcionSolicitudComponent implements OnInit {
   rechazar(){
     this.data.estadoID = 6;
       this.solApi.updateServSol(this.data).subscribe(res => {
-        this.router.navigate(['administrar-solicitudes']);
+        this.router.navigate(['Administrar Solicitudes']);
       });
   }
   

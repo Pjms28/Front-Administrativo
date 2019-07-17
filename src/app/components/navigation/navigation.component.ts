@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatSidenav } from '@angular/material';
 import { SidenavService } from 'src/app/services/sidenav.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -13,12 +14,17 @@ export class NavigationComponent implements OnInit {
   isLoggedIn$: Observable<boolean>;
   isLoggedIn: boolean;
   @ViewChild('sidenav') public sidenav: MatSidenav;
-  constructor(private authApi:AuthService,private sideNavService: SidenavService) { }
+  constructor(private authApi:AuthService,private sideNavService: SidenavService, private router: Router) { }
 
   ngOnInit() {
     this.isLoggedIn$ = this.authApi.isLoggedIn;
-    this.sideNavService.setSidenav(this.sidenav);
-  
+    if(this.isLoggedIn){
+      this.sideNavService.setSidenav(this.sidenav);
+    }
+    else{
+      this.router.navigate(['login']);
+    }
+    
   }
 
 

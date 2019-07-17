@@ -19,7 +19,7 @@
                     <br>
                     <h4 class="fecha2">Fecha y hora de reunión propuesta por el cliente:</h4> 
                     <label>{{data?.solicitud?.fechaSol | date:"dd/MM/yyyy HH:mm aa"}}</label>
-                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
+                    <form [formGroup]="addForm" class="form-solicitud" autocomplete="off">
     
                         <div class="form-row">
                           <div class="form-group">
@@ -48,7 +48,7 @@
                                 required/>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success btn-sm aceptar" [disabled]="addForm.invalid">Aceptar</button>
+                        <button type="submit" class="btn btn-success btn-sm aceptar" [disabled]="addForm.invalid" (click) = "onSubmit()">Aceptar</button>
                         <button class="btn btn-danger btn-sm declinar" (click) = "rechazar()">Declinar</button>
                     </form>
                   </div>

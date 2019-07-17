@@ -36,6 +36,7 @@ import { InmueblesComponent } from './components/inmuebles/inmuebles.component';
 import { CaracteristicasComponent } from './components/caracteristicas/caracteristicas.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { TemasforosComponent } from './components/temasforos/temasforos.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 
 const routes: Routes = [
@@ -201,7 +202,7 @@ const routes: Routes = [
 {
   path:'',
   redirectTo: '/',
-  pathMatch: 'full',
+  pathMatch: 'full'
 },
 ];
 

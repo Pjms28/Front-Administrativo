@@ -26,10 +26,15 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    if(this.authService.getCurrentUser()){
+      this.router.navigate(['/']);
+    }
     this.form = this.fb.group({    
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+    email: ['', Validators.required],
+    password: ['', Validators.required]
     });
+    
+   
   }
 
   isFieldInvalid(field: string) { 
@@ -47,7 +52,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.form.value).subscribe(res => {
        if(res['status'] == 'error')
        {
-         console.log(res['message']);
+         //console.log(res['message']);
          let message = res['message'];
         this.toastr.error(message,'Datos incorrectos');
           this.hidden = true;
@@ -57,14 +62,14 @@ export class LoginComponent implements OnInit {
        {
         
         let message = res['message'];
-        console.log('message :', message);
+        //console.log('message :', message);
         this.authService.setUser(res);
         this.router.navigate(['/']);
         this.toastr.success('Sesión iniciada con éxito');
        }
       
       }, err => {
-        console.log('error en login:',err);
+        //console.log('error en login:',err);
        
       });
       
