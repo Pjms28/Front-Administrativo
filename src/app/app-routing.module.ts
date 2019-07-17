@@ -91,7 +91,7 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path: 'detalle-peticion/: id',
+  path: 'detalle-peticion/:id',
   component: DetallePeticionComponent,
   canActivate:[AuthGuard]
 },

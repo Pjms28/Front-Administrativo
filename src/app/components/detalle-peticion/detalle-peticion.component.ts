@@ -39,7 +39,8 @@ export class DetallePeticionComponent implements OnInit {
       estado:['']
     });
     
-    this.ID = this.actvRoute.snapshot.paramMap.get(' id');
+    this.ID = this.actvRoute.snapshot.paramMap.get('id');
+  console.log(this.ID);
 
     this.pctApi.getPeticion(this.ID).subscribe(res =>{
       this.data = res;
