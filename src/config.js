@@ -1,11 +1,11 @@
 function env(env) {
     switch (env) {
         case 'api-netcore':
-            return 'https://api-constructoramp.azurewebsites.net/api';
+            return 'http://api-brick.azurewebsites.net/api';
         case 'front-admi':
-            return 'http://constructoramejiapolanco.azurewebsites.net/login';
+            return 'https://admin-brick.azurewebsites.net/';
         case 'client-app':
-            return 'https://constructoramejiapolanco.com';
+            return 'https://app-brickcliente.azurewebsites.net/';
         case 'chat-app':
             return 'https://www.jivochat.es/router/?url=https://app.jivosite.com/chat/inbox%23email=brick.developers@gmail.com%26lang=es&utm_source=automatic_emails&utm_medium=mail&utm_content=es&utm_campaign=operators_'
     }
