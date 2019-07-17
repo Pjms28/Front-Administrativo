@@ -1,46 +1,50 @@
-<body>
-<form (ngSubmit)="onSubmit()" class="form-inmueble" autocomplete="off">
-  <div class="form-row">
-      <div class="form-group">
-          <h2>Seleccione las Características para el proyecto</h2>
-          <br>
-          <i class="fas fa-ruler"></i>  <label class="tipo">Distribución</label> 
-          <div *ngFor = "let c of checkboxD">
-            <input [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />
-            <label class="caracteristica">{{c.carNombre}}</label>
-          </div>
-        <br>
-        <i class="fas fa-university"></i> <label class="tipo">Amenidades</label>
-        <div *ngFor = "let a of checkboxA">
-          <input [(ngModel)]="a.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{a.caracteristicaID}} id={{a.caracteristicaID}} class="form-control" />
-          <label class="caracteristica">{{a.carNombre}}</label>
+
+<mat-card style="margin: 20px; padding: 50px">
+    <form (ngSubmit)="onSubmit()" class="form-inmueble" autocomplete="off">
+        <div class="form-row">
+            <div class="form-group">
+                <h2>Seleccione las Características para el proyecto</h2>
+                <br>
+                <i class="fas fa-ruler"></i>  <label class="tipo">Distribución</label> 
+                <div *ngFor = "let c of checkboxD">
+                  <input [(ngModel)]="c.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{c.caracteristicaID}} id={{c.caracteristicaID}} class="form-control" />
+                  <label class="caracteristica">{{c.carNombre}}</label>
+                </div>
+              <br>
+              <i class="fas fa-university"></i> <label class="tipo">Amenidades</label>
+              <div *ngFor = "let a of checkboxA">
+                <input [(ngModel)]="a.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{a.caracteristicaID}} id={{a.caracteristicaID}} class="form-control" />
+                <label class="caracteristica">{{a.carNombre}}</label>
+              </div>
+              <br>
+              <i class="fas fa-lock"></i> <label class="tipo">Seguridad</label> 
+              <div *ngFor = "let s of checkboxS">
+                <input [(ngModel)]="s.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{s.caracteristicaID}} id={{s.caracteristicaID}} class="form-control" />
+                <label class="caracteristica">{{s.carNombre}}</label>
+              </div>
+              <br>
+              <i class="fas fa-building"></i> <label class="tipo">Descripción General</label>
+              <div *ngFor = "let dg of checkboxDG">
+                <input [(ngModel)]="dg.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{dg.caracteristicaID}} id={{dg.caracteristicaID}} class="form-control" />
+                <label class="caracteristica"> {{dg.carNombre}} </label>
+              </div>
+              <br>
+              <i class="fas fa-home"></i> <label class="tipo">Descripción de Apartamento</label>
+              <div *ngFor = "let da of checkboxDA">
+                <input [(ngModel)]="da.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{da.caracteristicaID}} id={{da.caracteristicaID}} class="form-control" />
+                <label class="caracteristica">{{da.carNombre}}</label>
+              </div>
+              <br>
+              <i class="fas fa-plus"></i> <label class="tipo">Otros</label>
+              <div *ngFor = "let o of checkboxO">
+                  <input [(ngModel)]="o.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{o.caracteristicaID}} id={{o.caracteristicaID}} class="form-control" />
+                  <label class="caracteristica">{{o.carNombre}}</label>
+              </div>
+            </div>
+            <button type="submit" (click)="getSelected()" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
         </div>
-        <br>
-        <i class="fas fa-lock"></i> <label class="tipo">Seguridad</label> 
-        <div *ngFor = "let s of checkboxS">
-          <input [(ngModel)]="s.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{s.caracteristicaID}} id={{s.caracteristicaID}} class="form-control" />
-          <label class="caracteristica">{{s.carNombre}}</label>
-        </div>
-        <br>
-        <i class="fas fa-building"></i> <label class="tipo">Descripción General</label>
-        <div *ngFor = "let dg of checkboxDG">
-          <input [(ngModel)]="dg.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{dg.caracteristicaID}} id={{dg.caracteristicaID}} class="form-control" />
-          <label class="caracteristica"> {{dg.carNombre}} </label>
-        </div>
-        <br>
-        <i class="fas fa-home"></i> <label class="tipo">Descripción de Apartamento</label>
-        <div *ngFor = "let da of checkboxDA">
-          <input [(ngModel)]="da.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{da.caracteristicaID}} id={{da.caracteristicaID}} class="form-control" />
-          <label class="caracteristica">{{da.carNombre}}</label>
-        </div>
-        <br>
-        <i class="fas fa-plus"></i> <label class="tipo">Otros</label>
-        <div *ngFor = "let o of checkboxO">
-            <input [(ngModel)]="o.selected" [ngModelOptions]="{standalone: true}" type="checkbox" value={{o.caracteristicaID}} id={{o.caracteristicaID}} class="form-control" />
-            <label class="caracteristica">{{o.carNombre}}</label>
-        </div>
-      </div>
-      <button type="submit" (click)="getSelected()" class="btn btn-lg btn-primary btn-block text-uppercase" >GUARDAR</button>
-  </div>
-</form>
-</body>
+      </form>
+
+</mat-card>
+
+

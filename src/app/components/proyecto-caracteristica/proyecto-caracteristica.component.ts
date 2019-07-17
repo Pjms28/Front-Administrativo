@@ -166,7 +166,7 @@ export class ProyectoCaracteristicaComponent implements OnInit {
         this.caracteristicaproyecto.forEach(element => {
         this.carApi.addCaracteristicaProyecto(element).subscribe(res => {
         })
-        this.router.navigate(['listar-contenido']);  
+        this.router.navigate(['proyectos']);  
         });
           this.toastr.success('Caracteristicas registradas exitosamente');
         }
