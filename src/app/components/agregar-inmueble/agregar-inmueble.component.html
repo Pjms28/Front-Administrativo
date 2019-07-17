@@ -31,7 +31,7 @@
                       <div class="form-row">
                           <div class="form-group">
                               <label>Precio</label>
-                              <input formControlName="precio" type="text" class="form-control" minlength="5" maxlength="9"  required/>
+                              <input mask="comma_separator" formControlName="precio" type="text" class="form-control" minlength="1" maxlength="15"  required/>
                               <div *ngIf="addForm.controls['precio'].errors && addForm.controls['precio'].touched" class="validation-error">
                                   <div [hidden] = "!addForm.controls['precio'].errors.required">
                                       El campo es requerido
