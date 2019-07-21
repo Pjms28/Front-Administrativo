@@ -24,7 +24,6 @@
                       <label>{{data?.fechaSolicitada | date:"dd/MM/yyyy HH:mm aa"}}</label>
 
                       <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
-      
                           <div class="form-row">
                             <div class="form-group">
                               <label>Fecha y hora de inicio</label>
@@ -36,7 +35,7 @@
                               placeholder="Seleccione una fecha y hora de inicio"
                               minDate = "today" 
                               required/>
-                          </div>
+                            </div>
                           </div>
 
                           <div class="form-row">
