@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
+    console.log(window.innerWidth);
     this.form = new FormGroup({
       email: new FormControl(''),
       password: new FormControl(''),

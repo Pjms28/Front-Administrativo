@@ -4,6 +4,7 @@ import { GenericDataService } from 'src/app/services/generic-data.service';
 import { MatTableDataSource, MatSort, MatPaginator } from "@angular/material";
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { DatoGenericoComponent } from '../dato-generico/dato-generico.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-genericdata',
@@ -21,7 +22,7 @@ export class GenericdatalistComponent implements OnInit {
   @ViewChild(MatPaginator) paginator:MatPaginator;
   searchKey:string;
 
-  constructor(private genericDataService:GenericDataService,private chRef: ChangeDetectorRef, private matDialog:MatDialog) { }
+  constructor(private authSerice:AuthService, private genericDataService:GenericDataService,private chRef: ChangeDetectorRef, private matDialog:MatDialog) { }
 
   ngOnInit() {
     this.loadData();
@@ -81,8 +82,10 @@ export class GenericdatalistComponent implements OnInit {
   }
 
   canDelete(){
-    let user =  window.localStorage.getItem("currentUser");
-    user = JSON.parse(user);
+    let user =  this.authSerice.getCurrentUser();
+  
+    console.log(user);
+    
     return user['roleId'] == '1' ? true: false;
   }
 }

@@ -6,7 +6,7 @@
                 <div class="card-body">
                   <h5 class="card-title text-center">Descripción de la petición</h5>
                   <h4 class="solicitante">Solicitante: </h4> 
-                  <label>{{data?.solicitud?.usuario?.nombreUsuario}} {{data?.solicitud?.usuario?.apellidosUsuario}}</label>
+                  <label>{{data?.solicitud?.usuario?.nombre}} {{data?.solicitud?.usuario?.apellidos}}</label>
                   <br>
                   <h4 class="peticion">Tipo de petición: </h4> 
                   <label>{{data?.tipo}}</label>
@@ -24,7 +24,6 @@
                       <label>{{data?.fechaSolicitada | date:"dd/MM/yyyy HH:mm aa"}}</label>
 
                       <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="form-solicitud" autocomplete="off">
-      
                           <div class="form-row">
                             <div class="form-group">
                               <label>Fecha y hora de inicio</label>
@@ -36,7 +35,7 @@
                               placeholder="Seleccione una fecha y hora de inicio"
                               minDate = "today" 
                               required/>
-                          </div>
+                            </div>
                           </div>
 
                           <div class="form-row">

@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { SidenavService } from 'src/app/services/sidenav.service';
+import { UsuarioModel } from 'src/app/modelos/usuario.model';
 
 @Component({
   selector: 'app-navigate',
@@ -11,10 +12,16 @@ import { SidenavService } from 'src/app/services/sidenav.service';
 })
 export class NavigateComponent implements OnInit {
   APP_NAME:string = "BRICK";
-  
+  user: string;
   constructor(private sideNavService: SidenavService,private cookieService: CookieService, private router: Router, private authService: AuthService ) { }
 
   ngOnInit() {
+
+    let currentUser = this.authService.getCurrentUser();
+    console.log(currentUser.nombreUsuario);
+    
+    this.user = currentUser.nombreUsuario +" "+currentUser.apellidosUsuario;
+   
   }
 
   onCerrarSesion()

@@ -1,6 +1,6 @@
 {
     "/api":{
-        "target": "http://localhost:61756/api/",
+        "target": "http://api-brick.azurewebsites.net/api/",
         "secure": false,
         "changeOrigin": true
     }

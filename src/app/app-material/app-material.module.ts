@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatMenuModule, MatSidenavModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatMenuModule, MatSidenavModule, MatProgressSpinnerModule,MatTabsModule } from '@angular/material';
 
 @NgModule({
   exports: [
@@ -17,7 +17,8 @@ import { MatMenuModule, MatSidenavModule, MatProgressSpinnerModule } from '@angu
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTabsModule
     
   ]
 })

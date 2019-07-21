@@ -39,7 +39,8 @@ export class DetallePeticionComponent implements OnInit {
       estado:['']
     });
     
-    this.ID = this.actvRoute.snapshot.paramMap.get(' id');
+    this.ID = this.actvRoute.snapshot.paramMap.get('id');
+  console.log(this.ID);
 
     this.pctApi.getPeticion(this.ID).subscribe(res =>{
       this.data = res;
@@ -70,7 +71,7 @@ export class DetallePeticionComponent implements OnInit {
           })
         });
         this.email.correo = this.data.solicitud.usuario.correoUsuario;
-        this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+        this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
         this.email.subject = "Peticio de visita por motivo de" + " " + this.data.motivo;
         this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
         "<br>" + "Le deseamos informar que su peticion para una nueva visita al servicio ya solicitado previamente ha sido" + " " + "<strong>aprobada</strong>" + "," + 
@@ -90,7 +91,7 @@ export class DetallePeticionComponent implements OnInit {
         this.router.navigate(['administrar-peticiones']);
       })
       this.email.correo = this.data.solicitud.usuario.correoUsuario;
-      this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+      this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
       this.email.subject = "Peticio por motivo de" + " " + this.data.motivo;
       this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
       "<br>" + "Le informamos por este medio que la peticion solicitada el dia" + "" + formatDate(this.data.createdAt, 'yyyy/MM/dd', 'en')+ " " + "ha sido <strong> denegada </strong>."+
@@ -116,7 +117,7 @@ export class DetallePeticionComponent implements OnInit {
         this.router.navigate(['administrar-peticiones']);
       })
       this.email.correo = this.data.solicitud.usuario.correoUsuario;
-      this.email.nombre = this.data.solicitud.usuario.nombreUsuario + "" + this.data.solicitud.usuario.apellidosUsuario;
+      this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
       this.email.subject = "Peticio por motivo de" + " " + this.data.motivo;
       this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
       "<br>" + "Le informamos por este medio que la peticion solicitada el dia" + "" + formatDate(this.data.createdAt, 'yyyy/MM/dd', 'en') + " " + + "ha sido <strong> aceptada </strong>."
