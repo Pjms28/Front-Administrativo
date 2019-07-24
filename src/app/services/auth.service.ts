@@ -14,7 +14,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiUrl = config.local+"/Auth/Login";
+const apiUrl = config.api+"/Auth/Login";
 
 @Injectable({
   providedIn: 'root'

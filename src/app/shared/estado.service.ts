@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import config from '../../config.js';
 
 
-const apiUrl = config.local+"/Estados";
+const apiUrl = config.api+"/Estados";
 
 @Injectable({
   providedIn: 'root'
