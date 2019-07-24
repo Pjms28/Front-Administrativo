@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from 'src/app/shared/blog.service';
 import { ToastrService } from 'ngx-toastr';
 import { BlogModel } from 'src/app/modelos/Blog.model';
@@ -19,7 +19,8 @@ export class EditarPostComponent implements OnInit {
  imgNombre: string;
  post: BlogModel = new BlogModel();
  htmlContent:any;
-  constructor(private actvRoute: ActivatedRoute, private blogApi: BlogService, private toastr: ToastrService, private formBuilder: FormBuilder, private autApi: AuthService) { }
+  constructor(private actvRoute: ActivatedRoute, private blogApi: BlogService, private toastr: ToastrService, private formBuilder: FormBuilder, 
+    private autApi: AuthService, private router: Router) { }
 
   ngOnInit() {
 
@@ -69,7 +70,7 @@ export class EditarPostComponent implements OnInit {
         this.post.imgURL = this.imgNombre;
         this.blogApi.updatePost(this.post).subscribe(res =>{
           this.toastr.info('El post ha sido actualizado','Post.Info');
-          window.location.href = "http://localhost:4200/blog";
+          this.router.navigate([""]);
         })
       }
       else{
@@ -80,7 +81,7 @@ export class EditarPostComponent implements OnInit {
           formData.append(this.fileTo.name, this.fileTo);
           formData.append('fileName',this.fileTo.name);
           this.blogApi.sendFormData(formData);
-          window.location.href = "http://localhost:4200/blog";
+          this.router.navigate([""]);
         }); 
       }
     }

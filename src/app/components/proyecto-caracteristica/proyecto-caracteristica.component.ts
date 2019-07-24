@@ -135,24 +135,6 @@ export class ProyectoCaracteristicaComponent implements OnInit {
           this.checkboxO.push(obj);
         });
       }
-      /*if(res.length > 0){
-        this.exist = true;
-        this.caraceristicas = res;
-        this.checkInitial();
-      }
-      else{
-        this.carApi.getCaracteristicasP().subscribe(res => {
-          res.forEach(element => {
-            var obj: Object ={
-              caracteristicaID: element.caracteristicaID,
-              carNombre: element.carNombre,
-              selected: false
-            }
-    
-            this.checkbox.push(obj);
-          });
-        })
-    }*/
     })
   }
 

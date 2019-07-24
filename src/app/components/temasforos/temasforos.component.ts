@@ -25,11 +25,9 @@ export class TemasforosComponent implements OnInit {
   }
 
   onCreate(){
-    this.router.navigate(['agregar-categoria-foro'])
+    this.router.navigate(['Categorias Foro'])
   }
   onEdit(row){
-  /*   window.localStorage.removeItem("editUserID");
-    window.localStorage.setItem("editUserID", String(row.temaID)); */
     this.router.navigate(['editar-categoria/'+row.temaID]);
   }
 

@@ -18,7 +18,6 @@ export class NavigateComponent implements OnInit {
   ngOnInit() {
 
     let currentUser = this.authService.getCurrentUser();
-    console.log(currentUser.nombreUsuario);
     
     this.user = currentUser.nombreUsuario +" "+currentUser.apellidosUsuario;
    

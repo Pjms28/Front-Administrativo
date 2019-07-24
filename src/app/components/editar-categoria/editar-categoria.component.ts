@@ -22,7 +22,6 @@ export class EditarCategoriaComponent implements OnInit {
       descripcionTema:['', [Validators.required]]
     });
     this.ID = this.actvRoute.snapshot.paramMap.get(' id');
-    console.log(this.ID)
     this.ApiCtg.getTema(this.ID).subscribe(res => {
       this.editForm.patchValue(res);
     })

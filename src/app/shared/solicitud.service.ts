@@ -9,7 +9,7 @@ import config from '../../config.js';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = config.api+"/Solicitud";
+const apiUrl = config.local+"/Solicitud";
 
 
 @Injectable({

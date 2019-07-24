@@ -88,7 +88,7 @@ export class AgendarVisitaComponent implements OnInit {
       this.oldEvents(res);
 
     }, err => {
-      console.log(err);
+      this.toastr.error("Ha ocurrido un error: " + err);
      
     });
 

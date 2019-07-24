@@ -41,7 +41,7 @@ export class EditarCaracteristicaComponent implements OnInit {
     },
     err => {
       this.toastr.error("Ha ocurrido un error:" + err)
-      this.router.navigate['caracteristicas']
+      this.router.navigate(['caracteristicas'])
     }
     );
 
@@ -50,7 +50,7 @@ export class EditarCaracteristicaComponent implements OnInit {
       this.data = res;
     }, err => {
     this.toastr.error('Ha ocurrido un error:' + err);
-    this.router.navigate['caracteristicas']
+    this.router.navigate(['caracteristicas']);
     });
   }
 
@@ -70,7 +70,7 @@ export class EditarCaracteristicaComponent implements OnInit {
       },
       err => {
         this.toastr.error("Ha ocurrido un error:" + err);
-        this.router.navigate['caracteristicas']
+        this.router.navigate(['caracteristicas']);
       }
       );
     }

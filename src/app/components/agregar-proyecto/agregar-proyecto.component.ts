@@ -73,7 +73,6 @@ export class AgregarProyectoComponent implements OnInit {
           this.toastr.error('Existe un proyecto con ese nombre','Proyecto.Registro');
         }
         else{
-          console.log('res :', res);
           this.toastr.success('Proyecto ha sido creado exitosamente','Proyecto.Registro');
           this.router.navigate(['proyectos']);
 

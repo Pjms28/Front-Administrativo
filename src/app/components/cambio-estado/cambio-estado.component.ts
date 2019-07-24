@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { SolicitudModel } from 'src/app/modelos/Solicitud.model';
 import { UsuarioModel } from 'src/app/modelos/usuario.model';
 import { ServicioModel } from 'src/app/modelos/servicio.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cambio-estado',
@@ -16,7 +17,7 @@ import { ServicioModel } from 'src/app/modelos/servicio.model';
 })
 export class CambioEstadoComponent implements OnInit {
 
-  constructor(private router: Router,  private solApi: SolicitudService, private esApi: EstadoService, private formBuilder: FormBuilder) { }
+  constructor(private router: Router,  private solApi: SolicitudService, private esApi: EstadoService, private formBuilder: FormBuilder, private toarst: ToastrService) { }
   
   data: ServicioSolicitudModel; 
   estados: EstadoModel[]=[];
@@ -39,8 +40,8 @@ export class CambioEstadoComponent implements OnInit {
     
     let ID = window.localStorage.getItem("solID");
     if(!ID){
-      alert("Accion Invalida")
-      this.router.navigate(['administrar-solicitudes']);
+      this.toarst.error("Accion Invalida")
+      this.router.navigate(['Administrar Solicitudes']);
       return;
     }
     window.localStorage.removeItem("solID");
@@ -62,7 +63,8 @@ export class CambioEstadoComponent implements OnInit {
 
   onSubmit(){
     this.solApi.updateServSol(this.cambio.value).subscribe(res => {
-      this.router.navigate(['administrar-solicitudes']);
+      this.toarst.success("Estatus actualizado con exito");
+      this.router.navigate(['Administrar Solicitudes']);
     }
     );
   }

@@ -22,14 +22,18 @@ export class DatoGenericoComponent implements OnInit {
       if(!this.genericDataService.form.get('id').value)
       {
         this.genericDataService.addGenericData(this.genericDataService.form.value)
-        .subscribe(data =>{console.log('data return :', data);});
+        .subscribe(data =>{
+
+        });
         this.genericDataService.form.reset();
         this.onClose();
       }
       else
       {
         this.genericDataService.updateGenericData(this.genericDataService.form.value)
-        .subscribe(data =>{console.log('data return :', data);});
+        .subscribe(data =>{
+          
+        });
         this.genericDataService.form.reset();
         this.onClose();
       }

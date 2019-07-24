@@ -7,7 +7,7 @@ import config from '../../config.js';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = config.api+"/visita";
+const apiUrl = config.local+"/visita";
 
 @Injectable({
   providedIn: 'root'

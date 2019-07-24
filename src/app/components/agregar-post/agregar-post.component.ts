@@ -50,6 +50,8 @@ export class AgregarPostComponent implements OnInit {
         formData.append(this.fileTo.name, this.fileTo);
         formData.append('fileName',this.fileTo.name);
         this.apiBlog.sendFormData(formData);
+        this.toastr.success("Post ha sido agregado exitosamente");
+        this.router.navigate([""]);
         //window.location.href = '';
       })
     }

@@ -9,7 +9,7 @@ import { ImagenesMultiples } from '../modelos/imagenesMultiple.model';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = config.api;
+const apiUrl = config.local;
 
 @Injectable({
   providedIn: 'root'

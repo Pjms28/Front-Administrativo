@@ -40,7 +40,6 @@ export class DetallePeticionComponent implements OnInit {
     });
     
     this.ID = this.actvRoute.snapshot.paramMap.get('id');
-  console.log(this.ID);
 
     this.pctApi.getPeticion(this.ID).subscribe(res =>{
       this.data = res;
@@ -67,7 +66,7 @@ export class DetallePeticionComponent implements OnInit {
           this.data.estado = "Aprobada";
          this.ageService.addVisit(this.addForm.value).subscribe(res =>{
           this.pctApi.updatePeticion(this.data).subscribe(res =>{
-            this.router.navigate(['agendar-visita']);
+            this.router.navigate(['Visitas Agendadas']);
           })
         });
         this.email.correo = this.data.solicitud.usuario.correoUsuario;
@@ -114,7 +113,7 @@ export class DetallePeticionComponent implements OnInit {
         this.solApi.updateServSol(res).subscribe();
       })
       this.pctApi.updatePeticion(this.data).subscribe(res =>{
-        this.router.navigate(['administrar-peticiones']);
+        this.router.navigate(['Administrar Peticiones']);
       })
       this.email.correo = this.data.solicitud.usuario.correoUsuario;
       this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;

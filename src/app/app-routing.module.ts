@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-/* import { ListarContenidoComponent } from './components/listar-contenido/listar-contenido.component'; */
 import { AgregarProyectoComponent } from './components/agregar-proyecto/agregar-proyecto.component';
 import { EditarProyectoComponent } from './components/editar-proyecto/editar-proyecto.component';
 import { DetalleProyectoComponent } from './components/detalle-proyecto/detalle-proyecto.component';

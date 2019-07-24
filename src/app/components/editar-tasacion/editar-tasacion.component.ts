@@ -295,7 +295,7 @@ export class EditarTasacionComponent implements OnInit {
     },
     err =>{
       this.toastr.error('Ha ocurrido un error:' + err);
-      this.router.navigate['tasaciones'];
+      this.router.navigate(['tasaciones']);
     }
     )
 
@@ -338,7 +338,7 @@ this.tasacionForm.controls['amenidades'].setValue(JSON.stringify(this.selectedOp
 this.tasacionForm.controls['sistemaElectrico'].setValue(JSON.stringify(this.selectedOptionsd));
 this.tasacionForm.controls['artefactosAdicionales'].setValue(JSON.stringify(this.selectedOptionse));
 this.tscApi.updateTasacion(this.tasacionForm.value).subscribe(res =>{
-  
+  this.router.navigate(['tasaciones']);
 })
 
 }

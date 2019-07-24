@@ -44,7 +44,7 @@ export class AgregarInmuebleComponent implements OnInit {
       this.data = res;
     
     }, err => {
-      console.log(err);
+     this.toastr.error("Ha ocurrido un error:" + err);
      
     });
   }

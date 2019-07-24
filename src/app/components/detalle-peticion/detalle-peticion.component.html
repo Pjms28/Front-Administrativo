@@ -19,7 +19,7 @@
                   <br>
                   <div *ngIf = "data?.estado == 'Pendiente'">
                     <div *ngIf = "data?.tipo != 'Cancelar solicitud'">
-                      Fecha y hora de reunión propuesta por el cliente
+                      <h4 class="fecha">Fecha y hora de reunión propuesta por el cliente:</h4>
                       <br>
                       <label>{{data?.fechaSolicitada | date:"dd/MM/yyyy HH:mm aa"}}</label>
 
