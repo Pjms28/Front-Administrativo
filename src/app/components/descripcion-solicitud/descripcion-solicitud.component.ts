@@ -44,6 +44,7 @@ export class DescripcionSolicitudComponent implements OnInit {
 
     return this.solApi.getServSol(Number(this.ID)).subscribe(res =>{
       this.data = res;
+      console.log(this.data);
       
     });
   }
@@ -67,7 +68,7 @@ export class DescripcionSolicitudComponent implements OnInit {
       });
         this.data.estadoID = 1;
         this.solApi.updateServSol(this.data).subscribe(res => {
-          this.email.correo = this.data.solicitud.usuario.correoUsuario;
+          this.email.correo = this.data.solicitud.usuario.email;
           this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
           this.email.subject = "Solicitud del servicio:" + " " + this.data.servicio.nombreServicio;
           this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre + "<br>" + "El servicio:" + " " + this.data.servicio.nombreServicio + " " + "Solicitado en la fecha:"+ " " + formatDate(this.data.solicitud.fechaServSol,'yyyy/MM/dd', 'en') 

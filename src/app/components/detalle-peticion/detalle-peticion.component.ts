@@ -69,7 +69,7 @@ export class DetallePeticionComponent implements OnInit {
             this.router.navigate(['Visitas Agendadas']);
           })
         });
-        this.email.correo = this.data.solicitud.usuario.correoUsuario;
+        this.email.correo = this.data.solicitud.usuario.email;
         this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
         this.email.subject = "Peticio de visita por motivo de" + " " + this.data.motivo;
         this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
@@ -89,7 +89,7 @@ export class DetallePeticionComponent implements OnInit {
       this.pctApi.updatePeticion(this.data).subscribe(res =>{
         this.router.navigate(['administrar-peticiones']);
       })
-      this.email.correo = this.data.solicitud.usuario.correoUsuario;
+      this.email.correo = this.data.solicitud.usuario.email;
       this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
       this.email.subject = "Peticio por motivo de" + " " + this.data.motivo;
       this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +
@@ -115,7 +115,7 @@ export class DetallePeticionComponent implements OnInit {
       this.pctApi.updatePeticion(this.data).subscribe(res =>{
         this.router.navigate(['Administrar Peticiones']);
       })
-      this.email.correo = this.data.solicitud.usuario.correoUsuario;
+      this.email.correo = this.data.solicitud.usuario.email;
       this.email.nombre = this.data.solicitud.usuario.nombre + "" + this.data.solicitud.usuario.apellidos;
       this.email.subject = "Peticio por motivo de" + " " + this.data.motivo;
       this.email.htmlcontent = "Saludos estimad@ cliente" + " " + this.email.nombre +

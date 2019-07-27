@@ -1,12 +1,12 @@
+import { SolicitudModel } from './Solicitud.model';
+
 export class UsuarioModel{
 
-    usuarioID:number;
+    clienteID:number;
     nombre: string;
     apellidos: string;
-    correoUsuario: string;
+    email: string;
     fechaNacimiento: Date;
-    contraseña: string;
-    adminAcces: boolean;
-    roleId: number;
-    
+    telefono: number;
+    solicitud: SolicitudModel;
 }

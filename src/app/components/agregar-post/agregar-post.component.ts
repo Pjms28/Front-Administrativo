@@ -28,7 +28,7 @@ export class AgregarPostComponent implements OnInit {
       tituloEntrada:['', [Validators.required]],
       textoEntrada:['',[Validators.required]],
       imgURL:['',[Validators.required]],
-      usuarioID: this.user.usuarioID,
+      usuarioID: this.user.clienteID,
       timeStampBlog: formatDate(new Date(), 'yyyy/MM/dd HH:mm:ss', 'en')
     });
   }
@@ -52,7 +52,6 @@ export class AgregarPostComponent implements OnInit {
         this.apiBlog.sendFormData(formData);
         this.toastr.success("Post ha sido agregado exitosamente");
         this.router.navigate([""]);
-        //window.location.href = '';
       })
     }
   }
